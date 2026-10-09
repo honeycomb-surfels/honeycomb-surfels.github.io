@@ -1,0 +1,567 @@
+/*
+ * Interactive theory figures (theory.html, static/js/theory/): the Interactive and Animation switch above each
+ * animation panel, and the widget that replaces the panel in interactive mode: a 16:9 stage like the panel, the hint
+ * and Reset line under it, and the sliders and readouts. Uses the tokens of index.css.
+ *
+ * core.js marks the panel's parent as .hx-fig-host with data-fig-mode="interactive" or "animation", and with
+ * data-fig-ready once the widget has mounted; until then the poster stays in place.
+ */
+
+/* ---------- Which of the two shows ---------- */
+
+.hx-fig-host[data-fig-mode="interactive"][data-fig-ready] > .hx-anim-media,
+.hx-fig-host[data-fig-mode="interactive"] > .hx-hint-below,
+.hx-fig-host:not([data-fig-mode="interactive"]) > .hx-widget {
+  display: none;
+}
+
+/* The panel is the containing block of its absolutely placed video in either mode, also before (or without) a
+   video group, so the video never escapes its box. */
+.hx-fig-host > .hx-anim-media {
+  position: relative;
+}
+
+/* While the widget loads, the poster stands in for it and is not a play target. */
+.hx-fig-host[data-fig-mode="interactive"] > .hx-anim-media {
+  cursor: default;
+}
+
+/* ---------- The switch ---------- */
+
+.hx-fig-bar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 0.5rem;
+}
+
+.hx-fig-switch {
+  display: inline-flex;
+  gap: 2px;
+  padding: 2px;
+  border: 1px solid var(--hx-line);
+  border-radius: 999px;
+  background: var(--hx-surface-2);
+}
+
+.hx-fig-switch button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  padding: 0.28rem 0.75rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--hx-muted);
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.2;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease, padding 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.hx-fig-switch .fa-solid {
+  font-size: 0.85em;
+}
+
+.hx-fig-switch button[aria-pressed="true"] {
+  background: var(--hx-surface);
+  box-shadow: 0 1px 2px rgba(31, 43, 48, 0.16);
+  color: var(--hx-ink);
+  cursor: default;
+}
+
+/* The live figure's glyph takes the Hexels orange; in Animation mode the cue dot on "Interactive" is the only
+   accent, so the eye goes to one place. */
+.hx-fig-switch button[data-mode="interactive"][aria-pressed="true"] .fa-solid {
+  color: var(--hx-ours);
+}
+
+@media (hover: hover) {
+  .hx-fig-switch button[aria-pressed="false"]:hover {
+    color: var(--hx-ink);
+  }
+
+  .hx-widget .hx-fig-switch button[aria-pressed="false"]:hover {
+    background: var(--hx-surface-2);
+  }
+}
+
+/* The two animations of the honeycomb row: the switch shares the line of its panel's label. */
+.hx-anim-item.hx-fig-host {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  column-gap: 0.75rem;
+}
+
+.hx-anim-item.hx-fig-host > * {
+  grid-column: 1 / -1;
+}
+
+.hx-anim-item.hx-fig-host > .hx-anim-label {
+  grid-column: 1;
+  grid-row: 1;
+  margin-bottom: 0.5rem;
+}
+
+.hx-anim-item.hx-fig-host > .hx-fig-bar {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+/* Phones: the label takes a line of its own above the switch, so the switch (40 px targets) never squeezes it. */
+@media screen and (max-width: 600px) {
+  .hx-anim-item.hx-fig-host > .hx-anim-label,
+  .hx-anim-item.hx-fig-host > .hx-fig-bar {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+
+  .hx-anim-item.hx-fig-host > .hx-anim-label {
+    margin-bottom: 0.25rem;
+  }
+}
+
+/* ---------- The widget: stage, hint and Reset ---------- */
+
+.hx-widget {
+  container: hx-fig / inline-size;
+}
+
+/* Exactly 16:9 inside the border, like the 1440 x 810 animations, so switching views never moves the page. */
+.hx-fig-stage {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--hx-line);
+  border-radius: var(--hx-radius);
+  background: #fff;
+}
+
+.hx-fig-stage::before {
+  content: "";
+  display: block;
+  padding-top: 56.25%;
+}
+
+.hx-fig-drawing {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Up and down swipes scroll the page unless they start on a handle that moves freely (dragHandles cancels only
+   those touches); sideways moves stay with the figure, for its sliders and dividers. */
+.hx-fig-draggable {
+  touch-action: pan-y pinch-zoom;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* The hint wraps beside Reset rather than pushing it onto a line of its own. */
+.hx-fig-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.4rem 1rem;
+  margin-top: 0.55rem;
+}
+
+.hx-fig-hint {
+  display: inline-flex;
+  flex: 1 1 auto;
+  align-items: baseline;
+  gap: 0.45rem;
+  min-width: 0;
+  margin: 0;
+  color: var(--hx-muted);
+  font-size: 0.8rem;
+  line-height: 1.45;
+}
+
+.hx-fig-hint .fa-solid {
+  font-size: 0.72rem;
+}
+
+.hx-fig-reset {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  gap: 0.4rem;
+  margin-left: auto;
+  padding: 0.22rem 0.75rem;
+  border: 1px solid var(--hx-line);
+  border-radius: 999px;
+  background: var(--hx-surface);
+  color: var(--hx-ink);
+  font-size: 0.78rem;
+  line-height: 1.4;
+  cursor: pointer;
+  transition: border-color 0.15s ease;
+}
+
+.hx-fig-reset .fa-solid {
+  color: var(--hx-muted);
+  font-size: 0.85em;
+}
+
+@media (hover: hover) {
+  .hx-fig-reset:hover {
+    border-color: var(--hx-dark);
+  }
+}
+
+/* ---------- Controls ---------- */
+
+/* Groups share the row (as many columns as fit at 10rem or more); a widget can fix its columns with --hx-fig-grid,
+   and a group made with wide: true spans the row. */
+.hx-fig-controls {
+  display: grid;
+  grid-template-columns: var(--hx-fig-grid, repeat(auto-fit, minmax(10rem, 1fr)));
+  gap: 0.85rem 1.5rem;
+  margin-top: 0.8rem;
+}
+
+.hx-fig-controls:empty {
+  display: none;
+}
+
+/* Narrow widgets (phones, and the mid-width two-column layout) stack the groups with full-width sliders. */
+@container hx-fig (max-width: 30rem) {
+  .hx-fig-controls {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 0.7rem;
+  }
+}
+
+/* alpha_compositing keeps one column per Hexel only where its sliders stay long enough for steps of 0.01. */
+@container hx-fig (max-width: 38rem) {
+  .hx-widget[data-widget="alpha_compositing"] .hx-fig-controls {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 0.7rem;
+  }
+}
+
+/* A switch inside a widget (the honeycomb figures' view) is a segmented control like the page's other in-figure
+   toggles, so it does not read as the Animation and Interactive switch above the figure. */
+.hx-widget .hx-fig-switch {
+  gap: 0;
+  padding: 0;
+  overflow: hidden;
+  background: var(--hx-surface);
+}
+
+.hx-widget .hx-fig-switch button {
+  border-radius: 0;
+}
+
+.hx-widget .hx-fig-switch button + button {
+  border-left: 1px solid var(--hx-line);
+}
+
+.hx-widget .hx-fig-switch button[aria-pressed="true"] {
+  background: var(--hx-dark);
+  box-shadow: none;
+  color: #fff;
+}
+
+.hx-fig-group {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.hx-fig-group.is-wide {
+  grid-column: 1 / -1;
+}
+
+.hx-fig-legend {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  width: 100%;
+  margin: 0 0 0.15rem;
+  padding: 0;
+  color: var(--hx-ink);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.hx-fig-swatch {
+  flex: none;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 1px rgba(38, 63, 72, 0.35);
+}
+
+.hx-fig-legend-value {
+  margin-left: auto;
+  color: var(--hx-muted);
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.hx-fig-slider {
+  display: grid;
+  grid-template-columns: 1.6rem minmax(0, 1fr) 2.3rem;
+  align-items: center;
+  column-gap: 0.45rem;
+}
+
+.hx-fig-slider label {
+  color: var(--hx-ink);
+  cursor: pointer;
+}
+
+/* A thin track filled in the slider's accent up to the thumb's center (--hx-fig-share, from 0 to 1, set by slider()
+   in core.js), and a white thumb with an ink ring: the same in every browser, whatever the accent's lightness. */
+.hx-fig-slider input[type="range"] {
+  --hx-fig-thumb: 14px;
+  width: 100%;
+  height: 1.7rem;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.hx-fig-slider input[type="range"]::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 999px;
+  --hx-fig-stop: calc(var(--hx-fig-thumb) / 2 + var(--hx-fig-share, 0) * (100% - var(--hx-fig-thumb)));
+  background: linear-gradient(to right, var(--hx-fig-accent, var(--hx-select)) var(--hx-fig-stop), var(--hx-line) var(--hx-fig-stop));
+}
+
+.hx-fig-slider input[type="range"]::-webkit-slider-thumb {
+  width: var(--hx-fig-thumb);
+  height: var(--hx-fig-thumb);
+  margin-top: calc((4px - var(--hx-fig-thumb)) / 2);
+  border: 1.5px solid var(--hx-ink);
+  border-radius: 50%;
+  background: var(--hx-surface);
+  box-shadow: 0 1px 2px rgba(31, 43, 48, 0.2);
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.hx-fig-slider input[type="range"]::-moz-range-track {
+  height: 4px;
+  border-radius: 999px;
+  background: var(--hx-line);
+}
+
+.hx-fig-slider input[type="range"]::-moz-range-progress {
+  height: 4px;
+  border-radius: 999px;
+  background: var(--hx-fig-accent, var(--hx-select));
+}
+
+.hx-fig-slider input[type="range"]::-moz-range-thumb {
+  box-sizing: border-box;
+  width: var(--hx-fig-thumb);
+  height: var(--hx-fig-thumb);
+  border: 1.5px solid var(--hx-ink);
+  border-radius: 50%;
+  background: var(--hx-surface);
+  box-shadow: 0 1px 2px rgba(31, 43, 48, 0.2);
+}
+
+.hx-fig-slider input[type="range"]:focus-visible {
+  outline: none;
+}
+
+.hx-fig-slider input[type="range"]:focus-visible::-webkit-slider-thumb {
+  box-shadow: 0 0 0 3px rgba(93, 112, 174, 0.4);
+}
+
+.hx-fig-slider input[type="range"]:focus-visible::-moz-range-thumb {
+  box-shadow: 0 0 0 3px rgba(93, 112, 174, 0.4);
+}
+
+.hx-fig-value {
+  color: var(--hx-ink);
+  font-size: 0.82rem;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.hx-fig-readout {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: var(--hx-ink);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.hx-fig-readout-main,
+.hx-fig-readout-note {
+  display: block;
+}
+
+.hx-fig-readout-main .fa-solid {
+  color: var(--hx-select);
+}
+
+.hx-fig-readout.is-violated .fa-solid {
+  color: var(--hx-ours);
+}
+
+.hx-fig-readout-note {
+  color: var(--hx-muted);
+  font-size: 0.8rem;
+}
+
+/* Inline math of labels and readouts, in the serif of the figures. */
+.hx-math {
+  font-family: "STIX Two Text", "Times New Roman", Times, serif;
+  font-size: 1.12em;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.hx-math sub,
+.hx-math sup {
+  font-size: 0.7em;
+}
+
+/* ---------- Touch and motion ---------- */
+
+/* Fingers get 40 px targets: the switch, Reset and every slider. */
+@media (pointer: coarse) {
+  .hx-fig-switch button,
+  .hx-fig-reset {
+    min-height: 40px;
+  }
+
+  .hx-fig-switch button {
+    padding-inline: 0.95rem;
+  }
+
+  .hx-fig-slider input[type="range"] {
+    --hx-fig-thumb: 22px;
+    height: 40px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hx-fig-switch button,
+  .hx-fig-reset {
+    transition: none;
+  }
+}
+
+/* ---------- The cue toward the interactive figure ---------- */
+
+/* A honey dot after the word "Interactive" while a figure shows its animation, until the visitor first opens an
+   interactive figure; it pulses three times when the figure first comes well into view, then rests. The option
+   keeps room for it only while it shows. */
+.hx-fig-switch button {
+  position: relative;
+}
+
+.hx-fig-cue {
+  display: none;
+  position: absolute;
+  top: 50%;
+  right: 0.5rem;
+  width: 7px;
+  height: 7px;
+  margin-top: -3.5px;
+  border-radius: 50%;
+  background: var(--hx-ours);
+  pointer-events: none;
+}
+
+.hx-fig-host[data-fig-mode="animation"]:not(.hx-fig-tried) > .hx-fig-bar .hx-fig-cue {
+  display: block;
+}
+
+.hx-fig-host[data-fig-mode="animation"]:not(.hx-fig-tried) > .hx-fig-bar button[data-mode="interactive"] {
+  padding-right: 1.25rem;
+}
+
+.hx-fig-cue.is-pulsing {
+  animation: hx-fig-cue-pulse 1.6s ease-out 3;
+}
+
+@keyframes hx-fig-cue-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(205, 115, 83, 0.55);
+  }
+
+  100% {
+    box-shadow: 0 0 0 10px rgba(205, 115, 83, 0);
+  }
+}
+
+/* "Try it yourself", beside the switch after a few seconds of an animation, then gone; a click on it opens the
+   interactive figure. It takes no room in the bar (its text overflows its empty box to the left), so the line never
+   reflows around it; the narrowest phones, which leave no room beside the switch, show it just above the switch. The
+   text is a darker honey than the glyph, for contrast on white and on the grey bands. */
+.hx-fig-nudge {
+  display: inline-flex;
+  flex: 0 0 0;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.35em;
+  width: 0;
+  margin-right: 0.6rem;
+  color: #a9573c;
+  font-size: 0.78rem;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(6px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  pointer-events: none;
+}
+
+.hx-fig-nudge .fa-solid {
+  color: var(--hx-ours);
+}
+
+.hx-fig-nudge.is-shown {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 379px) {
+  .hx-fig-bar {
+    position: relative;
+  }
+
+  .hx-fig-nudge {
+    position: absolute;
+    right: 0.4rem;
+    bottom: calc(100% + 0.2rem);
+    width: auto;
+    margin: 0;
+    transform: translateY(4px);
+  }
+}
+
+.hx-fig-host:not([data-fig-mode="animation"]) .hx-fig-nudge,
+.hx-fig-host.hx-fig-tried .hx-fig-nudge {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hx-fig-cue.is-pulsing {
+    animation: none;
+  }
+
+  .hx-fig-nudge {
+    transition: none;
+  }
+}

@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#191615">
+  <meta name="description" content="Interactive viewer for pretrained Hexels (Honeycomb-Surfels) scenes, rendered with WebGL2 on your own GPU.">
+  <title>Hexels viewer</title>
+  <link rel="icon" href="../static/images/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="../static/images/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../static/images/apple-touch-icon.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="viewport" tabindex="0" aria-label="Interactive Hexels scene. Click to focus, then drag to look around or use WASD to move."></canvas>
+  <div id="comparison-layer" hidden><span id="comparison-left" class="comparison-label"></span><span id="comparison-right" class="comparison-label"></span><button id="comparison-handle" role="slider" aria-label="Comparison divider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">↔</button></div>
+  <header>
+    <a id="back-link" class="back-link" href="../viewer.html" hidden>← All scenes</a>
+    <div class="brand"><img class="logo" src="../static/images/logo.svg" width="64" height="64" alt=""><div>HEXELS<span class="subtitle">INTERACTIVE VIEWER</span></div></div>
+    <span id="scene-chip" class="scene-chip" hidden></span>
+    <span id="backend" class="badge">RUNS ON YOUR GPU</span>
+    <button id="toggle-panel" aria-expanded="true" aria-controls="panel">Controls</button>
+    <button id="help-toggle">Help · ?</button>
+  </header>
+  <aside id="panel">
+    <div class="section-label">SCENE</div>
+    <h1 id="scene-name">Inspect a reconstruction</h1>
+    <p id="intro">Open a Hexels model: a .hexcodec deployment archive or a .hexview bundle. It stays on this device.</p>
+    <p id="model-details" class="note"></p>
+    <label class="load-button" id="file-label">Open model file<input id="file" type="file" accept=".hexcodec,.hexview,.gz" hidden></label>
+    <div id="url-controls"><input id="model-url" type="url" placeholder="Or paste a model URL" aria-label="Model URL"><button id="load-url">Load URL</button></div>
+    <div class="section-label">INSPECT</div>
+    <label>Display<select id="mode"><option value="rgb">RGB appearance</option><option value="primitives">Primitive IDs</option><option value="wireframe">Colored boundaries</option><option value="depth">Depth</option><option value="normals">Normals</option><option value="opacity">Opacity</option></select></label>
+    <label class="compare-toggle"><input id="compare-enabled" type="checkbox">Compare two modes</label>
+    <div id="compare-controls" hidden>
+      <label>Right side<select id="compare-mode"><option value="rgb">RGB appearance</option><option value="primitives">Primitive IDs</option><option value="wireframe">Colored boundaries</option><option value="depth" selected>Depth</option><option value="normals">Normals</option><option value="opacity">Opacity</option></select></label>
+      <label>Divider<input id="comparison-position" type="range" min="0" max="100" value="50" aria-label="Comparison position"></label>
+      <p class="note">Display selects the left side. Both sides share one camera. Drag the divider or use arrow keys.</p>
+    </div>
+    <p id="mode-note" class="note">Soft boundary, spatial color and trained view dependence.</p>
+    <label>Navigation<select id="navigation"><option value="fly">Fly / game controls</option><option value="orbit">Orbit scene</option></select></label>
+    <label>Saved view<select id="camera"><option value="-1">Free camera</option></select></label>
+    <div class="button-row"><button id="reset">Reset · R</button><button id="fullscreen">Fullscreen</button></div>
+    <div class="section-label">QUALITY</div>
+    <label>Render quality<select id="quality"><option value="full">Full model</option><option value="adaptive">Adaptive preview</option></select></label>
+    <label>Pixel scale <output id="scale-value">100%</output><input id="resolution" type="range" min="0.35" max="1" step="0.05" value="1"></label>
+    <label id="budget-label">Preview primitive budget<select id="budget"><option value="0">All primitives</option><option value="100000">100,000</option><option value="50000">50,000</option><option value="25000">25,000</option></select></label>
+    <label>Depth range<input id="depth-scale" type="number" min="0.2" step="0.2" value="10"></label>
+    <div class="button-row"><button id="screenshot">Save image</button><button id="save-camera">Save camera</button></div>
+    <label class="camera-file">Restore saved camera<input id="camera-file" type="file" accept=".json,application/json"></label>
+    <details open><summary>Movement &amp; touch</summary><p>Click the scene first. Drag to look (Orbit: turn around the scene) · wheel zooms in Orbit, sets speed in Fly · WASD move · Q/E down/up · Shift boosts · F captures mouse · Esc releases · O toggles orbit · R resets.</p><p>Touch: drag to look, pinch to dolly, two fingers to pan. Use the movement pad to walk. Movement has no collision constraints.</p></details>
+  </aside>
+  <div id="welcome"><img class="logo" src="../static/images/logo.svg" width="64" height="64" alt=""><h2 id="welcome-title">Explore a Hexels scene</h2><p id="welcome-text">Drop a .hexcodec archive or a .hexview bundle anywhere, or open one from Controls. The file stays on this device.</p><small>V1 spatial color · V2 linear view · V3 spherical harmonics</small></div>
+  <section id="loading-notice" aria-label="Loading model" hidden>
+    <img class="loading-mark" src="../static/images/logo.svg" width="64" height="64" alt="">
+    <p class="loading-stage">Loading model</p>
+    <div class="loading-bar indeterminate" role="progressbar" aria-label="Loading progress" aria-valuemin="0" aria-valuemax="100"><span class="loading-fill"></span></div>
+    <p class="loading-bytes"></p>
+    <p class="loading-message" aria-hidden="true"></p>
+    <button id="loading-cancel" type="button">Cancel</button>
+    <small>Large models may take a moment to prepare on this device.</small>
+  </section>
+  <div id="touch-pad" aria-label="Touch movement"><button data-key="KeyW" aria-label="Forward">↑</button><div><button data-key="KeyA" aria-label="Left">←</button><button data-key="KeyS" aria-label="Back">↓</button><button data-key="KeyD" aria-label="Right">→</button></div><div><button data-key="KeyQ" aria-label="Down">−</button><button data-key="KeyE" aria-label="Up">+</button></div></div>
+  <footer><span id="status" role="status">Ready</span><span id="stats">No model loaded</span></footer>
+  <p id="navigation-hint">Click the scene · drag to look · WASD move · Q/E down/up · Shift faster · ? help</p>
+  <dialog id="help-dialog"><h2>Explore a Hexels scene</h2><p>Click the scene first; it then receives the keys and the mouse wheel.</p><dl><dt>Mouse drag</dt><dd>Look around in Fly mode · turn around the scene in Orbit mode.</dd><dt>Mouse wheel</dt><dd>Zoom in Orbit mode · flying speed in Fly mode.</dd><dt>W / S · A / D</dt><dd>Move forward / backward · left / right.</dd><dt>Q / E · Space</dt><dd>Move down / up · Space also moves up.</dd><dt>Shift · F · Esc</dt><dd>Move faster · capture the mouse for game-style looking · release it.</dd><dt>O · R</dt><dd>Switch Fly / Orbit · reset to the starting view.</dd><dt>Touch</dt><dd>Drag to look, pinch to move forward or back, two fingers to pan; the arrow pad walks.</dd></dl><p>Compare two modes: Display chooses the left side, Right side chooses the other. Drag the vertical divider. Changing the divider does not move the camera.</p><form method="dialog"><button>Close help</button></form></dialog>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

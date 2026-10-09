@@ -1,0 +1,1440 @@
+/* Surface reconstruction viewer (#surface-root, static/js/surface.js).
+   Colours and sizes come from the custom properties defined on :root in index.css; the controls follow the
+   novel-view comparison player (compare.css) so both result viewers read as one family. */
+
+/* Method colours: the swatches of index.css where they exist, and two shades of the 2DGS blue for its
+   matched-budget runs. Ablation variants after the full model take the remaining swatches in order. */
+.hx-surf [data-method="ours"] { --hx-method: var(--hx-method-ours, #cd7353); }
+.hx-surf [data-method="2dgs"] { --hx-method: var(--hx-method-2dgs, #458da5); }
+.hx-surf [data-method="2dgs_memory"] { --hx-method: #2b6577; }
+.hx-surf [data-method="2dgs_count"] { --hx-method: #86bccd; }
+.hx-surf [data-method="triangle"] { --hx-method: var(--hx-method-triangle, #5d70ae); }
+.hx-surf [data-method="meshsplatting"] { --hx-method: var(--hx-method-meshsplatting, #6f8f4e); }
+.hx-surf [data-method="variant-1"] { --hx-method: var(--hx-method-bbsplat, #b08b4f); }
+.hx-surf [data-method="variant-2"] { --hx-method: var(--hx-method-3dgs, #8b679a); }
+.hx-surf [data-method="variant-3"] { --hx-method: var(--hx-method-3dconvex, #607985); }
+.hx-surf [data-method="variant-4"] { --hx-method: var(--hx-method-nexels, #4f9bd6); }
+.hx-surf [data-method="variant-5"] { --hx-method: var(--hx-method-milo, #a35b7b); }
+/* The ground-truth scan is no method: its tag carries a ring instead of a swatch. */
+.hx-surf [data-method="reference"] { --hx-method: var(--hx-ink); }
+
+.hx-surf {
+  width: 100%;
+  max-width: var(--hx-wide, 1320px);
+  margin: 0 auto;
+  color: var(--hx-ink);
+}
+
+.hx-surf-dot {
+  display: inline-block;
+  flex: none;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--hx-method, var(--hx-muted));
+}
+
+/* Picker: tabs, metric note, scenes, methods ---------------------------------------------------- */
+
+.hx-surf-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.hx-surf-tabs.tabs {
+  margin-bottom: 0;
+}
+
+/* Tab labels at the size of the comparison player's tabs; phones keep Bulma's smaller tabs. */
+@media (min-width: 601px) {
+  .hx-surf-tabs.tabs.is-small {
+    font-size: 0.85rem;
+  }
+}
+
+.hx-surf-tabs.tabs.is-toggle a {
+  border-color: var(--hx-line);
+  color: var(--hx-ink);
+  cursor: pointer;
+  user-select: none;
+}
+
+@media (hover: hover) {
+  .hx-surf-tabs.tabs.is-toggle a:hover {
+    border-color: #c9ced1;
+    background-color: var(--hx-surface-2);
+  }
+}
+
+/* Dark like every other selected control; --hx-select stays for focus rings. */
+.hx-surf-tabs.tabs.is-toggle li.is-active a {
+  border-color: var(--hx-dark);
+  background-color: var(--hx-dark);
+  color: #fff;
+}
+
+.hx-surf-viewnote {
+  max-width: 46rem;
+  margin: 0 auto;
+  color: var(--hx-muted);
+  font-size: 0.88rem;
+  line-height: 1.5;
+  text-align: center;
+  text-wrap: pretty;
+}
+
+.hx-surf-viewnote strong {
+  color: var(--hx-ink);
+}
+
+.hx-surf-scenes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+}
+
+.hx-surf-scene {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  min-width: 96px;
+  padding: 6px 12px 7px;
+  border: 1px solid var(--hx-line);
+  border-radius: var(--hx-radius);
+  background: var(--hx-surface);
+  color: var(--hx-ink);
+  font: inherit;
+  cursor: pointer;
+  transition: background-color 0.15s, border-color 0.15s;
+}
+
+.hx-surf-scene-name {
+  font-size: 0.88rem;
+  line-height: 1.25;
+}
+
+.hx-surf-scene-value {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--hx-muted);
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.3;
+}
+
+.hx-surf-scene-value .hx-surf-dot {
+  width: 7px;
+  height: 7px;
+}
+
+@media (hover: hover) {
+  .hx-surf-scene:hover {
+    border-color: #b5b5b5;
+  }
+}
+
+.hx-surf-scene[aria-pressed="true"] {
+  border-color: var(--hx-dark);
+  box-shadow: inset 0 0 0 1px var(--hx-dark);
+}
+
+.hx-surf-scene[aria-pressed="true"] .hx-surf-scene-name {
+  font-weight: 600;
+}
+
+.hx-surf-methods {
+  --hx-surf-button: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.hx-surf-method-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 100%;
+}
+
+.hx-surf-row-label {
+  display: flex;
+  flex: none;
+  align-self: flex-start;
+  align-items: center;
+  justify-content: flex-end;
+  width: 52px;
+  height: var(--hx-surf-button);
+  color: var(--hx-muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.hx-surf-method-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.hx-surf-method {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: var(--hx-surf-button);
+  padding: 0 12px;
+  border: 1px solid var(--hx-line);
+  border-radius: 999px;
+  background: var(--hx-surface);
+  color: var(--hx-ink);
+  font: inherit;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.15s, border-color 0.15s, color 0.15s;
+}
+
+@media (hover: hover) {
+  .hx-surf-method:not(:disabled):hover {
+    border-color: #b5b5b5;
+  }
+}
+
+.hx-surf-method[aria-pressed="true"] {
+  border-color: var(--hx-dark);
+  background: var(--hx-dark);
+  color: #fff;
+}
+
+.hx-surf-method[aria-pressed="true"] .hx-surf-dot {
+  box-shadow: 0 0 0 2px #fff;
+}
+
+.hx-surf-method:disabled {
+  border-style: dashed;
+  color: var(--hx-muted);
+  cursor: default;
+  opacity: 0.6;
+}
+
+/* Stage ------------------------------------------------------------------------------------------ */
+
+.hx-surf-stage {
+  --hx-surf-split: 50%;
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  max-height: min(64vh, 640px);
+  min-height: 300px;
+  overflow: hidden;
+  border-radius: var(--hx-radius);
+  background: var(--hx-surface-2);
+  outline: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.hx-surf-stage[data-orient="column"] {
+  max-height: none;
+  min-height: 0;
+}
+
+.hx-surf-stage[data-orient="column"][data-layout="split"] {
+  aspect-ratio: 5 / 8;
+}
+
+.hx-surf-stage[data-orient="column"][data-layout="wipe"] {
+  aspect-ratio: 1 / 1;
+}
+
+/* Focus, a click into the stage (the wheel then zooms) and touch activation draw a ring. */
+.hx-surf-stage::after {
+  position: absolute;
+  z-index: 9;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 2px var(--hx-select);
+  content: "";
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s;
+}
+
+.hx-surf-stage:focus-visible::after,
+.hx-surf-stage.is-engaged::after,
+.hx-surf-stage.is-active::after {
+  opacity: 1;
+}
+
+/* Each side has a backdrop under the canvas and an overlay above it; both follow the layout. */
+.hx-surf-backdrop,
+.hx-surf-view {
+  position: absolute;
+  inset: 0;
+}
+
+.hx-surf-backdrop {
+  z-index: 0;
+  background: radial-gradient(120% 95% at 50% 38%, #fcfcfb 0%, #f2f3f4 55%, #e5e8ea 100%);
+}
+
+.hx-surf-poster {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hx-surf-canvas {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+}
+
+.hx-surf-canvas:active {
+  cursor: grabbing;
+}
+
+.hx-surf-view {
+  z-index: 2;
+  pointer-events: none;
+}
+
+.hx-surf-stage[data-layout="split"][data-orient="row"] .hx-surf-side-left { right: 50%; }
+.hx-surf-stage[data-layout="split"][data-orient="row"] .hx-surf-side-right { left: 50%; }
+.hx-surf-stage[data-layout="split"][data-orient="column"] .hx-surf-side-left { bottom: 50%; }
+.hx-surf-stage[data-layout="split"][data-orient="column"] .hx-surf-side-right { top: 50%; }
+.hx-surf-stage[data-layout="wipe"] .hx-surf-side-left { clip-path: inset(0 calc(100% - var(--hx-surf-split)) 0 0); }
+.hx-surf-stage[data-layout="wipe"] .hx-surf-side-right { clip-path: inset(0 0 0 var(--hx-surf-split)); }
+
+/* The reference (ground-truth) pane, after data-gt: hidden ("none"); a third pane beside the two methods, or
+   beside the wipe, which then holds the left half ("beside", wide stages); or in the right method's place
+   ("swap", narrow stages with the Ground truth toggle on). */
+.hx-surf-stage[data-gt="none"] .hx-surf-side-reference,
+.hx-surf-stage[data-gt="swap"] .hx-surf-side-right {
+  display: none;
+}
+
+.hx-surf-stage[data-layout="split"][data-orient="row"][data-gt="beside"] .hx-surf-side-left { right: 66.6667%; }
+.hx-surf-stage[data-layout="split"][data-orient="row"][data-gt="beside"] .hx-surf-side-right { right: 33.3333%; left: 33.3333%; }
+.hx-surf-stage[data-layout="split"][data-orient="row"][data-gt="beside"] .hx-surf-side-reference { left: 66.6667%; }
+.hx-surf-stage[data-layout="wipe"][data-gt="beside"] { --hx-surf-span: 0.5; }
+.hx-surf-stage[data-layout="wipe"][data-gt="beside"] :is(.hx-surf-side-left, .hx-surf-side-right) { right: 50%; }
+.hx-surf-stage[data-layout="wipe"][data-gt="beside"] .hx-surf-side-reference { left: 50%; }
+.hx-surf-stage[data-layout="split"][data-orient="row"][data-gt="swap"] .hx-surf-side-reference { left: 50%; }
+.hx-surf-stage[data-layout="split"][data-orient="column"][data-gt="swap"] .hx-surf-side-reference { top: 50%; }
+.hx-surf-stage[data-layout="wipe"][data-gt="swap"] .hx-surf-side-reference { clip-path: inset(0 0 0 var(--hx-surf-split)); }
+
+/* Gaps between the views of the split layout (two, or three with the reference), and before the reference
+   pane beside the wipe. */
+.hx-surf-separator {
+  position: absolute;
+  z-index: 3;
+  background: var(--hx-surface);
+  pointer-events: none;
+}
+
+.hx-surf-stage[data-orient="row"] .hx-surf-separator {
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 4px;
+  margin-left: -2px;
+}
+
+.hx-surf-stage[data-orient="column"] .hx-surf-separator {
+  top: 50%;
+  right: 0;
+  left: 0;
+  height: 4px;
+  margin-top: -2px;
+}
+
+.hx-surf-stage[data-layout="split"][data-orient="row"][data-gt="beside"] .hx-surf-separator { left: 33.3333%; }
+.hx-surf-stage[data-layout="split"][data-orient="row"][data-gt="beside"] .hx-surf-separator.is-second { left: 66.6667%; }
+
+.hx-surf-stage[data-layout="wipe"]:not([data-gt="beside"]) .hx-surf-separator,
+.hx-surf-stage:not([data-layout="split"][data-orient="row"][data-gt="beside"]) .hx-surf-separator.is-second {
+  display: none;
+}
+
+/* Corner label: method and metric; the better value of the two is dark. */
+.hx-surf-tag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  max-width: calc(100% - 20px);
+  padding: 3px 4px 3px 9px;
+  border-radius: 7px;
+  background: rgba(255, 255, 255, 0.93);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18);
+  color: var(--hx-ink);
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.hx-surf-tag-name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.hx-surf-tag-value {
+  flex: none;
+  padding: 0 7px;
+  border-radius: 5px;
+  background: var(--hx-surface-2);
+  color: var(--hx-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.hx-surf-tag-value.is-better {
+  background: var(--hx-dark);
+  color: #fff;
+}
+
+.hx-surf-tag[data-method="reference"] {
+  padding-right: 9px;
+}
+
+.hx-surf-tag[data-method="reference"] .hx-surf-dot {
+  background: none;
+  box-shadow: inset 0 0 0 2px var(--hx-method);
+}
+
+.hx-surf-stage[data-layout="wipe"] .hx-surf-tag {
+  max-width: calc(50% - 34px);
+}
+
+/* The reference pane beside the wipe has its own width to itself. */
+.hx-surf-stage[data-layout="wipe"][data-gt="beside"] .hx-surf-side-reference .hx-surf-tag {
+  max-width: calc(100% - 20px);
+}
+
+/* Beside the reference the panes are narrower: a tag too narrow for name and value on one line puts the value
+   under the name, as the phone wipe does (without container queries the name is cut short instead). A tag has
+   its whole pane in the split layout, and a little less than half of it in the wipe. */
+.hx-surf-stage[data-gt="beside"] .hx-surf-view {
+  container-type: inline-size;
+}
+
+@container (max-width: 380px) {
+  .hx-surf-tag {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    gap: 2px 6px;
+    padding: 3px 6px 3px 8px;
+  }
+
+  .hx-surf-tag-value {
+    grid-column: 2;
+    justify-self: start;
+  }
+}
+
+@container (max-width: 760px) {
+  .hx-surf-stage[data-layout="wipe"] .hx-surf-tag {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    gap: 2px 6px;
+    padding: 3px 6px 3px 8px;
+  }
+
+  .hx-surf-stage[data-layout="wipe"] .hx-surf-tag-value {
+    grid-column: 2;
+    justify-self: start;
+  }
+}
+
+.hx-surf-stage[data-layout="wipe"] .hx-surf-side-right .hx-surf-tag,
+.hx-surf-stage[data-layout="wipe"][data-gt="swap"] .hx-surf-side-reference .hx-surf-tag {
+  right: 10px;
+  left: auto;
+}
+
+/* A thin bar along the top edge of a side while its mesh downloads. */
+.hx-surf-progress {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 3px;
+  overflow: hidden;
+  background: rgba(31, 43, 48, 0.08);
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+
+.hx-surf-progress span {
+  display: block;
+  height: 100%;
+  background: var(--hx-select);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  transition: transform 0.15s linear;
+}
+
+.hx-surf-view.is-loading .hx-surf-progress {
+  opacity: 1;
+}
+
+.hx-surf-stage[data-layout="wipe"] .hx-surf-side-left .hx-surf-progress { right: calc(100% - var(--hx-surf-split)); }
+.hx-surf-stage[data-layout="wipe"] .hx-surf-side-right .hx-surf-progress,
+.hx-surf-stage[data-layout="wipe"][data-gt="swap"] .hx-surf-side-reference .hx-surf-progress { left: var(--hx-surf-split); }
+
+/* The previous mesh stays, dimmed, until its replacement is ready. */
+.hx-surf-veil {
+  position: absolute;
+  inset: 0;
+  background: rgba(245, 246, 247, 0.6);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.hx-surf-view.is-stale .hx-surf-veil {
+  opacity: 1;
+}
+
+.hx-surf-msg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  max-width: min(80%, 22rem);
+  padding: 0.55rem 0.9rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.88);
+  color: var(--hx-muted);
+  font-size: 0.85rem;
+  line-height: 1.45;
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+
+.hx-surf-msg.is-quiet {
+  padding: 0.25rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.hx-surf-stage[data-layout="wipe"] .hx-surf-side-left .hx-surf-msg { left: calc(var(--hx-surf-split) / 2); }
+.hx-surf-stage[data-layout="wipe"] .hx-surf-side-right .hx-surf-msg,
+.hx-surf-stage[data-layout="wipe"][data-gt="swap"] .hx-surf-side-reference .hx-surf-msg { left: calc(50% + var(--hx-surf-split) / 2); }
+
+.hx-surf-retry {
+  margin-top: 0.45rem;
+  padding: 0.15rem 0.75rem;
+  border: 1px solid var(--hx-line);
+  border-radius: 999px;
+  background: var(--hx-surface);
+  color: var(--hx-ink);
+  font: inherit;
+  font-size: 0.8rem;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+/* Wipe divider, as in the novel-view player; --hx-surf-span is the wipe's share of the stage width. */
+.hx-surf-divider {
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  bottom: 0;
+  left: calc(var(--hx-surf-split) * var(--hx-surf-span, 1));
+  width: 2px;
+  margin-left: -1px;
+  background: #fff;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.45);
+  pointer-events: none;
+}
+
+.hx-surf-handle {
+  position: absolute;
+  z-index: 6;
+  top: 50%;
+  left: calc(var(--hx-surf-split) * var(--hx-surf-span, 1));
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.35);
+  color: var(--hx-dark);
+  cursor: ew-resize;
+  outline: none;
+  transform: translate(-50%, -50%);
+  touch-action: none;
+}
+
+.hx-surf-handle:focus-visible {
+  box-shadow: 0 0 0 3px var(--hx-select), 0 1px 6px rgba(0, 0, 0, 0.35);
+}
+
+.hx-surf-stage:not([data-layout="wipe"]) :is(.hx-surf-divider, .hx-surf-handle) {
+  display: none;
+}
+
+.hx-surf-stage.is-dragging,
+.hx-surf-stage.is-dragging .hx-surf-canvas {
+  cursor: ew-resize;
+}
+
+/* Pills: "Tap to rotate and zoom" on touch screens and the wheel hint. */
+.hx-surf-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.3rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(31, 43, 48, 0.78);
+  color: #fff;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.hx-surf-hint {
+  position: absolute;
+  z-index: 7;
+  bottom: 14px;
+  left: 50%;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-50%);
+  transition: opacity 0.25s;
+}
+
+.hx-surf-hint.is-shown {
+  opacity: 1;
+}
+
+/* "Showing where to look": the camera holds a tip's close-up until the visitor moves it; the wheel hint takes its
+   place briefly. On touch screens it stands in for the "Tap to rotate and zoom" pill, in the same place, for a
+   few seconds (is-where-label) and then hands it back, so the two never stack over the lower view; it also steps
+   aside while the stage is active, when the Done button shares the bottom edge. */
+.hx-surf-where {
+  position: absolute;
+  z-index: 7;
+  bottom: 14px;
+  left: 50%;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-50%);
+  transition: opacity 0.25s;
+}
+
+.hx-surf-stage.is-where .hx-surf-where {
+  opacity: 1;
+}
+
+.hx-surf-stage.is-where .hx-surf-hint.is-shown ~ .hx-surf-where,
+.hx-surf-stage.is-where.has-notice .hx-surf-where,
+.hx-surf-stage.is-touch.is-where:not(.is-where-label) .hx-surf-where,
+.hx-surf-stage.is-touch.is-active .hx-surf-where {
+  opacity: 0;
+}
+
+.hx-surf-stage.is-where-label .hx-surf-activate .hx-surf-pill {
+  opacity: 0;
+}
+
+/* Touch screens: the stage is inert under this layer (the page scrolls) until a tap activates it. */
+.hx-surf-activate {
+  position: absolute;
+  z-index: 5;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 0 12px 14px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  touch-action: pan-x pan-y pinch-zoom;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.hx-surf-activate .hx-surf-pill {
+  transition: opacity 0.25s;
+}
+
+.hx-surf-stage:not(.is-touch) .hx-surf-activate,
+.hx-surf-stage.is-active .hx-surf-activate,
+.hx-surf-stage.has-notice .hx-surf-activate {
+  display: none;
+}
+
+.hx-surf-done {
+  position: absolute;
+  z-index: 7;
+  right: 10px;
+  bottom: 10px;
+  min-height: 36px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--hx-dark);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  color: #fff;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.hx-surf-notice {
+  position: absolute;
+  z-index: 8;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 24px;
+  background: color-mix(in srgb, var(--hx-surface-2) 92%, transparent);
+  color: var(--hx-muted);
+  text-align: center;
+}
+
+.hx-surf-notice .fa-solid {
+  font-size: 1.6rem;
+  opacity: 0.55;
+}
+
+.hx-surf-stage.has-notice :is(.hx-surf-divider, .hx-surf-handle, .hx-surf-separator, .hx-surf-view) {
+  display: none;
+}
+
+/* Toolbar and help ------------------------------------------------------------------------------ */
+
+.hx-surf-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px 14px;
+  margin-top: 12px;
+}
+
+.hx-surf-seg {
+  display: inline-flex;
+  overflow: hidden;
+  border: 1px solid var(--hx-line);
+  border-radius: 999px;
+}
+
+.hx-surf-seg button {
+  height: 32px;
+  padding: 0 13px;
+  border: 0;
+  background: none;
+  color: var(--hx-muted);
+  font: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.hx-surf-seg button + button {
+  border-left: 1px solid var(--hx-line);
+}
+
+.hx-surf-seg button[aria-pressed="true"] {
+  background: var(--hx-dark);
+  color: #fff;
+}
+
+/* "Side by side" reads "Stacked" while the views are stacked. */
+.hx-surf-seg-stacked,
+.hx-surf.is-narrow .hx-surf-seg-wide {
+  display: none;
+}
+
+.hx-surf.is-narrow .hx-surf-seg-stacked {
+  display: inline;
+}
+
+/* Narrow stages: the "Ground truth" toggle, a switch so that on and off read at a glance. */
+.hx-surf-gt {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 32px;
+  padding: 0 13px 0 9px;
+  border: 1px solid var(--hx-line);
+  border-radius: 999px;
+  background: var(--hx-surface);
+  color: var(--hx-ink);
+  font: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.hx-surf-gt[hidden] {
+  display: none;
+}
+
+.hx-surf-gt-switch {
+  position: relative;
+  flex: none;
+  width: 28px;
+  height: 16px;
+  border-radius: 999px;
+  background: #c3c9cc;
+  transition: background-color 0.15s;
+}
+
+.hx-surf-gt-switch::after {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  content: "";
+  transition: transform 0.15s;
+}
+
+.hx-surf-gt[aria-pressed="true"] {
+  border-color: var(--hx-dark);
+  font-weight: 600;
+}
+
+.hx-surf-gt[aria-pressed="true"] .hx-surf-gt-switch {
+  background: var(--hx-dark);
+}
+
+.hx-surf-gt[aria-pressed="true"] .hx-surf-gt-switch::after {
+  transform: translateX(12px);
+}
+
+.hx-surf-camera {
+  display: inline-flex;
+  gap: 6px;
+}
+
+.hx-surf-tool {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 32px;
+  padding: 0 12px;
+  border: 1px solid var(--hx-line);
+  border-radius: 999px;
+  background: var(--hx-surface);
+  color: var(--hx-ink);
+  font: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.hx-surf-tool.is-icon {
+  width: 32px;
+  padding: 0;
+}
+
+@media (hover: hover) {
+  .hx-surf-seg button:not([aria-pressed="true"]):hover,
+  .hx-surf-tool:hover,
+  .hx-surf-gt:hover {
+    background: var(--hx-surface-2);
+    color: var(--hx-ink);
+  }
+}
+
+.hx-surf-help {
+  max-width: 50rem;
+  margin: 8px auto 0;
+  color: var(--hx-muted);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  text-align: center;
+  text-wrap: pretty;
+}
+
+/* The scene's tip: the .hx-tip box and .hx-tip-action buttons of index.css, laid out as in the novel-view
+   player (compare.css): the buttons wrap together and "Show me where" is the primary one. */
+.hx-surf .hx-surf-tip {
+  margin-top: 0.75rem;
+}
+
+.hx-surf .hx-tip-actions {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-left: 0.4rem;
+}
+
+.hx-surf .hx-tip-actions .hx-tip-action {
+  margin: 0;
+}
+
+.hx-surf .hx-tip-where {
+  border-color: var(--hx-dark);
+  background: var(--hx-dark);
+  color: #fff;
+}
+
+@media (hover: hover) {
+  .hx-surf .hx-tip-where:hover {
+    border-color: #1f1f1f;
+    background: #1f1f1f;
+  }
+}
+
+/* Touch screens: the 40 px buttons get their own row under the text, as the novel-view player's do there, so
+   one short button never stretches the last line of text. */
+@media (pointer: coarse) {
+  .hx-surf .hx-tip-actions {
+    display: flex;
+    margin: 0.4rem 0 0;
+  }
+}
+
+/* Observations and tables ----------------------------------------------------------------------- */
+
+.hx-surf-details {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.12fr);
+  align-items: start;
+  gap: 20px 40px;
+  max-width: 1180px;
+  margin: 26px auto 0;
+}
+
+.hx-surf-notes[hidden] + .hx-surf-scores {
+  grid-column: 1 / -1;
+  justify-self: center;
+}
+
+.hx-surf-scores-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px 12px;
+  margin-bottom: 10px;
+}
+
+.hx-surf-scores-head .hx-surf-subhead {
+  margin-bottom: 0;
+}
+
+.hx-surf-scope button {
+  height: 28px;
+  padding: 0 11px;
+  font-size: 0.8rem;
+}
+
+.hx-surf-subhead {
+  margin-bottom: 10px;
+  color: var(--hx-ink);
+  font-family: var(--hx-font-title);
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.hx-surf-notes ul {
+  margin: 0;
+  padding-left: 1.15rem;
+  list-style: disc;
+}
+
+.hx-surf-notes li {
+  margin: 0 0 0.5rem;
+  padding-left: 0.15rem;
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+
+.hx-surf-notes li::marker {
+  color: var(--hx-ours);
+}
+
+.hx-surf .table-container {
+  position: relative;
+  margin-bottom: 0;
+  border-radius: 4px;
+}
+
+.hx-surf .table-container:focus-visible {
+  outline: 2px solid var(--hx-select);
+  outline-offset: 2px;
+}
+
+.hx-surf-table {
+  font-size: 0.88rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.hx-surf-scores-table {
+  width: 100%;
+}
+
+.hx-surf-table.table th,
+.hx-surf-table.table td {
+  padding: 6px 10px;
+  border-color: var(--hx-line);
+  vertical-align: middle;
+}
+
+.hx-surf-table.table thead th {
+  color: var(--hx-muted);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Component headers ("Completeness (mm) ↓") may wrap after their name, so the table fits its column. */
+.hx-surf-table.table thead th.is-part {
+  white-space: normal;
+}
+
+.hx-surf-table.table tbody th {
+  font-weight: 400;
+}
+
+.hx-surf-table .hx-surf-num {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.hx-surf-table .is-best {
+  font-weight: 700;
+}
+
+.hx-surf-row-method {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+/* Metric components (accuracy and completeness, precision and recall) are secondary. */
+.hx-surf-table td.is-part {
+  color: var(--hx-muted);
+}
+
+.hx-surf-table td.is-part.is-best {
+  color: var(--hx-ink);
+}
+
+.hx-surf-scores tr.is-picked {
+  background: color-mix(in srgb, var(--hx-method) 10%, var(--hx-surface));
+}
+
+.hx-surf-scores tr.is-picked th {
+  box-shadow: inset 3px 0 0 var(--hx-method);
+  font-weight: 600;
+}
+
+.hx-surf-side-chip {
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--hx-method) 18%, var(--hx-surface));
+  color: var(--hx-ink);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.hx-surf-table-note,
+.hx-surf-mesh-note {
+  margin-top: 8px;
+  color: var(--hx-muted);
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.hx-surf-mesh-note {
+  max-width: 46rem;
+  margin: 18px auto 0;
+  text-align: center;
+  text-wrap: pretty;
+}
+
+.hx-surf-ablation {
+  max-width: 1100px;
+  margin: 28px auto 0;
+}
+
+.hx-surf-ablation .hx-surf-subhead,
+.hx-surf-ablation .hx-surf-table-note {
+  text-align: center;
+}
+
+.hx-surf-ablation .hx-surf-table-note {
+  max-width: 46rem;
+  margin-inline: auto;
+  text-wrap: pretty;
+}
+
+.hx-surf-table-toggle {
+  display: flex;
+  width: fit-content;
+  margin: 0 auto 10px;
+}
+
+.hx-surf-ablation .table-container {
+  max-width: 100%;
+}
+
+.hx-surf-ablation-table {
+  margin: 0 auto;
+}
+
+.hx-surf-ablation-table thead th:first-child,
+.hx-surf-ablation-table tbody th {
+  position: sticky;
+  z-index: 1;
+  left: 0;
+  background: var(--hx-surface);
+  white-space: nowrap;
+}
+
+.hx-surf-col-method {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.hx-surf-ablation-table .is-picked {
+  background: color-mix(in srgb, var(--hx-method) 10%, var(--hx-surface));
+}
+
+.hx-surf-ablation-table thead .is-picked {
+  box-shadow: inset 0 -3px 0 var(--hx-method);
+  color: var(--hx-ink);
+}
+
+.hx-surf-ablation-table tr.is-current th,
+.hx-surf-ablation-table tr.is-current td {
+  border-top: 2px solid var(--hx-dark);
+  border-bottom: 2px solid var(--hx-dark);
+}
+
+.hx-surf-ablation-table tr.hx-surf-mean th,
+.hx-surf-ablation-table tr.hx-surf-mean td {
+  border-top: 2px solid var(--hx-ink);
+}
+
+.hx-surf-ablation-table tr.hx-surf-mean th {
+  font-weight: 600;
+}
+
+.hx-surf-row-open {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0;
+  border: 0;
+  border-bottom: 1px dashed currentColor;
+  background: none;
+  color: var(--hx-link);
+  font: inherit;
+  cursor: pointer;
+}
+
+.hx-surf-row-open .fa-solid {
+  font-size: 0.7rem;
+}
+
+.hx-surf-row-open[aria-pressed="true"] {
+  border-bottom-style: solid;
+  color: var(--hx-ink);
+  font-weight: 600;
+}
+
+/* "About the six methods": the descriptions from the manifest, folded by default. */
+.hx-surf-about {
+  margin-top: 10px;
+  font-size: 0.85rem;
+}
+
+.hx-surf-about summary {
+  width: fit-content;
+  color: var(--hx-link);
+  cursor: pointer;
+}
+
+.hx-surf-about dl {
+  margin-top: 8px;
+}
+
+.hx-surf-about-lead {
+  margin-top: 8px;
+  color: var(--hx-muted);
+  line-height: 1.55;
+}
+
+.hx-surf-about dt {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  color: var(--hx-ink);
+  font-weight: 600;
+}
+
+.hx-surf-about dd {
+  margin: 2px 0 0 17px;
+  color: var(--hx-muted);
+  line-height: 1.5;
+}
+
+.hx-surf-caveats {
+  max-width: 50rem;
+  margin: 30px auto 0;
+  padding: 0.75rem 1rem 0.8rem;
+  border-radius: 8px;
+  background: var(--hx-surface-2);
+  color: var(--hx-muted);
+  font-size: 0.85rem;
+  line-height: 1.55;
+}
+
+.hx-surf-caveats-title {
+  margin-bottom: 4px;
+  color: var(--hx-ink);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.hx-surf-caveats ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  list-style: disc;
+}
+
+.hx-surf-caveats li + li {
+  margin-top: 4px;
+}
+
+.hx-surf .hx-soon-card {
+  margin-top: 0;
+}
+
+/* Narrow screens ----------------------------------------------------------------------------- */
+
+/* Below this width the scene table (with its component columns) needs the full width. */
+@media (max-width: 1180px) {
+  .hx-surf-details {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .hx-surf-scenes {
+    gap: 4px;
+  }
+
+  .hx-surf-scene {
+    min-width: 0;
+    flex: 1 1 calc(33.333% - 4px);
+    max-width: calc(50% - 2px);
+    padding: 5px 6px 6px;
+  }
+
+  .hx-surf-scene-name {
+    font-size: 0.82rem;
+  }
+
+  .hx-surf-methods {
+    align-items: stretch;
+  }
+
+  .hx-surf-method-row {
+    gap: 6px;
+  }
+
+  .hx-surf-row-label {
+    justify-content: flex-start;
+    width: 52px;
+    font-size: 0.7rem;
+    letter-spacing: 0.03em;
+  }
+
+  /* One scrolling line of buttons per side; its right end fades out over the padding, as in the comparison
+     player, so a cut-off button reads as more to come. */
+  .hx-surf-method-buttons {
+    flex-wrap: nowrap;
+    min-width: 0;
+    padding: 2px 24px 2px 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 24px), transparent);
+    mask-image: linear-gradient(90deg, #000 calc(100% - 24px), transparent);
+  }
+
+  .hx-surf-method-buttons::-webkit-scrollbar {
+    display: none;
+  }
+
+  .hx-surf-method {
+    flex: none;
+    gap: 5px;
+    padding: 0 10px;
+    font-size: 0.8rem;
+  }
+
+  .hx-surf-tag {
+    top: 6px;
+    left: 6px;
+    gap: 5px;
+    max-width: calc(100% - 12px);
+    padding: 2px 3px 2px 7px;
+    font-size: 0.74rem;
+  }
+
+  /* Half a phone is too narrow for name and value on one line: the value goes under the name. */
+  .hx-surf-stage[data-layout="wipe"] .hx-surf-tag {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    gap: 2px 6px;
+    max-width: calc(50% - 26px);
+    padding: 3px 6px;
+  }
+
+  .hx-surf-stage[data-layout="wipe"] .hx-surf-tag-value {
+    grid-column: 2;
+    justify-self: start;
+  }
+
+  .hx-surf-stage[data-layout="wipe"] .hx-surf-side-right .hx-surf-tag,
+  .hx-surf-stage[data-layout="wipe"][data-gt="swap"] .hx-surf-side-reference .hx-surf-tag {
+    right: 6px;
+  }
+
+  /* The scan's label has no value to drop under it: it takes two lines instead of being cut short. */
+  .hx-surf-stage[data-layout="wipe"] .hx-surf-side-reference .hx-surf-tag-name {
+    white-space: normal;
+    text-wrap: balance;
+  }
+
+  .hx-surf-toolbar {
+    gap: 8px;
+  }
+
+  .hx-surf-tool span {
+    display: none;
+  }
+
+  .hx-surf-tool:not(.is-icon) {
+    width: 32px;
+    padding: 0;
+  }
+
+  .hx-surf-table {
+    font-size: 0.82rem;
+  }
+
+  /* Phones keep the main metric only; the highlighted rows still mark the pair on the stage. */
+  .hx-surf-scores-table .is-part,
+  .hx-surf-scores .hx-surf-side-chip {
+    display: none;
+  }
+
+  .hx-surf-table.table th,
+  .hx-surf-table.table td {
+    padding: 5px 8px;
+  }
+}
+
+/* The narrowest phones (320 to 360 px): tighter cells, so the six-method table fits its column unscrolled, and
+   smaller corner labels, so a long method name fits beside its value. */
+@media screen and (max-width: 360px) {
+  .hx-surf-tag {
+    gap: 5px;
+    padding: 2px 3px 2px 7px;
+    font-size: 0.72rem;
+  }
+
+  .hx-surf-tag-value {
+    padding: 0 5px;
+  }
+
+  .hx-surf-table {
+    font-size: 0.78rem;
+  }
+
+  .hx-surf-table.table th,
+  .hx-surf-table.table td {
+    padding: 4px 5px;
+  }
+}
+
+/* Touch screens: tap targets of at least 40 px. */
+@media (pointer: coarse) {
+  .hx-surf-tabs.tabs a {
+    min-height: 40px;
+  }
+
+  .hx-surf-methods {
+    --hx-surf-button: 40px;
+  }
+
+  .hx-surf-scene {
+    min-height: 44px;
+  }
+
+  .hx-surf-seg button,
+  .hx-surf-tool,
+  .hx-surf-gt {
+    height: 40px;
+  }
+
+  .hx-surf-tool {
+    min-width: 40px;
+  }
+
+  .hx-surf-done {
+    min-height: 40px;
+  }
+
+  .hx-surf-about summary {
+    display: flex;
+    align-items: center;
+    min-height: 40px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hx-surf-progress span,
+  .hx-surf-veil,
+  .hx-surf-hint,
+  .hx-surf-where,
+  .hx-surf-activate .hx-surf-pill,
+  .hx-surf-gt-switch,
+  .hx-surf-gt-switch::after {
+    transition: none;
+  }
+}

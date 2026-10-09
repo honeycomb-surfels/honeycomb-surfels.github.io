@@ -1,0 +1,1362 @@
+/*
+ * Honeycomb-Surfels project pages (index.html and theory.html): shared tokens, layout and the page shell.
+ * The look follows the Nerfies academic template (Bulma, Google Sans titles, Noto Sans text,
+ * dark rounded buttons), widened so result panels use most of a laptop screen.
+ * compare.css, quad.css and explorer.css reuse the custom properties defined here.
+ */
+
+:root {
+  --hx-ink: #1f2b30;
+  --hx-muted: #5f6b70;
+  --hx-line: #e3e6e8;
+  --hx-surface: #ffffff;
+  --hx-surface-2: #f5f6f7;
+  --hx-dark: #363636;
+  --hx-link: #3273dc;
+  --hx-ours: #cd7353;
+  --hx-select: #5d70ae;
+  --hx-radius: 10px;
+  --hx-wide: 1320px;
+  --hx-text: 960px;
+
+  /* Method swatches: small dots on method buttons and labels. */
+  --hx-method-ours: #cd7353;
+  --hx-method-2dgs: #458da5;
+  --hx-method-3dgs: #8b679a;
+  --hx-method-triangle: #5d70ae;
+  --hx-method-meshsplatting: #6f8f4e;
+  --hx-method-milo: #a35b7b;
+  --hx-method-3dconvex: #607985;
+  --hx-method-bbsplat: #b08b4f;
+  --hx-method-nexels: #4f9bd6;
+
+  --hx-gutter: 1.25rem;
+  --hx-font-title: "Google Sans", "Noto Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --hx-font-body: "Noto Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --hx-font-serif: "Castoro", Georgia, "Times New Roman", serif;
+  --hx-font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+}
+
+@media screen and (max-width: 600px) {
+  :root {
+    --hx-gutter: 1rem;
+  }
+}
+
+/* ---------- Base ---------- */
+
+html {
+  background-color: var(--hx-surface);
+}
+
+[hidden] {
+  display: none !important;
+}
+
+/* Text about features that need a mouse, such as the comparison's close-ups, which touch screens do not show. */
+@media not all and (hover: hover) and (pointer: fine) {
+  .hx-mouse-only {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  font-family: var(--hx-font-body);
+  color: var(--hx-ink);
+  background-color: var(--hx-surface);
+  overflow-wrap: break-word;
+}
+
+a {
+  color: var(--hx-link);
+}
+
+a:hover {
+  color: var(--hx-ink);
+}
+
+/* Bulma sets buttons and inputs in the system interface font; they follow the page's text instead. */
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+.title,
+.subtitle {
+  font-family: var(--hx-font-title);
+}
+
+.title {
+  color: var(--hx-ink);
+}
+
+:focus-visible,
+.button:focus-visible {
+  outline: 2px solid var(--hx-select);
+  outline-offset: 2px;
+}
+
+.hx-skip-link {
+  position: absolute;
+  top: -3rem;
+  left: 0.75rem;
+  z-index: 50;
+  padding: 0.45rem 0.9rem;
+  border-radius: 6px;
+  background: var(--hx-dark);
+  color: #fff;
+}
+
+.hx-skip-link:focus {
+  top: 0.75rem;
+  color: #fff;
+}
+
+/* ---------- Layout ---------- */
+
+.hx-container {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: var(--hx-gutter);
+}
+
+.hx-text {
+  max-width: calc(var(--hx-text) + 2 * var(--hx-gutter));
+}
+
+.hx-wide {
+  max-width: calc(var(--hx-wide) + 2 * var(--hx-gutter));
+}
+
+.section.hx-section {
+  padding: 3.5rem 0;
+}
+
+.hx-section .title.is-3 {
+  margin-bottom: 1.5rem;
+}
+
+.hx-section .title.is-4.hx-subtitle {
+  margin: 3rem 0 1.25rem;
+  font-size: 1.35rem;
+}
+
+.hx-section[id] {
+  scroll-margin-top: 0.5rem;
+}
+
+.section.hx-band {
+  background-color: var(--hx-surface-2);
+}
+
+.hx-lead {
+  max-width: 50rem;
+  margin: 0 auto 1.75rem;
+  color: var(--hx-muted);
+  font-size: 1.05rem;
+  line-height: 1.65;
+  text-align: center;
+  text-wrap: pretty;
+}
+
+@media screen and (max-width: 768px) {
+  .section.hx-section {
+    padding: 2.5rem 0;
+  }
+
+  .hx-section .title.is-3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.1rem;
+  }
+
+  .hx-section .title.is-4.hx-subtitle {
+    margin-top: 2.25rem;
+    font-size: 1.2rem;
+  }
+
+  .hx-lead {
+    font-size: 1rem;
+    text-align: left;
+  }
+}
+
+/* ---------- Hero ---------- */
+
+.hx-hero .hero-body {
+  padding: 2.75rem 0 1.25rem;
+}
+
+.title.publication-title {
+  max-width: 1120px;
+  margin: 0 auto 1.25rem;
+  font-size: clamp(1.6rem, 1.05rem + 2.3vw, 2.75rem);
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+/* The honeycomb logo before the words "Honeycomb-Surfels" (static/images/logo.svg): in the title of
+   index.html and the kicker of theory.html. The span keeps the logo and the name on one line. */
+.hx-lockup {
+  white-space: nowrap;
+}
+
+/* 1.4 times the cap height of Google Sans (0.74em), centred on the capitals: (0.74em - 1.04em) / 2 below the baseline. */
+.hx-lockup img {
+  width: auto;
+  height: 1.04em;
+  margin-right: 0.25em;
+  vertical-align: -0.15em;
+}
+
+.publication-authors,
+.publication-affiliation {
+  font-family: var(--hx-font-title);
+  min-height: 1.5em;
+}
+
+.publication-authors a,
+.publication-authors a:hover {
+  color: var(--hx-link);
+}
+
+.publication-affiliation a {
+  color: inherit;
+}
+
+.publication-authors a:hover,
+.publication-affiliation a:hover {
+  text-decoration: underline;
+}
+
+.publication-affiliation {
+  margin-top: 0.15rem;
+}
+
+.author-block {
+  display: inline-block;
+}
+
+/* The two co-first authors trade places on screen (site.js) inside one unbreakable row, so the line never rewraps
+   and the reading order stays fixed. The gap stands in for the space between them, which a flex row drops; it is
+   the width of a space in Google Sans. */
+.hx-author-pair {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.25em;
+  white-space: nowrap;
+}
+
+.hx-author-pair.is-swapped {
+  flex-direction: row-reverse;
+}
+
+.publication-authors sup {
+  margin-left: 0.05em;
+}
+
+.publication-note {
+  min-height: 1.4em;
+  margin-top: 0.35rem;
+  color: var(--hx-muted);
+  font-size: 0.875rem;
+}
+
+.publication-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 2.5rem;
+  margin-top: 1.25rem;
+}
+
+.publication-links .button[disabled] {
+  opacity: 0.6;
+}
+
+.hx-soon {
+  margin-left: 0.45rem;
+  padding: 0.1rem 0.42rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.2);
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+/* Phones only (below): which paper resources are still to come. */
+.hx-soon-note {
+  display: none;
+  margin: 0.6rem 0 0;
+  color: var(--hx-muted);
+  font-size: 0.85rem;
+}
+
+@media screen and (max-width: 600px) {
+  .hx-hero .hero-body {
+    padding-top: 2.25rem;
+  }
+
+  .publication-authors,
+  .publication-affiliation {
+    font-size: 1.05rem !important;
+  }
+
+  .publication-links .button {
+    font-size: 0.9rem;
+  }
+
+  /* The "soon" tag stays for screen readers only, so the buttons need fewer rows; one line under the buttons
+     (site.js) says which resources are still to come, since touch screens cannot show the buttons' titles. */
+  .hx-soon {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .hx-soon-note {
+    display: block;
+  }
+}
+
+/* ---------- Demo window ---------- */
+
+.section.hx-teaser {
+  padding-top: 1.5rem;
+}
+
+.hx-window {
+  padding: 0.9rem 0.9rem 0.4rem;
+  border: 1px solid var(--hx-line);
+  border-radius: var(--hx-radius);
+  background: var(--hx-surface);
+}
+
+.tabs.hx-tabs {
+  margin-bottom: 0.5rem;
+  /* Room for the focus ring, which the scrolling tab strip would otherwise clip. */
+  padding: 4px;
+}
+
+.tabs.is-toggle.hx-tabs a {
+  border-color: var(--hx-line);
+  color: var(--hx-ink);
+}
+
+.tabs.is-toggle.hx-tabs a:hover {
+  border-color: #c9ced1;
+  background-color: var(--hx-surface-2);
+}
+
+/* The selected tab is dark like every other selected control; --hx-select stays for focus rings. */
+.tabs.is-toggle.hx-tabs li.is-active a {
+  border-color: var(--hx-dark);
+  background-color: var(--hx-dark);
+  color: #fff;
+}
+
+/* Tab labels at the size of the method and scene pills; phones keep Bulma's smaller tabs. */
+@media screen and (min-width: 601px) {
+  .tabs.is-small.hx-tabs {
+    font-size: 0.85rem;
+  }
+}
+
+.hx-frame {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 6px;
+  background: var(--hx-surface-2);
+}
+
+.hx-ratio-counter {
+  aspect-ratio: 1280 / 400;
+}
+
+.hx-ratio-image2d {
+  aspect-ratio: 1560 / 632;
+}
+
+.hx-frame > img,
+.hx-frame > video {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.hx-caption {
+  margin: 0.7rem auto 0.5rem;
+  max-width: var(--hx-text);
+  color: var(--hx-muted);
+  font-size: 0.95rem;
+  line-height: 1.55;
+  text-align: center;
+  text-wrap: pretty;
+}
+
+.hx-caption-long {
+  text-align: justify;
+  hyphens: auto;
+}
+
+.hx-caption strong {
+  color: var(--hx-ink);
+}
+
+@media screen and (max-width: 600px) {
+  .hx-window {
+    padding: 0.6rem 0.5rem 0.25rem;
+  }
+
+  .hx-caption,
+  .hx-caption-long,
+  .hx-abstract {
+    text-align: left !important;
+  }
+
+  .hx-caption {
+    font-size: 0.9rem;
+  }
+
+  .hx-caption-long {
+    hyphens: manual;
+  }
+
+  .hx-frame .hx-play {
+    width: 2.75rem;
+    height: 2.75rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* The narrowest phones: the demo tabs drop their icons, so both tabs fit without scrolling the strip. */
+@media screen and (max-width: 380px) {
+  .tabs.hx-tabs .icon {
+    display: none;
+  }
+
+  .tabs.hx-tabs a {
+    padding-inline: 0.8em;
+  }
+}
+
+/* ---------- Abstract ---------- */
+
+.hx-tldr {
+  margin: 0 0 1.5rem;
+  padding: 1rem 1.25rem;
+  border-left: 4px solid var(--hx-ours);
+  border-radius: 0 var(--hx-radius) var(--hx-radius) 0;
+  background: var(--hx-surface-2);
+  color: var(--hx-ink);
+  font-size: 1.05rem;
+  line-height: 1.65;
+  text-wrap: pretty;
+}
+
+.hx-tldr strong {
+  margin-right: 0.35rem;
+  font-family: var(--hx-font-title);
+  letter-spacing: 0.02em;
+}
+
+.hx-abstract {
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+/* ---------- Media notice and the playback controls of playback.js ---------- */
+
+.hx-notice {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 1rem 1.25rem;
+  background: var(--hx-surface-2);
+  color: var(--hx-muted);
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.hx-frame > .hx-notice {
+  width: 100%;
+  height: 100%;
+  min-height: 6rem;
+}
+
+.hx-frame.has-notice {
+  cursor: default;
+}
+
+.hx-media {
+  position: relative;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Touch screens and reduced motion: a round play button in the middle of the paused video. */
+.hx-play {
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  left: 50%;
+  display: grid;
+  place-items: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(31, 43, 48, 0.75);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  font-size: 1.15rem;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.2s ease;
+}
+
+.hx-play .fa-play {
+  margin-left: 0.15em;
+}
+
+html:not(.hx-hover) .hx-media:not(.is-playing) .hx-play {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* While playing, a smaller pause button waits in the corner. */
+html:not(.hx-hover) .hx-media.is-playing .hx-play {
+  top: auto;
+  left: auto;
+  right: 0.6rem;
+  bottom: 0.6rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 0.9rem;
+  opacity: 0.85;
+  pointer-events: auto;
+  transform: none;
+}
+
+/* A tap anywhere on a theory animation or a demo video pauses it, so there the corner pause button fades out 1.5 s
+   after playback starts, uncovering labels drawn in the corner; it returns on pause and on keyboard focus. Gallery
+   previews keep theirs: a tap on the preview opens the scene instead. */
+html:not(.hx-hover) .hx-anim-media.is-playing .hx-play:not(:focus-visible),
+html:not(.hx-hover) .hx-frame.is-playing .hx-play:not(:focus-visible) {
+  opacity: 0;
+  transition: opacity 0.4s ease 1.5s;
+}
+
+/* With a mouse, hovering plays; the button only appears for keyboard users. */
+.hx-play:focus-visible {
+  opacity: 1;
+  pointer-events: auto;
+  outline: 2px solid #fff;
+  box-shadow: 0 0 0 4px var(--hx-select);
+}
+
+/* A small "Hover to play" pill; inside .hx-media it shows only on mouse screens while paused. */
+.hx-hint {
+  position: absolute;
+  z-index: 2;
+  left: 0.6rem;
+  bottom: 0.6rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.2rem 0.65rem;
+  border-radius: 999px;
+  background: rgba(31, 43, 48, 0.72);
+  color: #fff;
+  font-size: 0.75rem;
+  line-height: 1.6;
+  pointer-events: none;
+}
+
+.hx-hint .fa-play {
+  font-size: 0.65rem;
+}
+
+.hx-media .hx-hint {
+  display: none;
+}
+
+html.hx-hover .hx-media:not(.is-playing) .hx-hint {
+  display: inline-flex;
+}
+
+/* The hint as a quiet line under an animation, so it never covers the drawing. */
+.hx-hint-below {
+  position: static;
+  display: none;
+  margin-top: 0.55rem;
+  padding: 0;
+  background: none;
+  color: var(--hx-muted);
+  font-size: 0.8rem;
+}
+
+html.hx-hover .hx-hint-below {
+  display: inline-flex;
+}
+
+html.hx-hover .hx-media.is-playing + .hx-hint-below {
+  visibility: hidden;
+}
+
+/* A spinner appears when the first frames take more than a moment. */
+.hx-media.is-loading::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  width: 2rem;
+  height: 2rem;
+  margin: -1rem 0 0 -1rem;
+  border: 3px solid rgba(255, 255, 255, 0.45);
+  border-top-color: #fff;
+  border-radius: 50%;
+  background: rgba(31, 43, 48, 0.45);
+  background-clip: padding-box;
+  opacity: 0;
+  animation: hx-spin 0.8s linear infinite, hx-appear 0.2s ease 0.4s forwards;
+  pointer-events: none;
+}
+
+@keyframes hx-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes hx-appear {
+  to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hx-play,
+  .hx-backlink .fa-arrow-left {
+    transition: none;
+  }
+
+  /* A still ring instead of a spinning one. */
+  .hx-media.is-loading::after {
+    animation: hx-appear 0.2s ease 0.4s forwards;
+  }
+}
+
+/* ---------- Figures ---------- */
+
+.hx-figure {
+  margin: 0 auto 2rem;
+}
+
+.hx-figure:last-child {
+  margin-bottom: 0;
+}
+
+.hx-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Paper figures on a white card with a hairline border, so they read as one panel. */
+.hx-figure-scroll {
+  padding: 0.75rem;
+  border: 1px solid var(--hx-line);
+  border-radius: var(--hx-radius);
+  background: #fff;
+}
+
+.hx-swipe-hint {
+  display: none;
+}
+
+.section.hx-section-figure {
+  padding-top: 0;
+}
+
+/* Phones: the multi-panel figures keep a readable size and scroll sideways inside their card. */
+@media screen and (max-width: 600px) {
+  .hx-figure-scroll {
+    padding: 0.4rem;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+  }
+
+  .hx-figure-scroll img {
+    width: 760px;
+    max-width: none;
+  }
+
+  .hx-swipe-hint {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    margin: 0.45rem 0 0;
+    color: var(--hx-muted);
+    font-size: 0.8rem;
+  }
+}
+
+/* ---------- Text with math (the theory explanations) ---------- */
+
+.hx-prose {
+  color: var(--hx-ink);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.hx-prose h3 {
+  margin: 0 0 0.6rem;
+  font-family: var(--hx-font-title);
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.hx-prose p {
+  margin: 0 0 0.8rem;
+}
+
+.hx-prose .hx-eq {
+  margin: 0.4rem 0 0.9rem;
+}
+
+.hx-prose .hx-ref {
+  display: block;
+  margin: 0.6rem 0 0;
+  color: var(--hx-muted);
+  font-size: 0.85rem;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.hx-prose-block {
+  margin: 2.25rem auto 2.5rem;
+}
+
+.hx-section .title + .hx-prose-block {
+  margin-top: 0;
+}
+
+.hx-prose .katex {
+  font-size: 1.08em;
+}
+
+/* KaTeX's safety net: a display formula wider than its column scrolls instead of widening the page. */
+.katex-display {
+  margin: 0.5em 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.15em 0;
+}
+
+/* A centered call to action under a block of text: the theory link of the method section and the results link
+   that closes theory.html. */
+.hx-prose-block.hx-before-cta {
+  margin-bottom: 1.75rem;
+}
+
+.hx-cta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin: 0;
+}
+
+@media screen and (max-width: 600px) {
+  .hx-prose {
+    font-size: 0.97rem;
+    line-height: 1.65;
+  }
+
+  .hx-prose h3 {
+    font-size: 1.12rem;
+  }
+}
+
+/* ---------- Animated theory (theory.html) ---------- */
+
+.hx-hero-theory .hero-body {
+  padding-top: 1.5rem;
+  padding-bottom: 0.75rem;
+  text-align: center;
+}
+
+/* A quiet way back to the project page, at the top and the bottom of theory.html. */
+.hx-back-top {
+  margin-bottom: 1.75rem;
+  text-align: left;
+}
+
+.hx-back-end {
+  margin-top: 1.25rem;
+  text-align: center;
+}
+
+.hx-backlink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2rem;
+  color: var(--hx-muted);
+  font-family: var(--hx-font-title);
+  font-size: 0.95rem;
+}
+
+.hx-backlink:hover {
+  color: var(--hx-ink);
+}
+
+.hx-backlink:hover span {
+  text-decoration: underline;
+}
+
+.hx-backlink .fa-arrow-left {
+  font-size: 0.85em;
+  transition: transform 0.15s ease;
+}
+
+.hx-backlink:hover .fa-arrow-left {
+  transform: translateX(-2px);
+}
+
+.hx-kicker {
+  margin: 0 0 0.6rem;
+  color: var(--hx-muted);
+  font-family: var(--hx-font-title);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hx-kicker a {
+  color: inherit;
+}
+
+.hx-kicker a:hover {
+  color: var(--hx-ink);
+  text-decoration: underline;
+}
+
+/* The kicker's small capitals need a larger logo than the title to read as a honeycomb: about 24 px, the smallest
+   size logo.svg is meant for, still centred on the capitals. */
+.hx-kicker .hx-lockup img {
+  height: 1.75em;
+  margin-right: 0.4em;
+  vertical-align: -0.5em;
+}
+
+.hx-prose.hx-theory-lead {
+  max-width: 47rem;
+  margin: 1.5rem auto 0;
+  color: var(--hx-muted);
+  font-size: 1.05rem;
+  text-wrap: pretty;
+}
+
+.hx-prose.hx-theory-lead .hx-ref {
+  margin-top: 0.2rem;
+}
+
+.hx-chapter .title.is-3 {
+  margin-bottom: 2.25rem;
+}
+
+/* Each animation beside its explanation, the animation in the wider column; sides alternate from row to row. */
+.hx-anims {
+  display: grid;
+  gap: 4.5rem;
+}
+
+.hx-anim {
+  display: grid;
+  grid-template-columns: minmax(0, 55fr) minmax(0, 45fr);
+  align-items: start;
+  gap: 3rem;
+}
+
+.hx-anim-flip {
+  grid-template-columns: minmax(0, 45fr) minmax(0, 55fr);
+}
+
+.hx-anim-flip .hx-anim-side {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.hx-anim-flip .hx-anim-text {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+/* The animation stays in view while its longer explanation scrolls past. */
+.hx-anim-side {
+  position: sticky;
+  top: 1.25rem;
+}
+
+.hx-anim-media {
+  overflow: hidden;
+  border: 1px solid var(--hx-line);
+  border-radius: var(--hx-radius);
+  background: #fff;
+}
+
+.hx-anim-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* A row with two animations stacks them in its media column, each under a short label. */
+.hx-anim-item + .hx-anim-item {
+  margin-top: 1.5rem;
+}
+
+.hx-anim-label {
+  margin-bottom: 0.4rem;
+  color: var(--hx-muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.hx-anim-media video {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Touch screens: a paused animation keeps its play button where its pause button sits while it plays, in the corner,
+   so the still drawing stays readable (the numbers of the honeycomb pair stay clear of it). */
+html:not(.hx-hover) .hx-anim-media:not(.is-playing) .hx-play {
+  top: auto;
+  left: auto;
+  right: 0.6rem;
+  bottom: 0.6rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 0.9rem;
+  transform: none;
+}
+
+.hx-anim-text {
+  font-size: 0.98rem;
+}
+
+/* The closing summary, set off like the TL;DR of the project page. */
+.hx-prose.hx-summary {
+  max-width: 50rem;
+  padding: 1.1rem 1.4rem 1rem;
+  border-left: 4px solid var(--hx-ours);
+  border-radius: 0 var(--hx-radius) var(--hx-radius) 0;
+  background: var(--hx-surface-2);
+}
+
+/* Below 961 px the explanation moves under its animation; both stay at most 720 px wide, about the width at
+   which the 1440 px videos stay sharp on a high-density screen. */
+@media screen and (max-width: 960px) {
+  .hx-anims {
+    gap: 3.5rem;
+  }
+
+  .hx-anim,
+  .hx-anim-flip {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.25rem;
+    width: 100%;
+    max-width: 720px;
+    margin-inline: auto;
+  }
+
+  .hx-anim-flip .hx-anim-side,
+  .hx-anim-flip .hx-anim-text {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .hx-anim-side {
+    position: static;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hx-prose.hx-theory-lead {
+    text-align: left;
+  }
+
+  .hx-chapter .title.is-3 {
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .hx-anims {
+    gap: 2.75rem;
+  }
+
+  .hx-prose.hx-theory-lead {
+    font-size: 1rem;
+  }
+
+  .hx-anim-text {
+    font-size: 0.97rem;
+  }
+
+  .hx-prose.hx-summary {
+    padding: 0.9rem 1rem 0.8rem;
+  }
+}
+
+/* ---------- Tips (static/data/tips.json) ---------- */
+
+.hx-tip {
+  max-width: 46rem;
+  margin: 0.9rem auto 0;
+  padding: 0.6rem 0.9rem;
+  border-left: 3px solid var(--hx-ours);
+  border-radius: 0 8px 8px 0;
+  background: var(--hx-surface-2);
+  color: var(--hx-ink);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.hx-tip strong {
+  margin-right: 0.2rem;
+}
+
+.hx-tip-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-left: 0.4rem;
+  padding: 0.1rem 0.65rem;
+  border: 1px solid var(--hx-line);
+  border-radius: 999px;
+  background: var(--hx-surface);
+  color: var(--hx-ink);
+  font: inherit;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+@media (hover: hover) {
+  .hx-tip-action:hover {
+    border-color: var(--hx-dark);
+  }
+}
+
+@media (pointer: coarse) {
+  .hx-tip-action {
+    min-height: 40px;
+    margin: 0.4rem 0 0;
+  }
+}
+
+/* ---------- Depth and normals ---------- */
+
+.hx-geo-legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem 2.5rem;
+  margin: 0 0 1.5rem;
+  color: var(--hx-muted);
+  font-size: 0.88rem;
+}
+
+.hx-geo-key {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem 0.6rem;
+}
+
+.hx-geo-key-title {
+  color: var(--hx-ink);
+  font-family: var(--hx-font-title);
+  font-weight: 600;
+}
+
+.hx-geo-ramp {
+  display: inline-block;
+  width: 9rem;
+  height: 0.7rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #7a0403 0%, #d02f05 12.5%, #fb7e21 25%, #eecf3a 37.5%, #a4fc3c 50%,
+    #32f298 62.5%, #28bceb 75%, #466be3 87.5%, #30123b 100%);
+}
+
+.hx-geo-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  white-space: nowrap;
+}
+
+.hx-geo-swatch {
+  display: inline-block;
+  width: 0.85rem;
+  height: 0.85rem;
+  border-radius: 3px;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.12);
+}
+
+/* RGB = (n + 1) / 2 for the camera-space normals (0, 0, 1), (1, 0, 0) and (0, 1, 0); grey where no surface. */
+.hx-geo-swatch-front { background: #8080ff; }
+.hx-geo-swatch-right { background: #ff8080; }
+.hx-geo-swatch-up { background: #80ff80; }
+.hx-geo-swatch-none { background: #808080; }
+
+.hx-geo-row + .hx-geo-row {
+  margin-top: 1.75rem;
+}
+
+.hx-geo-title {
+  margin: 0 0 0.5rem;
+  color: var(--hx-muted);
+  font-size: 0.92rem;
+}
+
+.hx-geo-title strong {
+  margin-right: 0.25rem;
+  color: var(--hx-ink);
+  font-family: var(--hx-font-title);
+  font-size: 1.02rem;
+}
+
+.hx-geo-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.hx-geo-panel {
+  margin: 0;
+}
+
+.hx-geo-panel img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: var(--hx-geo-aspect);
+  border-radius: 6px;
+  background: var(--hx-surface-2);
+}
+
+.hx-geo-panel figcaption {
+  margin-top: 0.35rem;
+  color: var(--hx-muted);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+/* Phones: each row becomes a strip that swipes from the render to its depth and normals. */
+@media screen and (max-width: 700px) {
+  .hx-geo-strip {
+    display: flex;
+    gap: 0.6rem;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 0.4rem;
+  }
+
+  .hx-geo-panel {
+    flex: 0 0 84%;
+    scroll-snap-align: start;
+  }
+
+  .hx-geo-legend {
+    justify-content: flex-start;
+    gap: 0.6rem 1.5rem;
+  }
+
+  .hx-geo-key {
+    justify-content: flex-start;
+  }
+}
+
+/* ---------- 2D table ---------- */
+
+.hx-table-note {
+  max-width: 44rem;
+  margin: 2rem auto 0.6rem;
+  color: var(--hx-muted);
+  font-size: 0.9rem;
+  text-align: center;
+  text-wrap: pretty;
+}
+
+.hx-table-wrap {
+  margin: 0 auto;
+}
+
+.table.hx-table {
+  margin: 0 auto;
+  color: var(--hx-ink);
+  font-size: 0.95rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.table.hx-table th,
+.table.hx-table td {
+  border-color: var(--hx-line);
+  padding-inline: 0.8rem;
+  white-space: nowrap;
+}
+
+.table.hx-table td {
+  text-align: right;
+}
+
+/* Muted and a little smaller than the cells, like the headers of the page's other tables. */
+.table.hx-table thead th {
+  color: var(--hx-muted);
+  font-size: 0.93em;
+  font-weight: 600;
+  text-align: right;
+}
+
+.table.hx-table thead th:first-child,
+.table.hx-table tbody th {
+  text-align: left;
+}
+
+.table.hx-table tbody th {
+  font-weight: 400;
+}
+
+@media screen and (max-width: 600px) {
+  .table.hx-table {
+    font-size: 0.85rem;
+  }
+
+  .table.hx-table th,
+  .table.hx-table td {
+    padding-inline: 0.5rem;
+  }
+}
+
+/* ---------- Coming soon card ---------- */
+
+.hx-soon-card {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 1.5rem 1.75rem;
+  border: 1px dashed #cfd5d8;
+  border-radius: var(--hx-radius);
+  background: var(--hx-surface-2);
+  color: var(--hx-muted);
+  text-align: center;
+}
+
+.hx-soon-card strong {
+  color: var(--hx-ink);
+}
+
+/* ---------- BibTeX ---------- */
+
+.hx-bibtex-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.hx-section .hx-bibtex-head .title.is-3 {
+  margin-bottom: 0;
+}
+
+.button.hx-copy {
+  min-height: 2.5rem;
+  border-color: var(--hx-line);
+  color: var(--hx-ink);
+}
+
+.button.hx-copy:hover {
+  border-color: #c9ced1;
+  background-color: var(--hx-surface-2);
+}
+
+pre.hx-bibtex {
+  padding: 1.25rem 1.5rem;
+  border-radius: 8px;
+  background: var(--hx-surface-2);
+  color: var(--hx-ink);
+  font-family: var(--hx-font-mono);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  white-space: pre;
+  overflow-x: auto;
+}
+
+.hx-bibtex-note {
+  margin-top: 0.6rem;
+  color: var(--hx-muted);
+  font-size: 0.85rem;
+}
+
+@media screen and (max-width: 600px) {
+  pre.hx-bibtex {
+    padding: 1rem;
+    font-size: 0.78rem;
+  }
+}
+
+/* ---------- Footer ---------- */
+
+.footer.hx-footer {
+  padding: 2.5rem 0 3rem;
+  background-color: var(--hx-surface-2);
+  color: var(--hx-muted);
+  font-size: 0.9rem;
+}
+
+.footer.hx-footer a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Touch screens: tap targets of at least 40 px ---------- */
+
+@media (pointer: coarse) {
+  .tabs.hx-tabs a {
+    min-height: 2.5rem;
+  }
+
+  .publication-links .button,
+  .hx-backlink {
+    min-height: 2.5rem;
+  }
+}

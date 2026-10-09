@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "views": [
+    {
+      "dataset": "dtu",
+      "label": "Scan 65",
+      "view": "0032",
+      "width": 777,
+      "height": 581,
+      "images": {
+        "rgb": "static/images/geometry/dtu_scan65_0032_rgb.webp",
+        "depth": "static/images/geometry/dtu_scan65_0032_depth.webp",
+        "normal": "static/images/geometry/dtu_scan65_0032_normal.webp"
+      }
+    },
+    {
+      "dataset": "mipnerf360",
+      "label": "Counter",
+      "view": "DSCF6033",
+      "width": 1400,
+      "height": 933,
+      "images": {
+        "rgb": "static/images/geometry/mipnerf360_counter_DSCF6033_rgb.webp",
+        "depth": "static/images/geometry/mipnerf360_counter_DSCF6033_depth.webp",
+        "normal": "static/images/geometry/mipnerf360_counter_DSCF6033_normal.webp"
+      }
+    },
+    {
+      "dataset": "tanks_and_temples",
+      "label": "Truck",
+      "view": "000009",
+      "width": 979,
+      "height": 543,
+      "images": {
+        "rgb": "static/images/geometry/tanks_and_temples_Truck_000009_rgb.webp",
+        "depth": "static/images/geometry/tanks_and_temples_Truck_000009_depth.webp",
+        "normal": "static/images/geometry/tanks_and_temples_Truck_000009_normal.webp"
+      }
+    }
+  ]
+}

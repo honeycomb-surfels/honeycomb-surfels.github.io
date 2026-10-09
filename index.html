@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Honeycomb-Surfels (Hexels)</title>
+  <meta name="description" content="Hexels are planar hexagonal surface elements that carry a first-order (linear) color field, so fewer, larger primitives can represent locally planar regions with smoothly varying appearance.">
+  <meta name="author" content="Prakhar Kaushik, Soumava Paul, Alan Yuille">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="canonical" href="https://honeycomb-surfels.github.io/">
+  <link rel="icon" href="static/images/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="static/images/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="static/images/apple-touch-icon.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Honeycomb-Surfels">
+  <meta property="og:url" content="https://honeycomb-surfels.github.io/">
+  <meta property="og:title" content="Honeycomb-Surfels: Compact Hexagonal Primitives for Efficient Scene Rendering and Reconstruction">
+  <meta property="og:description" content="Hexels are planar hexagonal surface elements that carry a first-order (linear) color field, so fewer, larger primitives can represent locally planar regions with smoothly varying appearance.">
+  <meta property="og:image" content="https://honeycomb-surfels.github.io/static/images/social_preview.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="The Honeycomb-Surfels honeycomb logo and the title Honeycomb-Surfels: Compact Hexagonal Primitives for Efficient Scene Rendering and Reconstruction, above two renders of a yellow toy bulldozer on a kitchen table, each labelled with model memory 19.3 MB, PSNR and peak training VRAM. The 2DGS render on the left has smeared, blurry treads; the Hexels render on the right shows crisp tread links and gears.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Honeycomb-Surfels: Compact Hexagonal Primitives for Efficient Scene Rendering and Reconstruction">
+  <meta name="twitter:description" content="Hexels are planar hexagonal surface elements that carry a first-order (linear) color field, so fewer, larger primitives can represent locally planar regions with smoothly varying appearance.">
+  <meta name="twitter:image" content="https://honeycomb-surfels.github.io/static/images/social_preview.jpg">
+  <meta name="twitter:image:alt" content="The Honeycomb-Surfels honeycomb logo and the title Honeycomb-Surfels: Compact Hexagonal Primitives for Efficient Scene Rendering and Reconstruction, above two renders of a yellow toy bulldozer on a kitchen table, each labelled with model memory 19.3 MB, PSNR and peak training VRAM. The 2DGS render on the left has smeared, blurry treads; the Hexels render on the right shows crisp tread links and gears.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css"
+        integrity="sha512-HqxHUkJM0SYcbvxUw5P60SzdOTy/QVwA1JJrvaXJv4q7lmbDZCmZaqz01UPOaQveoxfYRv1tHozWGPMcuTBuvQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.6/css/academicons.min.css"
+        integrity="sha512-TNfdJEUUJmfj2DRlAKXBg7HroqoXYLon5XPEEWYa2+H/XSD2HAr0BwkRrAoNLAEz79x7XURTFRWDn9yhMNbbNQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.47/katex.min.css"
+        integrity="sha512-kI2+BaD3/4lqajGWnpHozrL4U8PFaP/ZCbCrMyftFQuzVYIak0qhP2ZJgP0fXNq/myQmRtRvwODhDS2Gxdg6Vg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="static/css/index.css">
+  <link rel="stylesheet" href="static/css/compare.css">
+  <link rel="stylesheet" href="static/css/quad.css">
+  <link rel="stylesheet" href="static/css/explorer.css">
+  <link rel="stylesheet" href="static/css/surface.css">
+  <link rel="stylesheet" href="static/css/variants.css">
+  <link rel="stylesheet" href="static/css/visitors.css">
+  <link rel="stylesheet" href="static/css/sections.css">
+</head>
+<body>
+  <a class="hx-skip-link" href="#main">Skip to content</a>
+
+  <header class="hero hx-hero">
+    <div class="hero-body">
+      <div class="hx-container has-text-centered">
+        <h1 class="title is-1 publication-title"><span class="hx-lockup"><img src="static/images/logo.svg" alt=""
+            width="64" height="64">Honeycomb-Surfels:</span> Compact Hexagonal Primitives for Efficient Scene Rendering and Reconstruction</h1>
+        <p class="is-size-5 publication-authors" id="authors"></p>
+        <p class="is-size-5 publication-affiliation" id="affiliation"></p>
+        <p class="publication-note" id="author-note"></p>
+        <nav class="publication-links" id="paper-links" aria-label="Paper resources"></nav>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="section hx-section hx-teaser" id="demo" aria-label="Demo videos">
+      <div class="hx-container hx-wide">
+        <div id="demo-root" class="hx-window" data-media="static/data/nvs_media.json">
+          <div class="tabs is-toggle is-toggle-rounded is-centered is-small hx-tabs">
+            <ul role="tablist" aria-label="Demo videos">
+              <li class="is-active" role="presentation">
+                <a role="tab" id="demo-tab-counter" href="#demo-panel-counter" aria-controls="demo-panel-counter" aria-selected="true">
+                  <span class="icon is-small"><i class="fas fa-cube" aria-hidden="true"></i></span>
+                  <span>3D scene: Counter</span>
+                </a>
+              </li>
+              <li role="presentation">
+                <a role="tab" id="demo-tab-image2d" href="#demo-panel-image2d" aria-controls="demo-panel-image2d" aria-selected="false" tabindex="-1">
+                  <span class="icon is-small"><i class="far fa-image" aria-hidden="true"></i></span>
+                  <span>2D image: Painting</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="hx-demo-panel" role="tabpanel" id="demo-panel-counter" aria-labelledby="demo-tab-counter"
+               data-demo="counter" data-label="Training time-lapse of Hexels on the Mip-NeRF 360 counter scene">
+            <div class="hx-frame hx-ratio-counter"></div>
+            <p class="hx-caption">Training time-lapse of Hexels on the Mip-NeRF 360 counter scene. Left: the RGB render; right: the primitive that contributes most to each pixel.</p>
+          </div>
+          <div class="hx-demo-panel" role="tabpanel" id="demo-panel-image2d" aria-labelledby="demo-tab-image2d"
+               data-demo="image2d" data-label="Hexels fitting a 2D painting" hidden>
+            <div class="hx-frame hx-ratio-image2d"></div>
+            <p class="hx-caption">Hexels fitting a 2D painting with 10,000 primitives: the reconstruction, a 4&times; crop of the hexagon footprints, and the reference image.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section hx-section" id="abstract">
+      <div class="hx-container hx-text">
+        <h2 class="title is-3 has-text-centered">Abstract</h2>
+        <div class="hx-soon-card">
+          <p><strong>Abstract: TBD.</strong> The abstract will be added here.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section hx-section hx-section-figure" id="teaser" aria-label="Teaser figure">
+      <div class="hx-container hx-wide">
+        <figure class="hx-figure hx-figure-card">
+          <div class="hx-figure-scroll">
+            <img src="static/images/teaser_web.webp" width="2000" height="836" loading="lazy" decoding="async"
+                 alt="Left, two renders of a yellow toy bulldozer on a kitchen table at 19.3 MB of model memory: 2DGS with blurred treads and Hexels with sharp tread links, each with an enlarged crop of the rear wheel. Right, a scatter plot of PSNR against peak training VRAM with Hexels at the top left, above and to the left of seven baselines. Bottom, a stylized forest illustration fitted by Image-GS and by Hexels, with their error maps.">
+          </div>
+          <p class="hx-swipe-hint" aria-hidden="true"><i class="fa-solid fa-left-right"></i> Scroll sideways for the whole figure</p>
+          <figcaption class="hx-caption hx-caption-long"><strong>Hexels capture finer detail with less training memory.</strong> Top left: 2DGS and Hexels V1 render the same held-out kitchen view at the same model memory (19.3 MB). In the close-ups, 2DGS smears the bulldozer's rear sprocket and tracks into streaks, while Hexels keep the gear teeth, the sprocket holes, the individual track links and the weave of the placemat, after training with 0.88 instead of 4.88 GiB of peak VRAM. Top right: over the nine Mip-NeRF 360 scenes at matched model memory, Hexels reach the highest mean PSNR (24.82 dB) with the lowest peak training VRAM (0.70 GiB); the closest baselines, Nexels (22.49 dB) and Triangle Splatting (22.36 dB), use 5.96 and 1.12 GiB. Bottom: fitting the image vector-8 with 10K primitives, Hexels reach 34.02 dB against 29.48 dB for Image-GS; both errors concentrate along the thin dark outlines between the color bands, where Image-GS errs far more.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section hx-section" id="method">
+      <div class="hx-container hx-text">
+        <h2 class="title is-3 has-text-centered">Method</h2>
+      </div>
+      <div class="hx-container hx-wide">
+        <figure class="hx-figure hx-figure-card">
+          <div class="hx-figure-scroll">
+            <img src="static/images/hexel_method.webp" width="2000" height="545" loading="lazy" decoding="async" data-theory-alt="method_figure"
+                 alt="Flat hexagons cover a curved surface, one hexagon shows a smooth color gradient with its center and two scaled axes, and its support weight goes from blurry to crisp at three sharpness values.">
+          </div>
+          <p class="hx-swipe-hint" aria-hidden="true"><i class="fa-solid fa-left-right"></i> Scroll sideways for the whole figure</p>
+          <figcaption class="hx-caption hx-caption-long" data-math>A Hexel is a planar patch with a soft hexagonal boundary; together, Hexels approximate a 3D surface (left). Its center \(\mathbf{p}\), orthogonal unit tangents \(\mathbf{t}_u, \mathbf{t}_v\) and scales \(s_u, s_v\) determine its position, orientation and size (center). Color varies linearly from \(\mathbf{c}_0\) at the center, with RGB gradients \(\mathbf{g}_u, \mathbf{g}_v\) along the local coordinates \(u, v\). The support weight \(K\) controls the patch's influence: increasing the sharpness \(\beta\) sharpens the boundary while the <span style="white-space:nowrap">\(K = 1/2\)</span> contour stays fixed (right).</figcaption>
+        </figure>
+      </div>
+      <div class="hx-container hx-text">
+        <div class="hx-prose hx-prose-block hx-before-cta" data-math>
+          <!-- theory:method_figure:start -->
+          <section data-anim-text="method_figure" id="hx-explain-method_figure" data-alt="Flat hexagons cover a curved surface, one hexagon shows a smooth color gradient with its center and two scaled axes, and its support weight goes from blurry to crisp at three sharpness values.">
+            <p>Each Hexel places its local coordinates \((u,v)\) in 3D through its center <span style="white-space:nowrap">\(\mathbf{p}\),</span> unit tangents \(\mathbf{t}_u,\mathbf{t}_v\) and scales <span style="white-space:nowrap">\(s_u,s_v\),</span> and its color changes linearly along them:</p>
+            <div class="hx-eq">\[ \begin{gathered} P(u,v)=\mathbf{p}+s_u\mathbf{t}_u\,u+s_v\mathbf{t}_v\,v,\\ \mathbf{c}^{\mathrm{sp}}(u,v)=\mathbf{c}_0+u\,\mathbf{g}_u+v\,\mathbf{g}_v. \end{gathered} \]</div>
+            <p>Where a pixel's ray meets the plane, the Hexel's opacity \(o\) times its soft hexagonal support \(K\), capped at 0.99, gives its alpha <span style="white-space:nowrap">\(\alpha=\min\{o\cdot K,\,0.99\}\),</span> and colors are blended front to back as in 2DGS. Because the color varies across each patch, fewer, larger Hexels can cover regions whose appearance changes smoothly. V1 uses this spatial color alone, 20 learned numbers per Hexel, while V2 and V3 add an RGB offset that depends on the viewing direction, for 29 and 65 numbers.</p>
+            <p class="hx-ref" data-labels="fig:splat sec:method eq:plane-to-world eq:hex-boundary eq:hex-footprint eq:spatial-color app:hex-math app:appearance_variants app:hex-renderer">In the paper: Figure 2 and Section 3, Eqs. (1) to (4). The parameter counts and appearance variants are in Appendix A, the rasterizer in Appendix B.</p>
+          </section>
+          <!-- theory:method_figure:end -->
+        </div>
+        <p class="hx-cta">
+          <a class="button is-rounded is-dark" href="theory.html">
+            <span class="icon is-small"><i class="fa-solid fa-circle-play" aria-hidden="true"></i></span>
+            <span>See the theory in animations</span>
+          </a>
+        </p>
+      </div>
+    </section>
+
+    <section class="section hx-section" id="primitives">
+      <div class="hx-container hx-text">
+        <h2 class="title is-3 has-text-centered">What the primitives look like</h2>
+        <p class="hx-lead">Drag the crosshair to compare the renders (top) and the primitives (bottom) of Hexels and a Gaussian method, 3DGS or 2DGS, with every primitive drawn in a random color.</p>
+      </div>
+      <div class="hx-container hx-wide">
+        <div id="quad-root" data-src="static/data/primitive_vis.json"></div>
+      </div>
+    </section>
+
+    <section class="section hx-section" id="comparisons">
+      <div class="hx-container hx-text">
+        <h2 class="title is-3 has-text-centered">Novel view synthesis</h2>
+        <p class="hx-lead">Compare Hexels V3 (densified) with eight baselines on all 34 scenes. Pick a scene and a method for each side and drag the divider to compare<span class="hx-mouse-only">; pause the video to see synchronized close-ups of all nine methods</span>.</p>
+      </div>
+      <div class="hx-container hx-wide">
+        <div id="compare-root" data-media="static/data/nvs_media.json" data-metrics="static/data/nvs_metrics.json"></div>
+      </div>
+    </section>
+
+    <section class="section hx-section" id="gallery">
+      <div class="hx-container hx-text">
+        <h2 class="title is-3 has-text-centered">All 34 scenes</h2>
+        <p class="hx-lead">Every scene rendered by Hexels V3 (densified). Hover over a scene to play its video, or hit "Compare" to compare with other baselines above.</p>
+      </div>
+      <div class="hx-container hx-wide">
+        <div id="gallery-root" data-media="static/data/nvs_media.json"></div>
+      </div>
+    </section>
+
+    <section class="section hx-section hx-band" id="results">
+      <div class="hx-container hx-text">
+        <h2 class="title is-3 has-text-centered">Quantitative results</h2>
+        <p class="hx-lead">Rendering quality against efficiency for Hexels and seven baselines. On Tanks and Temples, Hexels V3 (densified) reach 24.53 dB, above 2DGS (23.64 dB), Triangle Splatting (23.15 dB) and MeshSplatting (20.73 dB), and Hexels V2 keeps 23.49 dB in 21.12 MB. Averaged over the three datasets, Hexels V3 (densified) match 3DGS in PSNR (26.94 versus 26.93 dB) with less than half its model memory (152.26 versus 340.20 MB). Pick a dataset, a quality metric and an efficiency metric; hover over or tap a point for all of its numbers.</p>
+      </div>
+      <div class="hx-container hx-wide">
+        <div id="explorer-root" data-src="static/data/explorer.json"></div>
+      </div>
+      <div class="hx-container hx-wide">
+        <h3 class="title is-4 has-text-centered hx-subtitle">Quality at matched model memory</h3>
+        <figure class="hx-figure hx-figure-card">
+          <div class="hx-figure-scroll">
+            <img src="static/images/efficiency_quality_memory.webp" width="2000" height="812" loading="lazy" decoding="async"
+                 alt="Three scatter plots of PSNR against model memory for Tanks and Temples, Mip-NeRF 360 and DTU, with hollow orange hexagons for Hexels V1, V2 and V3 and markers for seven baselines at the same budgets, each hexagon above every baseline marker of its budget.">
+          </div>
+          <p class="hx-swipe-hint" aria-hidden="true"><i class="fa-solid fa-left-right"></i> Scroll sideways for the whole figure</p>
+          <figcaption class="hx-caption hx-caption-long">Novel-view PSNR against model memory at the paper's three matched-memory budgets, set by fixed-population Hexels V1, V2 and V3 (hollow hexagons); every baseline is trained within the same per-scene budget. Hexels reach the highest PSNR at every budget on all three benchmarks. At the smallest budget, Hexels V1 lead by 2.33 dB on Mip-NeRF 360 (24.82 versus 22.49 dB for Nexels) and by 1.70 dB on Tanks and Temples (23.05 versus 21.35 dB for Triangle Splatting); at the largest, 3DGS comes closest (23.07 versus 23.76 dB on Tanks and Temples, 29.45 versus 29.94 dB on DTU).</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section hx-section" id="variants">
+      <div class="hx-container hx-text">
+        <h2 class="title is-3 has-text-centered">Hexels variants</h2>
+        <p class="hx-lead">Six Hexels models trained from the same COLMAP initialization: V1 (spatial color gradient), V2 (plus a linear view-dependent term) and V3 (plus degree-3 spherical harmonics), each with a fixed population or with densification. The grid plays all six along the same camera path. Densification adds the most on the large unbounded scenes (Mip-NeRF 360: 24.82 to 26.05 dB for V1, 25.41 to 26.52 dB for V3) and the least on DTU objects, where fixed V3 scores best (29.95 dB in 8.83 MB). Spherical harmonics improve every fixed population (Mip-NeRF 360: 24.82 to 25.41 dB; DTU: 28.94 to 29.95 dB), while densified V3 needs far more training memory (13.95 versus 2.75 GiB of peak VRAM for densified V2 on Mip-NeRF 360).</p>
+      </div>
+      <div class="hx-container hx-wide">
+        <div id="variants-root" data-src="static/data/variants.json"></div>
+      </div>
+    </section>
+
+    <section class="section hx-section" id="surfaces">
+      <div class="hx-container hx-text">
+        <h2 class="title is-3 has-text-centered">Surface reconstruction</h2>
+        <p class="hx-lead">Here we compare surface reconstruction quality of Hexels against 2DGS, Triangle Splatting and MeshSplatting. Chamfer distance (mm, lower is better) is used for evaluation on 15 DTU scans and F-score on 6 Tanks and Temples scenes (%, higher is better). On DTU, Hexels V3 with MVS initialization average 0.978&nbsp;mm, behind unconstrained 2DGS (0.794&nbsp;mm) but ahead of 2DGS matched to Hexels' memory (1.375&nbsp;mm) or primitive count (1.449&nbsp;mm), Triangle Splatting (1.124&nbsp;mm) and MeshSplatting (1.662&nbsp;mm). On Tanks and Temples Hexels gives the highest mean F-score, 34.38% against 31.72% for 2DGS. </p>
+      </div>
+      <div class="hx-container hx-wide">
+        <div id="surface-root" data-src="static/data/surface_vis.json"></div>
+      </div>
+    </section>
+
+    <section class="section hx-section" id="geometry">
+      <div class="hx-container hx-text">
+        <h2 class="title is-3 has-text-centered">Depth and normals</h2>
+        <p class="hx-lead" data-math>Expected depth and rendered normals of Hexels V3 (densified) for one held-out view per dataset. Depth is color-coded by inverse depth from red (near) to blue (far), and the camera-space normals \(\mathbf{n}\) (x right, y up, z toward the viewer) are shown as RGB <span style="white-space:nowrap">\((\mathbf{n}+1)/2\).</span></p>
+      </div>
+      <div class="hx-container hx-wide">
+        <div class="hx-geo-legend">
+          <p class="hx-geo-key">
+            <span class="hx-geo-key-title">Depth</span>
+            <span>near</span>
+            <span class="hx-geo-ramp" role="img" aria-label="Turbo color ramp from dark red for near through yellow and green to dark blue for far"></span>
+            <span>far</span>
+          </p>
+          <p class="hx-geo-key">
+            <span class="hx-geo-key-title">Normals</span>
+            <span class="hx-geo-chip"><span class="hx-geo-swatch hx-geo-swatch-front" aria-hidden="true"></span>facing the camera</span>
+            <span class="hx-geo-chip"><span class="hx-geo-swatch hx-geo-swatch-right" aria-hidden="true"></span>facing right</span>
+            <span class="hx-geo-chip"><span class="hx-geo-swatch hx-geo-swatch-up" aria-hidden="true"></span>facing up</span>
+            <span class="hx-geo-chip"><span class="hx-geo-swatch hx-geo-swatch-none" aria-hidden="true"></span>no surface</span>
+          </p>
+        </div>
+        <div id="geometry-root" class="hx-geo" data-src="static/data/geometry_vis.json"></div>
+      </div>
+    </section>
+
+    <section class="section hx-section" id="images2d">
+      <div class="hx-container hx-text">
+        <h2 class="title is-3 has-text-centered">2D image representation</h2>
+        <p class="hx-lead">The same primitive represents images directly in the image plane, without projection, opacity or depth ordering. On the 45-image Image-GS benchmark, at the same number of primitives, Hexels outperform Image-GS on every reported quality metric with 5,100 instead of 10,000 iterations.</p>
+      </div>
+      <div class="hx-container hx-wide">
+        <figure class="hx-figure hx-figure-card">
+          <div class="hx-figure-scroll">
+            <img src="static/images/image_comparison_2d.webp" width="2000" height="546" loading="lazy" decoding="async"
+                 alt="Five panels of a painting of lemons on a branch: the Image-GS fit, the Hexels fit, the ground truth, and the two per-pixel error maps, where the Hexels error map is darker.">
+          </div>
+          <p class="hx-swipe-hint" aria-hidden="true"><i class="fa-solid fa-left-right"></i> Scroll sideways for the whole figure</p>
+          <figcaption class="hx-caption">2D reconstruction of painting-8 at 2048&times;2048 with 10K primitives. Hexels improve PSNR and LPIPS over Image-GS (28.23 dB / 0.2020 versus 32.15 dB / 0.0948); error maps share one scale.</figcaption>
+        </figure>
+      </div>
+      <div class="hx-container hx-text">
+        <p class="hx-table-note" id="table-2d-note">Image-GS benchmark, 45 images, at the same number of primitives. Constant-color Hexels store the same eight scalars per primitive as Image-GS. Bold marks the best value in each column, as in the paper.</p>
+        <div class="table-container hx-table-wrap">
+          <table class="table is-narrow is-hoverable hx-table" aria-describedby="table-2d-note">
+            <thead>
+              <tr>
+                <th scope="col">Method</th>
+                <th scope="col">PSNR ↑</th>
+                <th scope="col">SSIM ↑</th>
+                <th scope="col">LPIPS (AlexNet) ↓</th>
+                <th scope="col">Iterations ↓</th>
+                <th scope="col">Train (s) ↓</th>
+                <th scope="col">FPS ↑</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Image-GS</th>
+                <td>33.15</td><td>0.9141</td><td>0.1372</td><td>10,000</td><td>238.40</td><td>260.44</td>
+              </tr>
+              <tr>
+                <th scope="row">Hexels (constant)</th>
+                <td>33.38</td><td>0.9158</td><td>0.1184</td><td>5,100</td><td><strong>121.61</strong></td><td>247.62</td>
+              </tr>
+              <tr>
+                <th scope="row">Hexels</th>
+                <td><strong>34.84</strong></td><td><strong>0.9297</strong></td><td><strong>0.1012</strong></td><td><strong>5,100</strong></td><td>176.94</td><td><strong>280.56</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="hx-swipe-hint" aria-hidden="true"><i class="fa-solid fa-left-right"></i> Scroll sideways for every column</p>
+      </div>
+    </section>
+
+
+    <section class="section hx-section" id="bibtex">
+      <div class="hx-container hx-text">
+        <div class="hx-bibtex-head">
+          <h2 class="title is-3">BibTeX</h2>
+          <button type="button" class="button is-rounded hx-copy" data-copy-target="bibtex-code">
+            <span class="icon is-small"><i class="far fa-copy" aria-hidden="true"></i></span>
+            <span data-copy-label>Copy</span>
+          </button>
+        </div>
+        <pre class="hx-bibtex"><code id="bibtex-code">@article{kaushik2026hexels,
+  title   = {Honeycomb-Surfels: Compact Hexagonal Primitives for Efficient Scene Rendering and Reconstruction},
+  author  = {Kaushik, Prakhar and Paul, Soumava and Yuille, Alan},
+  journal = {arXiv preprint arXiv:XXXX.XXXXX},
+  year    = {2026}
+}</code></pre>
+        <p class="hx-bibtex-note">The arXiv identifier will be filled in when the paper is posted.</p>
+        <p class="is-sr-only" role="status" id="bibtex-status"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer hx-footer">
+    <div class="hx-container hx-text has-text-centered">
+      <p>This page follows the <a href="https://github.com/nerfies/nerfies.github.io">Nerfies project page template</a>. Its design is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+      <div id="visitors-root"></div>
+    </div>
+  </footer>
+
+  <script src="static/js/config.js"></script>
+  <script type="module" src="static/js/site.js"></script>
+  <script type="module" src="static/js/compare.js"></script>
+  <script type="module" src="static/js/gallery.js"></script>
+  <script type="module" src="static/js/quad.js"></script>
+  <script type="module" src="static/js/explorer.js"></script>
+  <script type="module" src="static/js/surface.js"></script>
+  <script type="module" src="static/js/variants.js"></script>
+  <script type="module" src="static/js/visitors.js"></script>
+  <script type="module" src="static/js/sections.js"></script>
+  <!-- KaTeX runs after the page modules; static/js/site.js typesets the [data-math] blocks on DOMContentLoaded. -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.47/katex.min.js"
+          integrity="sha512-eDHxAxGzhSpNkUD1AP76+u07Nn3VtMwdj9GrN1uXDkjRGsroJhqtEr639ybY3iVOA58R5h+jWMJ9dlV5ilsYBQ=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.47/contrib/auto-render.min.js"
+          integrity="sha512-0HzJcHCD+wBh9kNUUcm3DWH9IbNDfudsYyMD5EHwSuFK6aEsaa/UEPqqk4t0pm4bbmwR6A11yNsD7Q+nz6XF+Q=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+</html>

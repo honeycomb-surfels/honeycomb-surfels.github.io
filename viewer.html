@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Explore Hexels in 3D - Honeycomb-Surfels (Hexels)</title>
+  <meta name="description" content="Explore trained Hexels scenes from Mip-NeRF 360 in 3D, rendered live by your own GPU in the browser, or open a Hexels model of your own from disk.">
+  <meta name="author" content="Prakhar Kaushik, Soumava Paul, Alan Yuille">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="canonical" href="https://honeycomb-surfels.github.io/viewer.html">
+  <link rel="icon" href="static/images/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="static/images/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="static/images/apple-touch-icon.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Honeycomb-Surfels">
+  <meta property="og:url" content="https://honeycomb-surfels.github.io/viewer.html">
+  <meta property="og:title" content="Explore Hexels in 3D">
+  <meta property="og:description" content="Explore trained Hexels scenes from Mip-NeRF 360 in 3D, rendered live by your own GPU in the browser, or open a Hexels model of your own from disk.">
+  <meta property="og:image" content="https://honeycomb-surfels.github.io/static/images/social_preview.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="The Honeycomb-Surfels honeycomb logo and the title Honeycomb-Surfels: Compact Hexagonal Primitives for Efficient Scene Rendering and Reconstruction, above two renders of a yellow toy bulldozer on a kitchen table, each labelled with model memory 19.3 MB, PSNR and peak training VRAM. The 2DGS render on the left has smeared, blurry treads; the Hexels render on the right shows crisp tread links and gears.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Explore Hexels in 3D">
+  <meta name="twitter:description" content="Explore trained Hexels scenes from Mip-NeRF 360 in 3D, rendered live by your own GPU in the browser, or open a Hexels model of your own from disk.">
+  <meta name="twitter:image" content="https://honeycomb-surfels.github.io/static/images/social_preview.jpg">
+  <meta name="twitter:image:alt" content="The Honeycomb-Surfels honeycomb logo and the title Honeycomb-Surfels: Compact Hexagonal Primitives for Efficient Scene Rendering and Reconstruction, above two renders of a yellow toy bulldozer on a kitchen table, each labelled with model memory 19.3 MB, PSNR and peak training VRAM. The 2DGS render on the left has smeared, blurry treads; the Hexels render on the right shows crisp tread links and gears.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css"
+        integrity="sha512-HqxHUkJM0SYcbvxUw5P60SzdOTy/QVwA1JJrvaXJv4q7lmbDZCmZaqz01UPOaQveoxfYRv1tHozWGPMcuTBuvQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="static/css/index.css">
+  <link rel="stylesheet" href="static/css/viewer.css">
+  <link rel="stylesheet" href="static/css/visitors.css">
+</head>
+<body>
+  <a class="hx-skip-link" href="#main">Skip to content</a>
+
+  <header class="hx-sitebar">
+    <div class="hx-container hx-wide hx-sitebar-inner">
+      <a class="hx-brand" href="./">
+        <img src="static/images/logo.svg" width="64" height="64" alt="">
+        <span>Honeycomb-Surfels</span>
+      </a>
+      <a class="hx-backlink" href="./" aria-label="Back to the project page">
+        <i class="fa-solid fa-arrow-left" aria-hidden="true"></i><span class="hx-backlink-long">Back to the project page</span><span class="hx-backlink-short" aria-hidden="true">Project page</span>
+      </a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hx-vhero" aria-labelledby="viewer-page-title">
+      <div class="hx-container hx-text has-text-centered">
+        <h1 class="title is-2 publication-title" id="viewer-page-title">Explore Hexels in 3D</h1>
+        <p class="hx-viewer-lead">Pick a Mip-NeRF 360 scene and move through it. Your own GPU renders the trained Hexels live in the browser, with nothing to install. You can also open a Hexels model of your own from disk.</p>
+      </div>
+    </section>
+
+    <section class="section hx-section hx-viewer" id="viewer" aria-labelledby="viewer-scenes-title">
+      <div class="hx-container hx-wide">
+        <p class="hx-vnotice" id="viewer-notice" role="status" hidden></p>
+
+        <div class="hx-vpicker-head">
+          <h2 class="title is-5" id="viewer-scenes-title">Mip-NeRF 360 scenes</h2>
+          <p class="hx-vpicker-note">Nothing downloads until you pick a scene. Sizes are downloads of the Compact version.</p>
+        </div>
+        <ul class="hx-vscenes" id="viewer-scenes" aria-label="Scenes" aria-busy="true">
+          <li class="hx-vscenes-empty">Loading the scene list&hellip;</li>
+        </ul>
+
+        <div class="hx-vbar" id="viewer-bar">
+          <div class="hx-vbar-title">
+            <strong id="viewer-title">No scene selected</strong>
+            <span id="viewer-subtitle">Pick a scene above, or open a model from disk.</span>
+          </div>
+          <div class="hx-vchoice" id="viewer-choice" hidden>
+            <div class="hx-vvariants" id="viewer-variants" role="group" aria-label="Model version"></div>
+            <p class="hx-vchoice-note" id="viewer-choice-note"></p>
+          </div>
+          <div class="hx-vactions">
+            <a class="button is-small is-rounded hx-vaction" id="viewer-window" target="_blank" rel="noopener" title="Open this model in its own browser tab" hidden>
+              <span class="icon is-small"><i class="fas fa-up-right-from-square" aria-hidden="true"></i></span>
+              <span>Full window</span>
+            </a>
+            <button class="button is-small is-rounded hx-vaction" id="viewer-fullscreen" type="button" disabled>
+              <span class="icon is-small"><i class="fas fa-expand" aria-hidden="true"></i></span>
+              <span data-label>Fullscreen</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="hx-vconfirm" id="viewer-confirm" role="alertdialog" aria-labelledby="viewer-confirm-text" hidden>
+          <p id="viewer-confirm-text"></p>
+          <div class="hx-vconfirm-buttons">
+            <button class="button is-small is-dark is-rounded" id="viewer-confirm-yes" type="button">Download</button>
+            <button class="button is-small is-rounded" id="viewer-confirm-no" type="button">Cancel</button>
+          </div>
+        </div>
+
+        <div class="hx-vstage" id="viewer-stage">
+          <div class="hx-vplaceholder" id="viewer-placeholder">
+            <img class="hx-vplaceholder-logo" src="static/images/logo.svg" width="64" height="64" alt="">
+            <p class="hx-vplaceholder-title">Pick a scene above to explore it here</p>
+            <p>or drop a <code>.hexcodec</code> or <code>.hexview</code> file anywhere on this page</p>
+          </div>
+          <div class="hx-vdrop-hint" aria-hidden="true"><span>Drop the file to open it in the viewer</span></div>
+        </div>
+        <div class="hx-vprogress" id="viewer-progress" hidden>
+          <div class="hx-vprogress-bar" role="progressbar" aria-labelledby="viewer-status" aria-valuemin="0" aria-valuemax="100"><span></span></div>
+        </div>
+        <p class="hx-vstatus" id="viewer-status">Pick a scene to load it here.</p>
+        <p class="is-sr-only" id="viewer-announce" role="status"></p>
+
+        <div class="hx-vinfo">
+          <div class="hx-vpanel hx-vdrop" id="viewer-drop">
+            <h3 class="title is-5">Open your own model</h3>
+            <p>Open a Hexels deployment archive (<code>.hexcodec</code>) or a viewer bundle (<code>.hexview</code>, <code>.hexview.gz</code>) from your computer, or drop it anywhere on this page. <strong>The file never leaves your device:</strong> the browser reads, unpacks and renders it locally, and nothing is uploaded.</p>
+            <label class="button is-dark is-rounded hx-vopen">
+              <input id="viewer-file" type="file" accept=".hexcodec,.hexview,.gz">
+              <span class="icon"><i class="fas fa-folder-open" aria-hidden="true"></i></span>
+              <span>Open a model from disk</span>
+            </label>
+            <details class="hx-vexport">
+              <summary>Make a <code>.hexcodec</code> from your own run</summary>
+              <p>The <code>.hexcodec</code> archives are the deployment files of the Hexels code, the same files the paper's tables evaluate. For a V3 model of your own, run from the Hexels repository root, on any computer (no GPU needed):</p>
+              <pre><code>PYTHONPATH=. python -m hexels3dgs.compact_checkpoint \
+    --checkpoint &lt;run&gt;/model/checkpoints/ckpt_030000.pt \
+    --output deployment.pt --active_only
+PYTHONPATH=. python -m scripts.hexels_sh_codec pilot \
+    --checkpoint deployment.pt --config &lt;run&gt;/model/config.json \
+    --output codec --clusters 1024</code></pre>
+              <p>Then open <code>codec/sh_pq1024.hexcodec</code> (quantized) or <code>codec/lossless.hexcodec</code> here. Any V1, V2 or V3 checkpoint also opens as a viewer bundle, which carries the training cameras as saved views when the COLMAP scene is available:</p>
+              <pre><code>PYTHONPATH=. python -m hexels3dgs.viewer_model \
+    &lt;run&gt;/model/checkpoints/ckpt_030000.pt scene.hexview</code></pre>
+              <p>The browser cannot open training checkpoints (<code>.pt</code>) themselves.</p>
+            </details>
+          </div>
+
+          <div class="hx-vpanel hx-vhelp">
+            <h3 class="title is-5">Controls</h3>
+            <p class="hx-vhelp-first">Click the scene first; it then receives the keys and the mouse wheel.</p>
+            <div class="hx-vkeys">
+              <div class="hx-vkeys-group">
+                <h4><span class="icon is-small"><i class="fas fa-computer-mouse" aria-hidden="true"></i></span> Mouse</h4>
+                <dl>
+                  <dt>Drag</dt><dd>turn around the scene</dd>
+                  <dt>Scroll</dt><dd>zoom in or out</dd>
+                </dl>
+              </div>
+              <div class="hx-vkeys-group">
+                <h4><span class="icon is-small"><i class="fas fa-keyboard" aria-hidden="true"></i></span> Keyboard</h4>
+                <dl>
+                  <dt><kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd></dt><dd>move</dd>
+                  <dt><kbd>Q</kbd> <kbd>E</kbd></dt><dd>down, up</dd>
+                  <dt><kbd>Shift</kbd></dt><dd>move faster</dd>
+                  <dt><kbd>O</kbd></dt><dd>orbit or fly mode</dd>
+                  <dt><kbd>R</kbd></dt><dd>back to the start view</dd>
+                  <dt><kbd>?</kbd></dt><dd>all shortcuts</dd>
+                </dl>
+              </div>
+              <div class="hx-vkeys-group">
+                <h4><span class="icon is-small"><i class="fas fa-hand-pointer" aria-hidden="true"></i></span> Touch</h4>
+                <dl>
+                  <dt>One finger</dt><dd>turn around the scene</dd>
+                  <dt>Pinch</dt><dd>move closer or back</dd>
+                  <dt>Two fingers</dt><dd>pan</dd>
+                </dl>
+              </div>
+            </div>
+            <p>In fly mode (<kbd>O</kbd>), dragging looks around and the wheel sets the speed. The viewer's <em>Controls</em> button opens display modes (primitive IDs, hexagon boundaries, depth, normals, opacity, a side-by-side comparison), the training views, quality settings and screenshots. On a phone, <em>Full window</em> gives the most room.</p>
+          </div>
+        </div>
+
+        <div class="hx-vnotes content">
+          <h3 class="title is-5">About these models</h3>
+          <ul class="hx-vlegend" id="viewer-legend" hidden></ul>
+          <ul id="viewer-facts">
+            <li>Each scene opens at one of its training views. Like any reconstruction from photos, it looks best near the captured views; far from them, holes and blurry floaters appear.</li>
+            <li>The downloads are the compressed deployment archives of the trained models (<code>.hexcodec</code>). Your browser unpacks them before rendering, so a model needs more memory while it opens than its download size suggests.</li>
+            <li>PSNR is the mean over each scene's held-out test views (every eighth image), measured by the CUDA renderer on the decoded archive that you download here.</li>
+            <li>The browser renderer evaluates the same hexagon footprint and color model in WebGL2. It matches the CUDA renderer closely, not bit for bit: depending on the device it blends in 32-bit or 16-bit floats.</li>
+            <li>Everything runs on your device: after the download, moving the camera sends nothing anywhere. Full quality needs a recent laptop or desktop GPU and enough memory; on phones and tablets, start with Compact. If motion stutters, choose <em>Adaptive preview</em> under the viewer's Controls.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer hx-footer">
+    <div class="hx-container hx-text has-text-centered">
+      <p>This page follows the <a href="https://github.com/nerfies/nerfies.github.io">Nerfies project page template</a>. Its design is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+      <div id="visitors-root"></div>
+    </div>
+  </footer>
+
+  <script src="static/js/config.js"></script>
+  <script type="module" src="static/js/viewer-page.js"></script>
+  <script type="module" src="static/js/visitors.js"></script>
+</body>
+</html>

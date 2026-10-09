@@ -1,0 +1,1591 @@
+{
+ "version": 1,
+ "variants": [
+  {
+   "id": "v1_fixed",
+   "label": "V1 fixed",
+   "short": "V1-F",
+   "appearance": "V1",
+   "population": "fixed"
+  },
+  {
+   "id": "v1_densified",
+   "label": "V1 densified",
+   "short": "V1-G",
+   "appearance": "V1",
+   "population": "densified"
+  },
+  {
+   "id": "v2_fixed",
+   "label": "V2 fixed",
+   "short": "V2-F",
+   "appearance": "V2",
+   "population": "fixed"
+  },
+  {
+   "id": "v2_densified",
+   "label": "V2 densified",
+   "short": "V2-G",
+   "appearance": "V2",
+   "population": "densified"
+  },
+  {
+   "id": "v3_fixed",
+   "label": "V3 fixed",
+   "short": "V3-F",
+   "appearance": "V3",
+   "population": "fixed"
+  },
+  {
+   "id": "v3_densified",
+   "label": "V3 densified",
+   "short": "V3-G",
+   "appearance": "V3",
+   "population": "densified"
+  }
+ ],
+ "metrics": {
+  "x": [
+   {
+    "id": "memory_mb",
+    "label": "Model memory (MB)",
+    "better": "lower",
+    "log_default": true,
+    "short": "Model memory",
+    "unit": "MB",
+    "gpu_dependent": false
+   },
+   {
+    "id": "vram_gib",
+    "label": "Peak training VRAM (GiB)",
+    "better": "lower",
+    "log_default": true,
+    "short": "Peak training VRAM",
+    "unit": "GiB",
+    "gpu_dependent": true
+   },
+   {
+    "id": "train_min",
+    "label": "Training time (min)",
+    "better": "lower",
+    "log_default": true,
+    "short": "Training time",
+    "unit": "min",
+    "gpu_dependent": true
+   },
+   {
+    "id": "primitives",
+    "label": "Primitives",
+    "better": null,
+    "log_default": true,
+    "short": "Primitives",
+    "unit": "",
+    "gpu_dependent": false
+   }
+  ],
+  "y": [
+   {
+    "id": "psnr",
+    "label": "PSNR (dB)",
+    "better": "higher",
+    "short": "PSNR",
+    "unit": "dB",
+    "gpu_dependent": false
+   },
+   {
+    "id": "ssim",
+    "label": "SSIM",
+    "better": "higher",
+    "short": "SSIM",
+    "unit": "",
+    "gpu_dependent": false
+   },
+   {
+    "id": "lpips",
+    "label": "LPIPS (VGG)",
+    "better": "lower",
+    "short": "LPIPS (VGG)",
+    "unit": "",
+    "gpu_dependent": false
+   },
+   {
+    "id": "fps",
+    "label": "Rendering speed (FPS)",
+    "better": "higher",
+    "short": "Rendering speed",
+    "unit": "FPS",
+    "gpu_dependent": true
+   }
+  ]
+ },
+ "datasets": [
+  {
+   "id": "mipnerf360",
+   "label": "Mip-NeRF 360"
+  },
+  {
+   "id": "tanks_and_temples",
+   "label": "Tanks and Temples"
+  },
+  {
+   "id": "dtu",
+   "label": "DTU"
+  }
+ ],
+ "default": {
+  "scene": "tanks_and_temples/Truck"
+ },
+ "scenes": [
+  {
+   "id": "mipnerf360/bicycle",
+   "dataset": "mipnerf360",
+   "scene": "bicycle",
+   "label": "Bicycle",
+   "group_label": "Mip-NeRF 360 outdoor",
+   "grid_width": 640,
+   "grid_height": 426,
+   "frames": 192,
+   "frame_rate": 24,
+   "values": {
+    "v1_fixed": {
+     "memory_mb": 4.342,
+     "vram_gib": 0.583984375,
+     "train_min": 15.804902997333556,
+     "primitives": 54275,
+     "psnr": 22.034697956206813,
+     "ssim": 0.5499463975429535,
+     "lpips": 0.4953467273712158,
+     "fps": 537.8981381407307,
+     "gpu": "RTX A5000",
+     "text": {
+      "memory_mb": "4.34",
+      "vram_gib": "0.58",
+      "train_min": "15.8",
+      "primitives": "54,275",
+      "psnr": "22.03",
+      "ssim": "0.550",
+      "lpips": "0.495",
+      "fps": "537.9"
+     }
+    },
+    "v1_densified": {
+     "memory_mb": 104.55824,
+     "vram_gib": 2.349609375,
+     "train_min": 26.621930404249966,
+     "primitives": 1306978,
+     "psnr": 23.622649934916,
+     "ssim": 0.6815706849098205,
+     "lpips": 0.3387072217464447,
+     "fps": 140.8063334421717,
+     "gpu": "RTX A5000",
+     "text": {
+      "memory_mb": "104.56",
+      "vram_gib": "2.35",
+      "train_min": "26.6",
+      "primitives": "1,306,978",
+      "psnr": "23.62",
+      "ssim": "0.682",
+      "lpips": "0.339",
+      "fps": "140.8"
+     }
+    },
+    "v2_fixed": {
+     "memory_mb": 6.2959,
+     "vram_gib": 0.60546875,
+     "train_min": 16.488450293900677,
+     "primitives": 54275,
+     "psnr": 22.200602555578936,
+     "ssim": 0.5575217700004578,
+     "lpips": 0.49143403172492983,
+     "fps": 500.0436356251778,
+     "gpu": "RTX A5000",
+     "text": {
+      "memory_mb": "6.30",
+      "vram_gib": "0.61",
+      "train_min": "16.5",
+      "primitives": "54,275",
+      "psnr": "22.20",
+      "ssim": "0.558",
+      "lpips": "0.491",
+      "fps": "500.0"
+     }
+    },
+    "v2_densified": {
+     "memory_mb": 131.426144,
+     "vram_gib": 3.572265625,
+     "train_min": 27.835654507732638,
+     "primitives": 1132984,
+     "psnr": 23.69827628459157,
+     "ssim": 0.6798948168754577,
+     "lpips": 0.34669166803359985,
+     "fps": 119.86188172441885,
+     "gpu": "RTX A5000",
+     "text": {
+      "memory_mb": "131.43",
+      "vram_gib": "3.57",
+      "train_min": "27.8",
+      "primitives": "1,132,984",
+      "psnr": "23.70",
+      "ssim": "0.680",
+      "lpips": "0.347",
+      "fps": "119.9"
+     }
+    },
+    "v3_fixed": {
+     "memory_mb": 14.1115,
+     "vram_gib": 0.625,
+     "train_min": 16.523020258545877,
+     "primitives": 54275,
+     "psnr": 22.429533120536412,
+     "ssim": 0.5614551186561585,
+     "lpips": 0.4905018317699432,
+     "fps": 499.9412731597545,
+     "gpu": "RTX A5000",
+     "text": {
+      "memory_mb": "14.11",
+      "vram_gib": "0.62",
+      "train_min": "16.5",
+      "primitives": "54,275",
+      "psnr": "22.43",
+      "ssim": "0.561",
+      "lpips": "0.491",
+      "fps": "499.9"
+     }
+    },
+    "v3_densified": {
+     "memory_mb": 336.41062,
+     "vram_gib": 18.546875,
+     "train_min": 32.38686398031811,
+     "primitives": 1293887,
+     "psnr": 23.997816462713352,
+     "ssim": 0.6930033349990845,
+     "lpips": 0.3292903137207031,
+     "fps": 88.5412747046936,
+     "gpu": "RTX A5000",
+     "text": {
+      "memory_mb": "336.41",
+      "vram_gib": "18.55",
+      "train_min": "32.4",
+      "primitives": "1,293,887",
+      "psnr": "24.00",
+      "ssim": "0.693",
+      "lpips": "0.329",
+      "fps": "88.5"
+     }
+    }
+   },
+   "videos": {
+    "v1_fixed": {
+     "key": "variants/mipnerf360/bicycle/v1_fixed.mp4",
+     "poster": "variants/mipnerf360/bicycle/v1_fixed.jpg",
+     "bytes": 1487809
+    },
+    "v1_densified": {
+     "key": "variants/mipnerf360/bicycle/v1_densified.mp4",
+     "poster": "variants/mipnerf360/bicycle/v1_densified.jpg",
+     "bytes": 2107142
+    },
+    "v2_fixed": {
+     "key": "variants/mipnerf360/bicycle/v2_fixed.mp4",
+     "poster": "variants/mipnerf360/bicycle/v2_fixed.jpg",
+     "bytes": 1485491
+    },
+    "v2_densified": {
+     "key": "variants/mipnerf360/bicycle/v2_densified.mp4",
+     "poster": "variants/mipnerf360/bicycle/v2_densified.jpg",
+     "bytes": 2018064
+    },
+    "v3_fixed": {
+     "key": "variants/mipnerf360/bicycle/v3_fixed.mp4",
+     "poster": "variants/mipnerf360/bicycle/v3_fixed.jpg",
+     "bytes": 1513179
+    },
+    "v3_densified": {
+     "key": "variants/mipnerf360/bicycle/v3_densified.mp4",
+     "poster": "variants/mipnerf360/bicycle/v3_densified.jpg",
+     "bytes": 2111955
+    }
+   }
+  },
+  {
+   "id": "mipnerf360/room",
+   "dataset": "mipnerf360",
+   "scene": "room",
+   "label": "Room",
+   "group_label": "Mip-NeRF 360 indoor",
+   "grid_width": 640,
+   "grid_height": 426,
+   "frames": 192,
+   "frame_rate": 24,
+   "values": {
+    "v1_fixed": {
+     "memory_mb": 9.01016,
+     "vram_gib": 0.783203125,
+     "train_min": 25.503018083733817,
+     "primitives": 112627,
+     "psnr": 28.6610796765901,
+     "ssim": 0.8849616906581781,
+     "lpips": 0.354534102556033,
+     "fps": 343.7764177557537,
+     "gpu": "RTX A5000",
+     "text": {
+      "memory_mb": "9.01",
+      "vram_gib": "0.78",
+      "train_min": "25.5",
+      "primitives": "112,627",
+      "psnr": "28.66",
+      "ssim": "0.885",
+      "lpips": "0.355",
+      "fps": "343.8"
+     }
+    },
+    "v1_densified": {
+     "memory_mb": 35.74744,
+     "vram_gib": 1.19921875,
+     "train_min": 30.569534817233215,
+     "primitives": 446843,
+     "psnr": 29.309636852537178,
+     "ssim": 0.8947271765806736,
+     "lpips": 0.3274096212325952,
+     "fps": 157.27316187318257,
+     "gpu": "RTX A5000",
+     "text": {
+      "memory_mb": "35.75",
+      "vram_gib": "1.20",
+      "train_min": "30.6",
+      "primitives": "446,843",
+      "psnr": "29.31",
+      "ssim": "0.895",
+      "lpips": "0.327",
+      "fps": "157.3"
+     }
+    },
+    "v2_fixed": {
+     "memory_mb": 13.064732,
+     "vram_gib": 0.810546875,
+     "train_min": 25.760557236056776,
+     "primitives": 112627,
+     "psnr": 28.51481154069157,
+     "ssim": 0.88620558151832,
+     "lpips": 0.35235039851604366,
+     "fps": 347.818351155178,
+     "gpu": "RTX A5000",
+     "text": {
+      "memory_mb": "13.06",
+      "vram_gib": "0.81",
+      "train_min": "25.8",
+      "primitives": "112,627",
+      "psnr": "28.51",
+      "ssim": "0.886",
+      "lpips": "0.352",
+      "fps": "347.8"
+     }
+    },
+    "v2_densified": {
+     "memory_mb": 42.972316,
+     "vram_gib": 1.201171875,
+     "train_min": 28.675561120867496,
+     "primitives": 370451,
+     "psnr": 28.89784495160613,
+     "ssim": 0.892136125992506,
+     "lpips": 0.33347865022145784,
+     "fps": 178.56000777317047,
+     "gpu": "RTX A5000",
+     "text": {
+      "memory_mb": "42.97",
+      "vram_gib": "1.20",
+      "train_min": "28.7",
+      "primitives": "370,451",
+      "psnr": "28.90",
+      "ssim": "0.892",
+      "lpips": "0.333",
+      "fps": "178.6"
+     }
+    },
+    "v3_fixed": {
+     "memory_mb": 29.28302,
+     "vram_gib": 0.87109375,
+     "train_min": 26.35125938435085,
+     "primitives": 112627,
+     "psnr": 29.108250946274485,
+     "ssim": 0.8933486816210624,
+     "lpips": 0.34622154786036563,
+     "fps": 319.26433650075774,
+     "gpu": "RTX A5000",
+     "text": {
+      "memory_mb": "29.28",
+      "vram_gib": "0.87",
+      "train_min": "26.4",
+      "primitives": "112,627",
+      "psnr": "29.11",
+      "ssim": "0.893",
+      "lpips": "0.346",
+      "fps": "319.3"
+     }
+    },
+    "v3_densified": {
+     "memory_mb": 107.7674,
+     "vram_gib": 7.41796875,
+     "train_min": 31.362206955849736,
+     "primitives": 414490,
+     "psnr": 29.8581209090016,
+     "ssim": 0.901355260457748,
+     "lpips": 0.32115881794538254,
+     "fps": 141.9536736144703,
+     "gpu": "RTX A5000",
+     "text": {
+      "memory_mb": "107.77",
+      "vram_gib": "7.42",
+      "train_min": "31.4",
+      "primitives": "414,490",
+      "psnr": "29.86",
+      "ssim": "0.901",
+      "lpips": "0.321",
+      "fps": "142.0"
+     }
+    }
+   },
+   "videos": {
+    "v1_fixed": {
+     "key": "variants/mipnerf360/room/v1_fixed.mp4",
+     "poster": "variants/mipnerf360/room/v1_fixed.jpg",
+     "bytes": 1050902
+    },
+    "v1_densified": {
+     "key": "variants/mipnerf360/room/v1_densified.mp4",
+     "poster": "variants/mipnerf360/room/v1_densified.jpg",
+     "bytes": 1062962
+    },
+    "v2_fixed": {
+     "key": "variants/mipnerf360/room/v2_fixed.mp4",
+     "poster": "variants/mipnerf360/room/v2_fixed.jpg",
+     "bytes": 1071003
+    },
+    "v2_densified": {
+     "key": "variants/mipnerf360/room/v2_densified.mp4",
+     "poster": "variants/mipnerf360/room/v2_densified.jpg",
+     "bytes": 1092204
+    },
+    "v3_fixed": {
+     "key": "variants/mipnerf360/room/v3_fixed.mp4",
+     "poster": "variants/mipnerf360/room/v3_fixed.jpg",
+     "bytes": 1102758
+    },
+    "v3_densified": {
+     "key": "variants/mipnerf360/room/v3_densified.mp4",
+     "poster": "variants/mipnerf360/room/v3_densified.jpg",
+     "bytes": 1117387
+    }
+   }
+  },
+  {
+   "id": "tanks_and_temples/Truck",
+   "dataset": "tanks_and_temples",
+   "scene": "Truck",
+   "label": "Truck",
+   "group_label": "Tanks and Temples",
+   "grid_width": 640,
+   "grid_height": 354,
+   "frames": 192,
+   "frame_rate": 24,
+   "values": {
+    "v1_fixed": {
+     "memory_mb": 10.99312,
+     "vram_gib": 0.525390625,
+     "train_min": 12.08015432576649,
+     "primitives": 137414,
+     "psnr": 23.298746812593077,
+     "ssim": 0.8196315374225378,
+     "lpips": 0.254860058426857,
+     "fps": 445.9164350488487,
+     "gpu": "RTX A5000",
+     "text": {
+      "memory_mb": "10.99",
+      "vram_gib": "0.53",
+      "train_min": "12.1",
+      "primitives": "137,414",
+      "psnr": "23.30",
+      "ssim": "0.820",
+      "lpips": "0.255",
+      "fps": "445.9"
+     }
+    },
+    "v1_densified": {
+     "memory_mb": 100.32592,
+     "vram_gib": 2.451171875,
+     "train_min": 23.020080986091248,
+     "primitives": 1254074,
+     "psnr": 23.904448550214664,
+     "ssim": 0.8381832577288151,
+     "lpips": 0.21829630341380835,
+     "fps": 158.7745044267583,
+     "gpu": "RTX A5000",
+     "text": {
+      "memory_mb": "100.33",
+      "vram_gib": "2.45",
+      "train_min": "23.0",
+      "primitives": "1,254,074",
+      "psnr": "23.90",
+      "ssim": "0.838",
+      "lpips": "0.218",
+      "fps": "158.8"
+     }
+    },
+    "v2_fixed": {
+     "memory_mb": 15.940024,
+     "vram_gib": 0.552734375,
+     "train_min": 13.243702546662341,
+     "primitives": 137414,
+     "psnr": 23.514259888193173,
+     "ssim": 0.8265697211027145,
+     "lpips": 0.24886795226484537,
+     "fps": 385.6717275177873,
+     "gpu": "RTX A5000",
+     "text": {
+      "memory_mb": "15.94",
+      "vram_gib": "0.55",
+      "train_min": "13.2",
+      "primitives": "137,414",
+      "psnr": "23.51",
+      "ssim": "0.827",
+      "lpips": "0.249",
+      "fps": "385.7"
+     }
+    },
+    "v2_densified": {
+     "memory_mb": 138.36132,
+     "vram_gib": 3.984375,
+     "train_min": 26.96217784564942,
+     "primitives": 1192770,
+     "psnr": 24.139087526545982,
+     "ssim": 0.84300153888762,
+     "lpips": 0.2151296529918909,
+     "fps": 121.5630803899945,
+     "gpu": "RTX A5000",
+     "text": {
+      "memory_mb": "138.36",
+      "vram_gib": "3.98",
+      "train_min": "27.0",
+      "primitives": "1,192,770",
+      "psnr": "24.14",
+      "ssim": "0.843",
+      "lpips": "0.215",
+      "fps": "121.6"
+     }
+    },
+    "v3_fixed": {
+     "memory_mb": 35.72764,
+     "vram_gib": 0.642578125,
+     "train_min": 13.163509796866371,
+     "primitives": 137414,
+     "psnr": 23.689700661399623,
+     "ssim": 0.8303578179329634,
+     "lpips": 0.24529163539409637,
+     "fps": 382.3366161313102,
+     "gpu": "RTX A5000",
+     "text": {
+      "memory_mb": "35.73",
+      "vram_gib": "0.64",
+      "train_min": "13.2",
+      "primitives": "137,414",
+      "psnr": "23.69",
+      "ssim": "0.830",
+      "lpips": "0.245",
+      "fps": "382.3"
+     }
+    },
+    "v3_densified": {
+     "memory_mb": 318.27094,
+     "vram_gib": 21.08984375,
+     "train_min": 28.828113514848518,
+     "primitives": 1224119,
+     "psnr": 24.22461569474068,
+     "ssim": 0.8465648405253887,
+     "lpips": 0.21110719395801425,
+     "fps": 98.13862002167085,
+     "gpu": "RTX A5000",
+     "text": {
+      "memory_mb": "318.27",
+      "vram_gib": "21.09",
+      "train_min": "28.8",
+      "primitives": "1,224,119",
+      "psnr": "24.22",
+      "ssim": "0.847",
+      "lpips": "0.211",
+      "fps": "98.1"
+     }
+    }
+   },
+   "videos": {
+    "v1_fixed": {
+     "key": "variants/tanks_and_temples/Truck/v1_fixed.mp4",
+     "poster": "variants/tanks_and_temples/Truck/v1_fixed.jpg",
+     "bytes": 1553920
+    },
+    "v1_densified": {
+     "key": "variants/tanks_and_temples/Truck/v1_densified.mp4",
+     "poster": "variants/tanks_and_temples/Truck/v1_densified.jpg",
+     "bytes": 1760887
+    },
+    "v2_fixed": {
+     "key": "variants/tanks_and_temples/Truck/v2_fixed.mp4",
+     "poster": "variants/tanks_and_temples/Truck/v2_fixed.jpg",
+     "bytes": 1571524
+    },
+    "v2_densified": {
+     "key": "variants/tanks_and_temples/Truck/v2_densified.mp4",
+     "poster": "variants/tanks_and_temples/Truck/v2_densified.jpg",
+     "bytes": 1743662
+    },
+    "v3_fixed": {
+     "key": "variants/tanks_and_temples/Truck/v3_fixed.mp4",
+     "poster": "variants/tanks_and_temples/Truck/v3_fixed.jpg",
+     "bytes": 1560047
+    },
+    "v3_densified": {
+     "key": "variants/tanks_and_temples/Truck/v3_densified.mp4",
+     "poster": "variants/tanks_and_temples/Truck/v3_densified.jpg",
+     "bytes": 1761185
+    }
+   }
+  },
+  {
+   "id": "tanks_and_temples/Caterpillar",
+   "dataset": "tanks_and_temples",
+   "scene": "Caterpillar",
+   "label": "Caterpillar",
+   "group_label": "Tanks and Temples",
+   "grid_width": 640,
+   "grid_height": 356,
+   "frames": 192,
+   "frame_rate": 24,
+   "values": {
+    "v1_fixed": {
+     "memory_mb": 15.02432,
+     "vram_gib": 0.55078125,
+     "train_min": 12.832582084019668,
+     "primitives": 187804,
+     "psnr": 22.1906937654654,
+     "ssim": 0.7527272626757622,
+     "lpips": 0.3225104634960492,
+     "fps": 408.29750351014434,
+     "gpu": "RTX A5000",
+     "text": {
+      "memory_mb": "15.02",
+      "vram_gib": "0.55",
+      "train_min": "12.8",
+      "primitives": "187,804",
+      "psnr": "22.19",
+      "ssim": "0.753",
+      "lpips": "0.323",
+      "fps": "408.3"
+     }
+    },
+    "v1_densified": {
+     "memory_mb": 58.55064,
+     "vram_gib": 1.26171875,
+     "train_min": 19.03329430928376,
+     "primitives": 731883,
+     "psnr": 22.840451452600956,
+     "ssim": 0.7795643595357736,
+     "lpips": 0.28229049282769364,
+     "fps": 201.87835389345997,
+     "gpu": "RTX A5000",
+     "text": {
+      "memory_mb": "58.55",
+      "vram_gib": "1.26",
+      "train_min": "19.0",
+      "primitives": "731,883",
+      "psnr": "22.84",
+      "ssim": "0.780",
+      "lpips": "0.282",
+      "fps": "201.9"
+     }
+    },
+    "v2_fixed": {
+     "memory_mb": 21.785264,
+     "vram_gib": 0.59765625,
+     "train_min": 13.871669370277475,
+     "primitives": 187804,
+     "psnr": 22.91486599212145,
+     "ssim": 0.7694777225454649,
+     "lpips": 0.30975168260435265,
+     "fps": 358.59069056180385,
+     "gpu": "RTX A5000",
+     "text": {
+      "memory_mb": "21.79",
+      "vram_gib": "0.60",
+      "train_min": "13.9",
+      "primitives": "187,804",
+      "psnr": "22.91",
+      "ssim": "0.769",
+      "lpips": "0.310",
+      "fps": "358.6"
+     }
+    },
+    "v2_densified": {
+     "memory_mb": 76.248888,
+     "vram_gib": 1.47265625,
+     "train_min": 19.866117642849954,
+     "primitives": 657318,
+     "psnr": 23.45570663448498,
+     "ssim": 0.7925032923618952,
+     "lpips": 0.27163261858125526,
+     "fps": 182.24613802084139,
+     "gpu": "RTX A5000",
+     "text": {
+      "memory_mb": "76.25",
+      "vram_gib": "1.47",
+      "train_min": "19.9",
+      "primitives": "657,318",
+      "psnr": "23.46",
+      "ssim": "0.793",
+      "lpips": "0.272",
+      "fps": "182.2"
+     }
+    },
+    "v3_fixed": {
+     "memory_mb": 48.82904,
+     "vram_gib": 0.72265625,
+     "train_min": 13.98722059665403,
+     "primitives": 187804,
+     "psnr": 23.1325466875379,
+     "ssim": 0.776460782935222,
+     "lpips": 0.30413970071822405,
+     "fps": 347.6051887729669,
+     "gpu": "RTX A5000",
+     "text": {
+      "memory_mb": "48.83",
+      "vram_gib": "0.72",
+      "train_min": "14.0",
+      "primitives": "187,804",
+      "psnr": "23.13",
+      "ssim": "0.776",
+      "lpips": "0.304",
+      "fps": "347.6"
+     }
+    },
+    "v3_densified": {
+     "memory_mb": 174.94724,
+     "vram_gib": 13.1953125,
+     "train_min": 21.563441883314713,
+     "primitives": 672874,
+     "psnr": 23.821448168233108,
+     "ssim": 0.7988521369795004,
+     "lpips": 0.26184761555244523,
+     "fps": 150.9227050048922,
+     "gpu": "RTX A5000",
+     "text": {
+      "memory_mb": "174.95",
+      "vram_gib": "13.20",
+      "train_min": "21.6",
+      "primitives": "672,874",
+      "psnr": "23.82",
+      "ssim": "0.799",
+      "lpips": "0.262",
+      "fps": "150.9"
+     }
+    }
+   },
+   "videos": {
+    "v1_fixed": {
+     "key": "variants/tanks_and_temples/Caterpillar/v1_fixed.mp4",
+     "poster": "variants/tanks_and_temples/Caterpillar/v1_fixed.jpg",
+     "bytes": 1893951
+    },
+    "v1_densified": {
+     "key": "variants/tanks_and_temples/Caterpillar/v1_densified.mp4",
+     "poster": "variants/tanks_and_temples/Caterpillar/v1_densified.jpg",
+     "bytes": 2043554
+    },
+    "v2_fixed": {
+     "key": "variants/tanks_and_temples/Caterpillar/v2_fixed.mp4",
+     "poster": "variants/tanks_and_temples/Caterpillar/v2_fixed.jpg",
+     "bytes": 1904640
+    },
+    "v2_densified": {
+     "key": "variants/tanks_and_temples/Caterpillar/v2_densified.mp4",
+     "poster": "variants/tanks_and_temples/Caterpillar/v2_densified.jpg",
+     "bytes": 2016622
+    },
+    "v3_fixed": {
+     "key": "variants/tanks_and_temples/Caterpillar/v3_fixed.mp4",
+     "poster": "variants/tanks_and_temples/Caterpillar/v3_fixed.jpg",
+     "bytes": 1857624
+    },
+    "v3_densified": {
+     "key": "variants/tanks_and_temples/Caterpillar/v3_densified.mp4",
+     "poster": "variants/tanks_and_temples/Caterpillar/v3_densified.jpg",
+     "bytes": 1988732
+    }
+   }
+  },
+  {
+   "id": "dtu/scan65",
+   "dataset": "dtu",
+   "scene": "scan65",
+   "label": "Scan 65",
+   "group_label": "DTU",
+   "grid_width": 640,
+   "grid_height": 478,
+   "frames": 96,
+   "frame_rate": 24,
+   "values": {
+    "v1_fixed": {
+     "memory_mb": 1.80936,
+     "vram_gib": 0.525390625,
+     "train_min": 7.90773703729889,
+     "primitives": 22617,
+     "psnr": 28.727238570981864,
+     "ssim": 0.8734497002192906,
+     "lpips": 0.3366358833653586,
+     "fps": 892.5255075119741,
+     "gpu": "RTX A5000",
+     "text": {
+      "memory_mb": "1.81",
+      "vram_gib": "0.53",
+      "train_min": "7.9",
+      "primitives": "22,617",
+      "psnr": "28.73",
+      "ssim": "0.873",
+      "lpips": "0.337",
+      "fps": "892.5"
+     }
+    },
+    "v1_densified": {
+     "memory_mb": 5.6756,
+     "vram_gib": 0.583984375,
+     "train_min": 9.601127478598695,
+     "primitives": 70945,
+     "psnr": 29.576997202437507,
+     "ssim": 0.8788038662501744,
+     "lpips": 0.3025896634374346,
+     "fps": 460.20703783352707,
+     "gpu": "RTX A5000",
+     "text": {
+      "memory_mb": "5.68",
+      "vram_gib": "0.58",
+      "train_min": "9.6",
+      "primitives": "70,945",
+      "psnr": "29.58",
+      "ssim": "0.879",
+      "lpips": "0.303",
+      "fps": "460.2"
+     }
+    },
+    "v2_fixed": {
+     "memory_mb": 2.623572,
+     "vram_gib": 0.53515625,
+     "train_min": 8.264664201686779,
+     "primitives": 22617,
+     "psnr": 29.24025776909107,
+     "ssim": 0.8866075873374939,
+     "lpips": 0.32921813641275677,
+     "fps": 894.6069574611668,
+     "gpu": "RTX A5000",
+     "text": {
+      "memory_mb": "2.62",
+      "vram_gib": "0.54",
+      "train_min": "8.3",
+      "primitives": "22,617",
+      "psnr": "29.24",
+      "ssim": "0.887",
+      "lpips": "0.329",
+      "fps": "894.6"
+     }
+    },
+    "v2_densified": {
+     "memory_mb": 6.95478,
+     "vram_gib": 0.591796875,
+     "train_min": 9.383616640216982,
+     "primitives": 59955,
+     "psnr": 29.527921385014402,
+     "ssim": 0.8923763803073338,
+     "lpips": 0.3008416337626321,
+     "fps": 528.3928118191834,
+     "gpu": "RTX A5000",
+     "text": {
+      "memory_mb": "6.95",
+      "vram_gib": "0.59",
+      "train_min": "9.4",
+      "primitives": "59,955",
+      "psnr": "29.53",
+      "ssim": "0.892",
+      "lpips": "0.301",
+      "fps": "528.4"
+     }
+    },
+    "v3_fixed": {
+     "memory_mb": 5.88042,
+     "vram_gib": 0.546875,
+     "train_min": 8.192680856732961,
+     "primitives": 22617,
+     "psnr": 30.03628063701308,
+     "ssim": 0.8957463673182896,
+     "lpips": 0.3255135161536081,
+     "fps": 892.4857867764624,
+     "gpu": "RTX A5000",
+     "text": {
+      "memory_mb": "5.88",
+      "vram_gib": "0.55",
+      "train_min": "8.2",
+      "primitives": "22,617",
+      "psnr": "30.04",
+      "ssim": "0.896",
+      "lpips": "0.326",
+      "fps": "892.5"
+     }
+    },
+    "v3_densified": {
+     "memory_mb": 20.6687,
+     "vram_gib": 0.669921875,
+     "train_min": 9.482674044551095,
+     "primitives": 79495,
+     "psnr": 30.00003191582896,
+     "ssim": 0.8858281629426139,
+     "lpips": 0.27913738574300495,
+     "fps": 504.44501889386686,
+     "gpu": "RTX A5000",
+     "text": {
+      "memory_mb": "20.67",
+      "vram_gib": "0.67",
+      "train_min": "9.5",
+      "primitives": "79,495",
+      "psnr": "30.00",
+      "ssim": "0.886",
+      "lpips": "0.279",
+      "fps": "504.4"
+     }
+    }
+   },
+   "videos": {
+    "v1_fixed": {
+     "key": "variants/dtu/scan65/v1_fixed.mp4",
+     "poster": "variants/dtu/scan65/v1_fixed.jpg",
+     "bytes": 590163
+    },
+    "v1_densified": {
+     "key": "variants/dtu/scan65/v1_densified.mp4",
+     "poster": "variants/dtu/scan65/v1_densified.jpg",
+     "bytes": 738695
+    },
+    "v2_fixed": {
+     "key": "variants/dtu/scan65/v2_fixed.mp4",
+     "poster": "variants/dtu/scan65/v2_fixed.jpg",
+     "bytes": 605846
+    },
+    "v2_densified": {
+     "key": "variants/dtu/scan65/v2_densified.mp4",
+     "poster": "variants/dtu/scan65/v2_densified.jpg",
+     "bytes": 704668
+    },
+    "v3_fixed": {
+     "key": "variants/dtu/scan65/v3_fixed.mp4",
+     "poster": "variants/dtu/scan65/v3_fixed.jpg",
+     "bytes": 620542
+    },
+    "v3_densified": {
+     "key": "variants/dtu/scan65/v3_densified.mp4",
+     "poster": "variants/dtu/scan65/v3_densified.jpg",
+     "bytes": 797625
+    }
+   }
+  },
+  {
+   "id": "dtu/scan63",
+   "dataset": "dtu",
+   "scene": "scan63",
+   "label": "Scan 63",
+   "group_label": "DTU",
+   "grid_width": 640,
+   "grid_height": 478,
+   "frames": 96,
+   "frame_rate": 24,
+   "values": {
+    "v1_fixed": {
+     "memory_mb": 1.42104,
+     "vram_gib": 0.521484375,
+     "train_min": 7.363730467669666,
+     "primitives": 17763,
+     "psnr": 27.251476749440712,
+     "ssim": 0.932735128062112,
+     "lpips": 0.19968174823692866,
+     "fps": 1185.2189226253104,
+     "gpu": "RTX A5000",
+     "text": {
+      "memory_mb": "1.42",
+      "vram_gib": "0.52",
+      "train_min": "7.4",
+      "primitives": "17,763",
+      "psnr": "27.25",
+      "ssim": "0.933",
+      "lpips": "0.200",
+      "fps": "1,185.2"
+     }
+    },
+    "v1_densified": {
+     "memory_mb": 3.72504,
+     "vram_gib": 0.560546875,
+     "train_min": 9.955635720215893,
+     "primitives": 46563,
+     "psnr": 29.987084586801,
+     "ssim": 0.9451202920504979,
+     "lpips": 0.1673871534211295,
+     "fps": 572.3697343332492,
+     "gpu": "RTX A5000",
+     "text": {
+      "memory_mb": "3.73",
+      "vram_gib": "0.56",
+      "train_min": "10.0",
+      "primitives": "46,563",
+      "psnr": "29.99",
+      "ssim": "0.945",
+      "lpips": "0.167",
+      "fps": "572.4"
+     }
+    },
+    "v2_fixed": {
+     "memory_mb": 2.060508,
+     "vram_gib": 0.53125,
+     "train_min": 7.852768305634769,
+     "primitives": 17763,
+     "psnr": 29.664575346593324,
+     "ssim": 0.9360208341053554,
+     "lpips": 0.17826261158500398,
+     "fps": 1076.3027037999796,
+     "gpu": "RTX A5000",
+     "text": {
+      "memory_mb": "2.06",
+      "vram_gib": "0.53",
+      "train_min": "7.9",
+      "primitives": "17,763",
+      "psnr": "29.66",
+      "ssim": "0.936",
+      "lpips": "0.178",
+      "fps": "1,076.3"
+     }
+    },
+    "v2_densified": {
+     "memory_mb": 4.831516,
+     "vram_gib": 0.568359375,
+     "train_min": 11.214568297900648,
+     "primitives": 41651,
+     "psnr": 30.080901284745547,
+     "ssim": 0.9253700545855931,
+     "lpips": 0.15500476104872568,
+     "fps": 473.27725744923424,
+     "gpu": "RTX A5000",
+     "text": {
+      "memory_mb": "4.83",
+      "vram_gib": "0.57",
+      "train_min": "11.2",
+      "primitives": "41,651",
+      "psnr": "30.08",
+      "ssim": "0.925",
+      "lpips": "0.155",
+      "fps": "473.3"
+     }
+    },
+    "v3_fixed": {
+     "memory_mb": 4.61838,
+     "vram_gib": 0.54296875,
+     "train_min": 7.477002342999913,
+     "primitives": 17763,
+     "psnr": 29.455714529384004,
+     "ssim": 0.9226344398089817,
+     "lpips": 0.17915219920022146,
+     "fps": 940.112467458167,
+     "gpu": "RTX A5000",
+     "text": {
+      "memory_mb": "4.62",
+      "vram_gib": "0.54",
+      "train_min": "7.5",
+      "primitives": "17,763",
+      "psnr": "29.46",
+      "ssim": "0.923",
+      "lpips": "0.179",
+      "fps": "940.1"
+     }
+    },
+    "v3_densified": {
+     "memory_mb": 11.63214,
+     "vram_gib": 0.599609375,
+     "train_min": 10.429197203057507,
+     "primitives": 44739,
+     "psnr": 30.04164751157734,
+     "ssim": 0.9383787342480251,
+     "lpips": 0.166530470762934,
+     "fps": 579.365411947279,
+     "gpu": "RTX A5000",
+     "text": {
+      "memory_mb": "11.63",
+      "vram_gib": "0.60",
+      "train_min": "10.4",
+      "primitives": "44,739",
+      "psnr": "30.04",
+      "ssim": "0.938",
+      "lpips": "0.167",
+      "fps": "579.4"
+     }
+    }
+   },
+   "videos": {
+    "v1_fixed": {
+     "key": "variants/dtu/scan63/v1_fixed.mp4",
+     "poster": "variants/dtu/scan63/v1_fixed.jpg",
+     "bytes": 459839
+    },
+    "v1_densified": {
+     "key": "variants/dtu/scan63/v1_densified.mp4",
+     "poster": "variants/dtu/scan63/v1_densified.jpg",
+     "bytes": 490343
+    },
+    "v2_fixed": {
+     "key": "variants/dtu/scan63/v2_fixed.mp4",
+     "poster": "variants/dtu/scan63/v2_fixed.jpg",
+     "bytes": 480694
+    },
+    "v2_densified": {
+     "key": "variants/dtu/scan63/v2_densified.mp4",
+     "poster": "variants/dtu/scan63/v2_densified.jpg",
+     "bytes": 615986
+    },
+    "v3_fixed": {
+     "key": "variants/dtu/scan63/v3_fixed.mp4",
+     "poster": "variants/dtu/scan63/v3_fixed.jpg",
+     "bytes": 487524
+    },
+    "v3_densified": {
+     "key": "variants/dtu/scan63/v3_densified.mp4",
+     "poster": "variants/dtu/scan63/v3_densified.jpg",
+     "bytes": 597418
+    }
+   }
+  }
+ ],
+ "means": {
+  "mipnerf360": {
+   "v1_fixed": {
+    "psnr": 24.81623521225228,
+    "ssim": 0.7052955024985684,
+    "lpips": 0.410402197153802,
+    "memory_mb": 9.17488,
+    "fps": 377.834887506835,
+    "vram_gib": 0.7048611111111112,
+    "train_min": 24.179602871667075,
+    "primitives": 114686.0,
+    "scenes": 9,
+    "ada_scenes": 0,
+    "text": {
+     "memory_mb": "9.17",
+     "vram_gib": "0.70",
+     "train_min": "24.2",
+     "primitives": "114,686",
+     "psnr": "24.82",
+     "ssim": "0.705",
+     "lpips": "0.410",
+     "fps": "377.8"
+    }
+   },
+   "v1_densified": {
+    "psnr": 26.045850883342304,
+    "ssim": 0.7717520464022255,
+    "lpips": 0.3141335796309026,
+    "memory_mb": 76.00752888888888,
+    "fps": 129.54511655480684,
+    "vram_gib": 1.9455295138888888,
+    "train_min": 35.153670251101936,
+    "primitives": 950094.1111111111,
+    "scenes": 9,
+    "ada_scenes": 0,
+    "text": {
+     "memory_mb": "76.01",
+     "vram_gib": "1.95",
+     "train_min": "35.2",
+     "primitives": "950,094",
+     "psnr": "26.05",
+     "ssim": "0.772",
+     "lpips": "0.314",
+     "fps": "129.5"
+    }
+   },
+   "v2_fixed": {
+    "psnr": 25.0564391461968,
+    "ssim": 0.7108098737388081,
+    "lpips": 0.40478399483243477,
+    "memory_mb": 13.303576,
+    "fps": 375.022163443884,
+    "vram_gib": 0.7345920138888888,
+    "train_min": 24.456391680475402,
+    "primitives": 114686.0,
+    "scenes": 9,
+    "ada_scenes": 0,
+    "text": {
+     "memory_mb": "13.30",
+     "vram_gib": "0.73",
+     "train_min": "24.5",
+     "primitives": "114,686",
+     "psnr": "25.06",
+     "ssim": "0.711",
+     "lpips": "0.405",
+     "fps": "375.0"
+    }
+   },
+   "v2_densified": {
+    "psnr": 26.003448946933215,
+    "ssim": 0.7703092329871901,
+    "lpips": 0.31939320776223107,
+    "memory_mb": 98.800912,
+    "fps": 124.13445406555623,
+    "vram_gib": 2.7545572916666665,
+    "train_min": 34.80176127941123,
+    "primitives": 851732.0,
+    "scenes": 9,
+    "ada_scenes": 0,
+    "text": {
+     "memory_mb": "98.80",
+     "vram_gib": "2.75",
+     "train_min": "34.8",
+     "primitives": "851,732",
+     "psnr": "26.00",
+     "ssim": "0.770",
+     "lpips": "0.319",
+     "fps": "124.1"
+    }
+   },
+   "v3_fixed": {
+    "psnr": 25.411779878731,
+    "ssim": 0.7162319667511501,
+    "lpips": 0.40124409624954743,
+    "memory_mb": 29.818360000000002,
+    "fps": 366.91736787492084,
+    "vram_gib": 0.8029513888888888,
+    "train_min": 24.32566284677208,
+    "primitives": 114686.0,
+    "scenes": 9,
+    "ada_scenes": 0,
+    "text": {
+     "memory_mb": "29.82",
+     "vram_gib": "0.80",
+     "train_min": "24.3",
+     "primitives": "114,686",
+     "psnr": "25.41",
+     "ssim": "0.716",
+     "lpips": "0.401",
+     "fps": "366.9"
+    }
+   },
+   "v3_densified": {
+    "psnr": 26.516845735988408,
+    "ssim": 0.7803747460692003,
+    "lpips": 0.30735180054188355,
+    "memory_mb": 238.4891888888889,
+    "fps": 100.74837277106133,
+    "vram_gib": 13.954210069444445,
+    "train_min": 37.485737294872095,
+    "primitives": 917266.1111111111,
+    "scenes": 9,
+    "ada_scenes": 0,
+    "text": {
+     "memory_mb": "238.49",
+     "vram_gib": "13.95",
+     "train_min": "37.5",
+     "primitives": "917,266",
+     "psnr": "26.52",
+     "ssim": "0.780",
+     "lpips": "0.307",
+     "fps": "100.7"
+    }
+   }
+  },
+  "tanks_and_temples": {
+   "v1_fixed": {
+    "psnr": 23.05235242029038,
+    "ssim": 0.8107207465553959,
+    "lpips": 0.29492741790771465,
+    "memory_mb": 14.56504,
+    "fps": 438.40609744679455,
+    "vram_gib": 0.551953125,
+    "train_min": 13.279349889068884,
+    "primitives": 182063.0,
+    "scenes": 10,
+    "ada_scenes": 0,
+    "text": {
+     "memory_mb": "14.57",
+     "vram_gib": "0.55",
+     "train_min": "13.3",
+     "primitives": "182,063",
+     "psnr": "23.05",
+     "ssim": "0.811",
+     "lpips": "0.295",
+     "fps": "438.4"
+    }
+   },
+   "v1_densified": {
+    "psnr": 23.95295908969631,
+    "ssim": 0.8290841112659184,
+    "lpips": 0.2609042557857451,
+    "memory_mb": 60.925568,
+    "fps": 197.09113679065032,
+    "vram_gib": 1.381640625,
+    "train_min": 20.768937473507638,
+    "primitives": 761569.6,
+    "scenes": 10,
+    "ada_scenes": 0,
+    "text": {
+     "memory_mb": "60.93",
+     "vram_gib": "1.38",
+     "train_min": "20.8",
+     "primitives": "761,570",
+     "psnr": "23.95",
+     "ssim": "0.829",
+     "lpips": "0.261",
+     "fps": "197.1"
+    }
+   },
+   "v2_fixed": {
+    "psnr": 23.48683789558263,
+    "ssim": 0.8188555556203133,
+    "lpips": 0.2871633524196308,
+    "memory_mb": 21.119308,
+    "fps": 386.8979002788334,
+    "vram_gib": 0.595703125,
+    "train_min": 14.411720967169046,
+    "primitives": 182063.0,
+    "scenes": 10,
+    "ada_scenes": 0,
+    "text": {
+     "memory_mb": "21.12",
+     "vram_gib": "0.60",
+     "train_min": "14.4",
+     "primitives": "182,063",
+     "psnr": "23.49",
+     "ssim": "0.819",
+     "lpips": "0.287",
+     "fps": "386.9"
+    }
+   },
+   "v2_densified": {
+    "psnr": 24.271623955286653,
+    "ssim": 0.833711061567465,
+    "lpips": 0.2574138280310475,
+    "memory_mb": 83.3207352,
+    "fps": 167.45848580662812,
+    "vram_gib": 1.96328125,
+    "train_min": 22.67346562589276,
+    "primitives": 718282.2,
+    "scenes": 10,
+    "ada_scenes": 0,
+    "text": {
+     "memory_mb": "83.32",
+     "vram_gib": "1.96",
+     "train_min": "22.7",
+     "primitives": "718,282",
+     "psnr": "24.27",
+     "ssim": "0.834",
+     "lpips": "0.257",
+     "fps": "167.5"
+    }
+   },
+   "v3_fixed": {
+    "psnr": 23.775768004378676,
+    "ssim": 0.8241020528173871,
+    "lpips": 0.2807635625715803,
+    "memory_mb": 47.33638,
+    "fps": 370.58904669527385,
+    "vram_gib": 0.70703125,
+    "train_min": 14.629317273818257,
+    "primitives": 182063.0,
+    "scenes": 10,
+    "ada_scenes": 0,
+    "text": {
+     "memory_mb": "47.34",
+     "vram_gib": "0.71",
+     "train_min": "14.6",
+     "primitives": "182,063",
+     "psnr": "23.78",
+     "ssim": "0.824",
+     "lpips": "0.281",
+     "fps": "370.6"
+    }
+   },
+   "v3_densified": {
+    "psnr": 24.5344482967972,
+    "ssim": 0.8394860063268569,
+    "lpips": 0.2482612325735665,
+    "memory_mb": 192.174424,
+    "fps": 142.69905610049616,
+    "vram_gib": 12.0619140625,
+    "train_min": 24.314047572151953,
+    "primitives": 739132.4,
+    "scenes": 10,
+    "ada_scenes": 0,
+    "text": {
+     "memory_mb": "192.17",
+     "vram_gib": "12.06",
+     "train_min": "24.3",
+     "primitives": "739,132",
+     "psnr": "24.53",
+     "ssim": "0.839",
+     "lpips": "0.248",
+     "fps": "142.7"
+    }
+   }
+  },
+  "dtu": {
+   "v1_fixed": {
+    "psnr": 28.938973660512264,
+    "ssim": 0.8896615111402103,
+    "lpips": 0.3033113208732435,
+    "memory_mb": 2.717973333333333,
+    "fps": 830.7851125264743,
+    "vram_gib": 0.5454427083333333,
+    "train_min": 8.394581582956404,
+    "primitives": 33974.666666666664,
+    "scenes": 15,
+    "ada_scenes": 0,
+    "text": {
+     "memory_mb": "2.72",
+     "vram_gib": "0.55",
+     "train_min": "8.4",
+     "primitives": "33,975",
+     "psnr": "28.94",
+     "ssim": "0.890",
+     "lpips": "0.303",
+     "fps": "830.8"
+    }
+   },
+   "v1_densified": {
+    "psnr": 29.313842564370898,
+    "ssim": 0.8968725204467773,
+    "lpips": 0.2778319122181052,
+    "memory_mb": 7.796341333333333,
+    "fps": 441.40766825050133,
+    "vram_gib": 0.6102864583333333,
+    "train_min": 10.78788553235755,
+    "primitives": 97454.26666666666,
+    "scenes": 15,
+    "ada_scenes": 0,
+    "text": {
+     "memory_mb": "7.80",
+     "vram_gib": "0.61",
+     "train_min": "10.8",
+     "primitives": "97,454",
+     "psnr": "29.31",
+     "ssim": "0.897",
+     "lpips": "0.278",
+     "fps": "441.4"
+    }
+   },
+   "v2_fixed": {
+    "psnr": 29.572431557530038,
+    "ssim": 0.8950734661448569,
+    "lpips": 0.297624294317904,
+    "memory_mb": 3.9410613333333333,
+    "fps": 845.6272176265536,
+    "vram_gib": 0.5645833333333333,
+    "train_min": 8.450114712220643,
+    "primitives": 33974.666666666664,
+    "scenes": 15,
+    "ada_scenes": 0,
+    "text": {
+     "memory_mb": "3.94",
+     "vram_gib": "0.56",
+     "train_min": "8.5",
+     "primitives": "33,975",
+     "psnr": "29.57",
+     "ssim": "0.895",
+     "lpips": "0.298",
+     "fps": "845.6"
+    }
+   },
+   "v2_densified": {
+    "psnr": 29.139693627862172,
+    "ssim": 0.8913297862524078,
+    "lpips": 0.28221777342259885,
+    "memory_mb": 10.565728533333333,
+    "fps": 513.7999793472777,
+    "vram_gib": 0.6403645833333333,
+    "train_min": 10.288575936391975,
+    "primitives": 91083.86666666667,
+    "scenes": 15,
+    "ada_scenes": 0,
+    "text": {
+     "memory_mb": "10.57",
+     "vram_gib": "0.64",
+     "train_min": "10.3",
+     "primitives": "91,084",
+     "psnr": "29.14",
+     "ssim": "0.891",
+     "lpips": "0.282",
+     "fps": "513.8"
+    }
+   },
+   "v3_fixed": {
+    "psnr": 29.953851208084,
+    "ssim": 0.8993228343980653,
+    "lpips": 0.2933147275909072,
+    "memory_mb": 8.833413333333333,
+    "fps": 792.3188480506935,
+    "vram_gib": 0.5768229166666666,
+    "train_min": 8.532788656204033,
+    "primitives": 33974.666666666664,
+    "scenes": 15,
+    "ada_scenes": 0,
+    "text": {
+     "memory_mb": "8.83",
+     "vram_gib": "0.58",
+     "train_min": "8.5",
+     "primitives": "33,975",
+     "psnr": "29.95",
+     "ssim": "0.899",
+     "lpips": "0.293",
+     "fps": "792.3"
+    }
+   },
+   "v3_densified": {
+    "psnr": 29.75753242138108,
+    "ssim": 0.9021637018947374,
+    "lpips": 0.2678109852685815,
+    "memory_mb": 26.111869333333335,
+    "fps": 483.10015490529946,
+    "vram_gib": 1.2087239583333333,
+    "train_min": 10.559574959274743,
+    "primitives": 100430.26666666666,
+    "scenes": 15,
+    "ada_scenes": 0,
+    "text": {
+     "memory_mb": "26.11",
+     "vram_gib": "1.21",
+     "train_min": "10.6",
+     "primitives": "100,430",
+     "psnr": "29.76",
+     "ssim": "0.902",
+     "lpips": "0.268",
+     "fps": "483.1"
+    }
+   }
+  }
+ },
+ "fps_repeatability": {
+  "scene": 0.12522665911773756,
+  "mean": 0.06150383524040448,
+  "text": {
+   "scene": "12.5%",
+   "mean": "6.2%"
+  }
+ },
+ "definitions": {
+  "memory_mb": "Every value the renderer reads, at 4 bytes per value, in MB: 20 (V1), 29 (V2) or 65 (V3) values per primitive.",
+  "vram_gib": "The most GPU memory used during training, in GiB.",
+  "train_min": "Wall-clock minutes for 30,000 iterations, start-up and saving included.",
+  "quality": "PSNR, SSIM and LPIPS (VGG) on the held-out test views (every eighth image).",
+  "fps": "Frames per second of rendering alone, with the model on the GPU.",
+  "primitives": "Final number of primitives; the fixed variants of a scene share one count.",
+  "appearance": "V1: base color plus a spatial color gradient (20 values per primitive). V2: V1 plus a linear view-dependent term (29). V3: V1 plus degree-3 spherical harmonics (65).",
+  "population": "F (fixed): the initial population, one Hexel per sparse COLMAP point. G (densified): grows by clone and split and prunes low-contribution primitives, up to 2M."
+ },
+ "notes": [
+  "The six variants of a scene share the initialization, training images and test views; only appearance and population differ."
+ ]
+}

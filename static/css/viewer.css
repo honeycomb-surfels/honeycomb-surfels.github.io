@@ -1,0 +1,839 @@
+/*
+ * Viewer page (viewer.html): the slim site header, the scene picker, the Compact / Full quality toggle, the stage
+ * that holds the viewer iframe (viewer/index.html), the progress bar, the status line and the help panels.
+ * Colors and sizes come from the tokens of index.css; download sizes use a lighter grey (--hx-vsize-ink). The stage
+ * uses the viewer's own charcoal, so the iframe appears without a flash.
+ */
+
+:root {
+  --hx-vsize-ink: #7f888c;
+}
+
+/* ---------- Slim site header: logo and title back to the project page ---------- */
+
+.hx-sitebar {
+  border-bottom: 1px solid var(--hx-line);
+  background: var(--hx-surface);
+}
+
+.hx-sitebar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1.25rem;
+  min-height: 3.6rem;
+  padding-block: 0.45rem;
+}
+
+.hx-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-width: 0;
+  color: var(--hx-ink);
+  font-family: var(--hx-font-title);
+  font-size: 1.2rem;
+  line-height: 1.2;
+}
+
+.hx-brand img {
+  flex: none;
+  width: 2.1rem;
+  height: 2.1rem;
+}
+
+.hx-brand:hover {
+  color: var(--hx-ink);
+}
+
+.hx-brand:hover span {
+  text-decoration: underline;
+}
+
+.hx-sitebar .hx-backlink {
+  flex: none;
+  font-size: 0.92rem;
+}
+
+.hx-backlink-short {
+  display: none;
+}
+
+@media screen and (max-width: 480px) {
+  .hx-brand {
+    gap: 0.45rem;
+    font-size: 1.05rem;
+  }
+
+  .hx-brand img {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+
+  .hx-backlink-long {
+    display: none;
+  }
+
+  .hx-backlink-short {
+    display: inline;
+  }
+}
+
+/* ---------- Title ---------- */
+
+.hx-vhero {
+  padding: 2rem 0 0.25rem;
+}
+
+.hx-vhero .title.publication-title {
+  margin-bottom: 0.9rem;
+  font-size: clamp(1.6rem, 1.2rem + 1.6vw, 2.4rem);
+}
+
+.hx-viewer-lead {
+  max-width: 46rem;
+  margin: 0 auto;
+  color: var(--hx-muted);
+  font-size: 1.05rem;
+  line-height: 1.65;
+  text-wrap: pretty;
+}
+
+.section.hx-section.hx-viewer {
+  padding-top: 1.5rem;
+}
+
+.hx-viewer code {
+  color: var(--hx-ink);
+}
+
+/* ---------- Notice (WebGL2 missing, models not hosted, a reload after running out of memory) ---------- */
+
+.hx-vnotice {
+  margin: 0 0 1.25rem;
+  padding: 0.8rem 1rem;
+  border-left: 4px solid var(--hx-select);
+  border-radius: 0 var(--hx-radius) var(--hx-radius) 0;
+  background: var(--hx-surface-2);
+  color: var(--hx-ink);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.hx-vnotice[data-tone="error"] {
+  border-left-color: var(--hx-ours);
+  background: #fbf1ed;
+}
+
+/* ---------- Scene picker ---------- */
+
+.hx-vpicker-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.25rem 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.hx-vpicker-head .title {
+  margin: 0;
+}
+
+.hx-vpicker-note {
+  margin: 0;
+  color: var(--hx-muted);
+  font-size: 0.875rem;
+}
+
+.hx-vscenes {
+  display: grid;
+  grid-template-columns: repeat(9, minmax(0, 1fr));
+  gap: 0.6rem;
+  margin: 0 0 1.75rem;
+  padding: 0;
+  list-style: none;
+}
+
+.hx-vscenes-empty {
+  grid-column: 1 / -1;
+  padding: 1.25rem 1rem;
+  border-radius: var(--hx-radius);
+  background: var(--hx-surface-2);
+  color: var(--hx-muted);
+  text-align: center;
+}
+
+.hx-vcard {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 0 0 0.5rem;
+  overflow: hidden;
+  border: 1px solid var(--hx-line);
+  border-radius: var(--hx-radius);
+  background: var(--hx-surface);
+  color: var(--hx-ink);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.hx-vcard:hover {
+  border-color: #c9ced1;
+  box-shadow: 0 4px 14px rgba(31, 43, 48, 0.09);
+}
+
+/* Selected controls are dark, as on the project page; --hx-select stays for focus rings and accents. */
+.hx-vcard[aria-pressed="true"] {
+  border-color: var(--hx-dark);
+  box-shadow: 0 0 0 2px var(--hx-dark);
+}
+
+.hx-vcard[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.hx-vcard-thumb {
+  display: block;
+  aspect-ratio: 320 / 208;
+  overflow: hidden;
+  background: var(--hx-surface-2);
+}
+
+.hx-vcard-thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hx-vcard-text {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0 0.4rem;
+  margin: 0.45rem 0.6rem 0;
+}
+
+.hx-vcard-name {
+  font-family: var(--hx-font-title);
+  font-size: 0.95rem;
+  line-height: 1.25;
+}
+
+/* Download sizes: light grey, tabular figures. */
+.hx-vsize {
+  color: var(--hx-vsize-ink);
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.35;
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hx-vcard {
+    transition: none;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .hx-vscenes {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .hx-vscenes {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.5rem;
+  }
+
+  .hx-vcard-text {
+    flex-direction: column;
+    gap: 0;
+    margin-inline: 0.5rem;
+  }
+
+  .hx-vcard-name {
+    font-size: 0.9rem;
+  }
+}
+
+/* ---------- Stage bar: scene title, model versions, full window and fullscreen ---------- */
+
+.hx-vbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.25rem;
+  margin-bottom: 0.75rem;
+  scroll-margin-top: 0.75rem;
+}
+
+.hx-vbar-title {
+  display: flex;
+  flex: 1 1 16rem;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.hx-vbar-title strong {
+  color: var(--hx-ink);
+  font-family: var(--hx-font-title);
+  font-size: 1.3rem;
+  font-weight: 500;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+#viewer-subtitle {
+  color: var(--hx-muted);
+  font-size: 0.875rem;
+}
+
+.hx-vchoice {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.3rem;
+  max-width: 100%;
+}
+
+.hx-vchoice-note {
+  max-width: 26rem;
+  margin: 0;
+  color: var(--hx-muted);
+  font-size: 0.78rem;
+  line-height: 1.4;
+  text-align: right;
+}
+
+.hx-vchoice-note:empty {
+  display: none;
+}
+
+.hx-vvariants {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid var(--hx-line);
+  border-radius: 1.6rem;
+  background: var(--hx-surface-2);
+}
+
+.hx-vvariant {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 8.5rem;
+  padding: 0.3rem 1rem;
+  border: 0;
+  border-radius: 1.4rem;
+  background: transparent;
+  color: var(--hx-ink);
+  font: inherit;
+  line-height: 1.25;
+  cursor: pointer;
+}
+
+.hx-vvariant:hover {
+  background: #e9ecee;
+}
+
+.hx-vvariant[aria-pressed="true"] {
+  background: var(--hx-dark);
+  color: #fff;
+}
+
+.hx-vvariant-label {
+  font-family: var(--hx-font-title);
+  font-size: 0.9rem;
+}
+
+.hx-vvariant-meta {
+  display: flex;
+  gap: 0.45rem;
+  font-size: 0.72rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.hx-vvariant-meta .hx-vsize {
+  font-size: inherit;
+}
+
+.hx-vpsnr {
+  color: var(--hx-muted);
+}
+
+.hx-vpsnr:empty {
+  display: none;
+}
+
+.hx-vvariant[aria-pressed="true"] .hx-vsize,
+.hx-vvariant[aria-pressed="true"] .hx-vpsnr {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.hx-vvariant[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.hx-vactions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.button.hx-vaction {
+  border-color: var(--hx-line);
+  color: var(--hx-ink);
+}
+
+.button.hx-vaction:hover {
+  border-color: #c9ced1;
+  background: var(--hx-surface-2);
+}
+
+/* ---------- Large-download confirmation ---------- */
+
+.hx-vconfirm {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem 1rem;
+  margin-bottom: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-left: 4px solid var(--hx-ours);
+  border-radius: 0 var(--hx-radius) var(--hx-radius) 0;
+  background: #fbf1ed;
+}
+
+.hx-vconfirm p {
+  flex: 1 1 20rem;
+  margin: 0;
+  color: var(--hx-ink);
+}
+
+.hx-vconfirm-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* ---------- Stage ---------- */
+
+.hx-vstage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: calc(100vh - 7rem);
+  min-height: 16rem;
+  overflow: hidden;
+  border-radius: var(--hx-radius);
+  background: radial-gradient(ellipse at 70% 45%, #3b2c27, #191615 65%);
+}
+
+.hx-vstage:fullscreen {
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  aspect-ratio: auto;
+  border-radius: 0;
+}
+
+.hx-vstage:-webkit-full-screen {
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  border-radius: 0;
+}
+
+.hx-vframe {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.hx-vplaceholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  padding: 1.5rem;
+  color: #c4b6aa;
+  text-align: center;
+}
+
+.hx-vplaceholder-logo {
+  width: clamp(3.25rem, 7vw, 5.5rem);
+  height: auto;
+  margin-bottom: 0.5rem;
+  opacity: 0.85;
+}
+
+.hx-vplaceholder-title {
+  color: #efe3d5;
+  font-family: var(--hx-font-title);
+  font-size: clamp(1.1rem, 2vw, 1.6rem);
+}
+
+.hx-vplaceholder code {
+  padding: 0.1em 0.35em;
+  background: #2c2522;
+  color: #efe3d5;
+}
+
+.hx-vdrop-hint {
+  position: absolute;
+  inset: 0.75rem;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed #dfa578;
+  border-radius: 8px;
+  background: rgba(25, 22, 21, 0.78);
+  color: #efe3d5;
+  font-family: var(--hx-font-title);
+  font-size: 1.1rem;
+  pointer-events: none;
+}
+
+.hx-vdragging .hx-vdrop-hint {
+  display: flex;
+}
+
+/* ---------- Progress bar under the stage: download bytes, then the decoding steps ---------- */
+
+.hx-vprogress {
+  margin-top: 0.6rem;
+}
+
+.hx-vprogress-bar {
+  position: relative;
+  height: 4px;
+  overflow: hidden;
+  border-radius: 2px;
+  background: var(--hx-line);
+}
+
+.hx-vprogress-bar > span {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  border-radius: 2px;
+  background: var(--hx-select);
+  transition: width 0.2s linear;
+}
+
+.hx-vprogress-bar.is-indeterminate > span {
+  width: 30%;
+  animation: hx-vsweep 1.4s ease-in-out infinite;
+}
+
+@keyframes hx-vsweep {
+  from { left: -30%; }
+  to { left: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hx-vprogress-bar > span {
+    transition: none;
+  }
+
+  .hx-vprogress-bar.is-indeterminate > span {
+    width: 100%;
+    animation: none;
+    opacity: 0.35;
+  }
+}
+
+.hx-vstatus {
+  min-height: 1.5em;
+  margin: 0.6rem 0 0;
+  color: var(--hx-muted);
+  font-size: 0.9rem;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+
+.hx-vstatus[data-tone="ok"] {
+  color: var(--hx-ink);
+}
+
+.hx-vstatus[data-tone="error"] {
+  color: #b0452a;
+}
+
+@media screen and (max-width: 760px) {
+  .hx-vstage {
+    aspect-ratio: 4 / 3;
+  }
+
+  .hx-vbar-title strong {
+    font-size: 1.15rem;
+  }
+
+  .hx-vchoice {
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .hx-vchoice-note {
+    max-width: none;
+    text-align: left;
+  }
+
+  .hx-vvariants {
+    display: flex;
+    width: 100%;
+  }
+
+  .hx-vvariant {
+    flex: 1 1 0;
+    min-width: 0;
+    padding-inline: 0.5rem;
+  }
+}
+
+/* ---------- Your own model and controls ---------- */
+
+.hx-vinfo {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 1.25rem;
+  margin-top: 2.25rem;
+}
+
+.hx-vpanel {
+  padding: 1.25rem 1.4rem;
+  border: 1px solid var(--hx-line);
+  border-radius: var(--hx-radius);
+  background: var(--hx-surface);
+}
+
+.hx-vpanel .title.is-5 {
+  margin-bottom: 0.6rem;
+}
+
+.hx-vpanel p {
+  line-height: 1.6;
+}
+
+.hx-vdrop {
+  border: 1px dashed #c3cacd;
+  background: var(--hx-surface-2);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.hx-vdragging .hx-vdrop {
+  border-color: var(--hx-select);
+  box-shadow: 0 0 0 2px var(--hx-select);
+}
+
+.hx-vdrop.is-disabled {
+  opacity: 0.6;
+}
+
+.hx-vopen {
+  position: relative;
+  margin: 0.9rem 0 0.2rem;
+}
+
+/* The native input stays focusable for the keyboard; the label is the visible button. */
+.hx-vopen input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.hx-vopen:focus-within {
+  outline: 2px solid var(--hx-select);
+  outline-offset: 2px;
+}
+
+.hx-vexport {
+  margin-top: 0.9rem;
+}
+
+.hx-vexport summary {
+  color: var(--hx-link);
+  cursor: pointer;
+}
+
+.hx-vexport p {
+  margin-top: 0.6rem;
+  font-size: 0.9rem;
+}
+
+.hx-vexport pre {
+  margin: 0.6rem 0;
+  padding: 0.9rem 1rem;
+  border-radius: 8px;
+  background: var(--hx-surface);
+  color: var(--hx-ink);
+  font-family: var(--hx-font-mono);
+  font-size: 0.78rem;
+  line-height: 1.6;
+  white-space: pre;
+  overflow-x: auto;
+}
+
+.hx-vexport pre code {
+  padding: 0;
+  background: none;
+  font-size: inherit;
+}
+
+.hx-vhelp-first {
+  color: var(--hx-muted);
+}
+
+.hx-vkeys {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0.8rem 0 1rem;
+}
+
+.hx-vkeys h4 {
+  margin-bottom: 0.45rem;
+  color: var(--hx-ink);
+  font-family: var(--hx-font-title);
+  font-size: 0.95rem;
+}
+
+.hx-vkeys dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.35rem 0.6rem;
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.hx-vkeys dt {
+  white-space: nowrap;
+}
+
+.hx-vkeys dd {
+  margin: 0;
+  color: var(--hx-muted);
+}
+
+.hx-viewer kbd {
+  display: inline-block;
+  min-width: 1.6em;
+  padding: 0 0.35em;
+  border: 1px solid #cfd5d8;
+  border-bottom-width: 2px;
+  border-radius: 4px;
+  background: var(--hx-surface-2);
+  color: var(--hx-ink);
+  font-family: var(--hx-font-mono);
+  font-size: 0.75rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.hx-vnotes {
+  max-width: var(--hx-text);
+  margin-top: 2.25rem;
+}
+
+.hx-vnotes .title.is-5 {
+  margin-bottom: 0.75rem;
+}
+
+.content .hx-vlegend {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  list-style: none;
+  margin-left: 0;
+}
+
+.hx-vnotes li {
+  line-height: 1.6;
+}
+
+@media screen and (max-width: 1100px) {
+  .hx-vkeys {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 860px) {
+  .hx-vinfo {
+    grid-template-columns: 1fr;
+  }
+
+  .hx-vkeys {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .hx-vpanel {
+    padding: 1rem;
+  }
+
+  .hx-vkeys {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+
+  .hx-viewer-lead {
+    font-size: 1rem;
+    text-align: left;
+  }
+}
+
+/* Touch screens: tap targets of at least 40 px, the download confirmation and the site bar's brand included. */
+@media (pointer: coarse) {
+  .hx-vvariant,
+  .button.hx-vaction,
+  .hx-vconfirm .button {
+    min-height: 2.5rem;
+  }
+
+  .hx-brand {
+    min-height: 2.5rem;
+  }
+
+  /* Padding rather than a flex box, so the summary keeps its disclosure marker. */
+  .hx-vexport summary {
+    padding-block: 0.5rem;
+  }
+}
+
+/* The narrowest phones: the brand shows its logo only, so its name never wraps beside the back link; the name stays
+   for screen readers as the link's text. */
+@media screen and (max-width: 340px) {
+  .hx-brand span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}

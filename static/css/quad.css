@@ -1,0 +1,402 @@
+/*
+ * Four-quadrant primitive comparison (static/js/quad.js).
+ *
+ * Colours, radius and widths are the shared tokens from index.css, and the buttons, tags, handle
+ * and dividers follow the comparison player in compare.css. The stage takes the aspect ratio of
+ * the current scene from --quad-aspect; quad.js moves the crosshair through --quad-x and
+ * --quad-y, which clip the four stacked layers into quadrants. The caption, the tip and the
+ * "coming soon" card reuse .hx-caption, .hx-tip and .hx-soon-card from index.css.
+ */
+
+.quad {
+  --quad-max-height: max(calc(100vh - 11rem), 300px);
+  width: 100%;
+  max-width: var(--hx-wide);
+  margin: 0 auto;
+  color: var(--hx-ink);
+}
+
+/* Method toggle and scene buttons -------------------------------------------------------------- */
+
+.quad .quad-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 16px;
+}
+
+.quad .quad-scenes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px 28px;
+}
+
+.quad .quad-scene-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+
+.quad .quad-scene-dataset {
+  margin-right: 4px;
+  color: var(--hx-muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.quad .quad-scene {
+  display: inline-flex;
+  align-items: center;
+  height: 30px;
+  margin: 0;
+  padding: 0 12px;
+  border: 1px solid var(--hx-line);
+  border-radius: 999px;
+  background: var(--hx-surface);
+  color: var(--hx-ink);
+  font: inherit;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.quad .quad-scene:hover {
+  border-color: #b5b5b5;
+}
+
+.quad .quad-scene[aria-pressed="true"] {
+  border-color: var(--hx-dark);
+  background: var(--hx-dark);
+  color: #fff;
+}
+
+.quad .quad-scene:focus-visible {
+  outline: 2px solid var(--hx-select);
+  outline-offset: 2px;
+}
+
+/* Stage: four stacked layers clipped by the crosshair ------------------------------------------ */
+
+.quad .quad-figure {
+  margin: 0;
+}
+
+.quad .quad-stage {
+  --quad-x: 50%;
+  --quad-y: 50%;
+  position: relative;
+  width: min(100%, calc(var(--quad-max-height) * var(--quad-aspect, 16 / 9)));
+  aspect-ratio: var(--quad-aspect, 16 / 9);
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: var(--hx-radius);
+  background: var(--hx-surface-2);
+  cursor: crosshair;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.quad .quad-layer {
+  position: absolute;
+  inset: 0;
+  transition: opacity 0.2s;
+}
+
+.quad .quad-top-left {
+  clip-path: inset(0 calc(100% - var(--quad-x)) calc(100% - var(--quad-y)) 0);
+}
+
+.quad .quad-top-right {
+  clip-path: inset(0 0 calc(100% - var(--quad-y)) var(--quad-x));
+}
+
+.quad .quad-bottom-left {
+  clip-path: inset(var(--quad-y) calc(100% - var(--quad-x)) 0 0);
+}
+
+.quad .quad-bottom-right {
+  clip-path: inset(var(--quad-y) 0 0 var(--quad-x));
+}
+
+.quad .quad-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  -webkit-user-drag: none;
+}
+
+.quad .quad-stage:not(.is-ready) .quad-layer {
+  opacity: 0;
+}
+
+.quad .quad-stage.is-ready.is-loading .quad-layer {
+  opacity: 0.65;
+}
+
+/* Corner tags -------------------------------------------------------------------------------- */
+
+.quad .quad-label {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  max-width: calc(100% - 20px);
+  padding: 3px 9px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18);
+  color: var(--hx-ink);
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+  pointer-events: none;
+  transition: opacity 0.15s;
+}
+
+.quad .quad-label.is-covered {
+  opacity: 0;
+}
+
+.quad .quad-label-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+}
+
+.quad .quad-label-total {
+  color: var(--hx-muted);
+  font-size: 0.72rem;
+  font-weight: 400;
+}
+
+.quad .quad-top-left .quad-label {
+  top: 10px;
+  left: 10px;
+}
+
+.quad .quad-top-right .quad-label {
+  top: 10px;
+  right: 10px;
+}
+
+.quad .quad-bottom-left .quad-label {
+  bottom: 10px;
+  left: 10px;
+}
+
+.quad .quad-bottom-right .quad-label {
+  right: 10px;
+  bottom: 10px;
+}
+
+.quad .quad-dot {
+  flex: none;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+.quad .quad-dot-3dgs {
+  background: var(--hx-method-3dgs, #8b679a);
+}
+
+.quad .quad-dot-2dgs {
+  background: var(--hx-method-2dgs, #458da5);
+}
+
+.quad .quad-dot-ours {
+  background: var(--hx-method-ours, #cd7353);
+}
+
+/* Crosshair ---------------------------------------------------------------------------------- */
+
+.quad .quad-line {
+  position: absolute;
+  background: #fff;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.45);
+  pointer-events: none;
+}
+
+.quad .quad-line-vertical {
+  top: 0;
+  bottom: 0;
+  left: var(--quad-x);
+  width: 2px;
+  margin-left: -1px;
+}
+
+.quad .quad-line-horizontal {
+  left: 0;
+  right: 0;
+  top: var(--quad-y);
+  height: 2px;
+  margin-top: -1px;
+}
+
+.quad .quad-handle {
+  position: absolute;
+  left: var(--quad-x);
+  top: var(--quad-y);
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--hx-dark);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.35);
+  transform: translate(-50%, -50%);
+  cursor: grab;
+  touch-action: none;
+  outline: none;
+}
+
+/* A transparent ring widens the touch target to 52 px without enlarging the visible handle. */
+.quad .quad-handle::before {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+}
+
+.quad .quad-handle svg {
+  width: 20px;
+  height: 20px;
+}
+
+.quad .quad-handle:focus-visible {
+  box-shadow: 0 0 0 3px var(--hx-select), 0 1px 6px rgba(0, 0, 0, 0.35);
+}
+
+.quad .quad-stage.is-dragging,
+.quad .quad-stage.is-dragging .quad-handle {
+  cursor: grabbing;
+}
+
+.quad .quad-stage:not(.is-ready) :is(.quad-line, .quad-handle) {
+  visibility: hidden;
+}
+
+/* Loading and error notice ------------------------------------------------------------------- */
+
+.quad .quad-status {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  max-width: calc(100% - 24px);
+  margin: 0;
+  padding: 5px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18);
+  color: var(--hx-muted);
+  font-size: 0.85rem;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.quad .quad-status:empty {
+  display: none;
+}
+
+/* Caption ------------------------------------------------------------------------------------ */
+
+.quad .quad-caption-meta {
+  display: block;
+  margin-top: 2px;
+  font-size: 0.85rem;
+}
+
+.quad .quad-in-view {
+  font-style: italic;
+}
+
+/* Small screens ------------------------------------------------------------------------------ */
+
+@media screen and (max-width: 600px) {
+  .quad .quad-scenes {
+    gap: 6px;
+  }
+
+  .quad .quad-scenes .quad-scene-group {
+    display: contents;
+  }
+
+  .quad .quad-scenes .quad-scene-dataset {
+    display: none;
+  }
+
+  /* The totals would wrap the count labels over much of the small quadrants; the images' alt text keeps them. */
+  .quad .quad-label-total {
+    display: none;
+  }
+
+  .quad .quad-label {
+    align-items: flex-start;
+    max-width: calc(50% - 18px);
+    white-space: normal;
+  }
+
+  .quad .quad-label .quad-dot {
+    margin-top: 0.3em;
+  }
+
+  .quad .quad-label {
+    gap: 5px;
+    padding: 2px 7px;
+    font-size: 0.75rem;
+  }
+
+  .quad .quad-dot {
+    width: 7px;
+    height: 7px;
+  }
+
+  .quad .quad-top-left .quad-label,
+  .quad .quad-top-right .quad-label {
+    top: 6px;
+  }
+
+  .quad .quad-bottom-left .quad-label,
+  .quad .quad-bottom-right .quad-label {
+    bottom: 6px;
+  }
+
+  .quad .quad-top-left .quad-label,
+  .quad .quad-bottom-left .quad-label {
+    left: 6px;
+  }
+
+  .quad .quad-top-right .quad-label,
+  .quad .quad-bottom-right .quad-label {
+    right: 6px;
+  }
+}
+
+@media (pointer: coarse) {
+  .quad .quad-scene {
+    height: 40px;
+    padding: 0 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .quad .quad-layer,
+  .quad .quad-label,
+  .quad .quad-scene {
+    transition: none;
+  }
+}

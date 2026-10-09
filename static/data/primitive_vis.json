@@ -1,0 +1,218 @@
+{
+  "version": 1,
+  "visible_count_definition": "primitives the method's own rasterizer keeps for this test view: those it bins into at least one 16x16 screen tile (view-space depth > 0.2 and a footprint bound that overlaps the image tile grid); bounds are conservative, so a kept primitive can still leave every pixel unchanged",
+  "annotate_visible_counts": {
+    "3dgs": true,
+    "2dgs": false
+  },
+  "scenes": [
+    {
+      "dataset": "mipnerf360",
+      "scene": "garden",
+      "label": "Garden",
+      "view": "DSC08036",
+      "width": 1297,
+      "height": 840,
+      "images": {
+        "3dgs_render": "vis/mipnerf360/garden/3dgs_render.webp",
+        "ours_render": "vis/mipnerf360/garden/ours_render.webp",
+        "3dgs_vis": "vis/mipnerf360/garden/3dgs_vis.webp",
+        "ours_vis": "vis/mipnerf360/garden/ours_vis.webp",
+        "2dgs_render": "vis/mipnerf360/garden/2dgs_render.webp",
+        "2dgs_vis": "vis/mipnerf360/garden/2dgs_vis.webp"
+      },
+      "counts": {
+        "3dgs": 4127838,
+        "ours": 1808714,
+        "2dgs": 2278692
+      },
+      "visible_counts": {
+        "3dgs": 1367290,
+        "ours": 559982,
+        "2dgs": 563064
+      }
+    },
+    {
+      "dataset": "mipnerf360",
+      "scene": "bicycle",
+      "label": "Bicycle",
+      "view": "_DSC8776",
+      "width": 1237,
+      "height": 822,
+      "images": {
+        "3dgs_render": "vis/mipnerf360/bicycle/3dgs_render.webp",
+        "ours_render": "vis/mipnerf360/bicycle/ours_render.webp",
+        "3dgs_vis": "vis/mipnerf360/bicycle/3dgs_vis.webp",
+        "ours_vis": "vis/mipnerf360/bicycle/ours_vis.webp",
+        "2dgs_render": "vis/mipnerf360/bicycle/2dgs_render.webp",
+        "2dgs_vis": "vis/mipnerf360/bicycle/2dgs_vis.webp"
+      },
+      "counts": {
+        "3dgs": 4942269,
+        "ours": 1293887,
+        "2dgs": 4362743
+      },
+      "visible_counts": {
+        "3dgs": 1404926,
+        "ours": 339998,
+        "2dgs": 495123
+      }
+    },
+    {
+      "dataset": "mipnerf360",
+      "scene": "counter",
+      "label": "Counter",
+      "view": "DSCF6033",
+      "width": 1558,
+      "height": 1038,
+      "images": {
+        "3dgs_render": "vis/mipnerf360/counter/3dgs_render.webp",
+        "ours_render": "vis/mipnerf360/counter/ours_render.webp",
+        "3dgs_vis": "vis/mipnerf360/counter/3dgs_vis.webp",
+        "ours_vis": "vis/mipnerf360/counter/ours_vis.webp",
+        "2dgs_render": "vis/mipnerf360/counter/2dgs_render.webp",
+        "2dgs_vis": "vis/mipnerf360/counter/2dgs_vis.webp"
+      },
+      "counts": {
+        "3dgs": 1077875,
+        "ours": 410126,
+        "2dgs": 649107
+      },
+      "visible_counts": {
+        "3dgs": 502824,
+        "ours": 186212,
+        "2dgs": 235561
+      }
+    },
+    {
+      "dataset": "mipnerf360",
+      "scene": "room",
+      "label": "Room",
+      "view": "DSCF4795",
+      "width": 1557,
+      "height": 1038,
+      "images": {
+        "3dgs_render": "vis/mipnerf360/room/3dgs_render.webp",
+        "ours_render": "vis/mipnerf360/room/ours_render.webp",
+        "3dgs_vis": "vis/mipnerf360/room/3dgs_vis.webp",
+        "ours_vis": "vis/mipnerf360/room/ours_vis.webp",
+        "2dgs_render": "vis/mipnerf360/room/2dgs_render.webp",
+        "2dgs_vis": "vis/mipnerf360/room/2dgs_vis.webp"
+      },
+      "counts": {
+        "3dgs": 1306453,
+        "ours": 414490,
+        "2dgs": 863140
+      },
+      "visible_counts": {
+        "3dgs": 463762,
+        "ours": 179612,
+        "2dgs": 283213
+      }
+    },
+    {
+      "dataset": "tanks_and_temples",
+      "scene": "Truck",
+      "label": "Truck",
+      "view": "000009",
+      "width": 979,
+      "height": 543,
+      "images": {
+        "3dgs_render": "vis/tanks_and_temples/Truck/3dgs_render.webp",
+        "ours_render": "vis/tanks_and_temples/Truck/ours_render.webp",
+        "3dgs_vis": "vis/tanks_and_temples/Truck/3dgs_vis.webp",
+        "ours_vis": "vis/tanks_and_temples/Truck/ours_vis.webp",
+        "2dgs_render": "vis/tanks_and_temples/Truck/2dgs_render.webp",
+        "2dgs_vis": "vis/tanks_and_temples/Truck/2dgs_vis.webp"
+      },
+      "counts": {
+        "3dgs": 2089848,
+        "ours": 1224119,
+        "2dgs": 1179691
+      },
+      "visible_counts": {
+        "3dgs": 908484,
+        "ours": 492134,
+        "2dgs": 491255
+      }
+    },
+    {
+      "dataset": "tanks_and_temples",
+      "scene": "Ignatius",
+      "label": "Ignatius",
+      "view": "000049",
+      "width": 976,
+      "height": 545,
+      "images": {
+        "3dgs_render": "vis/tanks_and_temples/Ignatius/3dgs_render.webp",
+        "ours_render": "vis/tanks_and_temples/Ignatius/ours_render.webp",
+        "3dgs_vis": "vis/tanks_and_temples/Ignatius/3dgs_vis.webp",
+        "ours_vis": "vis/tanks_and_temples/Ignatius/ours_vis.webp",
+        "2dgs_render": "vis/tanks_and_temples/Ignatius/2dgs_render.webp",
+        "2dgs_vis": "vis/tanks_and_temples/Ignatius/2dgs_vis.webp"
+      },
+      "counts": {
+        "3dgs": 2245143,
+        "ours": 1636327,
+        "2dgs": 1847756
+      },
+      "visible_counts": {
+        "3dgs": 874871,
+        "ours": 675149,
+        "2dgs": 533189
+      }
+    },
+    {
+      "dataset": "dtu",
+      "scene": "scan24",
+      "label": "Scan 24",
+      "view": "0000",
+      "width": 777,
+      "height": 581,
+      "images": {
+        "3dgs_render": "vis/dtu/scan24/3dgs_render.webp",
+        "ours_render": "vis/dtu/scan24/ours_render.webp",
+        "3dgs_vis": "vis/dtu/scan24/3dgs_vis.webp",
+        "ours_vis": "vis/dtu/scan24/ours_vis.webp",
+        "2dgs_render": "vis/dtu/scan24/2dgs_render.webp",
+        "2dgs_vis": "vis/dtu/scan24/2dgs_vis.webp"
+      },
+      "counts": {
+        "3dgs": 646245,
+        "ours": 112880,
+        "2dgs": 298571
+      },
+      "visible_counts": {
+        "3dgs": 456208,
+        "ours": 76977,
+        "2dgs": 185375
+      }
+    },
+    {
+      "dataset": "dtu",
+      "scene": "scan65",
+      "label": "Scan 65",
+      "view": "0008",
+      "width": 777,
+      "height": 581,
+      "images": {
+        "3dgs_render": "vis/dtu/scan65/3dgs_render.webp",
+        "ours_render": "vis/dtu/scan65/ours_render.webp",
+        "3dgs_vis": "vis/dtu/scan65/3dgs_vis.webp",
+        "ours_vis": "vis/dtu/scan65/ours_vis.webp",
+        "2dgs_render": "vis/dtu/scan65/2dgs_render.webp",
+        "2dgs_vis": "vis/dtu/scan65/2dgs_vis.webp"
+      },
+      "counts": {
+        "3dgs": 338667,
+        "ours": 79495,
+        "2dgs": 187727
+      },
+      "visible_counts": {
+        "3dgs": 185843,
+        "ours": 54103,
+        "2dgs": 89605
+      }
+    }
+  ]
+}

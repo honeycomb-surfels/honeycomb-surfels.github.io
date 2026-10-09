@@ -1,0 +1,377 @@
+{
+  "local_mirror": {
+    "key_prefix": "viewer/",
+    "folder": "viewer_build"
+  },
+  "scenes": [
+    {
+      "dataset": "mipnerf360",
+      "scene": "bicycle",
+      "label": "Bicycle",
+      "setting": "outdoor",
+      "thumb": "static/images/thumbs/mipnerf360_bicycle.webp",
+      "cameras": "viewer/mipnerf360/bicycle/cameras.json",
+      "default_camera": {
+        "index": 129,
+        "name": "_DSC8809.JPG"
+      },
+      "orbit_target": [
+        0.425,
+        0.3872,
+        0.2814
+      ],
+      "variants": [
+        {
+          "id": "compact",
+          "label": "Compact (Hexels V2)",
+          "key": "viewer/mipnerf360/bicycle/compact.hexcodec",
+          "bytes": 5305612,
+          "primitives": 54275,
+          "texels": 9,
+          "raw_bytes": 7815600,
+          "psnr": 22.20060255524819,
+          "default": true
+        },
+        {
+          "id": "full",
+          "label": "Full quality (Hexels V3, quantized)",
+          "key": "viewer/mipnerf360/bicycle/full.hexcodec",
+          "bytes": 112062668,
+          "primitives": 1293887,
+          "texels": 21,
+          "raw_bytes": 434746032,
+          "psnr": 23.99525466238847,
+          "default": false
+        }
+      ]
+    },
+    {
+      "dataset": "mipnerf360",
+      "scene": "flowers",
+      "label": "Flowers",
+      "setting": "outdoor",
+      "thumb": "static/images/thumbs/mipnerf360_flowers.webp",
+      "cameras": "viewer/mipnerf360/flowers/cameras.json",
+      "default_camera": {
+        "index": 91,
+        "name": "_DSC9131.JPG"
+      },
+      "orbit_target": [
+        0.0529,
+        0.0621,
+        -0.1018
+      ],
+      "variants": [
+        {
+          "id": "compact",
+          "label": "Compact (Hexels V2)",
+          "key": "viewer/mipnerf360/flowers/compact.hexcodec",
+          "bytes": 3764450,
+          "primitives": 38347,
+          "texels": 9,
+          "raw_bytes": 5521968,
+          "psnr": 18.957077324816392,
+          "default": true
+        },
+        {
+          "id": "full",
+          "label": "Full quality (Hexels V3, quantized)",
+          "key": "viewer/mipnerf360/flowers/full.hexcodec",
+          "bytes": 113871709,
+          "primitives": 1312683,
+          "texels": 21,
+          "raw_bytes": 441061488,
+          "psnr": 20.351190487230998,
+          "default": false
+        }
+      ]
+    },
+    {
+      "dataset": "mipnerf360",
+      "scene": "garden",
+      "label": "Garden",
+      "setting": "outdoor",
+      "thumb": "static/images/thumbs/mipnerf360_garden.webp",
+      "cameras": "viewer/mipnerf360/garden/cameras.json",
+      "default_camera": {
+        "index": 56,
+        "name": "DSC08012.JPG"
+      },
+      "orbit_target": [
+        0.4145,
+        1.5089,
+        1.0968
+      ],
+      "variants": [
+        {
+          "id": "compact",
+          "label": "Compact (Hexels V2)",
+          "key": "viewer/mipnerf360/garden/compact.hexcodec",
+          "bytes": 13591725,
+          "primitives": 138766,
+          "texels": 9,
+          "raw_bytes": 19982304,
+          "psnr": 24.997589908752285,
+          "default": true
+        },
+        {
+          "id": "full",
+          "label": "Full quality (Hexels V3, quantized)",
+          "key": "viewer/mipnerf360/garden/full.hexcodec",
+          "bytes": 156526508,
+          "primitives": 1808714,
+          "texels": 21,
+          "raw_bytes": 607727904,
+          "psnr": 26.909516048298197,
+          "default": false
+        }
+      ]
+    },
+    {
+      "dataset": "mipnerf360",
+      "scene": "stump",
+      "label": "Stump",
+      "setting": "outdoor",
+      "thumb": "static/images/thumbs/mipnerf360_stump.webp",
+      "cameras": "viewer/mipnerf360/stump/cameras.json",
+      "default_camera": {
+        "index": 23,
+        "name": "_DSC9236.JPG"
+      },
+      "orbit_target": [
+        0.2915,
+        0.5178,
+        1.032
+      ],
+      "variants": [
+        {
+          "id": "compact",
+          "label": "Compact (Hexels V2)",
+          "key": "viewer/mipnerf360/stump/compact.hexcodec",
+          "bytes": 3146505,
+          "primitives": 32049,
+          "texels": 9,
+          "raw_bytes": 4615056,
+          "psnr": 23.019076546488346,
+          "default": true
+        },
+        {
+          "id": "full",
+          "label": "Full quality (Hexels V3, quantized)",
+          "key": "viewer/mipnerf360/stump/full.hexcodec",
+          "bytes": 68425160,
+          "primitives": 787723,
+          "texels": 21,
+          "raw_bytes": 264674928,
+          "psnr": 24.727778132656244,
+          "default": false
+        }
+      ]
+    },
+    {
+      "dataset": "mipnerf360",
+      "scene": "treehill",
+      "label": "Treehill",
+      "setting": "outdoor",
+      "thumb": "static/images/thumbs/mipnerf360_treehill.webp",
+      "cameras": "viewer/mipnerf360/treehill/cameras.json",
+      "default_camera": {
+        "index": 84,
+        "name": "_DSC8958.JPG"
+      },
+      "orbit_target": [
+        -0.1392,
+        0.2219,
+        -0.0651
+      ],
+      "variants": [
+        {
+          "id": "compact",
+          "label": "Compact (Hexels V2)",
+          "key": "viewer/mipnerf360/treehill/compact.hexcodec",
+          "bytes": 5118333,
+          "primitives": 52363,
+          "texels": 9,
+          "raw_bytes": 7540272,
+          "psnr": 21.374530618370162,
+          "default": true
+        },
+        {
+          "id": "full",
+          "label": "Full quality (Hexels V3, quantized)",
+          "key": "viewer/mipnerf360/treehill/full.hexcodec",
+          "bytes": 93019889,
+          "primitives": 1071740,
+          "texels": 21,
+          "raw_bytes": 360104640,
+          "psnr": 22.190035297305737,
+          "default": false
+        }
+      ]
+    },
+    {
+      "dataset": "mipnerf360",
+      "scene": "room",
+      "label": "Room",
+      "setting": "indoor",
+      "thumb": "static/images/thumbs/mipnerf360_room.webp",
+      "cameras": "viewer/mipnerf360/room/cameras.json",
+      "default_camera": {
+        "index": 149,
+        "name": "DSCF4816.JPG"
+      },
+      "orbit_target": [
+        0.3477,
+        1.6015,
+        0.2738
+      ],
+      "variants": [
+        {
+          "id": "compact",
+          "label": "Compact (Hexels V2)",
+          "key": "viewer/mipnerf360/room/compact.hexcodec",
+          "bytes": 11001100,
+          "primitives": 112627,
+          "texels": 9,
+          "raw_bytes": 16218288,
+          "psnr": 28.51481154435142,
+          "default": true
+        },
+        {
+          "id": "full",
+          "label": "Full quality (Hexels V3, quantized)",
+          "key": "viewer/mipnerf360/room/full.hexcodec",
+          "bytes": 36035324,
+          "primitives": 414490,
+          "texels": 21,
+          "raw_bytes": 139268640,
+          "psnr": 29.815949018574827,
+          "default": false
+        }
+      ]
+    },
+    {
+      "dataset": "mipnerf360",
+      "scene": "counter",
+      "label": "Counter",
+      "setting": "indoor",
+      "thumb": "static/images/thumbs/mipnerf360_counter.webp",
+      "cameras": "viewer/mipnerf360/counter/cameras.json",
+      "default_camera": {
+        "index": 109,
+        "name": "DSCF5966.JPG"
+      },
+      "orbit_target": [
+        0.1259,
+        1.5284,
+        1.9092
+      ],
+      "variants": [
+        {
+          "id": "compact",
+          "label": "Compact (Hexels V2)",
+          "key": "viewer/mipnerf360/counter/compact.hexcodec",
+          "bytes": 15230891,
+          "primitives": 155767,
+          "texels": 9,
+          "raw_bytes": 22430448,
+          "psnr": 27.380545699386136,
+          "default": true
+        },
+        {
+          "id": "full",
+          "label": "Full quality (Hexels V3, quantized)",
+          "key": "viewer/mipnerf360/counter/full.hexcodec",
+          "bytes": 35687872,
+          "primitives": 410126,
+          "texels": 21,
+          "raw_bytes": 137802336,
+          "psnr": 28.55663747832021,
+          "default": false
+        }
+      ]
+    },
+    {
+      "dataset": "mipnerf360",
+      "scene": "kitchen",
+      "label": "Kitchen",
+      "setting": "indoor",
+      "thumb": "static/images/thumbs/mipnerf360_kitchen.webp",
+      "cameras": "viewer/mipnerf360/kitchen/cameras.json",
+      "default_camera": {
+        "index": 83,
+        "name": "DSCF0739.JPG"
+      },
+      "orbit_target": [
+        -0.4002,
+        1.7757,
+        1.4909
+      ],
+      "variants": [
+        {
+          "id": "compact",
+          "label": "Compact (Hexels V2)",
+          "key": "viewer/mipnerf360/kitchen/compact.hexcodec",
+          "bytes": 23516327,
+          "primitives": 241367,
+          "texels": 9,
+          "raw_bytes": 34756848,
+          "psnr": 29.195589782486365,
+          "default": true
+        },
+        {
+          "id": "full",
+          "label": "Full quality (Hexels V3, quantized)",
+          "key": "viewer/mipnerf360/kitchen/full.hexcodec",
+          "bytes": 41159839,
+          "primitives": 475316,
+          "texels": 21,
+          "raw_bytes": 159706176,
+          "psnr": 30.488634555904653,
+          "default": false
+        }
+      ]
+    },
+    {
+      "dataset": "mipnerf360",
+      "scene": "bonsai",
+      "label": "Bonsai",
+      "setting": "indoor",
+      "thumb": "static/images/thumbs/mipnerf360_bonsai.webp",
+      "cameras": "viewer/mipnerf360/bonsai/cameras.json",
+      "default_camera": {
+        "index": 221,
+        "name": "DSCF5786.JPG"
+      },
+      "orbit_target": [
+        0.4031,
+        1.5189,
+        1.6774
+      ],
+      "variants": [
+        {
+          "id": "compact",
+          "label": "Compact (Hexels V2)",
+          "key": "viewer/mipnerf360/bonsai/compact.hexcodec",
+          "bytes": 20148620,
+          "primitives": 206613,
+          "texels": 9,
+          "raw_bytes": 29752272,
+          "psnr": 29.868128341458707,
+          "default": true
+        },
+        {
+          "id": "full",
+          "label": "Full quality (Hexels V3, quantized)",
+          "key": "viewer/mipnerf360/bonsai/full.hexcodec",
+          "bytes": 58949845,
+          "primitives": 680716,
+          "texels": 21,
+          "raw_bytes": 228720576,
+          "psnr": 31.344051901523876,
+          "default": false
+        }
+      ]
+    }
+  ]
+}

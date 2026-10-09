@@ -216,3 +216,13 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Project page media: staging mirror of the R2 bucket, local VP9 test mirror, raw GPU outputs
+/media_build/
+/media_build_vp9test/
+/media_src/
+# Viewer models staged for the media bucket's viewer/ folder
+/viewer_build/
+# Private maintenance notes, full data files and build tools; the published site never loads them
+/docs/
+/tools/

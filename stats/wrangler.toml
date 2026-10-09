@@ -1,0 +1,45 @@
+# Visitor counter for https://honeycomb-surfels.github.io (deploy steps in README.md next to this file).
+# Nothing in this file is secret: the hash salt is a Worker secret (npx wrangler secret put VISITOR_SALT).
+# The Worker is served at https://honeycomb-surfels-visitors.<your-subdomain>.workers.dev; avoid renaming it
+# to something like "analytics" or "tracker", which generic ad-blocker rules match on some paths.
+name = "honeycomb-surfels-visitors"
+main = "src/index.js"
+compatibility_date = "2026-09-01"
+workers_dev = true
+
+# Created with: npx wrangler d1 create honeycomb_surfels_visitors
+# Replace the placeholder with the database_id that command prints.
+[[d1_databases]]
+binding = "DB"
+database_name = "honeycomb_surfels_visitors"
+database_id = "REPLACE_WITH_DATABASE_ID_FROM_WRANGLER_D1_CREATE"
+migrations_dir = "migrations"
+
+[vars]
+# Page origins (scheme://host[:port], no trailing slash, comma-separated) that may count visits and read
+# the stats from a browser. The localhost entries allow local previews with python -m http.server 8000;
+# remove them once the page is live if local previews should not count.
+ALLOWED_ORIGINS = "https://honeycomb-surfels.github.io,http://localhost:8000,http://127.0.0.1:8000"
+
+# Daily cleanup at 00:05 UTC: deletes the visitor hashes of earlier UTC days and old hourly counts.
+# The Workers Free plan allows 5 Cron Triggers per account (README.md says what to do if they are used up).
+[triggers]
+crons = ["5 0 * * *"]
+
+# Optional per-network limit on POST /hit (needs Wrangler 4.36.0 or later), kept in memory at each
+# Cloudflare location; the key is a salted hash, never the address. namespace_id is any positive integer
+# that no other rate limiter in your account uses. Deleting this block disables the limit; the Worker
+# then relies on its once-per-visit deduplication alone.
+[[ratelimits]]
+name = "HIT_LIMITER"
+namespace_id = "4101"
+
+  [ratelimits.simple]
+  limit = 60
+  period = 60
+
+# Workers Logs is on by default for new Workers and would keep every request's headers (which carry the
+# visitor's IP address) and location fields in your account for 3 to 7 days. It stays off; use
+# npx wrangler tail to watch requests live instead.
+[observability]
+enabled = false

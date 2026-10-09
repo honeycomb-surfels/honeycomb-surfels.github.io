@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Why Hexels? The theory, animated - Honeycomb-Surfels (Hexels)</title>
+  <meta name="description" content="Eight short animations, each next to its math, explain why Hexels pair a soft hexagonal patch with a linear color: a larger patch for the same color error, the most area inside the error ellipse, and the least perimeter at equal area and the most area at equal perimeter.">
+  <meta name="author" content="Prakhar Kaushik, Soumava Paul, Alan Yuille">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="canonical" href="https://honeycomb-surfels.github.io/theory.html">
+  <link rel="icon" href="static/images/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="static/images/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="static/images/apple-touch-icon.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Honeycomb-Surfels">
+  <meta property="og:url" content="https://honeycomb-surfels.github.io/theory.html">
+  <meta property="og:title" content="Why Hexels? The theory, animated">
+  <meta property="og:description" content="Eight short animations, each next to its math, explain why Hexels pair a soft hexagonal patch with a linear color: a larger patch for the same color error, the most area inside the error ellipse, and the least perimeter at equal area and the most area at equal perimeter.">
+  <meta property="og:image" content="https://honeycomb-surfels.github.io/static/images/social_preview.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="The Honeycomb-Surfels honeycomb logo and the title Honeycomb-Surfels: Compact Hexagonal Primitives for Efficient Scene Rendering and Reconstruction, above two renders of a yellow toy bulldozer on a kitchen table, each labelled with model memory 19.3 MB, PSNR and peak training VRAM. The 2DGS render on the left has smeared, blurry treads; the Hexels render on the right shows crisp tread links and gears.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Why Hexels? The theory, animated">
+  <meta name="twitter:description" content="Eight short animations, each next to its math, explain why Hexels pair a soft hexagonal patch with a linear color: a larger patch for the same color error, the most area inside the error ellipse, and the least perimeter at equal area and the most area at equal perimeter.">
+  <meta name="twitter:image" content="https://honeycomb-surfels.github.io/static/images/social_preview.jpg">
+  <meta name="twitter:image:alt" content="The Honeycomb-Surfels honeycomb logo and the title Honeycomb-Surfels: Compact Hexagonal Primitives for Efficient Scene Rendering and Reconstruction, above two renders of a yellow toy bulldozer on a kitchen table, each labelled with model memory 19.3 MB, PSNR and peak training VRAM. The 2DGS render on the left has smeared, blurry treads; the Hexels render on the right shows crisp tread links and gears.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css"
+        integrity="sha512-HqxHUkJM0SYcbvxUw5P60SzdOTy/QVwA1JJrvaXJv4q7lmbDZCmZaqz01UPOaQveoxfYRv1tHozWGPMcuTBuvQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.47/katex.min.css"
+        integrity="sha512-kI2+BaD3/4lqajGWnpHozrL4U8PFaP/ZCbCrMyftFQuzVYIak0qhP2ZJgP0fXNq/myQmRtRvwODhDS2Gxdg6Vg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="static/css/index.css">
+  <link rel="stylesheet" href="static/css/visitors.css">
+  <link rel="stylesheet" href="static/css/sections.css">
+  <!-- Interactive figures: the STIX serif of the animations' labels, their styles, and the module site.js imports. -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,700;1,400;1,700&display=swap">
+  <link rel="stylesheet" href="static/css/theory-interactive.css">
+  <link rel="modulepreload" href="static/js/theory/core.js">
+</head>
+<body>
+  <a class="hx-skip-link" href="#main">Skip to content</a>
+
+  <header class="hero hx-hero hx-hero-theory">
+    <div class="hero-body">
+      <div class="hx-container hx-text has-text-centered">
+        <p class="hx-back-top">
+          <a class="hx-backlink" href="./"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i><span>Back to the project page</span></a>
+        </p>
+        <p class="hx-kicker"><a href="./"><span class="hx-lockup"><img src="static/images/logo.svg" alt=""
+            width="64" height="64">Honeycomb-Surfels</span> (Hexels)</a></p>
+        <h1 class="title is-1 publication-title">Why Hexels? The&nbsp;theory,&nbsp;animated</h1>
+        <p class="is-size-5 publication-authors" id="authors"></p>
+        <p class="is-size-5 publication-affiliation" id="affiliation"></p>
+        <p class="publication-note" id="author-note"></p>
+        <div class="hx-prose hx-theory-lead" data-math>
+          <!-- theory:theory_intro:start -->
+          <section data-anim-text="theory_intro" id="hx-explain-theory_intro">
+            <p>A Hexel is a flat patch with a soft hexagonal edge and a linear color. The animations below show what a Hexel is, why its color is linear, why it is a hexagon, and how errors combine in a pixel. The analysis follows Appendix I of the paper for a fixed viewing direction: it describes what Hexels can represent, not what training is guaranteed to reach.</p>
+            <p class="hx-ref" data-labels="sec:method app:local-approximation">In the paper: Section 3 and Appendix I (<em>Why Hexagons and Spatial Color?</em>).</p>
+          </section>
+          <!-- theory:theory_intro:end -->
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="section hx-section hx-chapter" id="hexel">
+      <div class="hx-container hx-text">
+        <h2 class="title is-3 has-text-centered">What is a Hexel?</h2>
+      </div>
+      <div class="hx-container hx-wide">
+        <div class="hx-anims">
+          <div class="hx-anim" data-anim="hexel_anatomy">
+            <div class="hx-anim-side">
+              <div class="hx-anim-media">
+                <img src="static/anim/hexel_anatomy.webp" width="1440" height="810" loading="lazy" decoding="async" data-theory-alt="hexel_anatomy" alt="A hexagon with a marked center and two scaled axis arrows stretches, turns and returns to its shape. A color gradient then fills it from the center, turns once around the center while its strength pulses, and drains away.">
+                <video muted loop playsinline preload="none" width="1440" height="810" aria-hidden="true"
+                       data-src="static/anim/hexel_anatomy.mp4" data-fallback="static/anim/hexel_anatomy.gif"></video>
+              </div>
+            </div>
+            <div class="hx-anim-text hx-prose" data-math>
+              <!-- theory:hexel_anatomy:start -->
+              <section data-anim-text="hexel_anatomy" id="hx-explain-hexel_anatomy" data-alt="A hexagon with a marked center and two scaled axis arrows stretches, turns and returns to its shape. A color gradient then fills it from the center, turns once around the center while its strength pulses, and drains away.">
+                <h3>Placing and coloring one Hexel</h3>
+                <p>A Hexel maps its local coordinates \((u,v)\) into 3D and colors them linearly:</p>
+                <div class="hx-eq">\[ \begin{gathered} P(u,v)=\mathbf{p}+s_u\mathbf{t}_u\,u+s_v\mathbf{t}_v\,v,\\ \mathbf{c}^{\mathrm{sp}}(u,v)=\mathbf{c}_0+u\,\mathbf{g}_u+v\,\mathbf{g}_v. \end{gathered} \]</div>
+                <p>The scales \(s_u,s_v\) stretch the patch and the tangents \(\mathbf{t}_u,\mathbf{t}_v\) orient it about its center <span style="white-space:nowrap">\(\mathbf{p}\).</span> The color is \(\mathbf{c}_0\) at the center and changes by \(\mathbf{g}_u\) and \(\mathbf{g}_v\) per unit step along the two axes (swatches). A V1 Hexel has 20 parameters, nine of them for color.</p>
+                <p class="hx-ref" data-labels="sec:method eq:plane-to-world eq:spatial-color fig:splat app:hex-math">In the paper: Section 3, Eqs. (1) and (4), and the center panel of Figure 2. The parameter count is in Appendix A.</p>
+              </section>
+              <!-- theory:hexel_anatomy:end -->
+            </div>
+          </div>
+          <div class="hx-anim hx-anim-flip" data-anim="hexel_sharpness">
+            <div class="hx-anim-side">
+              <div class="hx-anim-media">
+                <img src="static/anim/hexel_sharpness.webp" width="1440" height="810" loading="lazy" decoding="async" data-theory-alt="hexel_sharpness" alt="As a sharpness slider moves between 2 and 32, a heat map of one Hexel's support weight turns from a blurry bump into a crisp hexagon and back, while its profile always crosses one half at the hexagon's edges.">
+                <video muted loop playsinline preload="none" width="1440" height="810" aria-hidden="true"
+                       data-src="static/anim/hexel_sharpness.mp4" data-fallback="static/anim/hexel_sharpness.gif"></video>
+              </div>
+            </div>
+            <div class="hx-anim-text hx-prose" data-math>
+              <!-- theory:hexel_sharpness:start -->
+              <section data-anim-text="hexel_sharpness" id="hx-explain-hexel_sharpness" data-alt="As a sharpness slider moves between 2 and 32, a heat map of one Hexel's support weight turns from a blurry bump into a crisp hexagon and back, while its profile always crosses one half at the hexagon's edges.">
+                <h3>Sharpness without moving the edge</h3>
+                <p>The support weight \(K\) sets how strongly a Hexel covers each point. It is a sigmoid \(\sigma\) of a hexagonal distance \(d\) that is negative inside, zero on the boundary and positive outside:</p>
+                <div class="hx-eq">\[ \begin{array}{l} d(u,v)=\max\bigl\{|v|,\,\bigl|\tfrac{\sqrt3}{2}u+\tfrac12v\bigr|,\\ \qquad\bigl|\tfrac{\sqrt3}{2}u-\tfrac12v\bigr|\bigr\}-1,\\ K(u,v)=\sigma\bigl(-\beta\,d(u,v)\bigr). \end{array} \]</div>
+                <p>The sharpness \(\beta\) turns \(K\) from a soft bump <span style="white-space:nowrap">(\(\beta=2\))</span> into a nearly solid hexagon <span style="white-space:nowrap">(\(\beta=32\)),</span> but the boundary never moves: there <span style="white-space:nowrap">\(d=0\),</span> so <span style="white-space:nowrap">\(K=\sigma(0)=\tfrac12\)</span> for every \(\beta\) (open circles).</p>
+                <p class="hx-ref" data-labels="sec:method eq:hex-boundary eq:hex-footprint fig:splat">In the paper: Section 3, Eqs. (2) and (3), and the right panel of Figure 2.</p>
+              </section>
+              <!-- theory:hexel_sharpness:end -->
+            </div>
+          </div>
+          <div class="hx-anim" data-anim="hexels_on_surface">
+            <div class="hx-anim-side">
+              <div class="hx-anim-media">
+                <img src="static/anim/hexels_on_surface.webp" width="1440" height="810" loading="lazy" decoding="async" data-theory-alt="hexels_on_surface" alt="Flat hexagonal patches appear one by one on a gently curved sheet until 23 cover its middle, shading from cyan on the left to peach on the right, with mauve and pink along the near edge. The view then turns and the patches shrink away.">
+                <video muted loop playsinline preload="none" width="1440" height="810" aria-hidden="true"
+                       data-src="static/anim/hexels_on_surface.mp4" data-fallback="static/anim/hexels_on_surface.gif"></video>
+              </div>
+            </div>
+            <div class="hx-anim-text hx-prose" data-math>
+              <!-- theory:hexels_on_surface:start -->
+              <section data-anim-text="hexels_on_surface" id="hx-explain-hexels_on_surface" data-alt="Flat hexagonal patches appear one by one on a gently curved sheet until 23 cover its middle, shading from cyan on the left to peach on the right, with mauve and pink along the near edge. The view then turns and the patches shrink away.">
+                <h3>Flat Hexels on a curved surface</h3>
+                <p>Flat Hexels with linear color can together represent a smoothly colored curved surface. Each Hexel lies in the surface's tangent plane at its center \(\mathbf{p}\) and copies the value and slopes of the texture \(\mathbf{f}\) there:</p>
+                <div class="hx-eq">\[ \begin{gathered} \mathbf{c}_0=\mathbf{f}(\mathbf{p}),\\ \mathbf{g}_u=s_u\,\partial_1\mathbf{f}(\mathbf{p}),\quad \mathbf{g}_v=s_v\,\partial_2\mathbf{f}(\mathbf{p}), \end{gathered} \]</div>
+                <p>with \(\partial_1,\partial_2\) the slopes along the two tangents. In this example every corner color stays within 0.023 of the texture (on a 0 to 1 scale), so neighboring Hexels nearly agree where they meet.</p>
+                <p class="hx-ref" data-labels="fig:splat sec:method eq:plane-to-world eq:spatial-color app:local-approximation">In the paper: the left panel of Figure 2, and Section 3, Eqs. (1) and (4). The Taylor coefficients are Eq. (27) in Appendix I.</p>
+              </section>
+              <!-- theory:hexels_on_surface:end -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section hx-section hx-band hx-chapter" id="linear-color">
+      <div class="hx-container hx-text">
+        <h2 class="title is-3 has-text-centered">Why a linear color field</h2>
+      </div>
+      <div class="hx-container hx-wide">
+        <div class="hx-anims">
+          <div class="hx-anim hx-anim-flip" data-anim="why_linear_color">
+            <div class="hx-anim-side">
+              <div class="hx-anim-media">
+                <img src="static/anim/why_linear_color.webp" width="1440" height="810" loading="lazy" decoding="async" data-theory-alt="why_linear_color" alt="A flat line and the tangent line approximate a smooth curve around one point over a window that grows and shrinks. The tangent line stays within the tolerance on a window about 3.8 times wider, as an error plot with dashed bounds shows.">
+                <video muted loop playsinline preload="none" width="1440" height="810" aria-hidden="true"
+                       data-src="static/anim/why_linear_color.mp4" data-fallback="static/anim/why_linear_color.gif"></video>
+              </div>
+            </div>
+            <div class="hx-anim-text hx-prose" data-math>
+              <!-- theory:why_linear_color:start -->
+              <section data-anim-text="why_linear_color" id="hx-explain-why_linear_color" data-alt="A flat line and the tangent line approximate a smooth curve around one point over a window that grows and shrinks. The tangent line stays within the tolerance on a window about 3.8 times wider, as an error plot with dashed bounds shows.">
+                <h3>Constant versus linear color</h3>
+                <p>A linear color stays accurate over a much wider window than a constant one. For one color channel \(f\) near a patch center <span style="white-space:nowrap">\(p\),</span> compare the constant \(f(p)\) with the tangent line <span style="white-space:nowrap">\(\ell_p(x)=f(p)+f'(p)\,(x-p)\)</span> on a window <span style="white-space:nowrap">\(|x-p|\le r\):</span></p>
+                <div class="hx-eq">\[ \begin{gathered} |f(x)-f(p)|\le L\,r,\\ |f(x)-\ell_p(x)|\le\tfrac12 M r^2, \end{gathered} \]</div>
+                <p>where \(L\) bounds the slope and \(M\) its rate of change. The constant's error grows linearly in \(r\) and the line's quadratically, so at tolerance <span style="white-space:nowrap">\(\varepsilon=0.05\)</span> the widest valid window (thick bar) has half-width 0.088 for the constant and 0.337 for the linear color, 3.8 times wider. This compares single color fields; blending several constant-color primitives can also vary the color.</p>
+                <p class="hx-ref" data-labels="app:local-approximation prop:local-color eq:theory-local-error">In the paper: Appendix I, Proposition I.1 (<em>Local error of an affine color field</em>), Eq. (24) and the bound \(Mr^2/2\) stated with it. The constant-color bound \(Lr\) follows the proof.</p>
+              </section>
+              <!-- theory:why_linear_color:end -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section hx-section hx-chapter" id="hexagon">
+      <div class="hx-container hx-text">
+        <h2 class="title is-3 has-text-centered">Why a hexagon</h2>
+      </div>
+      <div class="hx-container hx-wide">
+        <div class="hx-anims">
+          <div class="hx-anim" data-anim="why_hexagon">
+            <div class="hx-anim-side">
+              <div class="hx-anim-media">
+                <img src="static/anim/why_hexagon.webp" width="1440" height="810" loading="lazy" decoding="async" data-theory-alt="why_hexagon" alt="An ellipse holds the largest stretched triangle, square and hexagon that fit inside it, with area bars of 1, 1.54 and 2. The hexagon turns, then becomes a Hexel whose two axes follow the ellipse as it stretches and tilts.">
+                <video muted loop playsinline preload="none" width="1440" height="810" aria-hidden="true"
+                       data-src="static/anim/why_hexagon.mp4" data-fallback="static/anim/why_hexagon.gif"></video>
+              </div>
+            </div>
+            <div class="hx-anim-text hx-prose" data-math>
+              <!-- theory:why_hexagon:start -->
+              <section data-anim-text="why_hexagon" id="hx-explain-why_hexagon" data-alt="An ellipse holds the largest stretched triangle, square and hexagon that fit inside it, with area bars of 1, 1.54 and 2. The hexagon turns, then becomes a Hexel whose two axes follow the ellipse as it stretches and tilts.">
+                <h3>The largest patch in one error ellipse</h3>
+                <p>If a matrix \(\mathbf{Q}\) bounds how fast the color's slope changes in each direction, a linear color that matches the target's value and slope at \(\mathbf{p}\) stays within \(\varepsilon\) of it on the ellipse</p>
+                <div class="hx-eq">\[ E=\{\mathbf{p}+\mathbf{h}:\mathbf{h}^\top\mathbf{Q}\,\mathbf{h}\le2\varepsilon\}. \]</div>
+                <p>The largest hexagon inside \(E\) covers twice the area of the largest triangle and about 1.30 times that of the largest square, the only other regular shapes that tile the plane. With its axes along those of \(E\) and \(\lambda_1,\lambda_2\) bounding the slope's change along them, the Hexel scales</p>
+                <div class="hx-eq">\[ s_u=\sqrt{\frac{3\varepsilon}{2\lambda_1}},\quad s_v=\sqrt{\frac{3\varepsilon}{2\lambda_2}} \]</div>
+                <p>put its six corners on <span style="white-space:nowrap">\(E\).</span> \(\mathbf{Q}\) describes the color, not the surface, and training does not estimate it.</p>
+                <p class="hx-ref" data-labels="app:local-approximation prop:hex-area eq:theory-error-ellipse eq:theory-polygon-area eq:theory-optimal-scales prop:local-color eq:theory-hessian-bound">In the paper: Appendix I, Proposition I.2 (<em>Patch area within one error ellipse</em>), Eqs. (29) to (31) and (35). Eq. (30) gives the largest areas, and the bound on \(\mathbf{Q}\) is Eq. (23) of Proposition I.1.</p>
+              </section>
+              <!-- theory:why_hexagon:end -->
+            </div>
+          </div>
+          <div class="hx-anim hx-anim-flip" data-anim="honeycomb">
+            <div class="hx-anim-side">
+              <figure class="hx-anim-item">
+                <figcaption class="hx-anim-label">Equal area</figcaption>
+                <div class="hx-anim-media">
+                  <img src="static/anim/honeycomb_area.webp" width="1440" height="810" loading="lazy" decoding="async" alt="Triangle, square and hexagon tilings with unit-area cells. The boundary of each center cell is traced at the same speed, and the hexagon closes first, with perimeter 3.722, against 4.000 for the square and 4.559 for the triangle.">
+                  <video muted loop playsinline preload="none" width="1440" height="810" aria-hidden="true"
+                         data-src="static/anim/honeycomb_area.mp4" data-fallback="static/anim/honeycomb_area.gif"></video>
+                </div>
+              </figure>
+              <figure class="hx-anim-item">
+                <figcaption class="hx-anim-label">Equal perimeter</figcaption>
+                <div class="hx-anim-media">
+                  <img src="static/anim/honeycomb.webp" width="1440" height="810" loading="lazy" decoding="async" data-theory-alt="honeycomb" alt="Seven triangles, seven squares and seven hexagons, every cell with the same perimeter, grow into patches without gaps. Bars of the covered area relative to the triangles end at 1, 1.30 and 1.50, so the hexagons cover the most.">
+                  <video muted loop playsinline preload="none" width="1440" height="810" aria-hidden="true"
+                         data-src="static/anim/honeycomb.mp4" data-fallback="static/anim/honeycomb.gif"></video>
+                </div>
+              </figure>
+            </div>
+            <div class="hx-anim-text hx-prose" data-math>
+              <!-- theory:honeycomb:start -->
+              <section data-anim-text="honeycomb" id="hx-explain-honeycomb" data-alt="Seven triangles, seven squares and seven hexagons, every cell with the same perimeter, grow into patches without gaps. Bars of the covered area relative to the triangles end at 1, 1.30 and 1.50, so the hexagons cover the most.">
+                <h3>Least perimeter, most area</h3>
+                <p>For the three regular tilings, a regular <span style="white-space:nowrap">\(m\)-gon</span> with perimeter \(P\) has area</p>
+                <div class="hx-eq">\[ A_m=\frac{P^2}{4m\tan(\pi/m)}, \]</div>
+                <p>so the hexagon has the least perimeter at equal area and the most area at equal perimeter.</p>
+                <p><strong>Equal area.</strong> Unit-area cells have perimeters 4.559 (triangle), 4.000 (square) and 3.722 (hexagon), so at the same tracing speed the hexagon closes first. The honeycomb theorem (Hales, 2001) extends this to every partition of the plane into equal-area cells: regular hexagons need the least boundary per cell.</p>
+                <p><strong>Equal perimeter.</strong> Seven cells of equal perimeter cover 1, 1.30 and 1.50 times the triangles' area.</p>
+                <p class="hx-ref" data-labels="sec:method sec:introduction app:local-approximation">In the paper: the equal-area side in Section 3 (<em>Hexagonal support</em>), the equal-perimeter side in the Introduction, and the theorem again at the opening of Appendix I, all citing Hales (2001).</p>
+              </section>
+              <!-- theory:honeycomb:end -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section hx-section hx-band hx-chapter" id="pixels">
+      <div class="hx-container hx-text">
+        <h2 class="title is-3 has-text-centered">From primitives to pixels</h2>
+      </div>
+      <div class="hx-container hx-wide">
+        <div class="hx-anims">
+          <div class="hx-anim" data-anim="alpha_compositing">
+            <div class="hx-anim-side">
+              <div class="hx-anim-media">
+                <img src="static/anim/alpha_compositing.webp" width="1440" height="810" loading="lazy" decoding="async" data-theory-alt="alpha_compositing" alt="A pixel's ray passes through three semi-transparent hexagons to a background panel while a stacked bar fills with their shares of the pixel color. Below, a bound bar stays longer than the pixel error bar, also as the alpha values change.">
+                <video muted loop playsinline preload="none" width="1440" height="810" aria-hidden="true"
+                       data-src="static/anim/alpha_compositing.mp4" data-fallback="static/anim/alpha_compositing.gif"></video>
+              </div>
+            </div>
+            <div class="hx-anim-text hx-prose" data-math>
+              <!-- theory:alpha_compositing:start -->
+              <section data-anim-text="alpha_compositing" id="hx-explain-alpha_compositing" data-alt="A pixel's ray passes through three semi-transparent hexagons to a background panel while a stacked bar fills with their shares of the pixel color. Below, a bound bar stays longer than the pixel error bar, also as the alpha values change.">
+                <h3>How Hexel errors reach the pixel</h3>
+                <p>A pixel mixes the colors along its ray, so its error is at most the same mix of their errors. Hexel \(i\) contributes its opacity \(o_i\) times its support weight \(K_i\), capped at 0.99, <span style="white-space:nowrap">\(\alpha_i=\min\{o_i\cdot K_i,\,0.99\}\),</span> and the background \(b\) receives the remaining transmittance <span style="white-space:nowrap">\(T\):</span></p>
+                <div class="hx-eq">\[ \begin{gathered} w_i=\alpha_i\prod_{j\lt i}(1-\alpha_j),\\ T=\prod_i(1-\alpha_i). \end{gathered} \]</div>
+                <p>For the pixel <span style="white-space:nowrap">\(I=\sum_iw_iC_i+T\,b\)</span> and a target color <span style="white-space:nowrap">\(f\),</span></p>
+                <div class="hx-eq">\[ \begin{array}{l} \displaystyle \|I-f\|\le\sum_i w_i\,\|C_i-f\|\\ \displaystyle \qquad+\,T\,\|b-f\|. \end{array} \]</div>
+                <p>The bound holds for any norm and primitive shape. A small \(T\) still matters when \(b\) is far from <span style="white-space:nowrap">\(f\),</span> so every part, the background included, must approximate the pixel target.</p>
+                <p class="hx-ref" data-labels="app:local-approximation prop:blend-error eq:theory-composite-error eq:hex-compositing app:hex-renderer">In the paper: Appendix I, Proposition I.3 (<em>Error under alpha compositing</em>), Eq. (37). The renderer's compositing is Eq. (17) in Appendix B.</p>
+              </section>
+              <!-- theory:alpha_compositing:end -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section hx-section" id="summary">
+      <div class="hx-container hx-text">
+        <h2 class="title is-3 has-text-centered">In short</h2>
+        <div class="hx-prose hx-prose-block hx-summary hx-before-cta" data-math>
+          <!-- theory:theory_summary:start -->
+          <section data-anim-text="theory_summary" id="hx-explain-theory_summary">
+            <p>A linear color stays within a color tolerance over a larger patch than a constant color does. Within that tolerance, the largest stretched hexagon covers twice the area of the largest stretched triangle and about 1.30 times that of the largest stretched square. Hexagons also tile the plane, with the least perimeter at equal cell area and the most area at equal perimeter. Where Hexels overlap, a pixel's error is at most the weighted sum of their errors and that of the background. So fewer, larger Hexels can represent locally planar regions with smoothly varying appearance.</p>
+            <p class="hx-ref" data-labels="app:local-approximation prop:local-color prop:hex-area prop:blend-error">In the paper: Appendix I, Propositions I.1 to I.3.</p>
+          </section>
+          <!-- theory:theory_summary:end -->
+        </div>
+        <p class="hx-cta">
+          <a class="button is-rounded is-dark" href="./#results">
+            <span class="icon is-small"><i class="fa-solid fa-chart-simple" aria-hidden="true"></i></span>
+            <span>See the results</span>
+          </a>
+        </p>
+        <p class="hx-back-end">
+          <a class="hx-backlink" href="./"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i><span>Back to the project page</span></a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer hx-footer">
+    <div class="hx-container hx-text has-text-centered">
+      <p>This page follows the <a href="https://github.com/nerfies/nerfies.github.io">Nerfies project page template</a>. Its design is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+      <div id="visitors-root"></div>
+    </div>
+  </footer>
+
+  <script src="static/js/config.js"></script>
+  <script type="module" src="static/js/site.js"></script>
+  <script type="module" src="static/js/visitors.js"></script>
+  <script type="module" src="static/js/sections.js"></script>
+  <!-- KaTeX runs after the page modules; static/js/site.js typesets the [data-math] blocks on DOMContentLoaded. -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.47/katex.min.js"
+          integrity="sha512-eDHxAxGzhSpNkUD1AP76+u07Nn3VtMwdj9GrN1uXDkjRGsroJhqtEr639ybY3iVOA58R5h+jWMJ9dlV5ilsYBQ=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.47/contrib/auto-render.min.js"
+          integrity="sha512-0HzJcHCD+wBh9kNUUcm3DWH9IbNDfudsYyMD5EHwSuFK6aEsaa/UEPqqk4t0pm4bbmwR6A11yNsD7Q+nz6XF+Q=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+</html>

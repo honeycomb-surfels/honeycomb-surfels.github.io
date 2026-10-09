@@ -1,0 +1,1339 @@
+/* Method comparison player (#compare-root) and scene gallery (#gallery-root).
+   Colours and sizes come from the custom properties defined on :root in index.css. */
+
+/* Method colours: the swatches defined in index.css, with the contract values as fallbacks. */
+.hx-compare [data-method="ours"] { --hx-method: var(--hx-method-ours, #cd7353); }
+.hx-compare [data-method="2dgs"] { --hx-method: var(--hx-method-2dgs, #458da5); }
+.hx-compare [data-method="3dgs"] { --hx-method: var(--hx-method-3dgs, #8b679a); }
+.hx-compare [data-method="triangle"] { --hx-method: var(--hx-method-triangle, #5d70ae); }
+.hx-compare [data-method="meshsplatting"] { --hx-method: var(--hx-method-meshsplatting, #6f8f4e); }
+.hx-compare [data-method="milo"] { --hx-method: var(--hx-method-milo, #a35b7b); }
+.hx-compare [data-method="3dconvex"] { --hx-method: var(--hx-method-3dconvex, #607985); }
+.hx-compare [data-method="bbsplat"] { --hx-method: var(--hx-method-bbsplat, #b08b4f); }
+.hx-compare [data-method="nexels"] { --hx-method: var(--hx-method-nexels, #4f9bd6); }
+
+.hx-cmp-dot {
+  display: inline-block;
+  flex: none;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--hx-method, var(--hx-muted));
+}
+
+/* Layout ---------------------------------------------------------------------------------- */
+
+.hx-compare,
+.hx-gallery {
+  width: 100%;
+  max-width: var(--hx-wide);
+  margin: 0 auto;
+  color: var(--hx-ink);
+}
+
+.hx-compare .hx-tip-general {
+  margin: 0 auto 1.25rem;
+}
+
+.hx-compare .hx-tip-scene {
+  margin-top: 0.75rem;
+}
+
+/* The tip's buttons (.hx-tip-action of index.css) wrap together; "Show me where" is the primary one. */
+.hx-compare .hx-tip-actions {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-left: 0.4rem;
+}
+
+.hx-compare .hx-tip-actions .hx-tip-action {
+  margin: 0;
+}
+
+.hx-compare .hx-tip-where {
+  border-color: var(--hx-dark);
+  background: var(--hx-dark);
+  color: #fff;
+}
+
+@media (hover: hover) {
+  .hx-compare .hx-tip-where:hover {
+    border-color: #1f1f1f;
+    background: #1f1f1f;
+  }
+}
+
+@media (pointer: coarse) {
+  .hx-compare .hx-tip-actions {
+    margin: 0.4rem 0 0;
+  }
+}
+
+.hx-cmp-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.hx-cmp-body {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  margin-top: 18px;
+}
+
+.hx-cmp-main {
+  flex: 0 0 64%;
+  min-width: 0;
+}
+
+/* Keep tall clips (DTU) within short laptop screens: width follows a height cap. */
+.hx-cmp-player {
+  width: min(100%, calc(78vh * var(--hx-aspect, 1.5)));
+  margin-inline: auto;
+}
+
+.hx-cmp-closeups {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.hx-compare.is-touch .hx-cmp-main {
+  flex-basis: 100%;
+}
+
+.hx-compare.is-touch .hx-cmp-closeups {
+  display: none;
+}
+
+@media (max-width: 1087px) {
+  .hx-cmp-body {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hx-cmp-main {
+    flex-basis: auto;
+  }
+}
+
+/* Scene panel ------------------------------------------------------------------------------ */
+
+.hx-cmp-tabs.tabs {
+  margin-bottom: 10px;
+}
+
+/* Tab labels at the size of the method and scene pills; phones keep Bulma's smaller tabs. */
+@media (min-width: 601px) {
+  .hx-cmp-tabs.tabs.is-small {
+    font-size: 0.85rem;
+  }
+}
+
+.hx-cmp-tabs.tabs.is-toggle a {
+  border-color: var(--hx-line);
+  color: var(--hx-ink);
+  cursor: pointer;
+  user-select: none;
+}
+
+@media (hover: hover) {
+  .hx-cmp-tabs.tabs.is-toggle a:hover {
+    border-color: #c9ced1;
+    background-color: var(--hx-surface-2);
+  }
+}
+
+/* Dark like every other selected control; --hx-select stays for focus rings. */
+.hx-cmp-tabs.tabs.is-toggle li.is-active a {
+  border-color: var(--hx-dark);
+  background-color: var(--hx-dark);
+  color: #fff;
+}
+
+.hx-cmp-scene-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+}
+
+.hx-cmp-scene-grid[hidden] {
+  display: none;
+}
+
+.hx-cmp-scene {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  width: 104px;
+  padding: 4px 4px 5px;
+  border: 1px solid transparent;
+  border-radius: var(--hx-radius);
+  background: none;
+  color: var(--hx-muted);
+  font: inherit;
+  cursor: pointer;
+  transition: background-color 0.15s, border-color 0.15s;
+}
+
+.hx-cmp-scene img {
+  display: block;
+  width: 96px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 6px;
+  background: var(--hx-surface-2);
+}
+
+.hx-cmp-scene-name {
+  max-width: 100%;
+  overflow: hidden;
+  font-size: 0.8rem;
+  line-height: 1.2;
+  text-overflow: ellipsis;
+}
+
+@media (hover: hover) {
+  .hx-cmp-scene:hover {
+    background: var(--hx-surface-2);
+    color: var(--hx-ink);
+  }
+}
+
+.hx-cmp-scene[aria-pressed="true"] {
+  border-color: var(--hx-dark);
+  background: var(--hx-surface);
+  color: var(--hx-ink);
+  box-shadow: inset 0 0 0 1px var(--hx-dark);
+}
+
+.hx-cmp-scene[aria-pressed="true"] .hx-cmp-scene-name {
+  font-weight: 600;
+}
+
+/* Method panel ----------------------------------------------------------------------------- */
+
+.hx-cmp-methods {
+  --hx-cmp-button: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.hx-cmp-method-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 100%;
+}
+
+/* Level with the first line of buttons when a row wraps. */
+.hx-cmp-row-label {
+  display: flex;
+  flex: none;
+  align-self: flex-start;
+  align-items: center;
+  justify-content: flex-end;
+  width: 44px;
+  height: var(--hx-cmp-button);
+  color: var(--hx-muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.hx-cmp-method-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.hx-cmp-method {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: var(--hx-cmp-button);
+  padding: 0 12px;
+  border: 1px solid var(--hx-line);
+  border-radius: 999px;
+  background: var(--hx-surface);
+  color: var(--hx-ink);
+  font: inherit;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.15s, border-color 0.15s, color 0.15s;
+}
+
+@media (hover: hover) {
+  .hx-cmp-method:hover {
+    border-color: #b5b5b5;
+  }
+}
+
+.hx-cmp-method[aria-pressed="true"] {
+  border-color: var(--hx-dark);
+  background: var(--hx-dark);
+  color: #fff;
+}
+
+.hx-cmp-method[aria-pressed="true"] .hx-cmp-dot {
+  box-shadow: 0 0 0 2px #fff;
+}
+
+@media (max-width: 1100px) {
+  .hx-cmp-method-buttons {
+    gap: 4px;
+  }
+
+  .hx-cmp-method {
+    gap: 6px;
+    padding: 0 9px;
+    font-size: 0.8rem;
+  }
+}
+
+/* Stage ------------------------------------------------------------------------------------ */
+
+.hx-cmp-stage {
+  --hx-split: 50%;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  border-radius: var(--hx-radius);
+  background: var(--hx-surface-2) center / cover no-repeat;
+  outline: none;
+  cursor: pointer;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* The plain ring first, for browsers without color-mix(), which drop the second declaration. */
+.hx-cmp-stage:focus-visible {
+  box-shadow: 0 0 0 3px var(--hx-select);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--hx-select) 55%, transparent);
+}
+
+.hx-compare:not(.is-touch) .hx-cmp-stage.is-held:not(.has-notice) {
+  cursor: crosshair;
+}
+
+.hx-cmp-stage.is-dragging {
+  cursor: ew-resize;
+}
+
+.hx-cmp-stage.has-notice {
+  cursor: default;
+}
+
+.hx-cmp-video {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+/* Posters sit under their videos; a video paints over its poster once it has a frame. */
+.hx-cmp-poster {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.hx-cmp-poster:not([src]) {
+  visibility: hidden;
+}
+
+.hx-cmp-poster-left { z-index: 0; }
+.hx-cmp-poster-right { z-index: 2; clip-path: inset(0 0 0 var(--hx-split)); }
+.hx-cmp-video-left { z-index: 1; }
+.hx-cmp-video-right { z-index: 3; clip-path: inset(0 0 0 var(--hx-split)); }
+.hx-cmp-video-left.is-pending { z-index: 0; }
+.hx-cmp-video-right.is-pending { z-index: 2; }
+
+.hx-cmp-divider {
+  position: absolute;
+  z-index: 4;
+  top: 0;
+  bottom: 0;
+  left: var(--hx-split);
+  width: 2px;
+  margin-left: -1px;
+  background: #fff;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.45);
+  pointer-events: none;
+}
+
+.hx-cmp-handle {
+  position: absolute;
+  z-index: 5;
+  top: 50%;
+  left: var(--hx-split);
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--hx-dark);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.35);
+  transform: translate(-50%, -50%);
+  cursor: ew-resize;
+  touch-action: none;
+  outline: none;
+}
+
+.hx-cmp-handle:focus-visible {
+  box-shadow: 0 0 0 3px var(--hx-select), 0 1px 6px rgba(0, 0, 0, 0.35);
+}
+
+.hx-cmp-tag {
+  position: absolute;
+  z-index: 5;
+  top: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  max-width: calc(50% - 30px);
+  padding: 3px 9px;
+  overflow: hidden;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18);
+  color: var(--hx-ink);
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+  pointer-events: none;
+  transition: opacity 0.15s;
+}
+
+/* A name too long for the label (phones) ends in an ellipsis instead of being cut. The short name (such as "Ours")
+   replaces it on the narrowest phones. */
+.hx-cmp-tag-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.hx-cmp-tag-short {
+  display: none;
+}
+
+.hx-cmp-tag-left { left: 10px; }
+.hx-cmp-tag-right { right: 10px; }
+.hx-cmp-tag.is-covered { opacity: 0; }
+
+/* "Click to play" or "Tap to play" while paused (the shared .hx-hint pill of index.css). */
+.hx-cmp-cue {
+  z-index: 6;
+  left: 10px;
+  bottom: 10px;
+}
+
+.hx-cmp-magnifier {
+  position: absolute;
+  z-index: 6;
+  top: 0;
+  left: 0;
+  border: 2px solid #fff;
+  border-radius: 3px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+}
+
+.hx-cmp-magnifier[hidden] {
+  display: none;
+}
+
+/* "Show me where": a ring just outside the tip's region (at least 28 px, centred on it) over a dimmed frame; it
+   fades out. While it shows, the overlays that could cover the region step aside; the magnifier then takes over. */
+.hx-cmp-spot {
+  position: absolute;
+  z-index: 6;
+  min-width: 28px;
+  min-height: 28px;
+  border-radius: 3px;
+  translate: -50% -50%;
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.6),
+    0 0 0 4px #fff,
+    0 0 0 5px rgba(0, 0, 0, 0.6),
+    0 0 0 200vmax rgba(15, 20, 23, 0.45);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.6s, visibility 0s 0.6s;
+}
+
+.hx-cmp-stage.has-spot .hx-cmp-spot {
+  opacity: 1;
+  visibility: visible;
+  transition: none;
+}
+
+.hx-cmp-stage.has-spot .hx-cmp-tag,
+.hx-cmp-stage.has-spot .hx-cmp-handle,
+.hx-cmp-stage.has-spot .hx-cmp-cue,
+.hx-cmp-stage.has-spot .hx-cmp-magnifier {
+  visibility: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hx-cmp-spot {
+    transition: none;
+  }
+}
+
+.hx-cmp-notice {
+  position: absolute;
+  z-index: 8;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 24px;
+  background: var(--hx-surface-2);
+  background: color-mix(in srgb, var(--hx-surface-2) 88%, transparent);
+  color: var(--hx-muted);
+  text-align: center;
+}
+
+.hx-cmp-notice[hidden] {
+  display: none;
+}
+
+.hx-cmp-notice .fa-solid {
+  font-size: 1.6rem;
+  opacity: 0.6;
+}
+
+.hx-cmp-stage.has-notice .hx-cmp-divider,
+.hx-cmp-stage.has-notice .hx-cmp-handle,
+.hx-cmp-stage.has-notice .hx-cmp-spot,
+.hx-cmp-stage.has-notice .hx-cmp-cue {
+  display: none;
+}
+
+/* Playback controls ------------------------------------------------------------------------ */
+
+.hx-cmp-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.hx-cmp-play,
+.hx-cmp-icon {
+  display: grid;
+  flex: none;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.hx-cmp-play {
+  width: 38px;
+  height: 38px;
+  margin-right: 2px;
+  background: var(--hx-dark);
+  color: #fff;
+}
+
+.hx-cmp-icon {
+  width: 34px;
+  height: 34px;
+  background: none;
+  color: var(--hx-ink);
+}
+
+.hx-cmp-scrubber {
+  --hx-progress: 0%;
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 60px;
+  height: 28px;
+  margin: 0 8px;
+  cursor: pointer;
+  touch-action: none;
+  outline: none;
+}
+
+.hx-cmp-scrubber-track {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  height: 4px;
+  margin-top: -2px;
+  overflow: hidden;
+  border-radius: 2px;
+  background: var(--hx-line);
+}
+
+.hx-cmp-scrubber-fill {
+  width: var(--hx-progress);
+  height: 100%;
+  background: var(--hx-dark);
+}
+
+.hx-cmp-scrubber-thumb {
+  position: absolute;
+  top: 50%;
+  left: var(--hx-progress);
+  width: 12px;
+  height: 12px;
+  margin: -6px 0 0 -6px;
+  border-radius: 50%;
+  background: var(--hx-dark);
+  transition: transform 0.15s;
+}
+
+@media (hover: hover) {
+  .hx-cmp-play:hover {
+    background: #1f1f1f;
+  }
+
+  .hx-cmp-icon:hover {
+    background: var(--hx-surface-2);
+  }
+
+  .hx-cmp-scrubber:hover .hx-cmp-scrubber-thumb {
+    transform: scale(1.25);
+  }
+}
+
+.hx-cmp-scrubber:focus-visible {
+  border-radius: 6px;
+  outline: 2px solid var(--hx-select);
+  outline-offset: 2px;
+}
+
+.hx-cmp-scrubber:focus-visible .hx-cmp-scrubber-thumb {
+  transform: scale(1.25);
+}
+
+.hx-cmp-scrubber:focus-visible .hx-cmp-scrubber-track {
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--hx-select) 45%, transparent);
+}
+
+.hx-cmp-counter {
+  flex: none;
+  min-width: 68px;
+  color: var(--hx-muted);
+  font-size: 0.8rem;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.hx-cmp-speed {
+  display: inline-flex;
+  flex: none;
+  margin-left: 6px;
+  overflow: hidden;
+  border: 1px solid var(--hx-line);
+  border-radius: 999px;
+}
+
+.hx-cmp-speed button {
+  height: 30px;
+  padding: 0 10px;
+  border: 0;
+  background: none;
+  color: var(--hx-muted);
+  font: inherit;
+  font-size: 0.8rem;
+  font-variant-numeric: tabular-nums;
+  cursor: pointer;
+}
+
+.hx-cmp-speed button[aria-pressed="true"] {
+  background: var(--hx-dark);
+  color: #fff;
+}
+
+.hx-cmp-controls.is-disabled {
+  opacity: 0.45;
+}
+
+.hx-cmp-controls.is-disabled .hx-cmp-scrubber {
+  pointer-events: none;
+}
+
+.hx-cmp-controls button:disabled {
+  cursor: default;
+}
+
+.hx-cmp-help {
+  margin-top: 8px;
+  color: var(--hx-muted);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+/* Close-ups -------------------------------------------------------------------------------- */
+
+.hx-cmp-closeup-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 0.85rem;
+}
+
+.hx-cmp-closeup-title {
+  font-family: var(--hx-font-title);
+  font-weight: 600;
+}
+
+.hx-cmp-zoom {
+  color: var(--hx-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.hx-cmp-closeup-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+}
+
+@media (max-width: 1087px) {
+  .hx-cmp-closeup-grid {
+    grid-template-columns: repeat(9, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .hx-cmp-closeup-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.hx-cmp-tile {
+  position: relative;
+  margin: 0;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 6px;
+  background: var(--hx-surface-2);
+}
+
+.hx-cmp-tile canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.hx-cmp-tile::after {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.06);
+  content: "";
+  pointer-events: none;
+}
+
+.hx-cmp-tile.is-picked::after {
+  box-shadow: inset 0 0 0 3px var(--hx-method);
+}
+
+.hx-cmp-tile figcaption {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  max-width: calc(100% - 10px);
+  padding: 2px 7px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--hx-ink);
+  font-size: 0.72rem;
+  line-height: 1.4;
+}
+
+.hx-cmp-tile-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hx-cmp-tile-side {
+  flex: none;
+  color: var(--hx-method);
+  font-weight: 700;
+}
+
+.hx-cmp-tile-side:empty {
+  display: none;
+}
+
+.hx-cmp-tile-status {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: var(--hx-muted);
+  font-size: 0.72rem;
+  transform: translate(-50%, -50%);
+}
+
+/* A tile waiting for its frame dims the crop it showed before; there is no loading animation. */
+.hx-cmp-tile[data-state="loading"] canvas {
+  opacity: 0.35;
+}
+
+/* Unless a frame is held, the tiles show dimmed with their method labels, as a preview of the close-ups, under a
+   notice that says how to fill them. */
+.hx-cmp-closeup-frame {
+  position: relative;
+}
+
+.hx-cmp-closeups:not([data-mode="paused"]) :is(.hx-cmp-zoom, .hx-cmp-closeup-note) {
+  visibility: hidden;
+}
+
+.hx-cmp-closeups:not([data-mode="paused"]) .hx-cmp-closeup-grid {
+  opacity: 0.45;
+}
+
+/* While the video plays, a nearly opaque veil hides the tiles' method names until a frame is held. */
+@media (min-width: 721px) {
+  .hx-cmp-closeups:not([data-mode="paused"]) .hx-cmp-closeup-frame::after {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+    border-radius: var(--hx-radius);
+    background: rgba(255, 255, 255, 0.9);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+  }
+}
+
+.hx-cmp-closeup-hint {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  display: none;
+  width: max-content;
+  max-width: calc(100% - 24px);
+  padding: 8px 16px;
+  border: 1px solid var(--hx-line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
+  color: var(--hx-ink);
+  font-size: 0.9rem;
+  line-height: 1.45;
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+
+.hx-cmp-closeups:not([data-mode="paused"]) .hx-cmp-closeup-hint {
+  display: block;
+}
+
+.hx-cmp-closeup-hint p {
+  text-wrap: balance;
+}
+
+.hx-cmp-closeup-hint .fa-solid {
+  margin-right: 0.3em;
+  color: var(--hx-muted);
+}
+
+/* Narrow windows stack the tiles three by three under the player: there the notice alone takes their place. The
+   tiles keep their width, which "Show me where" measures to zoom the close-ups before the frame is held. */
+@media (max-width: 720px) {
+  .hx-cmp-closeups:not([data-mode="paused"]) .hx-cmp-closeup-grid {
+    height: 0;
+    overflow: hidden;
+  }
+
+  .hx-cmp-closeup-hint {
+    position: static;
+    width: auto;
+    max-width: none;
+    border-radius: var(--hx-radius);
+    transform: none;
+  }
+}
+
+.hx-cmp-closeup-note {
+  margin-top: 8px;
+  color: var(--hx-muted);
+  font-size: 0.8rem;
+}
+
+.hx-cmp-loaders {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.hx-cmp-loaders video {
+  width: 1px;
+  height: 1px;
+}
+
+/* Metrics table ---------------------------------------------------------------------------- */
+
+.hx-cmp-metrics {
+  max-width: 1040px;
+  margin: 28px auto 0;
+}
+
+.hx-cmp-metrics-title {
+  margin-bottom: 10px;
+  font-family: var(--hx-font-title);
+  font-size: 1.05rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Positioned so the absolutely positioned screen-reader text in the headers stays inside the scroller. */
+.hx-cmp-metrics .table-container {
+  position: relative;
+  margin-bottom: 0;
+}
+
+.hx-cmp-metrics-table {
+  font-size: 0.88rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.hx-cmp-metrics-table.table th,
+.hx-cmp-metrics-table.table td {
+  padding: 6px 12px;
+  border-color: var(--hx-line);
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.hx-cmp-metrics-table.table thead th {
+  color: var(--hx-muted);
+  font-weight: 600;
+}
+
+.hx-cmp-metrics-table.table .hx-cmp-num {
+  position: relative;
+  text-align: right;
+}
+
+.hx-cmp-metrics-table tbody th {
+  font-weight: 400;
+}
+
+.hx-cmp-metrics-table thead th:first-child,
+.hx-cmp-metrics-table tbody th {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  background: var(--hx-surface);
+}
+
+.hx-cmp-metrics-method {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hx-cmp-metrics-table tr.is-picked {
+  background: color-mix(in srgb, var(--hx-method) 10%, var(--hx-surface));
+}
+
+.hx-cmp-metrics-table tr.is-picked th {
+  background: color-mix(in srgb, var(--hx-method) 10%, var(--hx-surface));
+  box-shadow: inset 3px 0 0 var(--hx-method);
+  font-weight: 600;
+}
+
+.hx-cmp-metrics-table .is-best {
+  font-weight: 700;
+}
+
+/* The dagger hangs in the cell padding, so marked numbers stay aligned with the others. */
+.hx-cmp-dagger {
+  position: absolute;
+  top: 5px;
+  margin-left: 1px;
+  color: var(--hx-muted);
+  font-weight: 400;
+}
+
+.hx-cmp-arrow {
+  margin-left: 3px;
+  color: var(--hx-muted);
+}
+
+.hx-cmp-side-chip {
+  margin-left: 8px;
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--hx-method) 18%, var(--hx-surface));
+  color: var(--hx-ink);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.hx-cmp-metrics-note,
+.hx-cmp-metrics-empty {
+  margin-top: 8px;
+  color: var(--hx-muted);
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.hx-cmp-metrics-empty {
+  text-align: center;
+}
+
+.hx-cmp-unavailable {
+  color: var(--hx-muted);
+  text-align: center;
+}
+
+/* Scene gallery ---------------------------------------------------------------------------- */
+
+.hx-gal-note {
+  margin-bottom: 12px;
+  color: var(--hx-muted);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.hx-gal-group + .hx-gal-group {
+  margin-top: 28px;
+}
+
+.hx-gal-heading {
+  margin-bottom: 10px;
+  font-family: var(--hx-font-title);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.hx-gal-count {
+  color: var(--hx-muted);
+  font-size: 0.85rem;
+  font-weight: 400;
+}
+
+.hx-gal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 16px 14px;
+}
+
+.hx-gal-tile {
+  min-width: 0;
+}
+
+.hx-gal-media {
+  position: relative;
+  display: block;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  border-radius: 8px;
+  background: var(--hx-surface-2);
+  transition: box-shadow 0.2s;
+}
+
+.hx-gal-media img,
+.hx-gal-media video {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hx-gal-media video {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.hx-gal-media.is-playing:not(.is-loading) video {
+  opacity: 1;
+}
+
+.hx-gal-media .hx-play {
+  width: 2.75rem;
+  height: 2.75rem;
+  font-size: 0.95rem;
+}
+
+.hx-gal-tile.has-no-preview .hx-play {
+  display: none;
+}
+
+.hx-gal-open {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+  min-height: 2.5rem;
+  margin: 2px 0 0;
+  padding: 4px 2px;
+  border: 0;
+  border-radius: 6px;
+  background: none;
+  color: var(--hx-ink);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.hx-gal-name {
+  min-width: 0;
+  overflow: hidden;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hx-gal-cue {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 9px;
+  border: 1px solid var(--hx-line);
+  border-radius: 999px;
+  color: var(--hx-muted);
+  font-size: 0.75rem;
+  transition: border-color 0.15s, color 0.15s, background-color 0.15s;
+}
+
+@media (hover: hover) {
+  .hx-gal-tile:hover .hx-gal-media {
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+  }
+
+  .hx-gal-tile:hover .hx-gal-cue {
+    border-color: var(--hx-dark);
+    background: var(--hx-dark);
+    color: #fff;
+  }
+}
+
+.hx-gal-open:focus-visible {
+  outline: 2px solid var(--hx-select);
+  outline-offset: 1px;
+}
+
+.hx-gal-open:focus-visible .hx-gal-cue {
+  border-color: var(--hx-dark);
+  background: var(--hx-dark);
+  color: #fff;
+}
+
+/* Phones ----------------------------------------------------------------------------------- */
+
+@media (max-width: 600px) {
+  .hx-cmp-scene-grid {
+    gap: 4px;
+  }
+
+  .hx-cmp-scene {
+    width: calc(20% - 4px);
+    padding: 2px 0 3px;
+    gap: 2px;
+  }
+
+  .hx-cmp-scene img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 8 / 5;
+    border-radius: 4px;
+  }
+
+  .hx-cmp-scene-name {
+    font-size: 0.72rem;
+    white-space: nowrap;
+  }
+
+  .hx-cmp-methods {
+    align-items: stretch;
+  }
+
+  .hx-cmp-method-row {
+    gap: 6px;
+  }
+
+  .hx-cmp-row-label {
+    justify-content: flex-start;
+    width: 44px;
+    font-size: 0.72rem;
+    letter-spacing: 0.03em;
+  }
+
+  /* One scrolling row per side; its right end fades out over the padding, so a cut-off button reads as more to come.
+     MethodPanel.reveal() in compare.js keeps the pressed button clear of the fade. */
+  .hx-cmp-method-buttons {
+    flex-wrap: nowrap;
+    min-width: 0;
+    padding: 2px 24px 2px 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 24px), transparent);
+    mask-image: linear-gradient(90deg, #000 calc(100% - 24px), transparent);
+  }
+
+  .hx-cmp-method-buttons::-webkit-scrollbar {
+    display: none;
+  }
+
+  .hx-cmp-method {
+    flex: none;
+    padding: 0 10px;
+    gap: 5px;
+    font-size: 0.8rem;
+  }
+
+  .hx-cmp-tag {
+    top: 6px;
+    padding: 2px 7px;
+    font-size: 0.75rem;
+  }
+
+  .hx-cmp-tag-left { left: 6px; }
+  .hx-cmp-tag-right { right: 6px; }
+
+  .hx-cmp-cue {
+    left: 6px;
+    bottom: 6px;
+  }
+
+  /* The scrubber gets its own row under the buttons. */
+  .hx-cmp-controls {
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .hx-cmp-scrubber {
+    flex: 1 0 100%;
+    order: 1;
+    margin: 2px 0 0;
+  }
+
+  .hx-cmp-counter {
+    min-width: 0;
+    margin-left: auto;
+    font-size: 0.75rem;
+  }
+
+  .hx-cmp-metrics-table {
+    font-size: 0.8rem;
+  }
+
+  .hx-cmp-metrics-table.table th,
+  .hx-cmp-metrics-table.table td {
+    padding: 5px 8px;
+  }
+
+  .hx-cmp-side-chip {
+    display: none;
+  }
+
+  /* One swipeable row per dataset instead of a long two-column grid; the cut-off third tile is the swipe cue, as in
+     the depth and normals rows. */
+  .hx-gal-grid {
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: 44%;
+    gap: 12px 10px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 4px;
+  }
+
+  .hx-gal-tile {
+    scroll-snap-align: start;
+  }
+
+  /* The cue keeps its arrows only, so scene names have room; the button's label names the action. */
+  .hx-gal-cue {
+    padding: 5px 9px;
+  }
+
+  .hx-gal-cue-text {
+    display: none;
+  }
+}
+
+@media (max-width: 380px) {
+  .hx-cmp-scene {
+    width: calc(25% - 3px);
+  }
+
+  /* The dataset tabs drop their scene counts, so all three fit in the strip. */
+  .hx-cmp-count {
+    display: none;
+  }
+
+  .hx-cmp-tag-name {
+    display: none;
+  }
+
+  .hx-cmp-tag-short {
+    display: inline;
+  }
+}
+
+/* Touch screens: tap targets of at least 40 px. */
+@media (pointer: coarse) {
+  .hx-cmp-tabs.tabs a {
+    min-height: 40px;
+  }
+
+  .hx-cmp-methods {
+    --hx-cmp-button: 40px;
+  }
+
+  .hx-cmp-play,
+  .hx-cmp-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .hx-cmp-speed button {
+    min-width: 40px;
+    height: 40px;
+    padding: 0 12px;
+  }
+
+  .hx-cmp-scrubber {
+    height: 40px;
+  }
+}

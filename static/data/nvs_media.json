@@ -1,0 +1,1679 @@
+{
+  "fps": 24,
+  "default_pair": [
+    "ours",
+    "2dgs"
+  ],
+  "methods": [
+    {
+      "id": "ours",
+      "label": "Hexels V3 (densified)",
+      "short": "Ours"
+    },
+    {
+      "id": "2dgs",
+      "label": "2DGS"
+    },
+    {
+      "id": "3dgs",
+      "label": "3DGS"
+    },
+    {
+      "id": "triangle",
+      "label": "Triangle Splatting"
+    },
+    {
+      "id": "meshsplatting",
+      "label": "MeshSplatting"
+    },
+    {
+      "id": "milo",
+      "label": "MILo"
+    },
+    {
+      "id": "3dconvex",
+      "label": "3D Convex Splatting",
+      "short": "3D Convex"
+    },
+    {
+      "id": "bbsplat",
+      "label": "BBSplat"
+    },
+    {
+      "id": "nexels",
+      "label": "Nexels"
+    }
+  ],
+  "datasets": [
+    {
+      "id": "mipnerf360",
+      "label": "Mip-NeRF 360",
+      "scenes": [
+        {
+          "id": "bicycle",
+          "label": "Bicycle",
+          "width": 1082,
+          "height": 720,
+          "frames": 192,
+          "thumb": "static/images/thumbs/mipnerf360_bicycle.webp",
+          "preview": "nvs/mipnerf360/bicycle/preview.mp4",
+          "videos": {
+            "ours": {
+              "key": "nvs/mipnerf360/bicycle/ours.mp4",
+              "poster": "nvs/mipnerf360/bicycle/ours.jpg"
+            },
+            "2dgs": {
+              "key": "nvs/mipnerf360/bicycle/2dgs.mp4",
+              "poster": "nvs/mipnerf360/bicycle/2dgs.jpg"
+            },
+            "3dgs": {
+              "key": "nvs/mipnerf360/bicycle/3dgs.mp4",
+              "poster": "nvs/mipnerf360/bicycle/3dgs.jpg"
+            },
+            "triangle": {
+              "key": "nvs/mipnerf360/bicycle/triangle.mp4",
+              "poster": "nvs/mipnerf360/bicycle/triangle.jpg"
+            },
+            "meshsplatting": {
+              "key": "nvs/mipnerf360/bicycle/meshsplatting.mp4",
+              "poster": "nvs/mipnerf360/bicycle/meshsplatting.jpg"
+            },
+            "milo": {
+              "key": "nvs/mipnerf360/bicycle/milo.mp4",
+              "poster": "nvs/mipnerf360/bicycle/milo.jpg"
+            },
+            "3dconvex": {
+              "key": "nvs/mipnerf360/bicycle/3dconvex.mp4",
+              "poster": "nvs/mipnerf360/bicycle/3dconvex.jpg"
+            },
+            "bbsplat": {
+              "key": "nvs/mipnerf360/bicycle/bbsplat.mp4",
+              "poster": "nvs/mipnerf360/bicycle/bbsplat.jpg"
+            },
+            "nexels": {
+              "key": "nvs/mipnerf360/bicycle/nexels.mp4",
+              "poster": "nvs/mipnerf360/bicycle/nexels.jpg"
+            }
+          }
+        },
+        {
+          "id": "flowers",
+          "label": "Flowers",
+          "width": 1092,
+          "height": 720,
+          "frames": 192,
+          "thumb": "static/images/thumbs/mipnerf360_flowers.webp",
+          "preview": "nvs/mipnerf360/flowers/preview.mp4",
+          "videos": {
+            "ours": {
+              "key": "nvs/mipnerf360/flowers/ours.mp4",
+              "poster": "nvs/mipnerf360/flowers/ours.jpg"
+            },
+            "2dgs": {
+              "key": "nvs/mipnerf360/flowers/2dgs.mp4",
+              "poster": "nvs/mipnerf360/flowers/2dgs.jpg"
+            },
+            "3dgs": {
+              "key": "nvs/mipnerf360/flowers/3dgs.mp4",
+              "poster": "nvs/mipnerf360/flowers/3dgs.jpg"
+            },
+            "triangle": {
+              "key": "nvs/mipnerf360/flowers/triangle.mp4",
+              "poster": "nvs/mipnerf360/flowers/triangle.jpg"
+            },
+            "meshsplatting": {
+              "key": "nvs/mipnerf360/flowers/meshsplatting.mp4",
+              "poster": "nvs/mipnerf360/flowers/meshsplatting.jpg"
+            },
+            "milo": {
+              "key": "nvs/mipnerf360/flowers/milo.mp4",
+              "poster": "nvs/mipnerf360/flowers/milo.jpg"
+            },
+            "3dconvex": {
+              "key": "nvs/mipnerf360/flowers/3dconvex.mp4",
+              "poster": "nvs/mipnerf360/flowers/3dconvex.jpg"
+            },
+            "bbsplat": {
+              "key": "nvs/mipnerf360/flowers/bbsplat.mp4",
+              "poster": "nvs/mipnerf360/flowers/bbsplat.jpg"
+            },
+            "nexels": {
+              "key": "nvs/mipnerf360/flowers/nexels.mp4",
+              "poster": "nvs/mipnerf360/flowers/nexels.jpg"
+            }
+          }
+        },
+        {
+          "id": "garden",
+          "label": "Garden",
+          "width": 1110,
+          "height": 720,
+          "frames": 192,
+          "thumb": "static/images/thumbs/mipnerf360_garden.webp",
+          "preview": "nvs/mipnerf360/garden/preview.mp4",
+          "videos": {
+            "ours": {
+              "key": "nvs/mipnerf360/garden/ours.mp4",
+              "poster": "nvs/mipnerf360/garden/ours.jpg"
+            },
+            "2dgs": {
+              "key": "nvs/mipnerf360/garden/2dgs.mp4",
+              "poster": "nvs/mipnerf360/garden/2dgs.jpg"
+            },
+            "3dgs": {
+              "key": "nvs/mipnerf360/garden/3dgs.mp4",
+              "poster": "nvs/mipnerf360/garden/3dgs.jpg"
+            },
+            "triangle": {
+              "key": "nvs/mipnerf360/garden/triangle.mp4",
+              "poster": "nvs/mipnerf360/garden/triangle.jpg"
+            },
+            "meshsplatting": {
+              "key": "nvs/mipnerf360/garden/meshsplatting.mp4",
+              "poster": "nvs/mipnerf360/garden/meshsplatting.jpg"
+            },
+            "milo": {
+              "key": "nvs/mipnerf360/garden/milo.mp4",
+              "poster": "nvs/mipnerf360/garden/milo.jpg"
+            },
+            "3dconvex": {
+              "key": "nvs/mipnerf360/garden/3dconvex.mp4",
+              "poster": "nvs/mipnerf360/garden/3dconvex.jpg"
+            },
+            "bbsplat": {
+              "key": "nvs/mipnerf360/garden/bbsplat.mp4",
+              "poster": "nvs/mipnerf360/garden/bbsplat.jpg"
+            },
+            "nexels": {
+              "key": "nvs/mipnerf360/garden/nexels.mp4",
+              "poster": "nvs/mipnerf360/garden/nexels.jpg"
+            }
+          }
+        },
+        {
+          "id": "stump",
+          "label": "Stump",
+          "width": 1086,
+          "height": 720,
+          "frames": 192,
+          "thumb": "static/images/thumbs/mipnerf360_stump.webp",
+          "preview": "nvs/mipnerf360/stump/preview.mp4",
+          "videos": {
+            "ours": {
+              "key": "nvs/mipnerf360/stump/ours.mp4",
+              "poster": "nvs/mipnerf360/stump/ours.jpg"
+            },
+            "2dgs": {
+              "key": "nvs/mipnerf360/stump/2dgs.mp4",
+              "poster": "nvs/mipnerf360/stump/2dgs.jpg"
+            },
+            "3dgs": {
+              "key": "nvs/mipnerf360/stump/3dgs.mp4",
+              "poster": "nvs/mipnerf360/stump/3dgs.jpg"
+            },
+            "triangle": {
+              "key": "nvs/mipnerf360/stump/triangle.mp4",
+              "poster": "nvs/mipnerf360/stump/triangle.jpg"
+            },
+            "meshsplatting": {
+              "key": "nvs/mipnerf360/stump/meshsplatting.mp4",
+              "poster": "nvs/mipnerf360/stump/meshsplatting.jpg"
+            },
+            "milo": {
+              "key": "nvs/mipnerf360/stump/milo.mp4",
+              "poster": "nvs/mipnerf360/stump/milo.jpg"
+            },
+            "3dconvex": {
+              "key": "nvs/mipnerf360/stump/3dconvex.mp4",
+              "poster": "nvs/mipnerf360/stump/3dconvex.jpg"
+            },
+            "bbsplat": {
+              "key": "nvs/mipnerf360/stump/bbsplat.mp4",
+              "poster": "nvs/mipnerf360/stump/bbsplat.jpg"
+            },
+            "nexels": {
+              "key": "nvs/mipnerf360/stump/nexels.mp4",
+              "poster": "nvs/mipnerf360/stump/nexels.jpg"
+            }
+          }
+        },
+        {
+          "id": "treehill",
+          "label": "Treehill",
+          "width": 1096,
+          "height": 720,
+          "frames": 192,
+          "thumb": "static/images/thumbs/mipnerf360_treehill.webp",
+          "preview": "nvs/mipnerf360/treehill/preview.mp4",
+          "videos": {
+            "ours": {
+              "key": "nvs/mipnerf360/treehill/ours.mp4",
+              "poster": "nvs/mipnerf360/treehill/ours.jpg"
+            },
+            "2dgs": {
+              "key": "nvs/mipnerf360/treehill/2dgs.mp4",
+              "poster": "nvs/mipnerf360/treehill/2dgs.jpg"
+            },
+            "3dgs": {
+              "key": "nvs/mipnerf360/treehill/3dgs.mp4",
+              "poster": "nvs/mipnerf360/treehill/3dgs.jpg"
+            },
+            "triangle": {
+              "key": "nvs/mipnerf360/treehill/triangle.mp4",
+              "poster": "nvs/mipnerf360/treehill/triangle.jpg"
+            },
+            "meshsplatting": {
+              "key": "nvs/mipnerf360/treehill/meshsplatting.mp4",
+              "poster": "nvs/mipnerf360/treehill/meshsplatting.jpg"
+            },
+            "milo": {
+              "key": "nvs/mipnerf360/treehill/milo.mp4",
+              "poster": "nvs/mipnerf360/treehill/milo.jpg"
+            },
+            "3dconvex": {
+              "key": "nvs/mipnerf360/treehill/3dconvex.mp4",
+              "poster": "nvs/mipnerf360/treehill/3dconvex.jpg"
+            },
+            "bbsplat": {
+              "key": "nvs/mipnerf360/treehill/bbsplat.mp4",
+              "poster": "nvs/mipnerf360/treehill/bbsplat.jpg"
+            },
+            "nexels": {
+              "key": "nvs/mipnerf360/treehill/nexels.mp4",
+              "poster": "nvs/mipnerf360/treehill/nexels.jpg"
+            }
+          }
+        },
+        {
+          "id": "room",
+          "label": "Room",
+          "width": 1080,
+          "height": 720,
+          "frames": 192,
+          "thumb": "static/images/thumbs/mipnerf360_room.webp",
+          "preview": "nvs/mipnerf360/room/preview.mp4",
+          "videos": {
+            "ours": {
+              "key": "nvs/mipnerf360/room/ours.mp4",
+              "poster": "nvs/mipnerf360/room/ours.jpg"
+            },
+            "2dgs": {
+              "key": "nvs/mipnerf360/room/2dgs.mp4",
+              "poster": "nvs/mipnerf360/room/2dgs.jpg"
+            },
+            "3dgs": {
+              "key": "nvs/mipnerf360/room/3dgs.mp4",
+              "poster": "nvs/mipnerf360/room/3dgs.jpg"
+            },
+            "triangle": {
+              "key": "nvs/mipnerf360/room/triangle.mp4",
+              "poster": "nvs/mipnerf360/room/triangle.jpg"
+            },
+            "meshsplatting": {
+              "key": "nvs/mipnerf360/room/meshsplatting.mp4",
+              "poster": "nvs/mipnerf360/room/meshsplatting.jpg"
+            },
+            "milo": {
+              "key": "nvs/mipnerf360/room/milo.mp4",
+              "poster": "nvs/mipnerf360/room/milo.jpg"
+            },
+            "3dconvex": {
+              "key": "nvs/mipnerf360/room/3dconvex.mp4",
+              "poster": "nvs/mipnerf360/room/3dconvex.jpg"
+            },
+            "bbsplat": {
+              "key": "nvs/mipnerf360/room/bbsplat.mp4",
+              "poster": "nvs/mipnerf360/room/bbsplat.jpg"
+            },
+            "nexels": {
+              "key": "nvs/mipnerf360/room/nexels.mp4",
+              "poster": "nvs/mipnerf360/room/nexels.jpg"
+            }
+          }
+        },
+        {
+          "id": "counter",
+          "label": "Counter",
+          "width": 1080,
+          "height": 720,
+          "frames": 192,
+          "thumb": "static/images/thumbs/mipnerf360_counter.webp",
+          "preview": "nvs/mipnerf360/counter/preview.mp4",
+          "videos": {
+            "ours": {
+              "key": "nvs/mipnerf360/counter/ours.mp4",
+              "poster": "nvs/mipnerf360/counter/ours.jpg"
+            },
+            "2dgs": {
+              "key": "nvs/mipnerf360/counter/2dgs.mp4",
+              "poster": "nvs/mipnerf360/counter/2dgs.jpg"
+            },
+            "3dgs": {
+              "key": "nvs/mipnerf360/counter/3dgs.mp4",
+              "poster": "nvs/mipnerf360/counter/3dgs.jpg"
+            },
+            "triangle": {
+              "key": "nvs/mipnerf360/counter/triangle.mp4",
+              "poster": "nvs/mipnerf360/counter/triangle.jpg"
+            },
+            "meshsplatting": {
+              "key": "nvs/mipnerf360/counter/meshsplatting.mp4",
+              "poster": "nvs/mipnerf360/counter/meshsplatting.jpg"
+            },
+            "milo": {
+              "key": "nvs/mipnerf360/counter/milo.mp4",
+              "poster": "nvs/mipnerf360/counter/milo.jpg"
+            },
+            "3dconvex": {
+              "key": "nvs/mipnerf360/counter/3dconvex.mp4",
+              "poster": "nvs/mipnerf360/counter/3dconvex.jpg"
+            },
+            "bbsplat": {
+              "key": "nvs/mipnerf360/counter/bbsplat.mp4",
+              "poster": "nvs/mipnerf360/counter/bbsplat.jpg"
+            },
+            "nexels": {
+              "key": "nvs/mipnerf360/counter/nexels.mp4",
+              "poster": "nvs/mipnerf360/counter/nexels.jpg"
+            }
+          }
+        },
+        {
+          "id": "kitchen",
+          "label": "Kitchen",
+          "width": 1078,
+          "height": 720,
+          "frames": 192,
+          "thumb": "static/images/thumbs/mipnerf360_kitchen.webp",
+          "preview": "nvs/mipnerf360/kitchen/preview.mp4",
+          "videos": {
+            "ours": {
+              "key": "nvs/mipnerf360/kitchen/ours.mp4",
+              "poster": "nvs/mipnerf360/kitchen/ours.jpg"
+            },
+            "2dgs": {
+              "key": "nvs/mipnerf360/kitchen/2dgs.mp4",
+              "poster": "nvs/mipnerf360/kitchen/2dgs.jpg"
+            },
+            "3dgs": {
+              "key": "nvs/mipnerf360/kitchen/3dgs.mp4",
+              "poster": "nvs/mipnerf360/kitchen/3dgs.jpg"
+            },
+            "triangle": {
+              "key": "nvs/mipnerf360/kitchen/triangle.mp4",
+              "poster": "nvs/mipnerf360/kitchen/triangle.jpg"
+            },
+            "meshsplatting": {
+              "key": "nvs/mipnerf360/kitchen/meshsplatting.mp4",
+              "poster": "nvs/mipnerf360/kitchen/meshsplatting.jpg"
+            },
+            "milo": {
+              "key": "nvs/mipnerf360/kitchen/milo.mp4",
+              "poster": "nvs/mipnerf360/kitchen/milo.jpg"
+            },
+            "3dconvex": {
+              "key": "nvs/mipnerf360/kitchen/3dconvex.mp4",
+              "poster": "nvs/mipnerf360/kitchen/3dconvex.jpg"
+            },
+            "bbsplat": {
+              "key": "nvs/mipnerf360/kitchen/bbsplat.mp4",
+              "poster": "nvs/mipnerf360/kitchen/bbsplat.jpg"
+            },
+            "nexels": {
+              "key": "nvs/mipnerf360/kitchen/nexels.mp4",
+              "poster": "nvs/mipnerf360/kitchen/nexels.jpg"
+            }
+          }
+        },
+        {
+          "id": "bonsai",
+          "label": "Bonsai",
+          "width": 1080,
+          "height": 720,
+          "frames": 192,
+          "thumb": "static/images/thumbs/mipnerf360_bonsai.webp",
+          "preview": "nvs/mipnerf360/bonsai/preview.mp4",
+          "videos": {
+            "ours": {
+              "key": "nvs/mipnerf360/bonsai/ours.mp4",
+              "poster": "nvs/mipnerf360/bonsai/ours.jpg"
+            },
+            "2dgs": {
+              "key": "nvs/mipnerf360/bonsai/2dgs.mp4",
+              "poster": "nvs/mipnerf360/bonsai/2dgs.jpg"
+            },
+            "3dgs": {
+              "key": "nvs/mipnerf360/bonsai/3dgs.mp4",
+              "poster": "nvs/mipnerf360/bonsai/3dgs.jpg"
+            },
+            "triangle": {
+              "key": "nvs/mipnerf360/bonsai/triangle.mp4",
+              "poster": "nvs/mipnerf360/bonsai/triangle.jpg"
+            },
+            "meshsplatting": {
+              "key": "nvs/mipnerf360/bonsai/meshsplatting.mp4",
+              "poster": "nvs/mipnerf360/bonsai/meshsplatting.jpg"
+            },
+            "milo": {
+              "key": "nvs/mipnerf360/bonsai/milo.mp4",
+              "poster": "nvs/mipnerf360/bonsai/milo.jpg"
+            },
+            "3dconvex": {
+              "key": "nvs/mipnerf360/bonsai/3dconvex.mp4",
+              "poster": "nvs/mipnerf360/bonsai/3dconvex.jpg"
+            },
+            "bbsplat": {
+              "key": "nvs/mipnerf360/bonsai/bbsplat.mp4",
+              "poster": "nvs/mipnerf360/bonsai/bbsplat.jpg"
+            },
+            "nexels": {
+              "key": "nvs/mipnerf360/bonsai/nexels.mp4",
+              "poster": "nvs/mipnerf360/bonsai/nexels.jpg"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "tanks_and_temples",
+      "label": "Tanks and Temples",
+      "scenes": [
+        {
+          "id": "Train",
+          "label": "Train",
+          "width": 980,
+          "height": 542,
+          "frames": 192,
+          "thumb": "static/images/thumbs/tanks_and_temples_Train.webp",
+          "preview": "nvs/tanks_and_temples/Train/preview.mp4",
+          "videos": {
+            "ours": {
+              "key": "nvs/tanks_and_temples/Train/ours.mp4",
+              "poster": "nvs/tanks_and_temples/Train/ours.jpg"
+            },
+            "2dgs": {
+              "key": "nvs/tanks_and_temples/Train/2dgs.mp4",
+              "poster": "nvs/tanks_and_temples/Train/2dgs.jpg"
+            },
+            "3dgs": {
+              "key": "nvs/tanks_and_temples/Train/3dgs.mp4",
+              "poster": "nvs/tanks_and_temples/Train/3dgs.jpg"
+            },
+            "triangle": {
+              "key": "nvs/tanks_and_temples/Train/triangle.mp4",
+              "poster": "nvs/tanks_and_temples/Train/triangle.jpg"
+            },
+            "meshsplatting": {
+              "key": "nvs/tanks_and_temples/Train/meshsplatting.mp4",
+              "poster": "nvs/tanks_and_temples/Train/meshsplatting.jpg"
+            },
+            "milo": {
+              "key": "nvs/tanks_and_temples/Train/milo.mp4",
+              "poster": "nvs/tanks_and_temples/Train/milo.jpg"
+            },
+            "3dconvex": {
+              "key": "nvs/tanks_and_temples/Train/3dconvex.mp4",
+              "poster": "nvs/tanks_and_temples/Train/3dconvex.jpg"
+            },
+            "bbsplat": {
+              "key": "nvs/tanks_and_temples/Train/bbsplat.mp4",
+              "poster": "nvs/tanks_and_temples/Train/bbsplat.jpg"
+            },
+            "nexels": {
+              "key": "nvs/tanks_and_temples/Train/nexels.mp4",
+              "poster": "nvs/tanks_and_temples/Train/nexels.jpg"
+            }
+          }
+        },
+        {
+          "id": "Truck",
+          "label": "Truck",
+          "width": 978,
+          "height": 542,
+          "frames": 192,
+          "thumb": "static/images/thumbs/tanks_and_temples_Truck.webp",
+          "preview": "nvs/tanks_and_temples/Truck/preview.mp4",
+          "videos": {
+            "ours": {
+              "key": "nvs/tanks_and_temples/Truck/ours.mp4",
+              "poster": "nvs/tanks_and_temples/Truck/ours.jpg"
+            },
+            "2dgs": {
+              "key": "nvs/tanks_and_temples/Truck/2dgs.mp4",
+              "poster": "nvs/tanks_and_temples/Truck/2dgs.jpg"
+            },
+            "3dgs": {
+              "key": "nvs/tanks_and_temples/Truck/3dgs.mp4",
+              "poster": "nvs/tanks_and_temples/Truck/3dgs.jpg"
+            },
+            "triangle": {
+              "key": "nvs/tanks_and_temples/Truck/triangle.mp4",
+              "poster": "nvs/tanks_and_temples/Truck/triangle.jpg"
+            },
+            "meshsplatting": {
+              "key": "nvs/tanks_and_temples/Truck/meshsplatting.mp4",
+              "poster": "nvs/tanks_and_temples/Truck/meshsplatting.jpg"
+            },
+            "milo": {
+              "key": "nvs/tanks_and_temples/Truck/milo.mp4",
+              "poster": "nvs/tanks_and_temples/Truck/milo.jpg"
+            },
+            "3dconvex": {
+              "key": "nvs/tanks_and_temples/Truck/3dconvex.mp4",
+              "poster": "nvs/tanks_and_temples/Truck/3dconvex.jpg"
+            },
+            "bbsplat": {
+              "key": "nvs/tanks_and_temples/Truck/bbsplat.mp4",
+              "poster": "nvs/tanks_and_temples/Truck/bbsplat.jpg"
+            },
+            "nexels": {
+              "key": "nvs/tanks_and_temples/Truck/nexels.mp4",
+              "poster": "nvs/tanks_and_temples/Truck/nexels.jpg"
+            }
+          }
+        },
+        {
+          "id": "Francis",
+          "label": "Francis",
+          "width": 980,
+          "height": 542,
+          "frames": 192,
+          "thumb": "static/images/thumbs/tanks_and_temples_Francis.webp",
+          "preview": "nvs/tanks_and_temples/Francis/preview.mp4",
+          "videos": {
+            "ours": {
+              "key": "nvs/tanks_and_temples/Francis/ours.mp4",
+              "poster": "nvs/tanks_and_temples/Francis/ours.jpg"
+            },
+            "2dgs": {
+              "key": "nvs/tanks_and_temples/Francis/2dgs.mp4",
+              "poster": "nvs/tanks_and_temples/Francis/2dgs.jpg"
+            },
+            "3dgs": {
+              "key": "nvs/tanks_and_temples/Francis/3dgs.mp4",
+              "poster": "nvs/tanks_and_temples/Francis/3dgs.jpg"
+            },
+            "triangle": {
+              "key": "nvs/tanks_and_temples/Francis/triangle.mp4",
+              "poster": "nvs/tanks_and_temples/Francis/triangle.jpg"
+            },
+            "meshsplatting": {
+              "key": "nvs/tanks_and_temples/Francis/meshsplatting.mp4",
+              "poster": "nvs/tanks_and_temples/Francis/meshsplatting.jpg"
+            },
+            "milo": {
+              "key": "nvs/tanks_and_temples/Francis/milo.mp4",
+              "poster": "nvs/tanks_and_temples/Francis/milo.jpg"
+            },
+            "3dconvex": {
+              "key": "nvs/tanks_and_temples/Francis/3dconvex.mp4",
+              "poster": "nvs/tanks_and_temples/Francis/3dconvex.jpg"
+            },
+            "bbsplat": {
+              "key": "nvs/tanks_and_temples/Francis/bbsplat.mp4",
+              "poster": "nvs/tanks_and_temples/Francis/bbsplat.jpg"
+            },
+            "nexels": {
+              "key": "nvs/tanks_and_temples/Francis/nexels.mp4",
+              "poster": "nvs/tanks_and_temples/Francis/nexels.jpg"
+            }
+          }
+        },
+        {
+          "id": "Horse",
+          "label": "Horse",
+          "width": 980,
+          "height": 542,
+          "frames": 192,
+          "thumb": "static/images/thumbs/tanks_and_temples_Horse.webp",
+          "preview": "nvs/tanks_and_temples/Horse/preview.mp4",
+          "videos": {
+            "ours": {
+              "key": "nvs/tanks_and_temples/Horse/ours.mp4",
+              "poster": "nvs/tanks_and_temples/Horse/ours.jpg"
+            },
+            "2dgs": {
+              "key": "nvs/tanks_and_temples/Horse/2dgs.mp4",
+              "poster": "nvs/tanks_and_temples/Horse/2dgs.jpg"
+            },
+            "3dgs": {
+              "key": "nvs/tanks_and_temples/Horse/3dgs.mp4",
+              "poster": "nvs/tanks_and_temples/Horse/3dgs.jpg"
+            },
+            "triangle": {
+              "key": "nvs/tanks_and_temples/Horse/triangle.mp4",
+              "poster": "nvs/tanks_and_temples/Horse/triangle.jpg"
+            },
+            "meshsplatting": {
+              "key": "nvs/tanks_and_temples/Horse/meshsplatting.mp4",
+              "poster": "nvs/tanks_and_temples/Horse/meshsplatting.jpg"
+            },
+            "milo": {
+              "key": "nvs/tanks_and_temples/Horse/milo.mp4",
+              "poster": "nvs/tanks_and_temples/Horse/milo.jpg"
+            },
+            "3dconvex": {
+              "key": "nvs/tanks_and_temples/Horse/3dconvex.mp4",
+              "poster": "nvs/tanks_and_temples/Horse/3dconvex.jpg"
+            },
+            "bbsplat": {
+              "key": "nvs/tanks_and_temples/Horse/bbsplat.mp4",
+              "poster": "nvs/tanks_and_temples/Horse/bbsplat.jpg"
+            },
+            "nexels": {
+              "key": "nvs/tanks_and_temples/Horse/nexels.mp4",
+              "poster": "nvs/tanks_and_temples/Horse/nexels.jpg"
+            }
+          }
+        },
+        {
+          "id": "Lighthouse",
+          "label": "Lighthouse",
+          "width": 1076,
+          "height": 546,
+          "frames": 192,
+          "thumb": "static/images/thumbs/tanks_and_temples_Lighthouse.webp",
+          "preview": "nvs/tanks_and_temples/Lighthouse/preview.mp4",
+          "videos": {
+            "ours": {
+              "key": "nvs/tanks_and_temples/Lighthouse/ours.mp4",
+              "poster": "nvs/tanks_and_temples/Lighthouse/ours.jpg"
+            },
+            "2dgs": {
+              "key": "nvs/tanks_and_temples/Lighthouse/2dgs.mp4",
+              "poster": "nvs/tanks_and_temples/Lighthouse/2dgs.jpg"
+            },
+            "3dgs": {
+              "key": "nvs/tanks_and_temples/Lighthouse/3dgs.mp4",
+              "poster": "nvs/tanks_and_temples/Lighthouse/3dgs.jpg"
+            },
+            "triangle": {
+              "key": "nvs/tanks_and_temples/Lighthouse/triangle.mp4",
+              "poster": "nvs/tanks_and_temples/Lighthouse/triangle.jpg"
+            },
+            "meshsplatting": {
+              "key": "nvs/tanks_and_temples/Lighthouse/meshsplatting.mp4",
+              "poster": "nvs/tanks_and_temples/Lighthouse/meshsplatting.jpg"
+            },
+            "milo": {
+              "key": "nvs/tanks_and_temples/Lighthouse/milo.mp4",
+              "poster": "nvs/tanks_and_temples/Lighthouse/milo.jpg"
+            },
+            "3dconvex": {
+              "key": "nvs/tanks_and_temples/Lighthouse/3dconvex.mp4",
+              "poster": "nvs/tanks_and_temples/Lighthouse/3dconvex.jpg"
+            },
+            "bbsplat": {
+              "key": "nvs/tanks_and_temples/Lighthouse/bbsplat.mp4",
+              "poster": "nvs/tanks_and_temples/Lighthouse/bbsplat.jpg"
+            },
+            "nexels": {
+              "key": "nvs/tanks_and_temples/Lighthouse/nexels.mp4",
+              "poster": "nvs/tanks_and_temples/Lighthouse/nexels.jpg"
+            }
+          }
+        },
+        {
+          "id": "Barn",
+          "label": "Barn",
+          "width": 976,
+          "height": 544,
+          "frames": 192,
+          "thumb": "static/images/thumbs/tanks_and_temples_Barn.webp",
+          "preview": "nvs/tanks_and_temples/Barn/preview.mp4",
+          "videos": {
+            "ours": {
+              "key": "nvs/tanks_and_temples/Barn/ours.mp4",
+              "poster": "nvs/tanks_and_temples/Barn/ours.jpg"
+            },
+            "2dgs": {
+              "key": "nvs/tanks_and_temples/Barn/2dgs.mp4",
+              "poster": "nvs/tanks_and_temples/Barn/2dgs.jpg"
+            },
+            "3dgs": {
+              "key": "nvs/tanks_and_temples/Barn/3dgs.mp4",
+              "poster": "nvs/tanks_and_temples/Barn/3dgs.jpg"
+            },
+            "triangle": {
+              "key": "nvs/tanks_and_temples/Barn/triangle.mp4",
+              "poster": "nvs/tanks_and_temples/Barn/triangle.jpg"
+            },
+            "meshsplatting": {
+              "key": "nvs/tanks_and_temples/Barn/meshsplatting.mp4",
+              "poster": "nvs/tanks_and_temples/Barn/meshsplatting.jpg"
+            },
+            "milo": {
+              "key": "nvs/tanks_and_temples/Barn/milo.mp4",
+              "poster": "nvs/tanks_and_temples/Barn/milo.jpg"
+            },
+            "3dconvex": {
+              "key": "nvs/tanks_and_temples/Barn/3dconvex.mp4",
+              "poster": "nvs/tanks_and_temples/Barn/3dconvex.jpg"
+            },
+            "bbsplat": {
+              "key": "nvs/tanks_and_temples/Barn/bbsplat.mp4",
+              "poster": "nvs/tanks_and_temples/Barn/bbsplat.jpg"
+            },
+            "nexels": {
+              "key": "nvs/tanks_and_temples/Barn/nexels.mp4",
+              "poster": "nvs/tanks_and_temples/Barn/nexels.jpg"
+            }
+          }
+        },
+        {
+          "id": "Caterpillar",
+          "label": "Caterpillar",
+          "width": 978,
+          "height": 544,
+          "frames": 192,
+          "thumb": "static/images/thumbs/tanks_and_temples_Caterpillar.webp",
+          "preview": "nvs/tanks_and_temples/Caterpillar/preview.mp4",
+          "videos": {
+            "ours": {
+              "key": "nvs/tanks_and_temples/Caterpillar/ours.mp4",
+              "poster": "nvs/tanks_and_temples/Caterpillar/ours.jpg"
+            },
+            "2dgs": {
+              "key": "nvs/tanks_and_temples/Caterpillar/2dgs.mp4",
+              "poster": "nvs/tanks_and_temples/Caterpillar/2dgs.jpg"
+            },
+            "3dgs": {
+              "key": "nvs/tanks_and_temples/Caterpillar/3dgs.mp4",
+              "poster": "nvs/tanks_and_temples/Caterpillar/3dgs.jpg"
+            },
+            "triangle": {
+              "key": "nvs/tanks_and_temples/Caterpillar/triangle.mp4",
+              "poster": "nvs/tanks_and_temples/Caterpillar/triangle.jpg"
+            },
+            "meshsplatting": {
+              "key": "nvs/tanks_and_temples/Caterpillar/meshsplatting.mp4",
+              "poster": "nvs/tanks_and_temples/Caterpillar/meshsplatting.jpg"
+            },
+            "milo": {
+              "key": "nvs/tanks_and_temples/Caterpillar/milo.mp4",
+              "poster": "nvs/tanks_and_temples/Caterpillar/milo.jpg"
+            },
+            "3dconvex": {
+              "key": "nvs/tanks_and_temples/Caterpillar/3dconvex.mp4",
+              "poster": "nvs/tanks_and_temples/Caterpillar/3dconvex.jpg"
+            },
+            "bbsplat": {
+              "key": "nvs/tanks_and_temples/Caterpillar/bbsplat.mp4",
+              "poster": "nvs/tanks_and_temples/Caterpillar/bbsplat.jpg"
+            },
+            "nexels": {
+              "key": "nvs/tanks_and_temples/Caterpillar/nexels.mp4",
+              "poster": "nvs/tanks_and_temples/Caterpillar/nexels.jpg"
+            }
+          }
+        },
+        {
+          "id": "Courthouse",
+          "label": "Courthouse",
+          "width": 978,
+          "height": 544,
+          "frames": 192,
+          "thumb": "static/images/thumbs/tanks_and_temples_Courthouse.webp",
+          "preview": "nvs/tanks_and_temples/Courthouse/preview.mp4",
+          "videos": {
+            "ours": {
+              "key": "nvs/tanks_and_temples/Courthouse/ours.mp4",
+              "poster": "nvs/tanks_and_temples/Courthouse/ours.jpg"
+            },
+            "2dgs": {
+              "key": "nvs/tanks_and_temples/Courthouse/2dgs.mp4",
+              "poster": "nvs/tanks_and_temples/Courthouse/2dgs.jpg"
+            },
+            "3dgs": {
+              "key": "nvs/tanks_and_temples/Courthouse/3dgs.mp4",
+              "poster": "nvs/tanks_and_temples/Courthouse/3dgs.jpg"
+            },
+            "triangle": {
+              "key": "nvs/tanks_and_temples/Courthouse/triangle.mp4",
+              "poster": "nvs/tanks_and_temples/Courthouse/triangle.jpg"
+            },
+            "meshsplatting": {
+              "key": "nvs/tanks_and_temples/Courthouse/meshsplatting.mp4",
+              "poster": "nvs/tanks_and_temples/Courthouse/meshsplatting.jpg"
+            },
+            "milo": {
+              "key": "nvs/tanks_and_temples/Courthouse/milo.mp4",
+              "poster": "nvs/tanks_and_temples/Courthouse/milo.jpg"
+            },
+            "3dconvex": {
+              "key": "nvs/tanks_and_temples/Courthouse/3dconvex.mp4",
+              "poster": "nvs/tanks_and_temples/Courthouse/3dconvex.jpg"
+            },
+            "bbsplat": {
+              "key": "nvs/tanks_and_temples/Courthouse/bbsplat.mp4",
+              "poster": "nvs/tanks_and_temples/Courthouse/bbsplat.jpg"
+            },
+            "nexels": {
+              "key": "nvs/tanks_and_temples/Courthouse/nexels.mp4",
+              "poster": "nvs/tanks_and_temples/Courthouse/nexels.jpg"
+            }
+          }
+        },
+        {
+          "id": "Ignatius",
+          "label": "Ignatius",
+          "width": 976,
+          "height": 544,
+          "frames": 192,
+          "thumb": "static/images/thumbs/tanks_and_temples_Ignatius.webp",
+          "preview": "nvs/tanks_and_temples/Ignatius/preview.mp4",
+          "videos": {
+            "ours": {
+              "key": "nvs/tanks_and_temples/Ignatius/ours.mp4",
+              "poster": "nvs/tanks_and_temples/Ignatius/ours.jpg"
+            },
+            "2dgs": {
+              "key": "nvs/tanks_and_temples/Ignatius/2dgs.mp4",
+              "poster": "nvs/tanks_and_temples/Ignatius/2dgs.jpg"
+            },
+            "3dgs": {
+              "key": "nvs/tanks_and_temples/Ignatius/3dgs.mp4",
+              "poster": "nvs/tanks_and_temples/Ignatius/3dgs.jpg"
+            },
+            "triangle": {
+              "key": "nvs/tanks_and_temples/Ignatius/triangle.mp4",
+              "poster": "nvs/tanks_and_temples/Ignatius/triangle.jpg"
+            },
+            "meshsplatting": {
+              "key": "nvs/tanks_and_temples/Ignatius/meshsplatting.mp4",
+              "poster": "nvs/tanks_and_temples/Ignatius/meshsplatting.jpg"
+            },
+            "milo": {
+              "key": "nvs/tanks_and_temples/Ignatius/milo.mp4",
+              "poster": "nvs/tanks_and_temples/Ignatius/milo.jpg"
+            },
+            "3dconvex": {
+              "key": "nvs/tanks_and_temples/Ignatius/3dconvex.mp4",
+              "poster": "nvs/tanks_and_temples/Ignatius/3dconvex.jpg"
+            },
+            "bbsplat": {
+              "key": "nvs/tanks_and_temples/Ignatius/bbsplat.mp4",
+              "poster": "nvs/tanks_and_temples/Ignatius/bbsplat.jpg"
+            },
+            "nexels": {
+              "key": "nvs/tanks_and_temples/Ignatius/nexels.mp4",
+              "poster": "nvs/tanks_and_temples/Ignatius/nexels.jpg"
+            }
+          }
+        },
+        {
+          "id": "Meetingroom",
+          "label": "Meetingroom",
+          "width": 978,
+          "height": 546,
+          "frames": 192,
+          "thumb": "static/images/thumbs/tanks_and_temples_Meetingroom.webp",
+          "preview": "nvs/tanks_and_temples/Meetingroom/preview.mp4",
+          "videos": {
+            "ours": {
+              "key": "nvs/tanks_and_temples/Meetingroom/ours.mp4",
+              "poster": "nvs/tanks_and_temples/Meetingroom/ours.jpg"
+            },
+            "2dgs": {
+              "key": "nvs/tanks_and_temples/Meetingroom/2dgs.mp4",
+              "poster": "nvs/tanks_and_temples/Meetingroom/2dgs.jpg"
+            },
+            "3dgs": {
+              "key": "nvs/tanks_and_temples/Meetingroom/3dgs.mp4",
+              "poster": "nvs/tanks_and_temples/Meetingroom/3dgs.jpg"
+            },
+            "triangle": {
+              "key": "nvs/tanks_and_temples/Meetingroom/triangle.mp4",
+              "poster": "nvs/tanks_and_temples/Meetingroom/triangle.jpg"
+            },
+            "meshsplatting": {
+              "key": "nvs/tanks_and_temples/Meetingroom/meshsplatting.mp4",
+              "poster": "nvs/tanks_and_temples/Meetingroom/meshsplatting.jpg"
+            },
+            "milo": {
+              "key": "nvs/tanks_and_temples/Meetingroom/milo.mp4",
+              "poster": "nvs/tanks_and_temples/Meetingroom/milo.jpg"
+            },
+            "3dconvex": {
+              "key": "nvs/tanks_and_temples/Meetingroom/3dconvex.mp4",
+              "poster": "nvs/tanks_and_temples/Meetingroom/3dconvex.jpg"
+            },
+            "bbsplat": {
+              "key": "nvs/tanks_and_temples/Meetingroom/bbsplat.mp4",
+              "poster": "nvs/tanks_and_temples/Meetingroom/bbsplat.jpg"
+            },
+            "nexels": {
+              "key": "nvs/tanks_and_temples/Meetingroom/nexels.mp4",
+              "poster": "nvs/tanks_and_temples/Meetingroom/nexels.jpg"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "dtu",
+      "label": "DTU",
+      "scenes": [
+        {
+          "id": "scan24",
+          "label": "Scan 24",
+          "width": 776,
+          "height": 580,
+          "frames": 96,
+          "thumb": "static/images/thumbs/dtu_scan24.webp",
+          "preview": "nvs/dtu/scan24/preview.mp4",
+          "videos": {
+            "ours": {
+              "key": "nvs/dtu/scan24/ours.mp4",
+              "poster": "nvs/dtu/scan24/ours.jpg"
+            },
+            "2dgs": {
+              "key": "nvs/dtu/scan24/2dgs.mp4",
+              "poster": "nvs/dtu/scan24/2dgs.jpg"
+            },
+            "3dgs": {
+              "key": "nvs/dtu/scan24/3dgs.mp4",
+              "poster": "nvs/dtu/scan24/3dgs.jpg"
+            },
+            "triangle": {
+              "key": "nvs/dtu/scan24/triangle.mp4",
+              "poster": "nvs/dtu/scan24/triangle.jpg"
+            },
+            "meshsplatting": {
+              "key": "nvs/dtu/scan24/meshsplatting.mp4",
+              "poster": "nvs/dtu/scan24/meshsplatting.jpg"
+            },
+            "milo": {
+              "key": "nvs/dtu/scan24/milo.mp4",
+              "poster": "nvs/dtu/scan24/milo.jpg"
+            },
+            "3dconvex": {
+              "key": "nvs/dtu/scan24/3dconvex.mp4",
+              "poster": "nvs/dtu/scan24/3dconvex.jpg"
+            },
+            "bbsplat": {
+              "key": "nvs/dtu/scan24/bbsplat.mp4",
+              "poster": "nvs/dtu/scan24/bbsplat.jpg"
+            },
+            "nexels": {
+              "key": "nvs/dtu/scan24/nexels.mp4",
+              "poster": "nvs/dtu/scan24/nexels.jpg"
+            }
+          }
+        },
+        {
+          "id": "scan37",
+          "label": "Scan 37",
+          "width": 776,
+          "height": 580,
+          "frames": 96,
+          "thumb": "static/images/thumbs/dtu_scan37.webp",
+          "preview": "nvs/dtu/scan37/preview.mp4",
+          "videos": {
+            "ours": {
+              "key": "nvs/dtu/scan37/ours.mp4",
+              "poster": "nvs/dtu/scan37/ours.jpg"
+            },
+            "2dgs": {
+              "key": "nvs/dtu/scan37/2dgs.mp4",
+              "poster": "nvs/dtu/scan37/2dgs.jpg"
+            },
+            "3dgs": {
+              "key": "nvs/dtu/scan37/3dgs.mp4",
+              "poster": "nvs/dtu/scan37/3dgs.jpg"
+            },
+            "triangle": {
+              "key": "nvs/dtu/scan37/triangle.mp4",
+              "poster": "nvs/dtu/scan37/triangle.jpg"
+            },
+            "meshsplatting": {
+              "key": "nvs/dtu/scan37/meshsplatting.mp4",
+              "poster": "nvs/dtu/scan37/meshsplatting.jpg"
+            },
+            "milo": {
+              "key": "nvs/dtu/scan37/milo.mp4",
+              "poster": "nvs/dtu/scan37/milo.jpg"
+            },
+            "3dconvex": {
+              "key": "nvs/dtu/scan37/3dconvex.mp4",
+              "poster": "nvs/dtu/scan37/3dconvex.jpg"
+            },
+            "bbsplat": {
+              "key": "nvs/dtu/scan37/bbsplat.mp4",
+              "poster": "nvs/dtu/scan37/bbsplat.jpg"
+            },
+            "nexels": {
+              "key": "nvs/dtu/scan37/nexels.mp4",
+              "poster": "nvs/dtu/scan37/nexels.jpg"
+            }
+          }
+        },
+        {
+          "id": "scan40",
+          "label": "Scan 40",
+          "width": 776,
+          "height": 580,
+          "frames": 96,
+          "thumb": "static/images/thumbs/dtu_scan40.webp",
+          "preview": "nvs/dtu/scan40/preview.mp4",
+          "videos": {
+            "ours": {
+              "key": "nvs/dtu/scan40/ours.mp4",
+              "poster": "nvs/dtu/scan40/ours.jpg"
+            },
+            "2dgs": {
+              "key": "nvs/dtu/scan40/2dgs.mp4",
+              "poster": "nvs/dtu/scan40/2dgs.jpg"
+            },
+            "3dgs": {
+              "key": "nvs/dtu/scan40/3dgs.mp4",
+              "poster": "nvs/dtu/scan40/3dgs.jpg"
+            },
+            "triangle": {
+              "key": "nvs/dtu/scan40/triangle.mp4",
+              "poster": "nvs/dtu/scan40/triangle.jpg"
+            },
+            "meshsplatting": {
+              "key": "nvs/dtu/scan40/meshsplatting.mp4",
+              "poster": "nvs/dtu/scan40/meshsplatting.jpg"
+            },
+            "milo": {
+              "key": "nvs/dtu/scan40/milo.mp4",
+              "poster": "nvs/dtu/scan40/milo.jpg"
+            },
+            "3dconvex": {
+              "key": "nvs/dtu/scan40/3dconvex.mp4",
+              "poster": "nvs/dtu/scan40/3dconvex.jpg"
+            },
+            "bbsplat": {
+              "key": "nvs/dtu/scan40/bbsplat.mp4",
+              "poster": "nvs/dtu/scan40/bbsplat.jpg"
+            },
+            "nexels": {
+              "key": "nvs/dtu/scan40/nexels.mp4",
+              "poster": "nvs/dtu/scan40/nexels.jpg"
+            }
+          }
+        },
+        {
+          "id": "scan55",
+          "label": "Scan 55",
+          "width": 776,
+          "height": 580,
+          "frames": 96,
+          "thumb": "static/images/thumbs/dtu_scan55.webp",
+          "preview": "nvs/dtu/scan55/preview.mp4",
+          "videos": {
+            "ours": {
+              "key": "nvs/dtu/scan55/ours.mp4",
+              "poster": "nvs/dtu/scan55/ours.jpg"
+            },
+            "2dgs": {
+              "key": "nvs/dtu/scan55/2dgs.mp4",
+              "poster": "nvs/dtu/scan55/2dgs.jpg"
+            },
+            "3dgs": {
+              "key": "nvs/dtu/scan55/3dgs.mp4",
+              "poster": "nvs/dtu/scan55/3dgs.jpg"
+            },
+            "triangle": {
+              "key": "nvs/dtu/scan55/triangle.mp4",
+              "poster": "nvs/dtu/scan55/triangle.jpg"
+            },
+            "meshsplatting": {
+              "key": "nvs/dtu/scan55/meshsplatting.mp4",
+              "poster": "nvs/dtu/scan55/meshsplatting.jpg"
+            },
+            "milo": {
+              "key": "nvs/dtu/scan55/milo.mp4",
+              "poster": "nvs/dtu/scan55/milo.jpg"
+            },
+            "3dconvex": {
+              "key": "nvs/dtu/scan55/3dconvex.mp4",
+              "poster": "nvs/dtu/scan55/3dconvex.jpg"
+            },
+            "bbsplat": {
+              "key": "nvs/dtu/scan55/bbsplat.mp4",
+              "poster": "nvs/dtu/scan55/bbsplat.jpg"
+            },
+            "nexels": {
+              "key": "nvs/dtu/scan55/nexels.mp4",
+              "poster": "nvs/dtu/scan55/nexels.jpg"
+            }
+          }
+        },
+        {
+          "id": "scan63",
+          "label": "Scan 63",
+          "width": 776,
+          "height": 580,
+          "frames": 96,
+          "thumb": "static/images/thumbs/dtu_scan63.webp",
+          "preview": "nvs/dtu/scan63/preview.mp4",
+          "videos": {
+            "ours": {
+              "key": "nvs/dtu/scan63/ours.mp4",
+              "poster": "nvs/dtu/scan63/ours.jpg"
+            },
+            "2dgs": {
+              "key": "nvs/dtu/scan63/2dgs.mp4",
+              "poster": "nvs/dtu/scan63/2dgs.jpg"
+            },
+            "3dgs": {
+              "key": "nvs/dtu/scan63/3dgs.mp4",
+              "poster": "nvs/dtu/scan63/3dgs.jpg"
+            },
+            "triangle": {
+              "key": "nvs/dtu/scan63/triangle.mp4",
+              "poster": "nvs/dtu/scan63/triangle.jpg"
+            },
+            "meshsplatting": {
+              "key": "nvs/dtu/scan63/meshsplatting.mp4",
+              "poster": "nvs/dtu/scan63/meshsplatting.jpg"
+            },
+            "milo": {
+              "key": "nvs/dtu/scan63/milo.mp4",
+              "poster": "nvs/dtu/scan63/milo.jpg"
+            },
+            "3dconvex": {
+              "key": "nvs/dtu/scan63/3dconvex.mp4",
+              "poster": "nvs/dtu/scan63/3dconvex.jpg"
+            },
+            "bbsplat": {
+              "key": "nvs/dtu/scan63/bbsplat.mp4",
+              "poster": "nvs/dtu/scan63/bbsplat.jpg"
+            },
+            "nexels": {
+              "key": "nvs/dtu/scan63/nexels.mp4",
+              "poster": "nvs/dtu/scan63/nexels.jpg"
+            }
+          }
+        },
+        {
+          "id": "scan65",
+          "label": "Scan 65",
+          "width": 776,
+          "height": 580,
+          "frames": 96,
+          "thumb": "static/images/thumbs/dtu_scan65.webp",
+          "preview": "nvs/dtu/scan65/preview.mp4",
+          "videos": {
+            "ours": {
+              "key": "nvs/dtu/scan65/ours.mp4",
+              "poster": "nvs/dtu/scan65/ours.jpg"
+            },
+            "2dgs": {
+              "key": "nvs/dtu/scan65/2dgs.mp4",
+              "poster": "nvs/dtu/scan65/2dgs.jpg"
+            },
+            "3dgs": {
+              "key": "nvs/dtu/scan65/3dgs.mp4",
+              "poster": "nvs/dtu/scan65/3dgs.jpg"
+            },
+            "triangle": {
+              "key": "nvs/dtu/scan65/triangle.mp4",
+              "poster": "nvs/dtu/scan65/triangle.jpg"
+            },
+            "meshsplatting": {
+              "key": "nvs/dtu/scan65/meshsplatting.mp4",
+              "poster": "nvs/dtu/scan65/meshsplatting.jpg"
+            },
+            "milo": {
+              "key": "nvs/dtu/scan65/milo.mp4",
+              "poster": "nvs/dtu/scan65/milo.jpg"
+            },
+            "3dconvex": {
+              "key": "nvs/dtu/scan65/3dconvex.mp4",
+              "poster": "nvs/dtu/scan65/3dconvex.jpg"
+            },
+            "bbsplat": {
+              "key": "nvs/dtu/scan65/bbsplat.mp4",
+              "poster": "nvs/dtu/scan65/bbsplat.jpg"
+            },
+            "nexels": {
+              "key": "nvs/dtu/scan65/nexels.mp4",
+              "poster": "nvs/dtu/scan65/nexels.jpg"
+            }
+          }
+        },
+        {
+          "id": "scan69",
+          "label": "Scan 69",
+          "width": 776,
+          "height": 580,
+          "frames": 96,
+          "thumb": "static/images/thumbs/dtu_scan69.webp",
+          "preview": "nvs/dtu/scan69/preview.mp4",
+          "videos": {
+            "ours": {
+              "key": "nvs/dtu/scan69/ours.mp4",
+              "poster": "nvs/dtu/scan69/ours.jpg"
+            },
+            "2dgs": {
+              "key": "nvs/dtu/scan69/2dgs.mp4",
+              "poster": "nvs/dtu/scan69/2dgs.jpg"
+            },
+            "3dgs": {
+              "key": "nvs/dtu/scan69/3dgs.mp4",
+              "poster": "nvs/dtu/scan69/3dgs.jpg"
+            },
+            "triangle": {
+              "key": "nvs/dtu/scan69/triangle.mp4",
+              "poster": "nvs/dtu/scan69/triangle.jpg"
+            },
+            "meshsplatting": {
+              "key": "nvs/dtu/scan69/meshsplatting.mp4",
+              "poster": "nvs/dtu/scan69/meshsplatting.jpg"
+            },
+            "milo": {
+              "key": "nvs/dtu/scan69/milo.mp4",
+              "poster": "nvs/dtu/scan69/milo.jpg"
+            },
+            "3dconvex": {
+              "key": "nvs/dtu/scan69/3dconvex.mp4",
+              "poster": "nvs/dtu/scan69/3dconvex.jpg"
+            },
+            "bbsplat": {
+              "key": "nvs/dtu/scan69/bbsplat.mp4",
+              "poster": "nvs/dtu/scan69/bbsplat.jpg"
+            },
+            "nexels": {
+              "key": "nvs/dtu/scan69/nexels.mp4",
+              "poster": "nvs/dtu/scan69/nexels.jpg"
+            }
+          }
+        },
+        {
+          "id": "scan83",
+          "label": "Scan 83",
+          "width": 776,
+          "height": 580,
+          "frames": 96,
+          "thumb": "static/images/thumbs/dtu_scan83.webp",
+          "preview": "nvs/dtu/scan83/preview.mp4",
+          "videos": {
+            "ours": {
+              "key": "nvs/dtu/scan83/ours.mp4",
+              "poster": "nvs/dtu/scan83/ours.jpg"
+            },
+            "2dgs": {
+              "key": "nvs/dtu/scan83/2dgs.mp4",
+              "poster": "nvs/dtu/scan83/2dgs.jpg"
+            },
+            "3dgs": {
+              "key": "nvs/dtu/scan83/3dgs.mp4",
+              "poster": "nvs/dtu/scan83/3dgs.jpg"
+            },
+            "triangle": {
+              "key": "nvs/dtu/scan83/triangle.mp4",
+              "poster": "nvs/dtu/scan83/triangle.jpg"
+            },
+            "meshsplatting": {
+              "key": "nvs/dtu/scan83/meshsplatting.mp4",
+              "poster": "nvs/dtu/scan83/meshsplatting.jpg"
+            },
+            "milo": {
+              "key": "nvs/dtu/scan83/milo.mp4",
+              "poster": "nvs/dtu/scan83/milo.jpg"
+            },
+            "3dconvex": {
+              "key": "nvs/dtu/scan83/3dconvex.mp4",
+              "poster": "nvs/dtu/scan83/3dconvex.jpg"
+            },
+            "bbsplat": {
+              "key": "nvs/dtu/scan83/bbsplat.mp4",
+              "poster": "nvs/dtu/scan83/bbsplat.jpg"
+            },
+            "nexels": {
+              "key": "nvs/dtu/scan83/nexels.mp4",
+              "poster": "nvs/dtu/scan83/nexels.jpg"
+            }
+          }
+        },
+        {
+          "id": "scan97",
+          "label": "Scan 97",
+          "width": 776,
+          "height": 580,
+          "frames": 96,
+          "thumb": "static/images/thumbs/dtu_scan97.webp",
+          "preview": "nvs/dtu/scan97/preview.mp4",
+          "videos": {
+            "ours": {
+              "key": "nvs/dtu/scan97/ours.mp4",
+              "poster": "nvs/dtu/scan97/ours.jpg"
+            },
+            "2dgs": {
+              "key": "nvs/dtu/scan97/2dgs.mp4",
+              "poster": "nvs/dtu/scan97/2dgs.jpg"
+            },
+            "3dgs": {
+              "key": "nvs/dtu/scan97/3dgs.mp4",
+              "poster": "nvs/dtu/scan97/3dgs.jpg"
+            },
+            "triangle": {
+              "key": "nvs/dtu/scan97/triangle.mp4",
+              "poster": "nvs/dtu/scan97/triangle.jpg"
+            },
+            "meshsplatting": {
+              "key": "nvs/dtu/scan97/meshsplatting.mp4",
+              "poster": "nvs/dtu/scan97/meshsplatting.jpg"
+            },
+            "milo": {
+              "key": "nvs/dtu/scan97/milo.mp4",
+              "poster": "nvs/dtu/scan97/milo.jpg"
+            },
+            "3dconvex": {
+              "key": "nvs/dtu/scan97/3dconvex.mp4",
+              "poster": "nvs/dtu/scan97/3dconvex.jpg"
+            },
+            "bbsplat": {
+              "key": "nvs/dtu/scan97/bbsplat.mp4",
+              "poster": "nvs/dtu/scan97/bbsplat.jpg"
+            },
+            "nexels": {
+              "key": "nvs/dtu/scan97/nexels.mp4",
+              "poster": "nvs/dtu/scan97/nexels.jpg"
+            }
+          }
+        },
+        {
+          "id": "scan105",
+          "label": "Scan 105",
+          "width": 776,
+          "height": 580,
+          "frames": 96,
+          "thumb": "static/images/thumbs/dtu_scan105.webp",
+          "preview": "nvs/dtu/scan105/preview.mp4",
+          "videos": {
+            "ours": {
+              "key": "nvs/dtu/scan105/ours.mp4",
+              "poster": "nvs/dtu/scan105/ours.jpg"
+            },
+            "2dgs": {
+              "key": "nvs/dtu/scan105/2dgs.mp4",
+              "poster": "nvs/dtu/scan105/2dgs.jpg"
+            },
+            "3dgs": {
+              "key": "nvs/dtu/scan105/3dgs.mp4",
+              "poster": "nvs/dtu/scan105/3dgs.jpg"
+            },
+            "triangle": {
+              "key": "nvs/dtu/scan105/triangle.mp4",
+              "poster": "nvs/dtu/scan105/triangle.jpg"
+            },
+            "meshsplatting": {
+              "key": "nvs/dtu/scan105/meshsplatting.mp4",
+              "poster": "nvs/dtu/scan105/meshsplatting.jpg"
+            },
+            "milo": {
+              "key": "nvs/dtu/scan105/milo.mp4",
+              "poster": "nvs/dtu/scan105/milo.jpg"
+            },
+            "3dconvex": {
+              "key": "nvs/dtu/scan105/3dconvex.mp4",
+              "poster": "nvs/dtu/scan105/3dconvex.jpg"
+            },
+            "bbsplat": {
+              "key": "nvs/dtu/scan105/bbsplat.mp4",
+              "poster": "nvs/dtu/scan105/bbsplat.jpg"
+            },
+            "nexels": {
+              "key": "nvs/dtu/scan105/nexels.mp4",
+              "poster": "nvs/dtu/scan105/nexels.jpg"
+            }
+          }
+        },
+        {
+          "id": "scan106",
+          "label": "Scan 106",
+          "width": 776,
+          "height": 580,
+          "frames": 96,
+          "thumb": "static/images/thumbs/dtu_scan106.webp",
+          "preview": "nvs/dtu/scan106/preview.mp4",
+          "videos": {
+            "ours": {
+              "key": "nvs/dtu/scan106/ours.mp4",
+              "poster": "nvs/dtu/scan106/ours.jpg"
+            },
+            "2dgs": {
+              "key": "nvs/dtu/scan106/2dgs.mp4",
+              "poster": "nvs/dtu/scan106/2dgs.jpg"
+            },
+            "3dgs": {
+              "key": "nvs/dtu/scan106/3dgs.mp4",
+              "poster": "nvs/dtu/scan106/3dgs.jpg"
+            },
+            "triangle": {
+              "key": "nvs/dtu/scan106/triangle.mp4",
+              "poster": "nvs/dtu/scan106/triangle.jpg"
+            },
+            "meshsplatting": {
+              "key": "nvs/dtu/scan106/meshsplatting.mp4",
+              "poster": "nvs/dtu/scan106/meshsplatting.jpg"
+            },
+            "milo": {
+              "key": "nvs/dtu/scan106/milo.mp4",
+              "poster": "nvs/dtu/scan106/milo.jpg"
+            },
+            "3dconvex": {
+              "key": "nvs/dtu/scan106/3dconvex.mp4",
+              "poster": "nvs/dtu/scan106/3dconvex.jpg"
+            },
+            "bbsplat": {
+              "key": "nvs/dtu/scan106/bbsplat.mp4",
+              "poster": "nvs/dtu/scan106/bbsplat.jpg"
+            },
+            "nexels": {
+              "key": "nvs/dtu/scan106/nexels.mp4",
+              "poster": "nvs/dtu/scan106/nexels.jpg"
+            }
+          }
+        },
+        {
+          "id": "scan110",
+          "label": "Scan 110",
+          "width": 776,
+          "height": 580,
+          "frames": 96,
+          "thumb": "static/images/thumbs/dtu_scan110.webp",
+          "preview": "nvs/dtu/scan110/preview.mp4",
+          "videos": {
+            "ours": {
+              "key": "nvs/dtu/scan110/ours.mp4",
+              "poster": "nvs/dtu/scan110/ours.jpg"
+            },
+            "2dgs": {
+              "key": "nvs/dtu/scan110/2dgs.mp4",
+              "poster": "nvs/dtu/scan110/2dgs.jpg"
+            },
+            "3dgs": {
+              "key": "nvs/dtu/scan110/3dgs.mp4",
+              "poster": "nvs/dtu/scan110/3dgs.jpg"
+            },
+            "triangle": {
+              "key": "nvs/dtu/scan110/triangle.mp4",
+              "poster": "nvs/dtu/scan110/triangle.jpg"
+            },
+            "meshsplatting": {
+              "key": "nvs/dtu/scan110/meshsplatting.mp4",
+              "poster": "nvs/dtu/scan110/meshsplatting.jpg"
+            },
+            "milo": {
+              "key": "nvs/dtu/scan110/milo.mp4",
+              "poster": "nvs/dtu/scan110/milo.jpg"
+            },
+            "3dconvex": {
+              "key": "nvs/dtu/scan110/3dconvex.mp4",
+              "poster": "nvs/dtu/scan110/3dconvex.jpg"
+            },
+            "bbsplat": {
+              "key": "nvs/dtu/scan110/bbsplat.mp4",
+              "poster": "nvs/dtu/scan110/bbsplat.jpg"
+            },
+            "nexels": {
+              "key": "nvs/dtu/scan110/nexels.mp4",
+              "poster": "nvs/dtu/scan110/nexels.jpg"
+            }
+          }
+        },
+        {
+          "id": "scan114",
+          "label": "Scan 114",
+          "width": 776,
+          "height": 580,
+          "frames": 96,
+          "thumb": "static/images/thumbs/dtu_scan114.webp",
+          "preview": "nvs/dtu/scan114/preview.mp4",
+          "videos": {
+            "ours": {
+              "key": "nvs/dtu/scan114/ours.mp4",
+              "poster": "nvs/dtu/scan114/ours.jpg"
+            },
+            "2dgs": {
+              "key": "nvs/dtu/scan114/2dgs.mp4",
+              "poster": "nvs/dtu/scan114/2dgs.jpg"
+            },
+            "3dgs": {
+              "key": "nvs/dtu/scan114/3dgs.mp4",
+              "poster": "nvs/dtu/scan114/3dgs.jpg"
+            },
+            "triangle": {
+              "key": "nvs/dtu/scan114/triangle.mp4",
+              "poster": "nvs/dtu/scan114/triangle.jpg"
+            },
+            "meshsplatting": {
+              "key": "nvs/dtu/scan114/meshsplatting.mp4",
+              "poster": "nvs/dtu/scan114/meshsplatting.jpg"
+            },
+            "milo": {
+              "key": "nvs/dtu/scan114/milo.mp4",
+              "poster": "nvs/dtu/scan114/milo.jpg"
+            },
+            "3dconvex": {
+              "key": "nvs/dtu/scan114/3dconvex.mp4",
+              "poster": "nvs/dtu/scan114/3dconvex.jpg"
+            },
+            "bbsplat": {
+              "key": "nvs/dtu/scan114/bbsplat.mp4",
+              "poster": "nvs/dtu/scan114/bbsplat.jpg"
+            },
+            "nexels": {
+              "key": "nvs/dtu/scan114/nexels.mp4",
+              "poster": "nvs/dtu/scan114/nexels.jpg"
+            }
+          }
+        },
+        {
+          "id": "scan118",
+          "label": "Scan 118",
+          "width": 776,
+          "height": 580,
+          "frames": 96,
+          "thumb": "static/images/thumbs/dtu_scan118.webp",
+          "preview": "nvs/dtu/scan118/preview.mp4",
+          "videos": {
+            "ours": {
+              "key": "nvs/dtu/scan118/ours.mp4",
+              "poster": "nvs/dtu/scan118/ours.jpg"
+            },
+            "2dgs": {
+              "key": "nvs/dtu/scan118/2dgs.mp4",
+              "poster": "nvs/dtu/scan118/2dgs.jpg"
+            },
+            "3dgs": {
+              "key": "nvs/dtu/scan118/3dgs.mp4",
+              "poster": "nvs/dtu/scan118/3dgs.jpg"
+            },
+            "triangle": {
+              "key": "nvs/dtu/scan118/triangle.mp4",
+              "poster": "nvs/dtu/scan118/triangle.jpg"
+            },
+            "meshsplatting": {
+              "key": "nvs/dtu/scan118/meshsplatting.mp4",
+              "poster": "nvs/dtu/scan118/meshsplatting.jpg"
+            },
+            "milo": {
+              "key": "nvs/dtu/scan118/milo.mp4",
+              "poster": "nvs/dtu/scan118/milo.jpg"
+            },
+            "3dconvex": {
+              "key": "nvs/dtu/scan118/3dconvex.mp4",
+              "poster": "nvs/dtu/scan118/3dconvex.jpg"
+            },
+            "bbsplat": {
+              "key": "nvs/dtu/scan118/bbsplat.mp4",
+              "poster": "nvs/dtu/scan118/bbsplat.jpg"
+            },
+            "nexels": {
+              "key": "nvs/dtu/scan118/nexels.mp4",
+              "poster": "nvs/dtu/scan118/nexels.jpg"
+            }
+          }
+        },
+        {
+          "id": "scan122",
+          "label": "Scan 122",
+          "width": 776,
+          "height": 580,
+          "frames": 96,
+          "thumb": "static/images/thumbs/dtu_scan122.webp",
+          "preview": "nvs/dtu/scan122/preview.mp4",
+          "videos": {
+            "ours": {
+              "key": "nvs/dtu/scan122/ours.mp4",
+              "poster": "nvs/dtu/scan122/ours.jpg"
+            },
+            "2dgs": {
+              "key": "nvs/dtu/scan122/2dgs.mp4",
+              "poster": "nvs/dtu/scan122/2dgs.jpg"
+            },
+            "3dgs": {
+              "key": "nvs/dtu/scan122/3dgs.mp4",
+              "poster": "nvs/dtu/scan122/3dgs.jpg"
+            },
+            "triangle": {
+              "key": "nvs/dtu/scan122/triangle.mp4",
+              "poster": "nvs/dtu/scan122/triangle.jpg"
+            },
+            "meshsplatting": {
+              "key": "nvs/dtu/scan122/meshsplatting.mp4",
+              "poster": "nvs/dtu/scan122/meshsplatting.jpg"
+            },
+            "milo": {
+              "key": "nvs/dtu/scan122/milo.mp4",
+              "poster": "nvs/dtu/scan122/milo.jpg"
+            },
+            "3dconvex": {
+              "key": "nvs/dtu/scan122/3dconvex.mp4",
+              "poster": "nvs/dtu/scan122/3dconvex.jpg"
+            },
+            "bbsplat": {
+              "key": "nvs/dtu/scan122/bbsplat.mp4",
+              "poster": "nvs/dtu/scan122/bbsplat.jpg"
+            },
+            "nexels": {
+              "key": "nvs/dtu/scan122/nexels.mp4",
+              "poster": "nvs/dtu/scan122/nexels.jpg"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "demos": {
+    "counter": {
+      "key": "demos/counter_training.mp4",
+      "poster": "demos/counter_training.jpg",
+      "width": 1280,
+      "height": 400
+    },
+    "image2d": {
+      "key": "demos/hexels_2d_representation.mp4",
+      "poster": "demos/hexels_2d_representation.jpg",
+      "width": 1560,
+      "height": 632
+    }
+  }
+}

@@ -1,0 +1,642 @@
+{
+  "version": 1,
+  "datasets": [
+    {
+      "id": "mean3",
+      "label": "Mean of 3"
+    },
+    {
+      "id": "mipnerf360",
+      "label": "Mip-NeRF 360",
+      "scenes": 9
+    },
+    {
+      "id": "tanks_and_temples",
+      "label": "Tanks and Temples",
+      "scenes": 10
+    },
+    {
+      "id": "dtu",
+      "label": "DTU",
+      "scenes": 15
+    }
+  ],
+  "families": [
+    {
+      "id": "ours",
+      "label": "Hexels",
+      "members": [
+        "ours_v3",
+        "ours_v2"
+      ],
+      "always": true,
+      "description": "Our hexagonal surfels, with color stored on each primitive: V3 (densified) is the quality-oriented configuration and V2 (fixed population) the compact alternative."
+    },
+    {
+      "id": "surface",
+      "label": "Surface primitives with local appearance",
+      "members": [
+        "2dgs",
+        "triangle",
+        "meshsplatting"
+      ],
+      "default_visible": true,
+      "description": "The paper's closest comparison to Hexels: color is stored on the primitives or mesh vertices, without separate texture maps or neural appearance fields."
+    },
+    {
+      "id": "textured",
+      "label": "Textured/neural surfels",
+      "members": [
+        "bbsplat",
+        "nexels"
+      ],
+      "default_visible": false,
+      "description": "Planar primitives colored by separate texture maps (BBSplat, one texture per billboard) or by a shared neural appearance field (Nexels)."
+    },
+    {
+      "id": "volumetric",
+      "label": "Volumetric primitives",
+      "members": [
+        "3dgs",
+        "3dconvex"
+      ],
+      "default_visible": false,
+      "description": "3D Gaussians (3DGS) and smooth convex shapes (3D Convex Splatting) that fill a volume instead of lying on a surface."
+    }
+  ],
+  "methods": [
+    {
+      "id": "ours_v3",
+      "label": "Hexels V3 (densified)",
+      "color": "#cd7353",
+      "ours": true,
+      "family": "ours"
+    },
+    {
+      "id": "ours_v2",
+      "label": "Hexels V2",
+      "color": "#8c3a1c",
+      "ours": true,
+      "family": "ours"
+    },
+    {
+      "id": "2dgs",
+      "label": "2DGS",
+      "color": "#458da5",
+      "ours": false,
+      "family": "surface"
+    },
+    {
+      "id": "triangle",
+      "label": "Triangle Splatting",
+      "color": "#5d70ae",
+      "ours": false,
+      "family": "surface"
+    },
+    {
+      "id": "meshsplatting",
+      "label": "MeshSplatting",
+      "color": "#6f8f4e",
+      "ours": false,
+      "family": "surface"
+    },
+    {
+      "id": "bbsplat",
+      "label": "BBSplat",
+      "color": "#b08b4f",
+      "ours": false,
+      "family": "textured"
+    },
+    {
+      "id": "nexels",
+      "label": "Nexels",
+      "color": "#4f9bd6",
+      "ours": false,
+      "family": "textured"
+    },
+    {
+      "id": "3dgs",
+      "label": "3DGS",
+      "color": "#8b679a",
+      "ours": false,
+      "family": "volumetric"
+    },
+    {
+      "id": "3dconvex",
+      "label": "3D Convex Splatting",
+      "color": "#607985",
+      "ours": false,
+      "family": "volumetric"
+    }
+  ],
+  "x_metrics": [
+    {
+      "id": "memory_mb",
+      "label": "Model memory (MB)",
+      "better": "lower",
+      "decimals": 2,
+      "log_default": true
+    },
+    {
+      "id": "vram_gib",
+      "label": "Peak training VRAM (GiB)",
+      "better": "lower",
+      "decimals": 2,
+      "log_default": true
+    },
+    {
+      "id": "train_min",
+      "label": "Training time (min)",
+      "better": "lower",
+      "decimals": 1,
+      "log_default": true
+    }
+  ],
+  "y_metrics": [
+    {
+      "id": "psnr",
+      "label": "PSNR (dB)",
+      "better": "higher",
+      "decimals": 2,
+      "log_default": false
+    },
+    {
+      "id": "ssim",
+      "label": "SSIM",
+      "better": "higher",
+      "decimals": 3,
+      "log_default": false
+    },
+    {
+      "id": "lpips",
+      "label": "LPIPS (VGG)",
+      "better": "lower",
+      "decimals": 3,
+      "log_default": false
+    },
+    {
+      "id": "fps",
+      "label": "Rendering speed (FPS)",
+      "better": "higher",
+      "decimals": 1,
+      "log_default": true
+    }
+  ],
+  "values": {
+    "mean3": {
+      "ours_v3": {
+        "psnr": 26.93627548472223,
+        "ssim": 0.8406748180969316,
+        "lpips": 0.2744746727946772,
+        "memory_mb": 152.25849407407406,
+        "fps": 242.18252792561898,
+        "vram_gib": 9.074949363425926,
+        "train_min": 24.119786608766262,
+        "primitives": 585609.5925925926,
+        "scenes": 34,
+        "ada_scenes": 0
+      },
+      "ours_v2": {
+        "psnr": 26.038569533103157,
+        "ssim": 0.8082462985013261,
+        "lpips": 0.3298572138566565,
+        "memory_mb": 12.787981777777778,
+        "fps": 535.8490937830903,
+        "vram_gib": 0.6316261574074074,
+        "train_min": 15.772742453288364,
+        "primitives": 110241.22222222222,
+        "scenes": 34,
+        "ada_scenes": 0
+      },
+      "2dgs": {
+        "psnr": 26.440092167379667,
+        "ssim": 0.8446963451820841,
+        "lpips": 0.2786542449703967,
+        "memory_mb": 230.88017982222223,
+        "fps": 121.92098619164213,
+        "vram_gib": 5.678587962962963,
+        "train_min": 24.39586245059786,
+        "primitives": 995173.1888888889,
+        "scenes": 34,
+        "ada_scenes": 0
+      },
+      "triangle": {
+        "psnr": 25.74095115318319,
+        "ssim": 0.83958527917106,
+        "lpips": 0.23871437052484343,
+        "memory_mb": 533.2694974962963,
+        "fps": 161.97581422911838,
+        "vram_gib": 8.143171296296297,
+        "train_min": 32.6366509673789,
+        "primitives": 2259616.514814815,
+        "scenes": 34,
+        "ada_scenes": 19
+      },
+      "meshsplatting": {
+        "psnr": 23.772148995849665,
+        "ssim": 0.764921905597637,
+        "lpips": 0.37704249626261055,
+        "memory_mb": 376.0816494814815,
+        "fps": 53.93145118562469,
+        "vram_gib": 8.81495949074074,
+        "train_min": 46.48013067795508,
+        "primitives": 3119580.0444444446,
+        "scenes": 34,
+        "ada_scenes": 0
+      },
+      "bbsplat": {
+        "psnr": 27.177132921663542,
+        "ssim": 0.8473495250965016,
+        "lpips": 0.23766472592664534,
+        "memory_mb": 861.597037037037,
+        "fps": 38.62043316506365,
+        "vram_gib": 19.514850983796297,
+        "train_min": 97.17891645655763,
+        "primitives": 199259.25925925927,
+        "scenes": 34,
+        "ada_scenes": 0
+      },
+      "nexels": {
+        "psnr": 26.840116287863378,
+        "ssim": 0.8456028325516326,
+        "lpips": 0.21861441879360016,
+        "memory_mb": 231.78548125925926,
+        "fps": 55.87042065718227,
+        "vram_gib": 6.9857783564814815,
+        "train_min": 84.66879137533205,
+        "primitives": 399716.75925925927,
+        "scenes": 34,
+        "ada_scenes": 0
+      },
+      "3dgs": {
+        "psnr": 26.933905373431077,
+        "ssim": 0.8573371960581112,
+        "lpips": 0.2481362224983121,
+        "memory_mb": 340.1975242666666,
+        "fps": 184.6559247548883,
+        "vram_gib": 4.201027199074074,
+        "train_min": 20.491452356062798,
+        "primitives": 1441514.9333333333,
+        "scenes": 34,
+        "ada_scenes": 0
+      },
+      "3dconvex": {
+        "psnr": 26.84216267575195,
+        "ssim": 0.847093176635729,
+        "lpips": 0.24126376786206266,
+        "memory_mb": 389.29465835555555,
+        "fps": 71.92850983145141,
+        "vram_gib": 7.477206307870371,
+        "train_min": 63.241947929249704,
+        "primitives": 1410487.8925925926,
+        "scenes": 34,
+        "ada_scenes": 13
+      }
+    },
+    "mipnerf360": {
+      "ours_v3": {
+        "psnr": 26.516845735988408,
+        "ssim": 0.7803747460692003,
+        "lpips": 0.30735180054188355,
+        "memory_mb": 238.4891888888889,
+        "fps": 100.74837277106133,
+        "vram_gib": 13.954210069444445,
+        "train_min": 37.485737294872095,
+        "primitives": 917266.1111111111,
+        "scenes": 9,
+        "ada_scenes": 0
+      },
+      "ours_v2": {
+        "psnr": 25.0564391461968,
+        "ssim": 0.7108098737388081,
+        "lpips": 0.40478399483243477,
+        "memory_mb": 13.303576,
+        "fps": 375.022163443884,
+        "vram_gib": 0.7345920138888888,
+        "train_min": 24.456391680475402,
+        "primitives": 114686.0,
+        "scenes": 9,
+        "ada_scenes": 0
+      },
+      "2dgs": {
+        "psnr": 26.8202136511672,
+        "ssim": 0.7974767631290842,
+        "lpips": 0.3009237886359041,
+        "memory_mb": 470.3858,
+        "fps": 48.9047082227984,
+        "vram_gib": 10.82834201388889,
+        "train_min": 41.24209155947384,
+        "primitives": 2027525.0,
+        "scenes": 9,
+        "ada_scenes": 0
+      },
+      "triangle": {
+        "psnr": 27.016725987575473,
+        "ssim": 0.8080564206373743,
+        "lpips": 0.23250994476118675,
+        "memory_mb": 848.4839035555556,
+        "fps": 85.81015549780992,
+        "vram_gib": 10.810112847222221,
+        "train_min": 42.80246423487034,
+        "primitives": 3595270.777777778,
+        "scenes": 9,
+        "ada_scenes": 9
+      },
+      "meshsplatting": {
+        "psnr": 24.741419829517294,
+        "ssim": 0.7308784392879856,
+        "lpips": 0.3655645128589954,
+        "memory_mb": 643.2128524444445,
+        "fps": 23.837108064913743,
+        "vram_gib": 13.475477430555555,
+        "train_min": 73.15083531822395,
+        "primitives": 5379539.333333333,
+        "scenes": 9,
+        "ada_scenes": 0
+      },
+      "bbsplat": {
+        "psnr": 26.750186527056353,
+        "ssim": 0.7837414378904026,
+        "lpips": 0.27412530661732837,
+        "memory_mb": 1028.151111111111,
+        "fps": 14.007726941677575,
+        "vram_gib": 21.77690972222222,
+        "train_min": 156.68829962871442,
+        "primitives": 237777.77777777778,
+        "scenes": 9,
+        "ada_scenes": 0
+      },
+      "nexels": {
+        "psnr": 27.354173679631657,
+        "ssim": 0.8024637118234222,
+        "lpips": 0.23559813814101346,
+        "memory_mb": 231.79711644444444,
+        "fps": 25.310307297804993,
+        "vram_gib": 10.395616319444445,
+        "train_min": 116.2709152711651,
+        "primitives": 399764.44444444444,
+        "scenes": 9,
+        "ada_scenes": 0
+      },
+      "3dgs": {
+        "psnr": 27.545010884362476,
+        "ssim": 0.8166334576912573,
+        "lpips": 0.25844074833564507,
+        "memory_mb": 647.5485213333333,
+        "fps": 94.65879130785835,
+        "vram_gib": 7.336154513888889,
+        "train_min": 32.827631146904636,
+        "primitives": 2743849.6666666665,
+        "scenes": 9,
+        "ada_scenes": 0
+      },
+      "3dconvex": {
+        "psnr": 27.238618149444676,
+        "ssim": 0.8016871350548638,
+        "lpips": 0.2457379580971507,
+        "memory_mb": 710.1179466666666,
+        "fps": 35.1490894330532,
+        "vram_gib": 12.594184027777779,
+        "train_min": 97.81251783580454,
+        "primitives": 2572891.111111111,
+        "scenes": 9,
+        "ada_scenes": 5
+      }
+    },
+    "tanks_and_temples": {
+      "ours_v3": {
+        "psnr": 24.5344482967972,
+        "ssim": 0.8394860063268569,
+        "lpips": 0.2482612325735665,
+        "memory_mb": 192.174424,
+        "fps": 142.69905610049616,
+        "vram_gib": 12.0619140625,
+        "train_min": 24.314047572151953,
+        "primitives": 739132.4,
+        "scenes": 10,
+        "ada_scenes": 0
+      },
+      "ours_v2": {
+        "psnr": 23.48683789558263,
+        "ssim": 0.8188555556203133,
+        "lpips": 0.2871633524196308,
+        "memory_mb": 21.119308,
+        "fps": 386.8979002788334,
+        "vram_gib": 0.595703125,
+        "train_min": 14.411720967169046,
+        "primitives": 182063.0,
+        "scenes": 10,
+        "ada_scenes": 0
+      },
+      "2dgs": {
+        "psnr": 23.63814050246094,
+        "ssim": 0.8291284530062537,
+        "lpips": 0.2698729374480539,
+        "memory_mb": 168.8218296,
+        "fps": 103.61068741793737,
+        "vram_gib": 4.17109375,
+        "train_min": 19.222066423873184,
+        "primitives": 727680.3,
+        "scenes": 10,
+        "ada_scenes": 0
+      },
+      "triangle": {
+        "psnr": 23.1538716484782,
+        "ssim": 0.837958669060719,
+        "lpips": 0.22681256826710533,
+        "memory_mb": 665.7453092,
+        "fps": 121.44389089392234,
+        "vram_gib": 11.773046875,
+        "train_min": 38.60182591538566,
+        "primitives": 2820954.7,
+        "scenes": 10,
+        "ada_scenes": 10
+      },
+      "meshsplatting": {
+        "psnr": 20.727215066839292,
+        "ssim": 0.7536206200474602,
+        "lpips": 0.3575905899106849,
+        "memory_mb": 453.744856,
+        "fps": 43.29819948036842,
+        "vram_gib": 10.37890625,
+        "train_min": 49.2620036355689,
+        "primitives": 3694063.6,
+        "scenes": 10,
+        "ada_scenes": 0
+      },
+      "bbsplat": {
+        "psnr": 24.519846667703348,
+        "ssim": 0.8438933528128542,
+        "lpips": 0.21815387715710355,
+        "memory_mb": 1297.2,
+        "fps": 27.395913826283188,
+        "vram_gib": 23.5060546875,
+        "train_min": 100.5455625958018,
+        "primitives": 300000.0,
+        "scenes": 10,
+        "ada_scenes": 0
+      },
+      "nexels": {
+        "psnr": 24.13935030548826,
+        "ssim": 0.8290121853287348,
+        "lpips": 0.2341481597341764,
+        "memory_mb": 231.75599160000002,
+        "fps": 45.84283220614285,
+        "vram_gib": 6.774609375,
+        "train_min": 94.50925179964862,
+        "primitives": 399595.9,
+        "scenes": 10,
+        "ada_scenes": 0
+      },
+      "3dgs": {
+        "psnr": 24.346737241526444,
+        "ssim": 0.8457736303199073,
+        "lpips": 0.23703387489609867,
+        "memory_mb": 280.4848672,
+        "fps": 157.53930895072395,
+        "vram_gib": 3.696484375,
+        "train_min": 18.13375818531748,
+        "primitives": 1188495.2,
+        "scenes": 10,
+        "ada_scenes": 0
+      },
+      "3dconvex": {
+        "psnr": 24.801107338722023,
+        "ssim": 0.8412345197038681,
+        "lpips": 0.2241695822637316,
+        "memory_mb": 437.87331,
+        "fps": 44.365877724918334,
+        "vram_gib": 8.6361328125,
+        "train_min": 70.155228083039,
+        "primitives": 1586497.5,
+        "scenes": 10,
+        "ada_scenes": 8
+      }
+    },
+    "dtu": {
+      "ours_v3": {
+        "psnr": 29.75753242138108,
+        "ssim": 0.9021637018947374,
+        "lpips": 0.2678109852685815,
+        "memory_mb": 26.111869333333335,
+        "fps": 483.10015490529946,
+        "vram_gib": 1.2087239583333333,
+        "train_min": 10.559574959274743,
+        "primitives": 100430.26666666666,
+        "scenes": 15,
+        "ada_scenes": 0
+      },
+      "ours_v2": {
+        "psnr": 29.572431557530038,
+        "ssim": 0.8950734661448569,
+        "lpips": 0.297624294317904,
+        "memory_mb": 3.9410613333333333,
+        "fps": 845.6272176265536,
+        "vram_gib": 0.5645833333333333,
+        "train_min": 8.450114712220643,
+        "primitives": 33974.666666666664,
+        "scenes": 15,
+        "ada_scenes": 0
+      },
+      "2dgs": {
+        "psnr": 28.861922348510863,
+        "ssim": 0.9074838194109145,
+        "lpips": 0.2651660088272322,
+        "memory_mb": 53.43290986666667,
+        "fps": 213.2475629341906,
+        "vram_gib": 2.036328125,
+        "train_min": 12.723429368446554,
+        "primitives": 230314.26666666666,
+        "scenes": 15,
+        "ada_scenes": 0
+      },
+      "triangle": {
+        "psnr": 27.052255823495898,
+        "ssim": 0.8727407478150867,
+        "lpips": 0.2568205985462382,
+        "memory_mb": 85.57927973333334,
+        "fps": 278.67339629562287,
+        "vram_gib": 1.8463541666666667,
+        "train_min": 16.50566275188069,
+        "primitives": 362624.06666666665,
+        "scenes": 15,
+        "ada_scenes": 0
+      },
+      "meshsplatting": {
+        "psnr": 25.84781209119241,
+        "ssim": 0.8102666574574652,
+        "lpips": 0.40797238601815133,
+        "memory_mb": 31.28724,
+        "fps": 94.6590460115919,
+        "vram_gib": 2.5904947916666665,
+        "train_min": 17.02755308007239,
+        "primitives": 285137.2,
+        "scenes": 15,
+        "ada_scenes": 0
+      },
+      "bbsplat": {
+        "psnr": 30.26136557023092,
+        "ssim": 0.914413784586248,
+        "lpips": 0.2207149940055041,
+        "memory_mb": 259.44,
+        "fps": 74.4576587272302,
+        "vram_gib": 13.261588541666667,
+        "train_min": 34.30288714515666,
+        "primitives": 60000.0,
+        "scenes": 15,
+        "ada_scenes": 0
+      },
+      "nexels": {
+        "psnr": 29.02682487847021,
+        "ssim": 0.9053326005027408,
+        "lpips": 0.18609695850561062,
+        "memory_mb": 231.80333573333334,
+        "fps": 96.45812246759897,
+        "vram_gib": 3.787109375,
+        "train_min": 43.22620705518244,
+        "primitives": 399789.93333333335,
+        "scenes": 15,
+        "ada_scenes": 0
+      },
+      "3dgs": {
+        "psnr": 28.909967994404315,
+        "ssim": 0.9096045001631692,
+        "lpips": 0.24893404426319257,
+        "memory_mb": 92.55918426666666,
+        "fps": 301.76967400608265,
+        "vram_gib": 1.5704427083333334,
+        "train_min": 10.51296773596628,
+        "primitives": 392199.93333333335,
+        "scenes": 15,
+        "ada_scenes": 0
+      },
+      "3dconvex": {
+        "psnr": 28.48676253908915,
+        "ssim": 0.8983578751484553,
+        "lpips": 0.25388376322530565,
+        "memory_mb": 19.8927184,
+        "fps": 136.27056233638268,
+        "vram_gib": 1.2013020833333334,
+        "train_min": 21.75809786890556,
+        "primitives": 72075.06666666667,
+        "scenes": 15,
+        "ada_scenes": 0
+      }
+    }
+  },
+  "definitions": {
+    "memory_mb": "Model memory: every value the renderer reads to draw a view (geometry, appearance, textures, network weights and mesh connectivity), at 4 bytes per value, in MB.",
+    "vram_gib": "Peak training VRAM: the most GPU memory used during training, in GiB.",
+    "train_min": "Training time: wall-clock minutes per scene, start-up and saving included.",
+    "quality": "Quality: PSNR, SSIM and LPIPS (VGG) on the held-out test views (every eighth image), the same for every method.",
+    "fps": "Rendering speed: frames per second of rendering alone, with the model on the GPU.",
+    "primitives": "Primitives: final number of primitives, each method counting its own kind.",
+    "scenes": "Number of scenes averaged.",
+    "ada_scenes": "Mixed hardware (†): some runs of this method used an RTX 6000 Ada instead of an RTX A5000.",
+    "mean3": "Average of the three dataset means."
+  },
+  "notes": [
+    "Hexels V3 (densified) grows up to 2M primitives; Hexels V2 keeps its initial population. Baselines use their authors' settings.",
+    "† Mixed hardware: Triangle Splatting and 3D Convex Splatting ran some scenes on an RTX 6000 Ada (48 GB) after running out of memory on the 24 GB RTX A5000, so their time, FPS and VRAM there are not hardware-matched."
+  ]
+}

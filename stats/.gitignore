@@ -1,0 +1,8 @@
+# Local Wrangler state: .wrangler/ holds the local D1 database (visit rows) from wrangler dev and
+# wrangler d1 ... --local, plus build output. .dev.vars holds the local VISITOR_SALT. Never commit either.
+.wrangler/
+.dev.vars
+.dev.vars.*
+.env
+.env.*
+node_modules/

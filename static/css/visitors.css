@@ -1,0 +1,71 @@
+/*
+ * Footer visitor counter, rendered by static/js/visitors.js into #visitors-root.
+ * Small and muted like the rest of the Nerfies-style footer; uses the index.css tokens with fallbacks.
+ * The root stays empty, and takes no space, while the counter is not configured or not reachable.
+ */
+
+#visitors-root:empty {
+  display: none;
+}
+
+.hx-visitors {
+  margin-top: 1rem;
+  color: var(--hx-muted, #5f6b70);
+  font-size: 0.8rem;
+  line-height: 1.5;
+  text-align: center;
+  cursor: default;
+}
+
+.hx-visitors-summary {
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.hx-visitors-countries {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.2rem 0.85rem;
+  margin: 0.4rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hx-visitors-country,
+.hx-visitors-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Keep the font list in sync with EMOJI_FONTS in static/js/visitors.js. */
+.hx-visitors-flag {
+  font-family: "Apple Color Emoji", "Noto Color Emoji", "Twemoji Mozilla", "Segoe UI Emoji", sans-serif;
+  font-size: 1.05rem;
+  line-height: 1;
+}
+
+/* Shown instead of flags where the system draws flag emoji as letters (Windows). */
+.hx-visitors-code {
+  padding: 0 0.3em;
+  border: 1px solid var(--hx-line, #e3e6e8);
+  border-radius: 3px;
+  font-family: var(--hx-font-mono, ui-monospace, monospace);
+  font-size: 0.7rem;
+  line-height: 1.4;
+}
+
+.hx-visitors-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}

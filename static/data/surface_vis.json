@@ -1,0 +1,1521 @@
+{
+  "version": 1,
+  "methods": [
+    {
+      "id": "ours",
+      "label": "Hexels V3 (MVS init.)",
+      "short": "Ours",
+      "description": "Hexels V3 with a fixed population, initialized from MVS surface samples and trained with normal-consistency and depth-distortion losses."
+    },
+    {
+      "id": "2dgs",
+      "label": "2DGS",
+      "description": "2DGS with its native densification and no memory cap."
+    },
+    {
+      "id": "2dgs_memory",
+      "label": "2DGS (matched memory)",
+      "short": "2DGS (mem.)",
+      "description": "2DGS from the same MVS initialization, capped at Hexels' model memory."
+    },
+    {
+      "id": "2dgs_count",
+      "label": "2DGS (matched count)",
+      "short": "2DGS (count)",
+      "description": "2DGS from the same MVS initialization, capped at Hexels' primitive count."
+    },
+    {
+      "id": "triangle",
+      "label": "Triangle Splatting",
+      "description": "Triangle Splatting, meshed with the same depth fusion as Hexels and 2DGS."
+    },
+    {
+      "id": "meshsplatting",
+      "label": "MeshSplatting",
+      "description": "MeshSplatting, which optimizes its own connected mesh."
+    }
+  ],
+  "datasets": [
+    {
+      "id": "dtu",
+      "label": "DTU",
+      "metric": {
+        "id": "chamfer_mm",
+        "label": "Chamfer distance (mm)",
+        "better": "lower",
+        "decimals": 3,
+        "unit": "mm"
+      },
+      "scene_count": 15,
+      "means": {
+        "ours": 0.9784742701180263,
+        "2dgs": 0.7938486274636362,
+        "2dgs_memory": 1.375279943485701,
+        "2dgs_count": 1.448649130000768,
+        "triangle": 1.1239649914019236,
+        "meshsplatting": 1.6623709895131604
+      },
+      "scenes": [
+        {
+          "id": "scan24",
+          "label": "Scan 24",
+          "default_pair": [
+            "ours",
+            "2dgs_memory"
+          ],
+          "metrics": {
+            "ours": 0.6479083794381759,
+            "2dgs": 0.5253271270461999,
+            "2dgs_memory": 2.1365110989322815,
+            "2dgs_count": 1.8783996646328323,
+            "triangle": 1.0218910339081142,
+            "meshsplatting": 1.1325734632301359
+          },
+          "components": {
+            "ours": {
+              "accuracy_mm": 0.5965807540642064,
+              "completeness_mm": 0.6992360048121454
+            },
+            "2dgs": {
+              "accuracy_mm": 0.5285182858823826,
+              "completeness_mm": 0.5221359682100171
+            },
+            "2dgs_memory": {
+              "accuracy_mm": 2.2924373094282506,
+              "completeness_mm": 1.9805848884363126
+            },
+            "2dgs_count": {
+              "accuracy_mm": 2.3813307757670508,
+              "completeness_mm": 1.375468553498614
+            },
+            "triangle": {
+              "accuracy_mm": 1.2838060820204793,
+              "completeness_mm": 0.7599759857957489
+            },
+            "meshsplatting": {
+              "accuracy_mm": 1.7060726152284298,
+              "completeness_mm": 0.5590743112318421
+            }
+          },
+          "meshes": {
+            "ours": {
+              "key": "meshes/dtu/scan24/ours.glb",
+              "bytes": 522724,
+              "faces": 367874
+            },
+            "2dgs": {
+              "key": "meshes/dtu/scan24/2dgs.glb",
+              "bytes": 542064,
+              "faces": 378504
+            },
+            "2dgs_memory": {
+              "key": "meshes/dtu/scan24/2dgs_memory.glb",
+              "bytes": 565976,
+              "faces": 383032
+            },
+            "2dgs_count": {
+              "key": "meshes/dtu/scan24/2dgs_count.glb",
+              "bytes": 630828,
+              "faces": 421456
+            },
+            "triangle": {
+              "key": "meshes/dtu/scan24/triangle.glb",
+              "bytes": 637056,
+              "faces": 429033
+            },
+            "meshsplatting": {
+              "key": "meshes/dtu/scan24/meshsplatting.glb",
+              "bytes": 974048,
+              "faces": 224965
+            }
+          },
+          "reference": {
+            "key": "meshes/dtu/scan24/gt.glb",
+            "bytes": 4189140,
+            "points": 1184900,
+            "label": "Ground truth (DTU scan)",
+            "note": "The ground truth is the scan's points above the table plane, from which completeness is measured; it has holes where the scanner saw nothing."
+          },
+          "camera": {
+            "position": [
+              1256.239972,
+              15.597579,
+              -14.266163
+            ],
+            "target": [
+              -39.245909,
+              -27.95142,
+              654.295776
+            ],
+            "up": [
+              0.134089,
+              -0.450209,
+              -0.882798
+            ],
+            "fov": 22.7866,
+            "aspect": 1.0
+          },
+          "notes": [
+            "At Hexels' memory, 2DGS tears a hole into the stepped gable wall and breaks up the roofs (2.137 mm); Hexels keep the wall closed and the roof planes flat (0.648 mm).",
+            "Triangle Splatting roughens the facades (1.022 mm) and MeshSplatting adds shard-like floaters (1.133 mm); unconstrained 2DGS is lower on this scan (0.525 mm)."
+          ],
+          "tip": {
+            "text": "Tip: Look at the stepped gable wall at far left: matched-memory 2DGS tears a large hole in it, while Hexels keep it whole.",
+            "compare": "2dgs_memory",
+            "camera": {
+              "position": [
+                263.616783,
+                324.427581,
+                202.575317
+              ],
+              "target": [
+                -76.597,
+                101.495,
+                588.87
+              ],
+              "up": [
+                0.134089,
+                -0.450209,
+                -0.882798
+              ],
+              "fov": 22.7866,
+              "aspect": 1.0
+            }
+          }
+        },
+        {
+          "id": "scan63",
+          "label": "Scan 63",
+          "default_pair": [
+            "ours",
+            "2dgs_count"
+          ],
+          "metrics": {
+            "ours": 1.2131918932794163,
+            "2dgs": 0.883389246962348,
+            "2dgs_memory": 3.021036634738405,
+            "2dgs_count": 3.954674955174839,
+            "triangle": 2.0116917991263668,
+            "meshsplatting": 1.7484467678760205
+          },
+          "components": {
+            "ours": {
+              "accuracy_mm": 1.2917779933403262,
+              "completeness_mm": 1.1346057932185063
+            },
+            "2dgs": {
+              "accuracy_mm": 0.9951745267649306,
+              "completeness_mm": 0.7716039671597654
+            },
+            "2dgs_memory": {
+              "accuracy_mm": 2.7030871963584784,
+              "completeness_mm": 3.3389860731183316
+            },
+            "2dgs_count": {
+              "accuracy_mm": 3.188014702244314,
+              "completeness_mm": 4.721335208105364
+            },
+            "triangle": {
+              "accuracy_mm": 1.844737672954603,
+              "completeness_mm": 2.17864592529813
+            },
+            "meshsplatting": {
+              "accuracy_mm": 2.5939376004508676,
+              "completeness_mm": 0.9029559353011736
+            }
+          },
+          "meshes": {
+            "ours": {
+              "key": "meshes/dtu/scan63/ours.glb",
+              "bytes": 361652,
+              "faces": 246852
+            },
+            "2dgs": {
+              "key": "meshes/dtu/scan63/2dgs.glb",
+              "bytes": 374836,
+              "faces": 253688
+            },
+            "2dgs_memory": {
+              "key": "meshes/dtu/scan63/2dgs_memory.glb",
+              "bytes": 413268,
+              "faces": 268192
+            },
+            "2dgs_count": {
+              "key": "meshes/dtu/scan63/2dgs_count.glb",
+              "bytes": 450668,
+              "faces": 284931
+            },
+            "triangle": {
+              "key": "meshes/dtu/scan63/triangle.glb",
+              "bytes": 328292,
+              "faces": 218015
+            },
+            "meshsplatting": {
+              "key": "meshes/dtu/scan63/meshsplatting.glb",
+              "bytes": 493444,
+              "faces": 119024
+            }
+          },
+          "reference": {
+            "key": "meshes/dtu/scan63/gt.glb",
+            "bytes": 3306184,
+            "points": 1100488,
+            "label": "Ground truth (DTU scan)",
+            "note": "The ground truth is the scan's points above the table plane, from which completeness is measured; it has holes where the scanner saw nothing."
+          },
+          "camera": {
+            "position": [
+              587.492655,
+              49.838131,
+              311.434711
+            ],
+            "target": [
+              -55.19272,
+              -36.013105,
+              692.311432
+            ],
+            "up": [
+              0.134089,
+              -0.450209,
+              -0.882798
+            ],
+            "fov": 22.7866,
+            "aspect": 1.0
+          },
+          "notes": [
+            "Matched 2DGS rebuilds the fruit as overlapping flat fragments (3.955 mm at Hexels' primitive count); Hexels keep each fruit one closed, rounded surface (1.213 mm).",
+            "Triangle Splatting pits the skins (2.012 mm) and MeshSplatting fuses the fruit into one mass (1.748 mm); unconstrained 2DGS is lower (0.883 mm) but leaves holes that Hexels close."
+          ],
+          "tip": {
+            "text": "Tip: Look at the large apple at the center, which matched-count 2DGS rebuilds as overlapping flat fragments; Hexels keep it one smooth surface.",
+            "compare": "2dgs_count",
+            "camera": {
+              "position": [
+                260.45915,
+                1.414494,
+                504.690312
+              ],
+              "target": [
+                3.385,
+                -32.926,
+                657.041
+              ],
+              "up": [
+                0.134089,
+                -0.450209,
+                -0.882798
+              ],
+              "fov": 22.7866,
+              "aspect": 1.0
+            }
+          }
+        },
+        {
+          "id": "scan65",
+          "label": "Scan 65",
+          "default_pair": [
+            "ours",
+            "triangle"
+          ],
+          "metrics": {
+            "ours": 1.112510435321596,
+            "2dgs": 0.919871830395826,
+            "2dgs_memory": 1.8469821977766785,
+            "2dgs_count": 1.518824305965894,
+            "triangle": 1.3473218688067528,
+            "meshsplatting": 1.706570918629032
+          },
+          "components": {
+            "ours": {
+              "accuracy_mm": 1.0317823253399105,
+              "completeness_mm": 1.1932385453032812
+            },
+            "2dgs": {
+              "accuracy_mm": 0.8660316920561666,
+              "completeness_mm": 0.9737119687354853
+            },
+            "2dgs_memory": {
+              "accuracy_mm": 1.841210357565884,
+              "completeness_mm": 1.852754037987473
+            },
+            "2dgs_count": {
+              "accuracy_mm": 1.2507516538561099,
+              "completeness_mm": 1.786896958075678
+            },
+            "triangle": {
+              "accuracy_mm": 1.3578024360051757,
+              "completeness_mm": 1.33684130160833
+            },
+            "meshsplatting": {
+              "accuracy_mm": 2.52797559114407,
+              "completeness_mm": 0.8851662461139946
+            }
+          },
+          "meshes": {
+            "ours": {
+              "key": "meshes/dtu/scan65/ours.glb",
+              "bytes": 507768,
+              "faces": 338560
+            },
+            "2dgs": {
+              "key": "meshes/dtu/scan65/2dgs.glb",
+              "bytes": 528092,
+              "faces": 350055
+            },
+            "2dgs_memory": {
+              "key": "meshes/dtu/scan65/2dgs_memory.glb",
+              "bytes": 544952,
+              "faces": 359061
+            },
+            "2dgs_count": {
+              "key": "meshes/dtu/scan65/2dgs_count.glb",
+              "bytes": 450832,
+              "faces": 299522
+            },
+            "triangle": {
+              "key": "meshes/dtu/scan65/triangle.glb",
+              "bytes": 553272,
+              "faces": 356656
+            },
+            "meshsplatting": {
+              "key": "meshes/dtu/scan65/meshsplatting.glb",
+              "bytes": 531224,
+              "faces": 129224
+            }
+          },
+          "reference": {
+            "key": "meshes/dtu/scan65/gt.glb",
+            "bytes": 3299164,
+            "points": 980202,
+            "label": "Ground truth (DTU scan)",
+            "note": "The ground truth is the scan's points above the table plane, from which completeness is measured; it has holes where the scanner saw nothing."
+          },
+          "camera": {
+            "position": [
+              811.164333,
+              -186.090107,
+              312.488543
+            ],
+            "target": [
+              -19.639078,
+              -36.24717,
+              631.608829
+            ],
+            "up": [
+              0.134089,
+              -0.450209,
+              -0.882798
+            ],
+            "fov": 22.7866,
+            "aspect": 1.0
+          },
+          "notes": [
+            "Triangle Splatting punches holes through the cranium (1.347 mm); Hexels keep the skull closed and smooth (1.113 mm).",
+            "Matched 2DGS cracks the cranium into plates (1.847 mm and 1.519 mm) and MeshSplatting breaks it into facets (1.707 mm); unconstrained 2DGS is lower (0.920 mm), with sharper teeth."
+          ],
+          "tip": {
+            "text": "Tip: Look at the crown of the skull, where Triangle Splatting punches ragged holes through the bone; Hexels keep the cranium closed and smooth.",
+            "compare": "triangle",
+            "camera": {
+              "position": [
+                289.03147,
+                -167.025646,
+                498.451571
+              ],
+              "target": [
+                12.097,
+                -117.078,
+                604.825
+              ],
+              "up": [
+                0.134089,
+                -0.450209,
+                -0.882798
+              ],
+              "fov": 22.7866,
+              "aspect": 1.0
+            }
+          }
+        },
+        {
+          "id": "scan122",
+          "label": "Scan 122",
+          "default_pair": [
+            "ours",
+            "2dgs_count"
+          ],
+          "metrics": {
+            "ours": 0.5667863795562316,
+            "2dgs": 0.481017093020376,
+            "2dgs_memory": 0.9214967482823604,
+            "2dgs_count": 1.163923550926607,
+            "triangle": 0.7839897009462755,
+            "meshsplatting": 1.4142727621963425
+          },
+          "components": {
+            "ours": {
+              "accuracy_mm": 0.5302698994991415,
+              "completeness_mm": 0.6033028596133218
+            },
+            "2dgs": {
+              "accuracy_mm": 0.43033498458470015,
+              "completeness_mm": 0.5316992014560518
+            },
+            "2dgs_memory": {
+              "accuracy_mm": 0.9545322631645423,
+              "completeness_mm": 0.8884612334001786
+            },
+            "2dgs_count": {
+              "accuracy_mm": 1.180809188204712,
+              "completeness_mm": 1.1470379136485023
+            },
+            "triangle": {
+              "accuracy_mm": 0.8203336127921509,
+              "completeness_mm": 0.7476457891004002
+            },
+            "meshsplatting": {
+              "accuracy_mm": 2.3210017380441244,
+              "completeness_mm": 0.5075437863485605
+            }
+          },
+          "meshes": {
+            "ours": {
+              "key": "meshes/dtu/scan122/ours.glb",
+              "bytes": 300532,
+              "faces": 208357
+            },
+            "2dgs": {
+              "key": "meshes/dtu/scan122/2dgs.glb",
+              "bytes": 296204,
+              "faces": 205742
+            },
+            "2dgs_memory": {
+              "key": "meshes/dtu/scan122/2dgs_memory.glb",
+              "bytes": 333828,
+              "faces": 225903
+            },
+            "2dgs_count": {
+              "key": "meshes/dtu/scan122/2dgs_count.glb",
+              "bytes": 327520,
+              "faces": 216201
+            },
+            "triangle": {
+              "key": "meshes/dtu/scan122/triangle.glb",
+              "bytes": 351952,
+              "faces": 233730
+            },
+            "meshsplatting": {
+              "key": "meshes/dtu/scan122/meshsplatting.glb",
+              "bytes": 439348,
+              "faces": 107113
+            }
+          },
+          "reference": {
+            "key": "meshes/dtu/scan122/gt.glb",
+            "bytes": 3361520,
+            "points": 982547,
+            "label": "Ground truth (DTU scan)",
+            "note": "The ground truth is the scan's points above the table plane, from which completeness is measured; it has holes where the scanner saw nothing."
+          },
+          "camera": {
+            "position": [
+              594.103819,
+              460.964062,
+              -114.088137
+            ],
+            "target": [
+              10.821764,
+              -14.302162,
+              599.420534
+            ],
+            "up": [
+              0.130088,
+              -0.442278,
+              -0.887393
+            ],
+            "fov": 22.7866,
+            "aspect": 1.0
+          },
+          "notes": [
+            "At Hexels' primitive count, 2DGS frays the owl into streaks and pinholes (1.164 mm); Hexels keep the feathers, book and pedestal clean (0.567 mm).",
+            "Triangle Splatting leaves holes in the base and the book (0.784 mm) and MeshSplatting adds streaky noise (1.414 mm); unconstrained 2DGS is lower on this scan (0.481 mm)."
+          ],
+          "tip": {
+            "text": "Tip: Look at the thin base slab at the bottom, where Triangle Splatting leaves a row of holes; Hexels keep the slab nearly closed.",
+            "compare": "triangle",
+            "camera": {
+              "position": [
+                197.946587,
+                170.295644,
+                400.594452
+              ],
+              "target": [
+                16.094,
+                59.656,
+                672.907
+              ],
+              "up": [
+                0.130088,
+                -0.442278,
+                -0.887393
+              ],
+              "fov": 22.7866,
+              "aspect": 1.0
+            }
+          }
+        },
+        {
+          "id": "scan69",
+          "label": "Scan 69",
+          "default_pair": [
+            "ours",
+            "meshsplatting"
+          ],
+          "metrics": {
+            "ours": 1.098818432709247,
+            "2dgs": 0.8315200958480597,
+            "2dgs_memory": 1.1726565950948833,
+            "2dgs_count": 1.2796933334097549,
+            "triangle": 1.1662750143352578,
+            "meshsplatting": 1.6521792164749107
+          },
+          "components": {
+            "ours": {
+              "accuracy_mm": 0.9417334435804535,
+              "completeness_mm": 1.2559034218380403
+            },
+            "2dgs": {
+              "accuracy_mm": 0.7959371295800417,
+              "completeness_mm": 0.8671030621160777
+            },
+            "2dgs_memory": {
+              "accuracy_mm": 1.1721030693745613,
+              "completeness_mm": 1.1732101208152053
+            },
+            "2dgs_count": {
+              "accuracy_mm": 1.2659288872511312,
+              "completeness_mm": 1.2934577795683788
+            },
+            "triangle": {
+              "accuracy_mm": 1.147818800171904,
+              "completeness_mm": 1.1847312284986116
+            },
+            "meshsplatting": {
+              "accuracy_mm": 2.2475850295950535,
+              "completeness_mm": 1.0567734033547682
+            }
+          },
+          "meshes": {
+            "ours": {
+              "key": "meshes/dtu/scan69/ours.glb",
+              "bytes": 409648,
+              "faces": 282235
+            },
+            "2dgs": {
+              "key": "meshes/dtu/scan69/2dgs.glb",
+              "bytes": 428600,
+              "faces": 292015
+            },
+            "2dgs_memory": {
+              "key": "meshes/dtu/scan69/2dgs_memory.glb",
+              "bytes": 428092,
+              "faces": 287908
+            },
+            "2dgs_count": {
+              "key": "meshes/dtu/scan69/2dgs_count.glb",
+              "bytes": 428636,
+              "faces": 286657
+            },
+            "triangle": {
+              "key": "meshes/dtu/scan69/triangle.glb",
+              "bytes": 468972,
+              "faces": 310055
+            },
+            "meshsplatting": {
+              "key": "meshes/dtu/scan69/meshsplatting.glb",
+              "bytes": 609384,
+              "faces": 162020
+            }
+          },
+          "reference": {
+            "key": "meshes/dtu/scan69/gt.glb",
+            "bytes": 3679728,
+            "points": 1025057,
+            "label": "Ground truth (DTU scan)",
+            "note": "The ground truth is the scan's points above the table plane, from which completeness is measured; it has holes where the scanner saw nothing."
+          },
+          "camera": {
+            "position": [
+              980.80117,
+              28.8543,
+              101.367536
+            ],
+            "target": [
+              -4.648231,
+              -4.272545,
+              609.928886
+            ],
+            "up": [
+              0.134089,
+              -0.450209,
+              -0.882798
+            ],
+            "fov": 22.7866,
+            "aspect": 1.0
+          },
+          "notes": [
+            "MeshSplatting covers the snowmen in needle-like facets (1.652 mm); Hexels keep the bodies and the base smooth (1.099 mm).",
+            "Triangle Splatting, the closest here (1.166 mm), leaves holes in the right snowman. Every method struggles on the big hat, where Hexels add a flat sheet; unconstrained 2DGS is lower (0.832 mm)."
+          ],
+          "tip": {
+            "text": "Tip: Look at the lower body of the right snowman, where Triangle Splatting leaves a ragged hole; Hexels keep the body closed.",
+            "compare": "triangle",
+            "camera": {
+              "position": [
+                338.156972,
+                -74.182187,
+                538.884757
+              ],
+              "target": [
+                56.6,
+                -83.647,
+                684.188
+              ],
+              "up": [
+                0.134089,
+                -0.450209,
+                -0.882798
+              ],
+              "fov": 22.7866,
+              "aspect": 1.0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "tanks_and_temples",
+      "label": "Tanks and Temples",
+      "metric": {
+        "id": "f1",
+        "label": "F-score (%)",
+        "better": "higher",
+        "decimals": 2,
+        "unit": "%"
+      },
+      "scene_count": 6,
+      "means": {
+        "ours": 34.37799613254146,
+        "2dgs": 31.718017256497323,
+        "2dgs_memory": 22.047678863860458,
+        "2dgs_count": 21.025178056334163,
+        "triangle": 18.631132577258928,
+        "meshsplatting": 27.13483917416765
+      },
+      "scenes": [
+        {
+          "id": "Truck",
+          "label": "Truck",
+          "default_pair": [
+            "ours",
+            "2dgs"
+          ],
+          "metrics": {
+            "ours": 60.473263481199666,
+            "2dgs": 44.54786689596691,
+            "2dgs_memory": 17.323687724716095,
+            "2dgs_count": 9.53174744811572,
+            "triangle": 28.084731727588995,
+            "meshsplatting": 37.169930208890776
+          },
+          "components": {
+            "ours": {
+              "precision": 56.359218950274496,
+              "recall": 65.23522861304323
+            },
+            "2dgs": {
+              "precision": 36.478353044294295,
+              "recall": 57.20166195397957
+            },
+            "2dgs_memory": {
+              "precision": 13.12309060693436,
+              "recall": 25.479460863050345
+            },
+            "2dgs_count": {
+              "precision": 7.191412193639349,
+              "recall": 14.130207721854319
+            },
+            "triangle": {
+              "precision": 25.076980243282325,
+              "recall": 31.91231874762273
+            },
+            "meshsplatting": {
+              "precision": 41.72097257926307,
+              "recall": 33.514115188331004
+            }
+          },
+          "meshes": {
+            "ours": {
+              "key": "meshes/tanks_and_temples/Truck/ours.glb",
+              "bytes": 1997288,
+              "faces": 1500000
+            },
+            "2dgs": {
+              "key": "meshes/tanks_and_temples/Truck/2dgs.glb",
+              "bytes": 2255676,
+              "faces": 1499999
+            },
+            "2dgs_memory": {
+              "key": "meshes/tanks_and_temples/Truck/2dgs_memory.glb",
+              "bytes": 2248488,
+              "faces": 1500000
+            },
+            "2dgs_count": {
+              "key": "meshes/tanks_and_temples/Truck/2dgs_count.glb",
+              "bytes": 2259592,
+              "faces": 1500000
+            },
+            "triangle": {
+              "key": "meshes/tanks_and_temples/Truck/triangle.glb",
+              "bytes": 2209696,
+              "faces": 1500000
+            },
+            "meshsplatting": {
+              "key": "meshes/tanks_and_temples/Truck/meshsplatting.glb",
+              "bytes": 6052364,
+              "faces": 1447430
+            }
+          },
+          "reference": {
+            "key": "meshes/tanks_and_temples/Truck/gt.glb",
+            "bytes": 3196168,
+            "points": 1075041,
+            "label": "Ground truth (laser scan)",
+            "note": "The ground truth is the laser scan inside the evaluation crop, placed by the camera alignment that the evaluator refines for each method, so up close it can sit slightly off a mesh."
+          },
+          "threshold_m": 0.005,
+          "camera": {
+            "position": [
+              -4.447536,
+              -3.351778,
+              4.106898
+            ],
+            "target": [
+              0.37722,
+              0.744404,
+              0.434047
+            ],
+            "up": [
+              0.064876,
+              -0.98339,
+              -0.169513
+            ],
+            "fov": 40.0,
+            "aspect": 1.333333
+          },
+          "notes": [
+            "Best F-score (60.47% versus 44.55% for 2DGS), with higher precision and recall.",
+            "Hexels keep the ground continuous where 2DGS leaves it patchy and opens a hole in the far cab door. One cost: Hexels close the gaps between the stake-bed slats."
+          ],
+          "tip": {
+            "text": "Tip: Look at the far-side cab door, where 2DGS leaves a hole below the window and holes in the ground; Hexels keep both whole.",
+            "compare": "2dgs",
+            "camera": {
+              "position": [
+                -1.148568,
+                0.246347,
+                -1.759681
+              ],
+              "target": [
+                -0.9228,
+                0.6934,
+                -0.2126
+              ],
+              "up": [
+                0.064876,
+                -0.98339,
+                -0.169513
+              ],
+              "fov": 40.0,
+              "aspect": 1.333333
+            }
+          }
+        },
+        {
+          "id": "Ignatius",
+          "label": "Ignatius",
+          "default_pair": [
+            "ours",
+            "2dgs"
+          ],
+          "metrics": {
+            "ours": 51.30010112602699,
+            "2dgs": 47.492674308157476,
+            "2dgs_memory": 25.65222287143859,
+            "2dgs_count": 29.860955665177563,
+            "triangle": 26.74687119084821,
+            "meshsplatting": 43.35102266290145
+          },
+          "components": {
+            "ours": {
+              "precision": 51.08764196026182,
+              "recall": 51.51433478751436
+            },
+            "2dgs": {
+              "precision": 39.824388349238646,
+              "recall": 58.81828221698115
+            },
+            "2dgs_memory": {
+              "precision": 21.602002637481217,
+              "recall": 31.571687329875886
+            },
+            "2dgs_count": {
+              "precision": 25.596839980274172,
+              "recall": 35.82974650759798
+            },
+            "triangle": {
+              "precision": 25.017478077323073,
+              "recall": 28.733116728757537
+            },
+            "meshsplatting": {
+              "precision": 48.4585924792712,
+              "recall": 39.21747332181276
+            }
+          },
+          "meshes": {
+            "ours": {
+              "key": "meshes/tanks_and_temples/Ignatius/ours.glb",
+              "bytes": 1780704,
+              "faces": 1500000
+            },
+            "2dgs": {
+              "key": "meshes/tanks_and_temples/Ignatius/2dgs.glb",
+              "bytes": 2109952,
+              "faces": 1499999
+            },
+            "2dgs_memory": {
+              "key": "meshes/tanks_and_temples/Ignatius/2dgs_memory.glb",
+              "bytes": 2099712,
+              "faces": 1500000
+            },
+            "2dgs_count": {
+              "key": "meshes/tanks_and_temples/Ignatius/2dgs_count.glb",
+              "bytes": 2082108,
+              "faces": 1500000
+            },
+            "triangle": {
+              "key": "meshes/tanks_and_temples/Ignatius/triangle.glb",
+              "bytes": 1953760,
+              "faces": 1500000
+            },
+            "meshsplatting": {
+              "key": "meshes/tanks_and_temples/Ignatius/meshsplatting.glb",
+              "bytes": 2784732,
+              "faces": 688216
+            }
+          },
+          "reference": {
+            "key": "meshes/tanks_and_temples/Ignatius/gt.glb",
+            "bytes": 3598356,
+            "points": 1064763,
+            "label": "Ground truth (laser scan)",
+            "note": "The ground truth is the laser scan inside the evaluation crop, placed by the camera alignment that the evaluator refines for each method, so up close it can sit slightly off a mesh."
+          },
+          "threshold_m": 0.003,
+          "camera": {
+            "position": [
+              -2.143722,
+              -1.165251,
+              -5.650755
+            ],
+            "target": [
+              0.227821,
+              0.439452,
+              0.41525
+            ],
+            "up": [
+              -0.010139,
+              -0.993728,
+              -0.111367
+            ],
+            "fov": 40.0,
+            "aspect": 1.0
+          },
+          "notes": [
+            "Best F-score (51.30% versus 47.49% for 2DGS), from higher precision; 2DGS has the higher recall.",
+            "Hexels keep the plinth a clean block where 2DGS shreds it into hanging strips; Triangle Splatting tears a hole into the robe (26.75%)."
+          ],
+          "tip": {
+            "text": "Tip: Look at the right half of the plinth, which 2DGS shreds into hanging strips with holes; Hexels keep a clean block with flat sides.",
+            "compare": "2dgs",
+            "camera": {
+              "position": [
+                -0.764114,
+                0.808199,
+                -2.461502
+              ],
+              "target": [
+                0.0264,
+                1.3431,
+                -0.4395
+              ],
+              "up": [
+                -0.010139,
+                -0.993728,
+                -0.111367
+              ],
+              "fov": 40.0,
+              "aspect": 1.0
+            }
+          }
+        },
+        {
+          "id": "Caterpillar",
+          "label": "Caterpillar",
+          "default_pair": [
+            "ours",
+            "2dgs_memory"
+          ],
+          "metrics": {
+            "ours": 28.583782888407093,
+            "2dgs": 24.52796129376289,
+            "2dgs_memory": 20.6110195767074,
+            "2dgs_count": 19.36443849911417,
+            "triangle": 14.516497831520311,
+            "meshsplatting": 24.60541950493676
+          },
+          "components": {
+            "ours": {
+              "precision": 21.586412392433633,
+              "recall": 42.293478183420305
+            },
+            "2dgs": {
+              "precision": 17.02317751845317,
+              "recall": 43.86704842613287
+            },
+            "2dgs_memory": {
+              "precision": 13.910101188405143,
+              "recall": 39.768913600596626
+            },
+            "2dgs_count": {
+              "precision": 12.891829599486327,
+              "recall": 38.889929649219894
+            },
+            "triangle": {
+              "precision": 10.898787094315278,
+              "recall": 21.7292350005819
+            },
+            "meshsplatting": {
+              "precision": 27.133749470254592,
+              "recall": 22.5081080342871
+            }
+          },
+          "meshes": {
+            "ours": {
+              "key": "meshes/tanks_and_temples/Caterpillar/ours.glb",
+              "bytes": 2226308,
+              "faces": 1499999
+            },
+            "2dgs": {
+              "key": "meshes/tanks_and_temples/Caterpillar/2dgs.glb",
+              "bytes": 2406268,
+              "faces": 1500000
+            },
+            "2dgs_memory": {
+              "key": "meshes/tanks_and_temples/Caterpillar/2dgs_memory.glb",
+              "bytes": 2412312,
+              "faces": 1500000
+            },
+            "2dgs_count": {
+              "key": "meshes/tanks_and_temples/Caterpillar/2dgs_count.glb",
+              "bytes": 2419464,
+              "faces": 1499999
+            },
+            "triangle": {
+              "key": "meshes/tanks_and_temples/Caterpillar/triangle.glb",
+              "bytes": 2303124,
+              "faces": 1499999
+            },
+            "meshsplatting": {
+              "key": "meshes/tanks_and_temples/Caterpillar/meshsplatting.glb",
+              "bytes": 5828368,
+              "faces": 1383321
+            }
+          },
+          "reference": {
+            "key": "meshes/tanks_and_temples/Caterpillar/gt.glb",
+            "bytes": 3635344,
+            "points": 1156181,
+            "label": "Ground truth (laser scan)",
+            "note": "The ground truth is the laser scan inside the evaluation crop, placed by the camera alignment that the evaluator refines for each method, so up close it can sit slightly off a mesh."
+          },
+          "threshold_m": 0.005,
+          "camera": {
+            "position": [
+              6.795579,
+              -3.051563,
+              -1.796697
+            ],
+            "target": [
+              -0.336733,
+              0.429942,
+              0.571157
+            ],
+            "up": [
+              -0.013797,
+              -0.998573,
+              -0.051584
+            ],
+            "fov": 40.0,
+            "aspect": 1.0
+          },
+          "notes": [
+            "Best F-score (28.58% versus 24.53% for 2DGS), from higher precision.",
+            "Matched 2DGS hangs a flat sheet over the cab (20.61%) and MeshSplatting fills the air with shards. One cost: Hexels fill in the cab windows and flatten the wheel hubs."
+          ],
+          "tip": {
+            "text": "Tip: Look above the cab, where matched-memory 2DGS hangs a large flat sheet in mid-air; Hexels leave the air above the roof empty.",
+            "compare": "2dgs_memory",
+            "camera": {
+              "position": [
+                4.36966,
+                -2.91166,
+                -0.679606
+              ],
+              "target": [
+                0.2552,
+                -1.3481,
+                0.6615
+              ],
+              "up": [
+                -0.013797,
+                -0.998573,
+                -0.051584
+              ],
+              "fov": 40.0,
+              "aspect": 1.0
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "ablation": {
+    "dataset": "dtu",
+    "title": "Ablation: surface losses and initialization",
+    "description": "Hexels V3 with a fixed population on DTU. Normal consistency aligns rendered normals with the normals of the rendered depth; depth distortion concentrates each ray's blending weights at one depth; MVS initialization places the primitives on multi-view stereo surface samples instead of sparse SfM points.",
+    "variants": [
+      {
+        "id": "full",
+        "label": "Full model",
+        "short": "Full",
+        "description": "Both surface losses and MVS initialization (the model compared above)."
+      },
+      {
+        "id": "no_distortion",
+        "label": "Without depth distortion",
+        "short": "No distortion",
+        "description": "Normal consistency only (depth-distortion weight 0); MVS initialization."
+      },
+      {
+        "id": "no_normal",
+        "label": "Without normal consistency",
+        "short": "No normal",
+        "description": "Depth distortion only (normal-consistency weight 0); MVS initialization."
+      },
+      {
+        "id": "no_losses",
+        "label": "Without both losses",
+        "short": "No losses",
+        "description": "Photometric loss only; MVS initialization."
+      },
+      {
+        "id": "sfm_init",
+        "label": "SfM initialization",
+        "short": "SfM init.",
+        "description": "Both surface losses, initialized from sparse SfM points instead of MVS samples."
+      }
+    ],
+    "table": {
+      "scenes": [
+        "scan24",
+        "scan37",
+        "scan40",
+        "scan55",
+        "scan63",
+        "scan65",
+        "scan69",
+        "scan83",
+        "scan97",
+        "scan105",
+        "scan106",
+        "scan110",
+        "scan114",
+        "scan118",
+        "scan122"
+      ],
+      "values": {
+        "full": {
+          "scan24": 0.6479083794381759,
+          "scan37": 0.8989347662510349,
+          "scan40": 0.44495795171316843,
+          "scan55": 0.7368186674870552,
+          "scan63": 1.2131918932794163,
+          "scan65": 1.112510435321596,
+          "scan69": 1.098818432709247,
+          "scan83": 1.4503969373111012,
+          "scan97": 1.4672944790288387,
+          "scan105": 0.8803613968558799,
+          "scan106": 0.8840197218804602,
+          "scan110": 1.6629673987049123,
+          "scan114": 0.42607197267058083,
+          "scan118": 1.186075239562697,
+          "scan122": 0.5667863795562316,
+          "mean": 0.9784742701180263
+        },
+        "no_distortion": {
+          "scan24": 0.8047635091135517,
+          "scan37": 0.8743617827120255,
+          "scan40": 0.5772456385554701,
+          "scan55": 0.6056451589715565,
+          "scan63": 1.3857409190782954,
+          "scan65": 1.079109356603591,
+          "scan69": 1.0819802499835451,
+          "scan83": 1.3629791853893545,
+          "scan97": 1.4913361578760242,
+          "scan105": 0.8336161881816584,
+          "scan106": 0.85974603051791,
+          "scan110": 1.6523117698671708,
+          "scan114": 0.44448733704726584,
+          "scan118": 1.1412339343127242,
+          "scan122": 0.5936620773531734,
+          "mean": 0.9858812863708877
+        },
+        "no_normal": {
+          "scan24": 1.252993555779074,
+          "scan37": 1.0339933752171007,
+          "scan40": 0.6119636336983071,
+          "scan55": 1.2460459071988572,
+          "scan63": 1.9571307164259022,
+          "scan65": 1.456716899185246,
+          "scan69": 1.1931337623878853,
+          "scan83": 1.4961082418663432,
+          "scan97": 1.6039931070360591,
+          "scan105": 0.6886274844483231,
+          "scan106": 1.1131711010772372,
+          "scan110": 2.2079213113044354,
+          "scan114": 0.6254614123297664,
+          "scan118": 1.2116247401712454,
+          "scan122": 0.9909070587006584,
+          "mean": 1.2459861537884294
+        },
+        "no_losses": {
+          "scan24": 1.9894704370785505,
+          "scan37": 1.0383688185869837,
+          "scan40": 1.4515475594917535,
+          "scan55": 1.5880705444621894,
+          "scan63": 1.9111751602734541,
+          "scan65": 1.5295286440862892,
+          "scan69": 1.4321150590245209,
+          "scan83": 1.5931222611285198,
+          "scan97": 1.901212523181093,
+          "scan105": 0.9522476068933017,
+          "scan106": 1.9379306024551184,
+          "scan110": 2.621794480914036,
+          "scan114": 0.7417731793408286,
+          "scan118": 1.6611224765460095,
+          "scan122": 1.274994472322629,
+          "mean": 1.5749649217190185
+        },
+        "sfm_init": {
+          "scan24": 0.8065819602371125,
+          "scan37": 0.8487317555006184,
+          "scan40": 0.3941293431819518,
+          "scan55": 0.4229829628589101,
+          "scan63": 1.2401385992964766,
+          "scan65": 1.3283667533405823,
+          "scan69": 1.1730548411503627,
+          "scan83": 1.332063955782016,
+          "scan97": 1.598072953424456,
+          "scan105": 0.830817400549992,
+          "scan106": 1.3699415591668513,
+          "scan110": 3.133812666994257,
+          "scan114": 0.5561543504219417,
+          "scan118": 1.5191687371018525,
+          "scan122": 0.6371805989391205,
+          "mean": 1.1460798958631
+        }
+      },
+      "note": "All five variants on the same 15 DTU scans, matching the paper's ablation table."
+    },
+    "showcase": [
+      {
+        "scene": "scan24",
+        "label": "Scan 24",
+        "pair": [
+          "full",
+          "no_losses"
+        ],
+        "meshes": {
+          "full": {
+            "key": "meshes/dtu/scan24/ours.glb",
+            "bytes": 522724,
+            "faces": 367874
+          },
+          "no_distortion": {
+            "key": "meshes/ablation/dtu/scan24/no_distortion.glb",
+            "bytes": 572692,
+            "faces": 392948
+          },
+          "no_normal": {
+            "key": "meshes/ablation/dtu/scan24/no_normal.glb",
+            "bytes": 737440,
+            "faces": 487766
+          },
+          "no_losses": {
+            "key": "meshes/ablation/dtu/scan24/no_losses.glb",
+            "bytes": 1132480,
+            "faces": 700776
+          },
+          "sfm_init": {
+            "key": "meshes/ablation/dtu/scan24/sfm_init.glb",
+            "bytes": 512168,
+            "faces": 363218
+          }
+        },
+        "reference": {
+          "key": "meshes/dtu/scan24/gt.glb",
+          "bytes": 4189140,
+          "points": 1184900,
+          "label": "Ground truth (DTU scan)",
+          "note": "The ground truth is the scan's points above the table plane, from which completeness is measured; it has holes where the scanner saw nothing."
+        },
+        "camera": {
+          "position": [
+            1256.239972,
+            15.597579,
+            -14.266163
+          ],
+          "target": [
+            -39.245909,
+            -27.95142,
+            654.295776
+          ],
+          "up": [
+            0.134089,
+            -0.450209,
+            -0.882798
+          ],
+          "fov": 22.7866,
+          "aspect": 1.0
+        },
+        "notes": [
+          "Without both surface losses, facades and roofs dissolve into rough patches with holes (1.989 mm); the full model keeps flat walls and window recesses (0.648 mm).",
+          "Normal consistency does most of the work (without it: 1.253 mm; without depth distortion: 0.805 mm)."
+        ],
+        "tip": {
+          "text": "Tip: Look at the facade beside the round turret, rough and holed without both losses but flat with crisp windows in the full model.",
+          "compare": "no_losses",
+          "camera": {
+            "position": [
+              500.636627,
+              -60.025667,
+              437.16702
+            ],
+            "target": [
+              68.808,
+              -74.542,
+              660.021
+            ],
+            "up": [
+              0.134089,
+              -0.450209,
+              -0.882798
+            ],
+            "fov": 22.7866,
+            "aspect": 1.0
+          }
+        }
+      },
+      {
+        "scene": "scan63",
+        "label": "Scan 63",
+        "pair": [
+          "full",
+          "no_normal"
+        ],
+        "meshes": {
+          "full": {
+            "key": "meshes/dtu/scan63/ours.glb",
+            "bytes": 361652,
+            "faces": 246852
+          },
+          "no_distortion": {
+            "key": "meshes/ablation/dtu/scan63/no_distortion.glb",
+            "bytes": 371548,
+            "faces": 247488
+          },
+          "no_normal": {
+            "key": "meshes/ablation/dtu/scan63/no_normal.glb",
+            "bytes": 622448,
+            "faces": 381676
+          },
+          "no_losses": {
+            "key": "meshes/ablation/dtu/scan63/no_losses.glb",
+            "bytes": 635700,
+            "faces": 387724
+          },
+          "sfm_init": {
+            "key": "meshes/ablation/dtu/scan63/sfm_init.glb",
+            "bytes": 365580,
+            "faces": 246884
+          }
+        },
+        "reference": {
+          "key": "meshes/dtu/scan63/gt.glb",
+          "bytes": 3306184,
+          "points": 1100488,
+          "label": "Ground truth (DTU scan)",
+          "note": "The ground truth is the scan's points above the table plane, from which completeness is measured; it has holes where the scanner saw nothing."
+        },
+        "camera": {
+          "position": [
+            587.492655,
+            49.838131,
+            311.434711
+          ],
+          "target": [
+            -55.19272,
+            -36.013105,
+            692.311432
+          ],
+          "up": [
+            0.134089,
+            -0.450209,
+            -0.882798
+          ],
+          "fov": 22.7866,
+          "aspect": 1.0
+        },
+        "notes": [
+          "Without normal consistency the fruit skins turn rough and pitted (1.957 mm); with it they are smooth (1.213 mm).",
+          "Removing depth distortion costs less (1.386 mm)."
+        ],
+        "tip": {
+          "text": "Tip: Look at the pear, whose skin turns rough and pitted with small holes without normal consistency; the full model keeps it smooth.",
+          "compare": "no_normal",
+          "camera": {
+            "position": [
+              134.695458,
+              4.848079,
+              495.871093
+            ],
+            "target": [
+              -79.533,
+              -23.769,
+              622.83
+            ],
+            "up": [
+              0.134089,
+              -0.450209,
+              -0.882798
+            ],
+            "fov": 22.7866,
+            "aspect": 1.0
+          }
+        }
+      },
+      {
+        "scene": "scan106",
+        "label": "Scan 106",
+        "pair": [
+          "full",
+          "sfm_init"
+        ],
+        "meshes": {
+          "full": {
+            "key": "meshes/ablation/dtu/scan106/full.glb",
+            "bytes": 323204,
+            "faces": 218088
+          },
+          "no_distortion": {
+            "key": "meshes/ablation/dtu/scan106/no_distortion.glb",
+            "bytes": 340024,
+            "faces": 226324
+          },
+          "no_normal": {
+            "key": "meshes/ablation/dtu/scan106/no_normal.glb",
+            "bytes": 395080,
+            "faces": 260494
+          },
+          "no_losses": {
+            "key": "meshes/ablation/dtu/scan106/no_losses.glb",
+            "bytes": 648252,
+            "faces": 396941
+          },
+          "sfm_init": {
+            "key": "meshes/ablation/dtu/scan106/sfm_init.glb",
+            "bytes": 351204,
+            "faces": 231175
+          }
+        },
+        "reference": {
+          "key": "meshes/ablation/dtu/scan106/gt.glb",
+          "bytes": 4262940,
+          "points": 1199774,
+          "label": "Ground truth (DTU scan)",
+          "note": "The ground truth is the scan's points above the table plane, from which completeness is measured; it has holes where the scanner saw nothing."
+        },
+        "camera": {
+          "position": [
+            391.699708,
+            534.506111,
+            -176.050827
+          ],
+          "target": [
+            -8.222367,
+            -20.25393,
+            604.362976
+          ],
+          "up": [
+            0.130088,
+            -0.442278,
+            -0.887393
+          ],
+          "fov": 22.7866,
+          "aspect": 1.0
+        },
+        "notes": [
+          "From sparse SfM points (1.370 mm), Hexels cut flat facets into the doves above the hollow; MVS initialization keeps them rounded (0.884 mm).",
+          "Without both losses the wings shred into noise (1.938 mm)."
+        ],
+        "tip": {
+          "text": "Tip: Look at the lower bodies of the two doves, where SfM initialization cuts large flat facets; the MVS-initialized full model keeps them rounded.",
+          "compare": "sfm_init",
+          "camera": {
+            "position": [
+              164.02783,
+              214.504016,
+              357.865479
+            ],
+            "target": [
+              4.059,
+              -7.4,
+              670.031
+            ],
+            "up": [
+              0.130088,
+              -0.442278,
+              -0.887393
+            ],
+            "fov": 22.7866,
+            "aspect": 1.0
+          }
+        }
+      }
+    ]
+  },
+  "caveats": [
+    "Triangle Splatting and MeshSplatting are our runs of their released code, so their results can differ from their papers'; MeshSplatting's DTU mean is about twice the 0.79 mm it reports."
+  ]
+}
