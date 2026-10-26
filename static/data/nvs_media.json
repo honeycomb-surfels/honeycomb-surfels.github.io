@@ -56,7 +56,6 @@
           "height": 720,
           "frames": 192,
           "thumb": "static/images/thumbs/mipnerf360_bicycle.webp",
-          "preview": "nvs/mipnerf360/bicycle/preview.mp4",
           "videos": {
             "ours": {
               "key": "nvs/mipnerf360/bicycle/ours.mp4",
@@ -94,7 +93,8 @@
               "key": "nvs/mipnerf360/bicycle/nexels.mp4",
               "poster": "nvs/mipnerf360/bicycle/nexels.jpg"
             }
-          }
+          },
+          "preview": "nvs/mipnerf360/bicycle/preview.mp4"
         },
         {
           "id": "flowers",
@@ -103,7 +103,6 @@
           "height": 720,
           "frames": 192,
           "thumb": "static/images/thumbs/mipnerf360_flowers.webp",
-          "preview": "nvs/mipnerf360/flowers/preview.mp4",
           "videos": {
             "ours": {
               "key": "nvs/mipnerf360/flowers/ours.mp4",
@@ -141,7 +140,8 @@
               "key": "nvs/mipnerf360/flowers/nexels.mp4",
               "poster": "nvs/mipnerf360/flowers/nexels.jpg"
             }
-          }
+          },
+          "preview": "nvs/mipnerf360/flowers/preview.mp4"
         },
         {
           "id": "garden",
@@ -150,7 +150,6 @@
           "height": 720,
           "frames": 192,
           "thumb": "static/images/thumbs/mipnerf360_garden.webp",
-          "preview": "nvs/mipnerf360/garden/preview.mp4",
           "videos": {
             "ours": {
               "key": "nvs/mipnerf360/garden/ours.mp4",
@@ -188,7 +187,8 @@
               "key": "nvs/mipnerf360/garden/nexels.mp4",
               "poster": "nvs/mipnerf360/garden/nexels.jpg"
             }
-          }
+          },
+          "preview": "nvs/mipnerf360/garden/preview.mp4"
         },
         {
           "id": "stump",
@@ -197,7 +197,6 @@
           "height": 720,
           "frames": 192,
           "thumb": "static/images/thumbs/mipnerf360_stump.webp",
-          "preview": "nvs/mipnerf360/stump/preview.mp4",
           "videos": {
             "ours": {
               "key": "nvs/mipnerf360/stump/ours.mp4",
@@ -235,7 +234,8 @@
               "key": "nvs/mipnerf360/stump/nexels.mp4",
               "poster": "nvs/mipnerf360/stump/nexels.jpg"
             }
-          }
+          },
+          "preview": "nvs/mipnerf360/stump/preview.mp4"
         },
         {
           "id": "treehill",
@@ -244,7 +244,6 @@
           "height": 720,
           "frames": 192,
           "thumb": "static/images/thumbs/mipnerf360_treehill.webp",
-          "preview": "nvs/mipnerf360/treehill/preview.mp4",
           "videos": {
             "ours": {
               "key": "nvs/mipnerf360/treehill/ours.mp4",
@@ -282,7 +281,8 @@
               "key": "nvs/mipnerf360/treehill/nexels.mp4",
               "poster": "nvs/mipnerf360/treehill/nexels.jpg"
             }
-          }
+          },
+          "preview": "nvs/mipnerf360/treehill/preview.mp4"
         },
         {
           "id": "room",
@@ -291,7 +291,6 @@
           "height": 720,
           "frames": 192,
           "thumb": "static/images/thumbs/mipnerf360_room.webp",
-          "preview": "nvs/mipnerf360/room/preview.mp4",
           "videos": {
             "ours": {
               "key": "nvs/mipnerf360/room/ours.mp4",
@@ -329,7 +328,8 @@
               "key": "nvs/mipnerf360/room/nexels.mp4",
               "poster": "nvs/mipnerf360/room/nexels.jpg"
             }
-          }
+          },
+          "preview": "nvs/mipnerf360/room/preview.mp4"
         },
         {
           "id": "counter",
@@ -338,7 +338,6 @@
           "height": 720,
           "frames": 192,
           "thumb": "static/images/thumbs/mipnerf360_counter.webp",
-          "preview": "nvs/mipnerf360/counter/preview.mp4",
           "videos": {
             "ours": {
               "key": "nvs/mipnerf360/counter/ours.mp4",
@@ -376,7 +375,8 @@
               "key": "nvs/mipnerf360/counter/nexels.mp4",
               "poster": "nvs/mipnerf360/counter/nexels.jpg"
             }
-          }
+          },
+          "preview": "nvs/mipnerf360/counter/preview.mp4"
         },
         {
           "id": "kitchen",
@@ -385,7 +385,6 @@
           "height": 720,
           "frames": 192,
           "thumb": "static/images/thumbs/mipnerf360_kitchen.webp",
-          "preview": "nvs/mipnerf360/kitchen/preview.mp4",
           "videos": {
             "ours": {
               "key": "nvs/mipnerf360/kitchen/ours.mp4",
@@ -423,7 +422,8 @@
               "key": "nvs/mipnerf360/kitchen/nexels.mp4",
               "poster": "nvs/mipnerf360/kitchen/nexels.jpg"
             }
-          }
+          },
+          "preview": "nvs/mipnerf360/kitchen/preview.mp4"
         },
         {
           "id": "bonsai",
@@ -432,7 +432,6 @@
           "height": 720,
           "frames": 192,
           "thumb": "static/images/thumbs/mipnerf360_bonsai.webp",
-          "preview": "nvs/mipnerf360/bonsai/preview.mp4",
           "videos": {
             "ours": {
               "key": "nvs/mipnerf360/bonsai/ours.mp4",
@@ -470,7 +469,8 @@
               "key": "nvs/mipnerf360/bonsai/nexels.mp4",
               "poster": "nvs/mipnerf360/bonsai/nexels.jpg"
             }
-          }
+          },
+          "preview": "nvs/mipnerf360/bonsai/preview.mp4"
         }
       ]
     },
@@ -485,7 +485,6 @@
           "height": 542,
           "frames": 192,
           "thumb": "static/images/thumbs/tanks_and_temples_Train.webp",
-          "preview": "nvs/tanks_and_temples/Train/preview.mp4",
           "videos": {
             "ours": {
               "key": "nvs/tanks_and_temples/Train/ours.mp4",
@@ -523,7 +522,8 @@
               "key": "nvs/tanks_and_temples/Train/nexels.mp4",
               "poster": "nvs/tanks_and_temples/Train/nexels.jpg"
             }
-          }
+          },
+          "preview": "nvs/tanks_and_temples/Train/preview.mp4"
         },
         {
           "id": "Truck",
@@ -532,7 +532,6 @@
           "height": 542,
           "frames": 192,
           "thumb": "static/images/thumbs/tanks_and_temples_Truck.webp",
-          "preview": "nvs/tanks_and_temples/Truck/preview.mp4",
           "videos": {
             "ours": {
               "key": "nvs/tanks_and_temples/Truck/ours.mp4",
@@ -570,7 +569,8 @@
               "key": "nvs/tanks_and_temples/Truck/nexels.mp4",
               "poster": "nvs/tanks_and_temples/Truck/nexels.jpg"
             }
-          }
+          },
+          "preview": "nvs/tanks_and_temples/Truck/preview.mp4"
         },
         {
           "id": "Francis",
@@ -579,7 +579,6 @@
           "height": 542,
           "frames": 192,
           "thumb": "static/images/thumbs/tanks_and_temples_Francis.webp",
-          "preview": "nvs/tanks_and_temples/Francis/preview.mp4",
           "videos": {
             "ours": {
               "key": "nvs/tanks_and_temples/Francis/ours.mp4",
@@ -617,7 +616,8 @@
               "key": "nvs/tanks_and_temples/Francis/nexels.mp4",
               "poster": "nvs/tanks_and_temples/Francis/nexels.jpg"
             }
-          }
+          },
+          "preview": "nvs/tanks_and_temples/Francis/preview.mp4"
         },
         {
           "id": "Horse",
@@ -626,7 +626,6 @@
           "height": 542,
           "frames": 192,
           "thumb": "static/images/thumbs/tanks_and_temples_Horse.webp",
-          "preview": "nvs/tanks_and_temples/Horse/preview.mp4",
           "videos": {
             "ours": {
               "key": "nvs/tanks_and_temples/Horse/ours.mp4",
@@ -664,7 +663,8 @@
               "key": "nvs/tanks_and_temples/Horse/nexels.mp4",
               "poster": "nvs/tanks_and_temples/Horse/nexels.jpg"
             }
-          }
+          },
+          "preview": "nvs/tanks_and_temples/Horse/preview.mp4"
         },
         {
           "id": "Lighthouse",
@@ -673,7 +673,6 @@
           "height": 546,
           "frames": 192,
           "thumb": "static/images/thumbs/tanks_and_temples_Lighthouse.webp",
-          "preview": "nvs/tanks_and_temples/Lighthouse/preview.mp4",
           "videos": {
             "ours": {
               "key": "nvs/tanks_and_temples/Lighthouse/ours.mp4",
@@ -711,7 +710,8 @@
               "key": "nvs/tanks_and_temples/Lighthouse/nexels.mp4",
               "poster": "nvs/tanks_and_temples/Lighthouse/nexels.jpg"
             }
-          }
+          },
+          "preview": "nvs/tanks_and_temples/Lighthouse/preview.mp4"
         },
         {
           "id": "Barn",
@@ -720,7 +720,6 @@
           "height": 544,
           "frames": 192,
           "thumb": "static/images/thumbs/tanks_and_temples_Barn.webp",
-          "preview": "nvs/tanks_and_temples/Barn/preview.mp4",
           "videos": {
             "ours": {
               "key": "nvs/tanks_and_temples/Barn/ours.mp4",
@@ -758,7 +757,8 @@
               "key": "nvs/tanks_and_temples/Barn/nexels.mp4",
               "poster": "nvs/tanks_and_temples/Barn/nexels.jpg"
             }
-          }
+          },
+          "preview": "nvs/tanks_and_temples/Barn/preview.mp4"
         },
         {
           "id": "Caterpillar",
@@ -767,7 +767,6 @@
           "height": 544,
           "frames": 192,
           "thumb": "static/images/thumbs/tanks_and_temples_Caterpillar.webp",
-          "preview": "nvs/tanks_and_temples/Caterpillar/preview.mp4",
           "videos": {
             "ours": {
               "key": "nvs/tanks_and_temples/Caterpillar/ours.mp4",
@@ -805,7 +804,8 @@
               "key": "nvs/tanks_and_temples/Caterpillar/nexels.mp4",
               "poster": "nvs/tanks_and_temples/Caterpillar/nexels.jpg"
             }
-          }
+          },
+          "preview": "nvs/tanks_and_temples/Caterpillar/preview.mp4"
         },
         {
           "id": "Courthouse",
@@ -814,7 +814,6 @@
           "height": 544,
           "frames": 192,
           "thumb": "static/images/thumbs/tanks_and_temples_Courthouse.webp",
-          "preview": "nvs/tanks_and_temples/Courthouse/preview.mp4",
           "videos": {
             "ours": {
               "key": "nvs/tanks_and_temples/Courthouse/ours.mp4",
@@ -852,7 +851,8 @@
               "key": "nvs/tanks_and_temples/Courthouse/nexels.mp4",
               "poster": "nvs/tanks_and_temples/Courthouse/nexels.jpg"
             }
-          }
+          },
+          "preview": "nvs/tanks_and_temples/Courthouse/preview.mp4"
         },
         {
           "id": "Ignatius",
@@ -861,7 +861,6 @@
           "height": 544,
           "frames": 192,
           "thumb": "static/images/thumbs/tanks_and_temples_Ignatius.webp",
-          "preview": "nvs/tanks_and_temples/Ignatius/preview.mp4",
           "videos": {
             "ours": {
               "key": "nvs/tanks_and_temples/Ignatius/ours.mp4",
@@ -899,7 +898,8 @@
               "key": "nvs/tanks_and_temples/Ignatius/nexels.mp4",
               "poster": "nvs/tanks_and_temples/Ignatius/nexels.jpg"
             }
-          }
+          },
+          "preview": "nvs/tanks_and_temples/Ignatius/preview.mp4"
         },
         {
           "id": "Meetingroom",
@@ -908,7 +908,6 @@
           "height": 546,
           "frames": 192,
           "thumb": "static/images/thumbs/tanks_and_temples_Meetingroom.webp",
-          "preview": "nvs/tanks_and_temples/Meetingroom/preview.mp4",
           "videos": {
             "ours": {
               "key": "nvs/tanks_and_temples/Meetingroom/ours.mp4",
@@ -946,7 +945,8 @@
               "key": "nvs/tanks_and_temples/Meetingroom/nexels.mp4",
               "poster": "nvs/tanks_and_temples/Meetingroom/nexels.jpg"
             }
-          }
+          },
+          "preview": "nvs/tanks_and_temples/Meetingroom/preview.mp4"
         }
       ]
     },
@@ -961,7 +961,6 @@
           "height": 580,
           "frames": 96,
           "thumb": "static/images/thumbs/dtu_scan24.webp",
-          "preview": "nvs/dtu/scan24/preview.mp4",
           "videos": {
             "ours": {
               "key": "nvs/dtu/scan24/ours.mp4",
@@ -999,7 +998,8 @@
               "key": "nvs/dtu/scan24/nexels.mp4",
               "poster": "nvs/dtu/scan24/nexels.jpg"
             }
-          }
+          },
+          "preview": "nvs/dtu/scan24/preview.mp4"
         },
         {
           "id": "scan37",
@@ -1008,7 +1008,6 @@
           "height": 580,
           "frames": 96,
           "thumb": "static/images/thumbs/dtu_scan37.webp",
-          "preview": "nvs/dtu/scan37/preview.mp4",
           "videos": {
             "ours": {
               "key": "nvs/dtu/scan37/ours.mp4",
@@ -1046,7 +1045,8 @@
               "key": "nvs/dtu/scan37/nexels.mp4",
               "poster": "nvs/dtu/scan37/nexels.jpg"
             }
-          }
+          },
+          "preview": "nvs/dtu/scan37/preview.mp4"
         },
         {
           "id": "scan40",
@@ -1055,7 +1055,6 @@
           "height": 580,
           "frames": 96,
           "thumb": "static/images/thumbs/dtu_scan40.webp",
-          "preview": "nvs/dtu/scan40/preview.mp4",
           "videos": {
             "ours": {
               "key": "nvs/dtu/scan40/ours.mp4",
@@ -1093,7 +1092,8 @@
               "key": "nvs/dtu/scan40/nexels.mp4",
               "poster": "nvs/dtu/scan40/nexels.jpg"
             }
-          }
+          },
+          "preview": "nvs/dtu/scan40/preview.mp4"
         },
         {
           "id": "scan55",
@@ -1102,7 +1102,6 @@
           "height": 580,
           "frames": 96,
           "thumb": "static/images/thumbs/dtu_scan55.webp",
-          "preview": "nvs/dtu/scan55/preview.mp4",
           "videos": {
             "ours": {
               "key": "nvs/dtu/scan55/ours.mp4",
@@ -1140,7 +1139,8 @@
               "key": "nvs/dtu/scan55/nexels.mp4",
               "poster": "nvs/dtu/scan55/nexels.jpg"
             }
-          }
+          },
+          "preview": "nvs/dtu/scan55/preview.mp4"
         },
         {
           "id": "scan63",
@@ -1149,7 +1149,6 @@
           "height": 580,
           "frames": 96,
           "thumb": "static/images/thumbs/dtu_scan63.webp",
-          "preview": "nvs/dtu/scan63/preview.mp4",
           "videos": {
             "ours": {
               "key": "nvs/dtu/scan63/ours.mp4",
@@ -1187,7 +1186,8 @@
               "key": "nvs/dtu/scan63/nexels.mp4",
               "poster": "nvs/dtu/scan63/nexels.jpg"
             }
-          }
+          },
+          "preview": "nvs/dtu/scan63/preview.mp4"
         },
         {
           "id": "scan65",
@@ -1196,7 +1196,6 @@
           "height": 580,
           "frames": 96,
           "thumb": "static/images/thumbs/dtu_scan65.webp",
-          "preview": "nvs/dtu/scan65/preview.mp4",
           "videos": {
             "ours": {
               "key": "nvs/dtu/scan65/ours.mp4",
@@ -1234,7 +1233,8 @@
               "key": "nvs/dtu/scan65/nexels.mp4",
               "poster": "nvs/dtu/scan65/nexels.jpg"
             }
-          }
+          },
+          "preview": "nvs/dtu/scan65/preview.mp4"
         },
         {
           "id": "scan69",
@@ -1243,7 +1243,6 @@
           "height": 580,
           "frames": 96,
           "thumb": "static/images/thumbs/dtu_scan69.webp",
-          "preview": "nvs/dtu/scan69/preview.mp4",
           "videos": {
             "ours": {
               "key": "nvs/dtu/scan69/ours.mp4",
@@ -1281,7 +1280,8 @@
               "key": "nvs/dtu/scan69/nexels.mp4",
               "poster": "nvs/dtu/scan69/nexels.jpg"
             }
-          }
+          },
+          "preview": "nvs/dtu/scan69/preview.mp4"
         },
         {
           "id": "scan83",
@@ -1290,7 +1290,6 @@
           "height": 580,
           "frames": 96,
           "thumb": "static/images/thumbs/dtu_scan83.webp",
-          "preview": "nvs/dtu/scan83/preview.mp4",
           "videos": {
             "ours": {
               "key": "nvs/dtu/scan83/ours.mp4",
@@ -1328,7 +1327,8 @@
               "key": "nvs/dtu/scan83/nexels.mp4",
               "poster": "nvs/dtu/scan83/nexels.jpg"
             }
-          }
+          },
+          "preview": "nvs/dtu/scan83/preview.mp4"
         },
         {
           "id": "scan97",
@@ -1337,7 +1337,6 @@
           "height": 580,
           "frames": 96,
           "thumb": "static/images/thumbs/dtu_scan97.webp",
-          "preview": "nvs/dtu/scan97/preview.mp4",
           "videos": {
             "ours": {
               "key": "nvs/dtu/scan97/ours.mp4",
@@ -1375,7 +1374,8 @@
               "key": "nvs/dtu/scan97/nexels.mp4",
               "poster": "nvs/dtu/scan97/nexels.jpg"
             }
-          }
+          },
+          "preview": "nvs/dtu/scan97/preview.mp4"
         },
         {
           "id": "scan105",
@@ -1384,7 +1384,6 @@
           "height": 580,
           "frames": 96,
           "thumb": "static/images/thumbs/dtu_scan105.webp",
-          "preview": "nvs/dtu/scan105/preview.mp4",
           "videos": {
             "ours": {
               "key": "nvs/dtu/scan105/ours.mp4",
@@ -1422,7 +1421,8 @@
               "key": "nvs/dtu/scan105/nexels.mp4",
               "poster": "nvs/dtu/scan105/nexels.jpg"
             }
-          }
+          },
+          "preview": "nvs/dtu/scan105/preview.mp4"
         },
         {
           "id": "scan106",
@@ -1431,7 +1431,6 @@
           "height": 580,
           "frames": 96,
           "thumb": "static/images/thumbs/dtu_scan106.webp",
-          "preview": "nvs/dtu/scan106/preview.mp4",
           "videos": {
             "ours": {
               "key": "nvs/dtu/scan106/ours.mp4",
@@ -1469,7 +1468,8 @@
               "key": "nvs/dtu/scan106/nexels.mp4",
               "poster": "nvs/dtu/scan106/nexels.jpg"
             }
-          }
+          },
+          "preview": "nvs/dtu/scan106/preview.mp4"
         },
         {
           "id": "scan110",
@@ -1478,7 +1478,6 @@
           "height": 580,
           "frames": 96,
           "thumb": "static/images/thumbs/dtu_scan110.webp",
-          "preview": "nvs/dtu/scan110/preview.mp4",
           "videos": {
             "ours": {
               "key": "nvs/dtu/scan110/ours.mp4",
@@ -1516,7 +1515,8 @@
               "key": "nvs/dtu/scan110/nexels.mp4",
               "poster": "nvs/dtu/scan110/nexels.jpg"
             }
-          }
+          },
+          "preview": "nvs/dtu/scan110/preview.mp4"
         },
         {
           "id": "scan114",
@@ -1525,7 +1525,6 @@
           "height": 580,
           "frames": 96,
           "thumb": "static/images/thumbs/dtu_scan114.webp",
-          "preview": "nvs/dtu/scan114/preview.mp4",
           "videos": {
             "ours": {
               "key": "nvs/dtu/scan114/ours.mp4",
@@ -1563,7 +1562,8 @@
               "key": "nvs/dtu/scan114/nexels.mp4",
               "poster": "nvs/dtu/scan114/nexels.jpg"
             }
-          }
+          },
+          "preview": "nvs/dtu/scan114/preview.mp4"
         },
         {
           "id": "scan118",
@@ -1572,7 +1572,6 @@
           "height": 580,
           "frames": 96,
           "thumb": "static/images/thumbs/dtu_scan118.webp",
-          "preview": "nvs/dtu/scan118/preview.mp4",
           "videos": {
             "ours": {
               "key": "nvs/dtu/scan118/ours.mp4",
@@ -1610,7 +1609,8 @@
               "key": "nvs/dtu/scan118/nexels.mp4",
               "poster": "nvs/dtu/scan118/nexels.jpg"
             }
-          }
+          },
+          "preview": "nvs/dtu/scan118/preview.mp4"
         },
         {
           "id": "scan122",
@@ -1619,7 +1619,6 @@
           "height": 580,
           "frames": 96,
           "thumb": "static/images/thumbs/dtu_scan122.webp",
-          "preview": "nvs/dtu/scan122/preview.mp4",
           "videos": {
             "ours": {
               "key": "nvs/dtu/scan122/ours.mp4",
@@ -1657,7 +1656,8 @@
               "key": "nvs/dtu/scan122/nexels.mp4",
               "poster": "nvs/dtu/scan122/nexels.jpg"
             }
-          }
+          },
+          "preview": "nvs/dtu/scan122/preview.mp4"
         }
       ]
     }

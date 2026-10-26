@@ -390,6 +390,766 @@
     "dtu/scan24": {
       "3dgs": "Tip: Look at the gray roof at the lower left, where 3DGS leaves a bright white streak."
     },
-    "dtu/scan65": "Tip: Drag the crosshair over the top of the skull: Hexel primitives tile it with large, crisp-edged polygons."
+    "dtu/scan65": "Tip: Drag the crosshair over the top of the skull: Hexel primitives cover it with large, crisp-edged polygons."
+  },
+  "settings": {
+    "memory": {
+      "general": null,
+      "scenes": {
+        "mipnerf360/bicycle": {
+          "text": "Tip: Look at the rear wheel at bottom right, where 2DGS loses the pedal, the chainring and the lower half of the tyre.",
+          "frame": 128,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.5176,
+            "y": 0.6667,
+            "w": 0.2403,
+            "h": 0.3333
+          }
+        },
+        "mipnerf360/flowers": {
+          "text": "Tip: Look at the orange flowers on thin stems above the left plant, which 2DGS blurs away, leaving one bare stalk.",
+          "frame": 136,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.2656,
+            "y": 0.2083,
+            "w": 0.1923,
+            "h": 0.2917
+          }
+        },
+        "mipnerf360/stump": {
+          "text": "Tip: Look at the knot on the side of the stump, which 2DGS blurs into a pale smudge, losing the ridged bark around it.",
+          "frame": 128,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.3683,
+            "y": 0.5694,
+            "w": 0.2394,
+            "h": 0.3611
+          }
+        },
+        "mipnerf360/garden": {
+          "text": "Tip: Look at the space under the table, where 2DGS drops the legs, the crossbar and the football, leaving the top floating.",
+          "frame": 64,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.4234,
+            "y": 0.6944,
+            "w": 0.2703,
+            "h": 0.2917
+          }
+        },
+        "mipnerf360/treehill": {
+          "text": "Tip: Look at the bench corner at the foot of the tree, where 2DGS keeps only the front plank and loses legs and roots.",
+          "frame": 16,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.4562,
+            "y": 0.6528,
+            "w": 0.2737,
+            "h": 0.3194
+          }
+        },
+        "mipnerf360/room": {
+          "text": "Tip: Look at the footstool in the middle, which 2DGS hides behind a streaky smear while Hexels keep its bent wooden legs.",
+          "frame": 32,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.4537,
+            "y": 0.3889,
+            "w": 0.2778,
+            "h": 0.375
+          }
+        },
+        "mipnerf360/counter": {
+          "text": "Tip: Look at the braided loaf in its bag at bottom right, which 2DGS blurs into a brown smudge with no sesame seeds.",
+          "frame": 96,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.5,
+            "y": 0.5833,
+            "w": 0.2778,
+            "h": 0.3333
+          }
+        },
+        "mipnerf360/kitchen": {
+          "text": "Tip: Look at the crawler track on the left of the bulldozer, which 2DGS melts into a smooth black blob with no links.",
+          "frame": 32,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.3154,
+            "y": 0.3056,
+            "w": 0.2226,
+            "h": 0.3333
+          }
+        },
+        "mipnerf360/bonsai": {
+          "text": "Tip: Look at the open cardboard box at top left, which 2DGS covers with a pink and beige smear.",
+          "frame": 120,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.1204,
+            "y": 0.0556,
+            "w": 0.2407,
+            "h": 0.3611
+          }
+        },
+        "tanks_and_temples/Train": {
+          "text": "Tip: Look at the WESTERN PACIFIC lettering, where 2DGS erases PACIFIC down to two stray strokes.",
+          "frame": 136,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.3265,
+            "y": 0.2952,
+            "w": 0.2551,
+            "h": 0.2122
+          }
+        },
+        "tanks_and_temples/Truck": {
+          "text": "Tip: Look at the rear wheel and its lettered mud flap, which 2DGS washes out into a grey haze.",
+          "frame": 164,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.6033,
+            "y": 0.4151,
+            "w": 0.2198,
+            "h": 0.3044
+          }
+        },
+        "tanks_and_temples/Francis": {
+          "text": "Tip: Look at the top of the monument, where 2DGS cuts a white sky streak through the carved canopy and its bird statues.",
+          "frame": 108,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.4337,
+            "y": 0.0092,
+            "w": 0.2143,
+            "h": 0.369
+          }
+        },
+        "tanks_and_temples/Horse": {
+          "text": "Tip: Look at the lamp post and yellow crossing sign at right, which 2DGS dissolves into a dark green blur.",
+          "frame": 108,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.7857,
+            "y": 0.203,
+            "w": 0.2092,
+            "h": 0.369
+          }
+        },
+        "tanks_and_temples/Lighthouse": {
+          "text": "Tip: Look at the pine branches by the roof eave at right, which 2DGS dissolves into a pale blue haze.",
+          "frame": 96,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.632,
+            "y": 0.3755,
+            "w": 0.1952,
+            "h": 0.3663
+          }
+        },
+        "tanks_and_temples/Barn": {
+          "text": "Tip: Look at the red wavy bike rack at left, which 2DGS erases completely, leaving only grass and grey smear.",
+          "frame": 84,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.0973,
+            "y": 0.5699,
+            "w": 0.2049,
+            "h": 0.2941
+          }
+        },
+        "tanks_and_temples/Caterpillar": {
+          "text": "Tip: Look at the bucket teeth at bottom right, which 2DGS smears into a brown blur while Hexels keep each tooth.",
+          "frame": 156,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.7362,
+            "y": 0.6066,
+            "w": 0.2352,
+            "h": 0.3897
+          }
+        },
+        "tanks_and_temples/Courthouse": {
+          "text": "Tip: Look at the right end of the top parapet, where 2DGS washes the upper stone face and its top edge into white haze.",
+          "frame": 100,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.7771,
+            "y": 0.2206,
+            "w": 0.2198,
+            "h": 0.2574
+          }
+        },
+        "tanks_and_temples/Ignatius": {
+          "text": "Tip: Look at the white building at top left, which 2DGS blurs away while Hexels keep its windows and red door.",
+          "frame": 128,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.0307,
+            "y": 0.0735,
+            "w": 0.2049,
+            "h": 0.2757
+          }
+        },
+        "tanks_and_temples/Meetingroom": {
+          "text": "Tip: Look at the chandelier at top left, where 2DGS keeps only a few glowing shades and loses the iron ring.",
+          "frame": 112,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.2147,
+            "y": 0.0092,
+            "w": 0.2454,
+            "h": 0.293
+          }
+        },
+        "dtu/scan24": {
+          "text": "Tip: Look at the clock tower behind the roof, which 2DGS loses entirely while Hexels keep its gold trim and clock faces.",
+          "frame": 0,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.3969,
+            "y": 0.0517,
+            "w": 0.1598,
+            "h": 0.2586
+          }
+        },
+        "dtu/scan37": {
+          "text": "Tip: Look at the right end of the lower brick, which 2DGS melts into a beige blur while Hexels keep its corner and stone grain.",
+          "frame": 0,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.6637,
+            "y": 0.5172,
+            "w": 0.2062,
+            "h": 0.2759
+          }
+        },
+        "dtu/scan40": {
+          "text": "Tip: Look through the arch opening, which 2DGS fills with a brown fog instead of showing the white table behind it.",
+          "frame": 0,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.4253,
+            "y": 0.3362,
+            "w": 0.232,
+            "h": 0.3103
+          }
+        },
+        "dtu/scan55": {
+          "text": "Tip: Look at the rabbit's chest and front paws, which 2DGS paints as a smooth grey sheet while Hexels keep the fur.",
+          "frame": 0,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.4768,
+            "y": 0.3793,
+            "w": 0.1933,
+            "h": 0.3103
+          }
+        },
+        "dtu/scan63": {
+          "text": "Tip: Look at the right half of the pumpkin, which 2DGS dissolves into an orange haze while Hexels keep its round outline.",
+          "frame": 6,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.5992,
+            "y": 0.2845,
+            "w": 0.2191,
+            "h": 0.3017
+          }
+        },
+        "dtu/scan65": {
+          "text": "Tip: Look at the lower jaw behind the teeth, which 2DGS fades into the table while Hexels keep the whole jawbone.",
+          "frame": 12,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.393,
+            "y": 0.5172,
+            "w": 0.2191,
+            "h": 0.2586
+          }
+        },
+        "dtu/scan69": {
+          "text": "Tip: Look at the small snowman on the right, whose hat and face 2DGS blurs into a dark cone with no carrot nose.",
+          "frame": 0,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.5477,
+            "y": 0.3276,
+            "w": 0.1933,
+            "h": 0.2931
+          }
+        },
+        "dtu/scan83": {
+          "text": "Tip: Look at the grey block behind the smurf's legs, which 2DGS loses entirely and replaces with a dark red and black smear.",
+          "frame": 0,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.4188,
+            "y": 0.4483,
+            "w": 0.2191,
+            "h": 0.2759
+          }
+        },
+        "dtu/scan97": {
+          "text": "Tip: Look at the green muesli bag on the right, whose label and outline 2DGS smears into the table while Hexels keep the lettering.",
+          "frame": 8,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.5735,
+            "y": 0.3448,
+            "w": 0.1933,
+            "h": 0.3448
+          }
+        },
+        "dtu/scan105": {
+          "text": "Tip: Look beside the bear's outstretched arm on the right, where 2DGS floats a bright white glare and drops the grey block behind it.",
+          "frame": 0,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.5541,
+            "y": 0.3966,
+            "w": 0.2577,
+            "h": 0.2931
+          }
+        },
+        "dtu/scan106": {
+          "text": "Tip: Look at the table right of the birds' tails, where 2DGS leaves a dark hole with a purple floater and loses the table edge.",
+          "frame": 24,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.6057,
+            "y": 0.2931,
+            "w": 0.2577,
+            "h": 0.3276
+          }
+        },
+        "dtu/scan110": {
+          "text": "Tip: Look at the table right of the gold figure, where 2DGS floats a bright white glare and a yellow streak over the surface.",
+          "frame": 0,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.6701,
+            "y": 0.3448,
+            "w": 0.2577,
+            "h": 0.2931
+          }
+        },
+        "dtu/scan114": {
+          "text": "Tip: Look at the table just right of the buddha, which 2DGS replaces with a dark void crossed by a magenta haze and a red streak.",
+          "frame": 24,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.6121,
+            "y": 0.3966,
+            "w": 0.2384,
+            "h": 0.3276
+          }
+        },
+        "dtu/scan118": {
+          "text": "Tip: Look at the statuette's ringed base and the table beside it, which 2DGS smears and crosses with red and yellow streaks.",
+          "frame": 24,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.5541,
+            "y": 0.3966,
+            "w": 0.2577,
+            "h": 0.3448
+          }
+        },
+        "dtu/scan122": {
+          "text": "Tip: Look at the stack of books under the owl, which 2DGS loses entirely, leaving the top book floating over a dark smudge.",
+          "frame": 0,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.3995,
+            "y": 0.431,
+            "w": 0.2191,
+            "h": 0.2759
+          }
+        }
+      }
+    },
+    "count": {
+      "general": null,
+      "scenes": {
+        "mipnerf360/bicycle": {
+          "text": "Tip: Look at the handlebars and saddle in the middle, which 2DGS buries under a pale blur along with the hedge behind.",
+          "frame": 180,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.329,
+            "y": 0.3472,
+            "w": 0.1848,
+            "h": 0.2778
+          }
+        },
+        "mipnerf360/flowers": {
+          "text": "Tip: Look at the canna plant in the middle, whose leaves and orange flowers 2DGS smears into a brown blur.",
+          "frame": 96,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.3297,
+            "y": 0.2639,
+            "w": 0.2106,
+            "h": 0.375
+          }
+        },
+        "mipnerf360/garden": {
+          "text": "Tip: Look at the table leg and paving stones at bottom right, which 2DGS wipes out into a flat brown smear.",
+          "frame": 80,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.6234,
+            "y": 0.6944,
+            "w": 0.1802,
+            "h": 0.2778
+          }
+        },
+        "mipnerf360/stump": {
+          "text": "Tip: Look at the wooden stakes and strap at right, which 2DGS dissolves into a brown blur along with the log behind.",
+          "frame": 128,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.8011,
+            "y": 0.2083,
+            "w": 0.1934,
+            "h": 0.3611
+          }
+        },
+        "mipnerf360/treehill": {
+          "text": "Tip: Look at the bench corner at bottom left, where 2DGS loses the legs and tree roots in a pale glowing blur.",
+          "frame": 24,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.2372,
+            "y": 0.7222,
+            "w": 0.1825,
+            "h": 0.2778
+          }
+        },
+        "mipnerf360/room": {
+          "text": "Tip: Look at the floorboards beside the potted plant at left, where 2DGS smooths away the plank seams and nail holes.",
+          "frame": 68,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.1111,
+            "y": 0.5278,
+            "w": 0.2407,
+            "h": 0.25
+          }
+        },
+        "mipnerf360/counter": {
+          "text": "Tip: Look at the bread in the plastic bag at bottom centre, where 2DGS smears the braid and sesame seeds into a blob.",
+          "frame": 100,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.463,
+            "y": 0.6389,
+            "w": 0.2222,
+            "h": 0.25
+          }
+        },
+        "mipnerf360/kitchen": {
+          "text": "Tip: Look at the wooden table edge at left, where 2DGS covers the wood grain with pale milky blotches.",
+          "frame": 48,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.0,
+            "y": 0.2944,
+            "w": 0.1855,
+            "h": 0.2778
+          }
+        },
+        "mipnerf360/bonsai": {
+          "text": "Tip: Look at the knitted tablecloth corner at bottom left, which 2DGS flattens into smooth cloth with stray grid lines.",
+          "frame": 0,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.1963,
+            "y": 0.6944,
+            "w": 0.1852,
+            "h": 0.2778
+          }
+        },
+        "tanks_and_temples/Horse": {
+          "text": "Tip: Look at the palm tree left of the horse, whose crown 2DGS breaks into a pale smear while Hexels keep its fronds.",
+          "frame": 120,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.1837,
+            "y": 0.0,
+            "w": 0.2449,
+            "h": 0.3875
+          }
+        },
+        "tanks_and_temples/Truck": {
+          "text": "Tip: Look at the front wheel and lower door, which 2DGS hides behind a grey haze floater while Hexels keep the hubcap and lettering.",
+          "frame": 160,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.0613,
+            "y": 0.4613,
+            "w": 0.2249,
+            "h": 0.369
+          }
+        },
+        "tanks_and_temples/Lighthouse": {
+          "text": "Tip: Look at the right half of the tree below the gable, which 2DGS hides behind a pale haze floater while Hexels keep its foliage.",
+          "frame": 96,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.5576,
+            "y": 0.3663,
+            "w": 0.2602,
+            "h": 0.4029
+          }
+        },
+        "tanks_and_temples/Ignatius": {
+          "text": "Tip: Look at the white building at top right, whose windows, roof and palm 2DGS blurs into a smear while Hexels keep them.",
+          "frame": 160,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.7951,
+            "y": 0.0,
+            "w": 0.2049,
+            "h": 0.3676
+          }
+        },
+        "tanks_and_temples/Francis": {
+          "text": "Tip: Look at the dark tilted tower at right, whose top 2DGS dissolves into grey fog while Hexels keep its sharp roofline.",
+          "frame": 60,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.6735,
+            "y": 0.369,
+            "w": 0.2449,
+            "h": 0.4059
+          }
+        },
+        "tanks_and_temples/Caterpillar": {
+          "text": "Tip: Look at the tall conifer at top right, whose pointed top 2DGS rounds off into a dark dome while Hexels keep the spire.",
+          "frame": 128,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.7955,
+            "y": 0.0,
+            "w": 0.2045,
+            "h": 0.3676
+          }
+        },
+        "tanks_and_temples/Train": {
+          "text": "Tip: Look at the shaded gravel at bottom left, where Hexels keep individual stones that 2DGS smooths into a flat blue sheet.",
+          "frame": 150,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.0,
+            "y": 0.631,
+            "w": 0.3061,
+            "h": 0.369
+          }
+        },
+        "tanks_and_temples/Meetingroom": {
+          "text": "Tip: Look at the far-left windows, where Hexels show the trees and house outside that 2DGS washes into a pale haze.",
+          "frame": 122,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.0041,
+            "y": 0.4396,
+            "w": 0.2454,
+            "h": 0.2564
+          }
+        },
+        "tanks_and_temples/Courthouse": {
+          "text": "Tip: Look at the stone cornice at top left, where a white 2DGS streak floater washes out the wall that Hexels keep intact.",
+          "frame": 119,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.1227,
+            "y": 0.0368,
+            "w": 0.2863,
+            "h": 0.3676
+          }
+        },
+        "tanks_and_temples/Barn": {
+          "text": "Tip: Look at the pavement in front of the garage door, where 2DGS leaves a dark smudge and sharp white streaks.",
+          "frame": 49,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.4918,
+            "y": 0.6324,
+            "w": 0.2459,
+            "h": 0.3676
+          }
+        },
+        "dtu/scan24": {
+          "text": "Tip: Look at the clock tower at the top, which 2DGS hides behind dark streaks and star-shaped floaters.",
+          "frame": 12,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.5155,
+            "y": 0.0345,
+            "w": 0.1804,
+            "h": 0.2931
+          }
+        },
+        "dtu/scan37": {
+          "text": "Tip: Look at the right end of the front brick under the black clamp, where 2DGS replaces the pitted stone with scratchy streaks and a smear.",
+          "frame": 0,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.6057,
+            "y": 0.569,
+            "w": 0.2577,
+            "h": 0.2586
+          }
+        },
+        "dtu/scan40": {
+          "text": "Tip: Look at the opening under the arch, where 2DGS eats into the left pillar with a ragged white blob and black specks.",
+          "frame": 0,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.4253,
+            "y": 0.3707,
+            "w": 0.2062,
+            "h": 0.2845
+          }
+        },
+        "dtu/scan55": {
+          "text": "Tip: Look at the table corner right of the rabbit's ears, where 2DGS smears brown and teal streaks across the edge.",
+          "frame": 12,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.6186,
+            "y": 0.0862,
+            "w": 0.2706,
+            "h": 0.3448
+          }
+        },
+        "dtu/scan63": {
+          "text": "Tip: Look at the stacked apples in front of the pumpkin, whose speckled skin 2DGS blurs into smooth smudges.",
+          "frame": 8,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.4639,
+            "y": 0.4224,
+            "w": 0.2706,
+            "h": 0.3103
+          }
+        },
+        "dtu/scan65": {
+          "text": "Tip: Look at the back of the skull on the right, where 2DGS smears a dark haze over its outline and the cloth behind.",
+          "frame": 24,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.6314,
+            "y": 0.2414,
+            "w": 0.2577,
+            "h": 0.3793
+          }
+        },
+        "dtu/scan69": {
+          "text": "Tip: Look at the cloth left of the small green-hatted snowman, where 2DGS hangs a dark red and blue curtain of streaks.",
+          "frame": 72,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.0387,
+            "y": 0.3448,
+            "w": 0.2706,
+            "h": 0.3621
+          }
+        },
+        "dtu/scan83": {
+          "text": "Tip: Look at the cloth right of the smurf, where 2DGS draws a long dark pole-like streak down onto the table.",
+          "frame": 6,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.7474,
+            "y": 0.2414,
+            "w": 0.2448,
+            "h": 0.3966
+          }
+        },
+        "dtu/scan97": {
+          "text": "Tip: Look at the cloth behind the muesli bag on the right, where 2DGS leaves a black hole with a green speck.",
+          "frame": 20,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.7216,
+            "y": 0.2931,
+            "w": 0.2448,
+            "h": 0.3448
+          }
+        },
+        "dtu/scan105": {
+          "text": "Tip: Look at the teddy bear's body and legs, which 2DGS buries under a bright radial smear.",
+          "frame": 12,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.3737,
+            "y": 0.4138,
+            "w": 0.3351,
+            "h": 0.3966
+          }
+        },
+        "dtu/scan106": {
+          "text": "Tip: Look at the cloth right of the bird's tail, where 2DGS scatters a trail of black specks.",
+          "frame": 12,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.6701,
+            "y": 0.3448,
+            "w": 0.2577,
+            "h": 0.3103
+          }
+        },
+        "dtu/scan110": {
+          "text": "Tip: Look at the cloth right of the golden figurine, where 2DGS spreads a dark smoky haze with grey blobs.",
+          "frame": 24,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.6057,
+            "y": 0.431,
+            "w": 0.2835,
+            "h": 0.3793
+          }
+        },
+        "dtu/scan114": {
+          "text": "Tip: Look at the cloth right of the buddha, where 2DGS dissolves the table corner into dark smears and a purple streak.",
+          "frame": 12,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.6186,
+            "y": 0.2931,
+            "w": 0.2577,
+            "h": 0.3448
+          }
+        },
+        "dtu/scan118": {
+          "text": "Tip: Look at the cloth right of the angel, where 2DGS lays a dark wedge-shaped floater and a white smear on the table edge.",
+          "frame": 12,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.5928,
+            "y": 0.2414,
+            "w": 0.3093,
+            "h": 0.3103
+          }
+        },
+        "dtu/scan122": {
+          "text": "Tip: Look at the table to the right of the owl, where 2DGS lays a large green floater over the cloth.",
+          "frame": 24,
+          "compare": "2dgs",
+          "region": {
+            "x": 0.6701,
+            "y": 0.3448,
+            "w": 0.2835,
+            "h": 0.3793
+          }
+        }
+      }
+    }
   }
 }

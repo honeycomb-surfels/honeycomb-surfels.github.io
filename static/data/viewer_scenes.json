@@ -6,47 +6,6 @@
   "scenes": [
     {
       "dataset": "mipnerf360",
-      "scene": "bicycle",
-      "label": "Bicycle",
-      "setting": "outdoor",
-      "thumb": "static/images/thumbs/mipnerf360_bicycle.webp",
-      "cameras": "viewer/mipnerf360/bicycle/cameras.json",
-      "default_camera": {
-        "index": 129,
-        "name": "_DSC8809.JPG"
-      },
-      "orbit_target": [
-        0.425,
-        0.3872,
-        0.2814
-      ],
-      "variants": [
-        {
-          "id": "compact",
-          "label": "Compact (Hexels V2)",
-          "key": "viewer/mipnerf360/bicycle/compact.hexcodec",
-          "bytes": 5305612,
-          "primitives": 54275,
-          "texels": 9,
-          "raw_bytes": 7815600,
-          "psnr": 22.20060255524819,
-          "default": true
-        },
-        {
-          "id": "full",
-          "label": "Full quality (Hexels V3, quantized)",
-          "key": "viewer/mipnerf360/bicycle/full.hexcodec",
-          "bytes": 112062668,
-          "primitives": 1293887,
-          "texels": 21,
-          "raw_bytes": 434746032,
-          "psnr": 23.99525466238847,
-          "default": false
-        }
-      ]
-    },
-    {
-      "dataset": "mipnerf360",
       "scene": "flowers",
       "label": "Flowers",
       "setting": "outdoor",
@@ -128,83 +87,42 @@
       ]
     },
     {
-      "dataset": "mipnerf360",
-      "scene": "stump",
-      "label": "Stump",
+      "dataset": "tanks_and_temples",
+      "scene": "Truck",
+      "label": "Truck",
       "setting": "outdoor",
-      "thumb": "static/images/thumbs/mipnerf360_stump.webp",
-      "cameras": "viewer/mipnerf360/stump/cameras.json",
+      "thumb": "static/images/thumbs/tanks_and_temples_Truck.webp",
+      "cameras": "viewer/tanks_and_temples/Truck/cameras.json",
       "default_camera": {
-        "index": 23,
-        "name": "_DSC9236.JPG"
+        "index": 63,
+        "name": "000064.jpg"
       },
       "orbit_target": [
-        0.2915,
-        0.5178,
-        1.032
+        0.3776,
+        0.7401,
+        0.435
       ],
       "variants": [
         {
           "id": "compact",
           "label": "Compact (Hexels V2)",
-          "key": "viewer/mipnerf360/stump/compact.hexcodec",
-          "bytes": 3146505,
-          "primitives": 32049,
+          "key": "viewer/tanks_and_temples/Truck/compact.hexcodec",
+          "bytes": 13470621,
+          "primitives": 137414,
           "texels": 9,
-          "raw_bytes": 4615056,
-          "psnr": 23.019076546488346,
+          "raw_bytes": 19787616,
+          "psnr": 23.514259889828818,
           "default": true
         },
         {
           "id": "full",
           "label": "Full quality (Hexels V3, quantized)",
-          "key": "viewer/mipnerf360/stump/full.hexcodec",
-          "bytes": 68425160,
-          "primitives": 787723,
+          "key": "viewer/tanks_and_temples/Truck/full.hexcodec",
+          "bytes": 106433886,
+          "primitives": 1224119,
           "texels": 21,
-          "raw_bytes": 264674928,
-          "psnr": 24.727778132656244,
-          "default": false
-        }
-      ]
-    },
-    {
-      "dataset": "mipnerf360",
-      "scene": "treehill",
-      "label": "Treehill",
-      "setting": "outdoor",
-      "thumb": "static/images/thumbs/mipnerf360_treehill.webp",
-      "cameras": "viewer/mipnerf360/treehill/cameras.json",
-      "default_camera": {
-        "index": 84,
-        "name": "_DSC8958.JPG"
-      },
-      "orbit_target": [
-        -0.1392,
-        0.2219,
-        -0.0651
-      ],
-      "variants": [
-        {
-          "id": "compact",
-          "label": "Compact (Hexels V2)",
-          "key": "viewer/mipnerf360/treehill/compact.hexcodec",
-          "bytes": 5118333,
-          "primitives": 52363,
-          "texels": 9,
-          "raw_bytes": 7540272,
-          "psnr": 21.374530618370162,
-          "default": true
-        },
-        {
-          "id": "full",
-          "label": "Full quality (Hexels V3, quantized)",
-          "key": "viewer/mipnerf360/treehill/full.hexcodec",
-          "bytes": 93019889,
-          "primitives": 1071740,
-          "texels": 21,
-          "raw_bytes": 360104640,
-          "psnr": 22.190035297305737,
+          "raw_bytes": 411303984,
+          "psnr": 24.216835380830236,
           "default": false
         }
       ]

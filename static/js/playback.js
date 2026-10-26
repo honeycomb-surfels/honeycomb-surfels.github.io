@@ -1,6 +1,6 @@
 /**
  * Central playback manager for every video on the page: the demo window, the theory animations, the comparison
- * player, the variants grid and the gallery previews.
+ * player and the variants grid.
  *
  * Nothing plays by itself: not when a page loads, scrolls or opens at a deep link. Every group plays on hover:
  * - With a mouse ("(hover: hover) and (pointer: fine)") and no reduced-motion preference, a group plays while the
@@ -136,7 +136,7 @@ class PlaybackManager {
     return true;
   }
 
-  /** Stop `group` if it is playing: focus left a gallery tile, a demo tab closed, a video failed, a player paused. */
+  /** Stop `group` if it is playing: a demo tab closed, a video failed, a player paused. */
   stop(group) {
     this.halt(group);
   }

@@ -23,7 +23,6 @@ const LABELS = {
   method: "Method",
   primitives: "Primitives",
   comparisons: "Novel views",
-  gallery: "All scenes",
   results: "Results",
   variants: "Variants",
   surfaces: "Surfaces",

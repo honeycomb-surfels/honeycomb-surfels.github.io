@@ -9,7 +9,10 @@
  * controls with frame stepping, close-ups of every method when paused, the per-scene metrics
  * table and the optional viewing tips of static/data/tips.json (a scene tip can jump to its frame and
  * method pair, and "Show me where" also frames its region, x, y, w and h normalized to the video frame,
- * in the close-ups and rings it on the stage). Playback goes through the playback manager
+ * in the close-ups and rings it on the stage). With setting tabs on the page (#compare-settings, one tab
+ * per comparison setting naming its manifest, metrics file and tips block), the player starts on the
+ * selected setting and switches on a tab pick, keeping the scene, the divider and a method pair that both
+ * settings share. Playback goes through the playback manager
  * (playback.js) as a hover group whose zone is the whole section: with a mouse the videos play while the
  * pointer rests on the section and pause when it leaves, and they load once the stage stays near the
  * viewport, so hovering starts them at once. On touch screens and under prefers-reduced-motion only a tap
@@ -68,6 +71,8 @@ const PLACES = [
 ];
 // The player opens on garden; a manifest without garden opens on its first scene.
 const OPENING_SCENE = { dataset: "mipnerf360", scene: "garden" };
+// The setting tabs above the player, when the page has them (SettingTabs).
+const SETTINGS_ID = "compare-settings";
 
 const mouse = hasMouse();
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -1002,18 +1007,91 @@ class MetricsTable {
   }
 }
 
+/** The tips block of a setting: its own block under tips.settings, or the file's top level (the native setting). */
+function settingTips(allTips, setting) {
+  if (!allTips) return null;
+  return setting?.tips ? (allTips.settings?.[setting.tips] ?? null) : allTips;
+}
+
+/**
+ * The comparison settings above the player (#compare-settings): one tab per setting, naming its media manifest,
+ * per-scene metrics file and tips block, and one lead paragraph per setting ([data-setting-lead]).
+ */
+class SettingTabs {
+  constructor(container, onPick) {
+    this.container = container;
+    this.onPick = onPick;
+    this.tabs = new Map();
+    for (const link of container.querySelectorAll('[role="tab"][data-setting]')) {
+      const id = link.dataset.setting;
+      this.tabs.set(id, { item: link.closest("li") ?? link, link });
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+        onPick(id);
+      });
+      link.addEventListener("keydown", (event) => this.onKey(event, id));
+    }
+    this.leads = [...document.querySelectorAll("[data-setting-lead]")];
+  }
+
+  /** The settings in tab order: id and the data files of each. */
+  settings() {
+    return [...this.tabs].map(([id, { link }]) => ({
+      id,
+      media: link.dataset.media,
+      metrics: link.dataset.metrics,
+      tips: link.dataset.tips ?? null,
+    }));
+  }
+
+  /** The id of the selected tab (the first one when none is marked). */
+  current() {
+    const selected = [...this.tabs].find(([, { link }]) => link.getAttribute("aria-selected") === "true");
+    return (selected ?? [...this.tabs][0])?.[0] ?? null;
+  }
+
+  onKey(event, id) {
+    const ids = [...this.tabs.keys()];
+    const moves = { ArrowRight: 1, ArrowLeft: -1 };
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      this.onPick(id);
+    } else if (event.key in moves) {
+      event.preventDefault();
+      const next = ids[(ids.indexOf(id) + moves[event.key] + ids.length) % ids.length];
+      this.onPick(next);
+      this.tabs.get(next).link.focus();
+    }
+  }
+
+  /** Mark a setting as current and show its lead paragraph. */
+  show(id) {
+    for (const [tabId, { item, link }] of this.tabs) {
+      const active = tabId === id;
+      item.classList.toggle("is-active", active);
+      link.setAttribute("aria-selected", String(active));
+      link.tabIndex = active ? 0 : -1;
+    }
+    for (const lead of this.leads) lead.hidden = lead.dataset.settingLead !== id;
+  }
+
+  setBusy(busy) {
+    this.container.setAttribute("aria-busy", String(busy));
+  }
+}
+
 /** Wires the panels, the stage, playback, close-ups, tips and metrics together. */
 class ComparePlayer {
-  constructor(root, manifest, metricsPage, tips) {
-    this.fps = manifest.fps;
-    this.methods = manifest.methods;
-    this.methodById = new Map(this.methods.map((method) => [method.id, method]));
-    this.datasets = manifest.datasets;
+  constructor(root, manifest, metricsPage, tips, allTips = tips) {
+    this.selection = null;
+    this.adopt(manifest, tips);
+    this.allTips = allTips;
     this.base = mediaBase();
-    this.tips = tips;
-    const [left, right] = manifest.default_pair;
-    this.selection = { left, right };
-    this.primary = left;
+    // The setting tabs above the player (bindSettings), the settings they name, the shown one and a switch in flight.
+    this.settingTabs = null;
+    this.settings = new Map();
+    this.setting = null;
+    this.switching = null;
     this.dataset = null;
     this.scene = null;
     this.savedFrame = 0;
@@ -1053,7 +1131,6 @@ class ComparePlayer {
     this.pair.setVideos(this.stage.videos.left, this.stage.videos.right);
 
     this.scenePanel = new ScenePanel(this.datasets, (dataset, scene) => this.selectScene(dataset, scene));
-    this.methodPanel = new MethodPanel(this.methods, (side, id) => this.pickMethod(side, id));
     this.controls = new Controls({
       onTogglePlay: () => this.togglePlay(),
       onStep: (delta) => this.stepTo(this.pair.currentFrame() + delta),
@@ -1063,8 +1140,7 @@ class ComparePlayer {
       onScrubEnd: () => this.scrubEnd(),
       onRate: (rate) => this.setRate(rate),
     });
-    this.closeups = new CloseupGrid(this.methods, this.stage);
-    this.metrics = new MetricsTable(this.methods, metricsPage);
+    this.buildMethodViews(metricsPage);
     this.generalTip = tipParagraph("hx-tip-general");
     this.sceneTip = tipParagraph("hx-tip-scene");
     this.status = el("p", { class: "is-sr-only", role: "status" });
@@ -1268,10 +1344,92 @@ class ComparePlayer {
     this.metrics.render(this.sceneKey(), `Per-scene metrics: ${this.scene.label} (${this.dataset.label})`, this.selection);
   }
 
-  /** Scroll the player into view after selecting a scene (used by the gallery). */
+  /** Scroll the player into view after selecting a scene (the hexels:select-scene event). */
   reveal(datasetId, sceneId) {
     if (!this.selectScene(datasetId, sceneId)) return;
     this.stage.element.scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth", block: "center" });
+  }
+
+  // Settings ------------------------------------------------------------------------------
+
+  /**
+   * Take a setting's manifest and tips: its methods, its scenes (the same 34 scenes, each with the setting's clips)
+   * and its default pair, which a pair kept from the setting before replaces when both methods exist here.
+   */
+  adopt(manifest, tips) {
+    this.fps = manifest.fps;
+    this.methods = manifest.methods;
+    this.methodById = new Map(this.methods.map((method) => [method.id, method]));
+    this.datasets = manifest.datasets;
+    this.tips = tips;
+    const [left, right] = manifest.default_pair;
+    const kept = this.selection && this.methodById.has(this.selection.left) && this.methodById.has(this.selection.right);
+    this.selection = kept ? this.selection : { left, right };
+    this.primary = left;
+  }
+
+  /** The views that list the methods: the method panel, the close-ups and the per-scene metrics table. */
+  buildMethodViews(metricsPage) {
+    this.methodPanel = new MethodPanel(this.methods, (side, id) => this.pickMethod(side, id));
+    this.closeups = new CloseupGrid(this.methods, this.stage);
+    this.metrics = new MetricsTable(this.methods, metricsPage);
+  }
+
+  /** Wire the setting tabs: the selected one is the setting the player was built with; the others load on demand. */
+  bindSettings(tabs) {
+    this.settingTabs = tabs;
+    for (const setting of tabs.settings()) this.settings.set(setting.id, setting);
+    this.setting = tabs.current();
+    tabs.show(this.setting);
+  }
+
+  /** Switch to another setting: load its manifest and metrics (cached after the first time), then show its clips. */
+  async switchSetting(id) {
+    const setting = this.settings.get(id);
+    if (!setting || id === this.setting || this.switching) return false;
+    this.switching = id;
+    this.settingTabs.setBusy(true);
+    try {
+      const [manifest, metrics] = await Promise.all([
+        loadJSON(setting.media),
+        loadJSON(setting.metrics).catch((error) => {
+          console.warn(`Per-scene metrics of the ${id} setting are not available`, error);
+          return null;
+        }),
+      ]);
+      this.applySetting(id, manifest, metrics?.page ?? null);
+    } catch (error) {
+      console.warn(`The ${id} setting could not be loaded`, error);
+      return false;
+    } finally {
+      this.switching = null;
+      this.settingTabs.setBusy(false);
+    }
+    return true;
+  }
+
+  /**
+   * Show a setting: rebuild the views that list its methods and reload the current scene from its manifest. The
+   * stage, the scene panel, the playback group and the divider stay; a held frame is released, since the clips change.
+   */
+  applySetting(id, manifest, metricsPage) {
+    const shown = this.scene ? { dataset: this.dataset.id, scene: this.scene.id } : null;
+    this.setting = id;
+    this.adopt(manifest, settingTips(this.allTips, this.settings.get(id)));
+    this.clearSpot();
+    this.cancelPending();
+    this.closeups.stopLoading();
+    const previous = { panel: this.methodPanel.element, closeups: this.closeups.element, metrics: this.metrics.element };
+    this.buildMethodViews(metricsPage);
+    previous.panel.replaceWith(this.methodPanel.element);
+    previous.closeups.replaceWith(this.closeups.element);
+    previous.metrics.replaceWith(this.metrics.element);
+    setTip(this.generalTip, tipText(this.tips?.general));
+    this.settingTabs?.show(id);
+    this.scene = null;
+    this.updateSelectionViews();
+    if (shown) this.selectScene(shown.dataset, shown.scene);
+    this.updatePlayState();
   }
 
   // Media sources -----------------------------------------------------------------------
@@ -1798,16 +1956,30 @@ class ComparePlayer {
   }
 }
 
+/**
+ * Start the player on the setting whose tab is selected (#compare-settings), or without settings on the root's own
+ * data files; the other settings' files load when their tabs are picked.
+ */
 async function initCompare(root) {
-  const [manifest, metrics, tips] = await Promise.all([
-    loadJSON(root.dataset.media),
-    loadJSON(root.dataset.metrics).catch((error) => {
+  const container = document.getElementById(SETTINGS_ID);
+  const tabs = container ? new SettingTabs(container, (id) => ready.then((player) => player?.switchSetting(id))) : null;
+  const active = tabs?.settings().find((setting) => setting.id === tabs.current()) ?? {
+    id: null,
+    media: root.dataset.media,
+    metrics: root.dataset.metrics,
+    tips: null,
+  };
+  const [manifest, metrics, allTips] = await Promise.all([
+    loadJSON(active.media),
+    loadJSON(active.metrics).catch((error) => {
       console.warn("Per-scene metrics are not available", error);
       return null;
     }),
     loadTips(),
   ]);
-  return new ComparePlayer(root, manifest, metrics?.page ?? null, tips);
+  const player = new ComparePlayer(root, manifest, metrics?.page ?? null, settingTips(allTips, active), allTips);
+  if (tabs) player.bindSettings(tabs);
+  return player;
 }
 
 const root = document.getElementById("compare-root");
@@ -1822,6 +1994,7 @@ const ready = root
 window.HexelsCompare = {
   selectScene: (dataset, scene) => ready.then((player) => player?.selectScene(dataset, scene) ?? false),
   selectMethods: (left, right) => ready.then((player) => player?.selectMethods(left, right) ?? false),
+  selectSetting: (id) => ready.then((player) => player?.switchSetting(id) ?? false),
 };
 
 document.addEventListener("hexels:select-scene", (event) => {

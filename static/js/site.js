@@ -29,10 +29,26 @@ const SITE_BUTTONS = [
 const AUTHOR_SWAP_EVERY_MS = 3000;
 const AUTHOR_SWAP_MS = 700;
 const AUTHOR_SWAP_EASING = "cubic-bezier(0.45, 0, 0.55, 1)";
-// With every author swap the title logo turns by one sixth of a turn, landing on its own hexagonal symmetry, with a
-// small lift at mid-turn.
-const LOGO_TURN_DEG = 60;
-const LOGO_TURN_MS = 900;
+// With the first author swap and every BEE_LAP_EVERY-th one after it, the bee of the title logo flies one lap around
+// the honeycomb, along the lap path drawn into logo.svg, and lands where it took off. It flies head first with its
+// back to the outside, grows by BEE_LIFT at mid-lap as if nearer, and each cell bobs and lights up in CELL_GLINT, a
+// pale honey, as the bee passes it.
+const BEE_LAP_EVERY = 2;
+const BEE_LAP_MS = 2600;
+const BEE_LAP_STEPS = 120;
+const BEE_LIFT = 0.08;
+const BEE_FLAP_MS = 45;
+// An even number of wing strokes, so the wings come to rest as drawn.
+const BEE_FLAPS = 2 * Math.ceil(BEE_LAP_MS / (2 * BEE_FLAP_MS));
+const CELL_BOB_MS = 600;
+const CELL_BOB = [
+  { scale: 1, glint: 0 },
+  { scale: 1.09, glint: 0.55, offset: 0.25 },
+  { scale: 0.97, glint: 0.15, offset: 0.55 },
+  { scale: 1.01, glint: 0, offset: 0.8 },
+  { scale: 1, glint: 0 },
+];
+const CELL_GLINT = "#fff4cc";
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 // The animations are H.264 High profile, level 4.0.
 const ANIM_TYPE = 'video/mp4; codecs="avc1.640028"';
@@ -129,27 +145,134 @@ function swapAuthors(pair) {
   });
 }
 
-/** Turn the title logo by LOGO_TURN_DEG from wherever the previous turn left it. */
-function turnLogo(logo) {
-  const from = Number(logo.dataset.turn ?? 0);
-  const to = from + LOGO_TURN_DEG;
-  logo.dataset.turn = String(to % 360);
-  logo.animate(
-    [
-      { transform: `rotate(${from}deg) scale(1)` },
-      { transform: `rotate(${from + LOGO_TURN_DEG / 2}deg) scale(1.12)` },
-      { transform: `rotate(${to}deg) scale(1)` },
-    ],
-    { duration: LOGO_TURN_MS, easing: AUTHOR_SWAP_EASING, fill: "forwards" },
-  );
+/* ---------- Title logo ---------- */
+
+/**
+ * Put the title logo inline, so that its bee and cells can move: the image is replaced by the same SVG. Resolves to
+ * the SVG, or to null when the file cannot be read, in which case the image stays.
+ */
+async function inlineLogo(img) {
+  try {
+    const response = await fetch(img.currentSrc || img.src);
+    if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
+    const parsed = new DOMParser().parseFromString(await response.text(), "image/svg+xml").documentElement;
+    if (!parsed.querySelector(".hxl-bee") || !parsed.querySelector(".hxl-lap")) throw new Error("no bee or lap path");
+    const svg = document.importNode(parsed, true);
+    svg.querySelector("title")?.remove();
+    svg.setAttribute("aria-hidden", "true");
+    svg.setAttribute("focusable", "false");
+    img.replaceWith(svg);
+    return svg;
+  } catch (error) {
+    console.info(`The title logo stays still: ${error.message}`);
+    return null;
+  }
 }
 
 /**
- * Let the co-first authors trade places, and the title logo turn, every AUTHOR_SWAP_EVERY_MS while the author line is
- * on screen, the pointer is off it, nothing in it has keyboard focus, the tab is visible and motion is not reduced.
+ * The bee's lap as BEE_LAP_STEPS + 1 steps { t, x, y, turn }. The distance flown follows t - sin(2 pi t) / (2 pi),
+ * so the bee leaves and lands gently; the drawn bee faces -x, so its turn is the flight direction less 180 degrees,
+ * unwrapped, and blends into the perched tilt over the first and last tenth of the lap.
+ */
+function lapSteps(lap, tilt) {
+  const length = lap.getTotalLength();
+  const point = (s) => lap.getPointAtLength(Math.min(length, Math.max(0, s)));
+  const steps = [];
+  let previous = tilt;
+  for (let i = 0; i <= BEE_LAP_STEPS; i += 1) {
+    const t = i / BEE_LAP_STEPS;
+    const s = (t - Math.sin(2 * Math.PI * t) / (2 * Math.PI)) * length;
+    const { x, y } = point(s);
+    const [a, b] = [point(s - 0.5), point(s + 0.5)];
+    let turn = (Math.atan2(b.y - a.y, b.x - a.x) * 180) / Math.PI - 180;
+    turn += 360 * Math.round((previous - turn) / 360);
+    previous = turn;
+    steps.push({ t, x, y, turn });
+  }
+  const landing = tilt + 360 * Math.round((previous - tilt) / 360);
+  for (const step of steps) {
+    const w = Math.min(1, step.t / 0.1, (1 - step.t) / 0.1);
+    const rest = step.t < 0.5 ? tilt : landing;
+    step.turn = rest + (step.turn - rest) * w * w * (3 - 2 * w);
+  }
+  return steps;
+}
+
+/** A transform that scales by (sx, sy) about the point (x, y) of the element's own coordinates. */
+function scaleAbout(x, y, sx, sy = sx) {
+  return `translate(${x}px, ${y}px) scale(${sx}, ${sy}) translate(${-x}px, ${-y}px)`;
+}
+
+/**
+ * The lap of the inline title logo, as a function that starts it unless the bee is already flying. Each cell gets a
+ * pale copy on top of it, its glint, and bobs when the bee passes the cell's direction from the middle of the comb.
+ */
+function beeLap(svg) {
+  const bee = svg.querySelector(".hxl-bee");
+  const wings = bee.querySelector(".hxl-wings");
+  const [hingeX, hingeY] = wings.dataset.hinge.split(" ").map(Number);
+  const tilt = Number(bee.getAttribute("transform").match(/rotate\((-?[\d.]+)/)[1]);
+  const steps = lapSteps(svg.querySelector(".hxl-lap"), tilt);
+  const beeFrames = steps.map(({ t, x, y, turn }) => ({
+    offset: t,
+    transform: `translate(${x}px, ${y}px) rotate(${turn}deg) scale(${1 + BEE_LIFT * Math.sin(Math.PI * t)})`,
+  }));
+  const cells = [...svg.querySelectorAll(".hxl-cell")].map((cell) => {
+    const box = cell.getBBox();
+    const glint = cell.cloneNode(false);
+    glint.removeAttribute("class");
+    glint.removeAttribute("data-cell");
+    glint.setAttribute("fill", CELL_GLINT);
+    glint.setAttribute("opacity", "0");
+    cell.after(glint);
+    return { cell, glint, x: box.x + box.width / 2, y: box.y + box.height / 2 };
+  });
+  const middleX = cells.reduce((sum, c) => sum + c.x, 0) / cells.length;
+  const middleY = cells.reduce((sum, c) => sum + c.y, 0) / cells.length;
+  const bearing = (x, y) => Math.atan2(y - middleY, x - middleX);
+  const flight = steps.filter(({ t }) => t > 0.08 && t < 0.92);
+  for (const c of cells) {
+    const target = bearing(c.x, c.y);
+    const offBearing = ({ x, y }) => Math.abs(Math.atan2(Math.sin(bearing(x, y) - target), Math.cos(bearing(x, y) - target)));
+    c.passAt = flight.reduce((best, step) => (offBearing(step) < offBearing(best) ? step : best)).t * BEE_LAP_MS;
+  }
+  let flying = false;
+  return () => {
+    if (flying || reducedMotion.matches) return;
+    flying = true;
+    const animations = [
+      bee.animate(beeFrames, { duration: BEE_LAP_MS }),
+      wings.animate([{ transform: "none" }, { transform: scaleAbout(hingeX, hingeY, 1, 0.3) }],
+        { duration: BEE_FLAP_MS, iterations: BEE_FLAPS, direction: "alternate", easing: "ease-in-out" }),
+    ];
+    for (const c of cells) {
+      const timing = { duration: CELL_BOB_MS, delay: Math.max(0, c.passAt - 0.25 * CELL_BOB_MS), easing: "ease-in-out" };
+      const frames = CELL_BOB.map(({ scale, offset }) => ({ offset, transform: scaleAbout(c.x, c.y, scale) }));
+      animations.push(c.cell.animate(frames, timing));
+      animations.push(c.glint.animate(CELL_BOB.map(({ glint }, i) => ({ ...frames[i], opacity: glint })), timing));
+    }
+    Promise.allSettled(animations.map((animation) => animation.finished)).then(() => {
+      flying = false;
+    });
+  };
+}
+
+/**
+ * Let the co-first authors trade places every AUTHOR_SWAP_EVERY_MS, and the title logo's bee fly its lap with the first
+ * swap and every BEE_LAP_EVERY-th one after it, while the author line is on screen, the pointer is off it, nothing in
+ * it has keyboard focus, the tab is visible and motion is not reduced. Pointing at the logo also sends the bee off.
  */
 function rotateCoFirstAuthors(line, pair) {
   const logo = document.querySelector(".hx-lockup img");
+  let lap = null;
+  if (logo) {
+    inlineLogo(logo).then((svg) => {
+      if (!svg) return;
+      lap = beeLap(svg);
+      svg.addEventListener("pointerenter", lap);
+    });
+  }
+  let swaps = 0;
   let timer = 0;
   let onScreen = false;
   let pointerOn = false;
@@ -159,7 +282,8 @@ function rotateCoFirstAuthors(line, pair) {
     if (!onScreen || pointerOn || focusIn || document.hidden || reducedMotion.matches) return;
     timer = setTimeout(() => {
       swapAuthors(pair);
-      if (logo) turnLogo(logo);
+      if (swaps % BEE_LAP_EVERY === 0) lap?.();
+      swaps += 1;
       schedule();
     }, AUTHOR_SWAP_EVERY_MS);
   };

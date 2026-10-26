@@ -18,7 +18,7 @@
 window.HEXELS_CONFIG = {
   MEDIA_BASE_URL_PUBLIC: "https://pub-c45189ae5c7b4323bf573acdcd18ab1b.r2.dev",
   MEDIA_BASE_URL_LOCAL: "media_build",
-  MEDIA_VERSION: "1",
+  MEDIA_VERSION: "2",
   LINKS: { paper: null, arxiv: null, code: null, video: null },
   AUTHORS: [
     { id: "kaushik", name: "Prakhar Kaushik", url: "https://toshi2k2.github.io/", equal: true },

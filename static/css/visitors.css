@@ -8,6 +8,13 @@
   display: none;
 }
 
+/* The MapMyVisitors world map under the footer text (index.html): its script sizes the map to this box's width, at
+   2.04:1, so the box keeps it small and centred. */
+.hx-visitor-map {
+  width: min(100%, 20rem);
+  margin: 1.25rem auto 0;
+}
+
 .hx-visitors {
   margin-top: 1rem;
   color: var(--hx-muted, #5f6b70);

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Explore Hexels in 3D - Honeycomb-Surfels (Hexels)</title>
-  <meta name="description" content="Explore trained Hexels scenes from Mip-NeRF 360 in 3D, rendered live by your own GPU in the browser, or open a Hexels model of your own from disk.">
+  <meta name="description" content="Explore trained Hexels scenes from Mip-NeRF 360 and Tanks and Temples in 3D, rendered live by your own GPU in the browser, or open a Hexels model of your own from disk.">
   <meta name="author" content="Prakhar Kaushik, Soumava Paul, Alan Yuille">
   <meta name="color-scheme" content="light">
   <meta name="theme-color" content="#ffffff">
@@ -17,14 +17,14 @@
   <meta property="og:site_name" content="Honeycomb-Surfels">
   <meta property="og:url" content="https://honeycomb-surfels.github.io/viewer.html">
   <meta property="og:title" content="Explore Hexels in 3D">
-  <meta property="og:description" content="Explore trained Hexels scenes from Mip-NeRF 360 in 3D, rendered live by your own GPU in the browser, or open a Hexels model of your own from disk.">
+  <meta property="og:description" content="Explore trained Hexels scenes from Mip-NeRF 360 and Tanks and Temples in 3D, rendered live by your own GPU in the browser, or open a Hexels model of your own from disk.">
   <meta property="og:image" content="https://honeycomb-surfels.github.io/static/images/social_preview.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="The Honeycomb-Surfels honeycomb logo and the title Honeycomb-Surfels: Compact Hexagonal Primitives for Efficient Scene Rendering and Reconstruction, above two renders of a yellow toy bulldozer on a kitchen table, each labelled with model memory 19.3 MB, PSNR and peak training VRAM. The 2DGS render on the left has smeared, blurry treads; the Hexels render on the right shows crisp tread links and gears.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Explore Hexels in 3D">
-  <meta name="twitter:description" content="Explore trained Hexels scenes from Mip-NeRF 360 in 3D, rendered live by your own GPU in the browser, or open a Hexels model of your own from disk.">
+  <meta name="twitter:description" content="Explore trained Hexels scenes from Mip-NeRF 360 and Tanks and Temples in 3D, rendered live by your own GPU in the browser, or open a Hexels model of your own from disk.">
   <meta name="twitter:image" content="https://honeycomb-surfels.github.io/static/images/social_preview.jpg">
   <meta name="twitter:image:alt" content="The Honeycomb-Surfels honeycomb logo and the title Honeycomb-Surfels: Compact Hexagonal Primitives for Efficient Scene Rendering and Reconstruction, above two renders of a yellow toy bulldozer on a kitchen table, each labelled with model memory 19.3 MB, PSNR and peak training VRAM. The 2DGS render on the left has smeared, blurry treads; the Hexels render on the right shows crisp tread links and gears.">
 
@@ -61,7 +61,7 @@
     <section class="hx-vhero" aria-labelledby="viewer-page-title">
       <div class="hx-container hx-text has-text-centered">
         <h1 class="title is-2 publication-title" id="viewer-page-title">Explore Hexels in 3D</h1>
-        <p class="hx-viewer-lead">Pick a Mip-NeRF 360 scene and move through it. Your own GPU renders the trained Hexels live in the browser, with nothing to install. You can also open a Hexels model of your own from disk.</p>
+        <p class="hx-viewer-lead">Pick a scene from Mip-NeRF 360 or Tanks and Temples and move through it. Your own GPU renders the trained Hexels live in the browser, with nothing to install. You can also open a Hexels model of your own from disk.</p>
       </div>
     </section>
 
@@ -70,7 +70,7 @@
         <p class="hx-vnotice" id="viewer-notice" role="status" hidden></p>
 
         <div class="hx-vpicker-head">
-          <h2 class="title is-5" id="viewer-scenes-title">Mip-NeRF 360 scenes</h2>
+          <h2 class="title is-5" id="viewer-scenes-title">Scenes</h2>
           <p class="hx-vpicker-note">Nothing downloads until you pick a scene. Sizes are downloads of the Compact version.</p>
         </div>
         <ul class="hx-vscenes" id="viewer-scenes" aria-label="Scenes" aria-busy="true">
@@ -131,7 +131,7 @@
             </label>
             <details class="hx-vexport">
               <summary>Make a <code>.hexcodec</code> from your own run</summary>
-              <p>The <code>.hexcodec</code> archives are the deployment files of the Hexels code, the same files the paper's tables evaluate. For a V3 model of your own, run from the Hexels repository root, on any computer (no GPU needed):</p>
+              <p>The <code>.hexcodec</code> archives are the deployment files of the Hexels code. For a V3 model of your own, run from the Hexels repository root, on any computer (no GPU needed):</p>
               <pre><code>PYTHONPATH=. python -m hexels3dgs.compact_checkpoint \
     --checkpoint &lt;run&gt;/model/checkpoints/ckpt_030000.pt \
     --output deployment.pt --active_only

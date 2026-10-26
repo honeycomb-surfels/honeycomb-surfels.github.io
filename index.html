@@ -97,7 +97,7 @@
           <div class="hx-demo-panel" role="tabpanel" id="demo-panel-image2d" aria-labelledby="demo-tab-image2d"
                data-demo="image2d" data-label="Hexels fitting a 2D painting" hidden>
             <div class="hx-frame hx-ratio-image2d"></div>
-            <p class="hx-caption">Hexels fitting a 2D painting with 10,000 primitives: the reconstruction, a 4&times; crop of the hexagon footprints, and the reference image.</p>
+            <p class="hx-caption">Hexels fitting a 2D painting, starting from 20,000 primitives and pruned to 10,000 during the fit: the reconstruction, a 4&times; crop of the hexagon footprints, and the reference image.</p>
           </div>
         </div>
       </div>
@@ -116,11 +116,11 @@
       <div class="hx-container hx-wide">
         <figure class="hx-figure hx-figure-card">
           <div class="hx-figure-scroll">
-            <img src="static/images/teaser_web.webp" width="2000" height="836" loading="lazy" decoding="async"
-                 alt="Left, two renders of a yellow toy bulldozer on a kitchen table at 19.3 MB of model memory: 2DGS with blurred treads and Hexels with sharp tread links, each with an enlarged crop of the rear wheel. Right, a scatter plot of PSNR against peak training VRAM with Hexels at the top left, above and to the left of seven baselines. Bottom, a stylized forest illustration fitted by Image-GS and by Hexels, with their error maps.">
+            <img src="static/images/teaser_paper.webp" width="2000" height="891" loading="lazy" decoding="async"
+                 alt="Top left, two renders of a yellow toy bulldozer on a kitchen table at 19.3 MB of model memory: 2DGS with blurred treads and Hexels with sharp tread links, each with an enlarged crop of the rear wheel. Top right, a plot of Mip-NeRF 360 PSNR against peak training VRAM with Hexels at the top left, above and to the left of seven baselines. Bottom, a stylized forest and a flower painting fitted by Image-GS and by Hexels, with their error maps, fainter for Hexels.">
           </div>
           <p class="hx-swipe-hint" aria-hidden="true"><i class="fa-solid fa-left-right"></i> Scroll sideways for the whole figure</p>
-          <figcaption class="hx-caption hx-caption-long"><strong>Hexels capture finer detail with less training memory.</strong> Top left: 2DGS and Hexels V1 render the same held-out kitchen view at the same model memory (19.3 MB). In the close-ups, 2DGS smears the bulldozer's rear sprocket and tracks into streaks, while Hexels keep the gear teeth, the sprocket holes, the individual track links and the weave of the placemat, after training with 0.88 instead of 4.88 GiB of peak VRAM. Top right: over the nine Mip-NeRF 360 scenes at matched model memory, Hexels reach the highest mean PSNR (24.82 dB) with the lowest peak training VRAM (0.70 GiB); the closest baselines, Nexels (22.49 dB) and Triangle Splatting (22.36 dB), use 5.96 and 1.12 GiB. Bottom: fitting the image vector-8 with 10K primitives, Hexels reach 34.02 dB against 29.48 dB for Image-GS; both errors concentrate along the thin dark outlines between the color bands, where Image-GS errs far more.</figcaption>
+          <figcaption class="hx-caption hx-caption-long"><strong>Hexels capture finer detail with less memory.</strong> Hexels are planar surface elements that combine a hexagonal support with a first-order spatial color field and capitalize on structural redundancy. Top: at the same model memory (MEM, 19.3 MB), Hexels V1 gain 4.96 dB over 2DGS on a held-out kitchen view with 5.51&times; less peak training VRAM (0.88 versus 4.88 GiB). In the close-ups, 2DGS smears the bulldozer's rear sprocket and tracks into streaks, while Hexels keep the gear teeth, the sprocket holes, the individual track links and the weave of the placemat. Graph: over the nine Mip-NeRF 360 scenes at matched model memory, Hexels reach the highest mean PSNR (24.82 dB) with the lowest peak training VRAM (0.90 GiB); the closest baselines, Nexels (22.49 dB) and Triangle Splatting (22.36 dB), use 7.15 and 1.12 GiB. Bottom: Hexels also represent images efficiently, outperforming Image-GS with the same number of primitives (10K): 36.24 versus 29.49 dB on the forest and 31.26 versus 26.87 dB on the flowers, with errors far lower along the thin dark outlines.</figcaption>
         </figure>
       </div>
     </section>
@@ -172,20 +172,25 @@
     <section class="section hx-section" id="comparisons">
       <div class="hx-container hx-text">
         <h2 class="title is-3 has-text-centered">Novel view synthesis</h2>
-        <p class="hx-lead">Compare Hexels V3 (densified) with eight baselines on all 34 scenes. Pick a scene and a method for each side and drag the divider to compare<span class="hx-mouse-only">; pause the video to see synchronized close-ups of all nine methods</span>.</p>
+        <div class="tabs is-toggle is-toggle-rounded is-centered is-small hx-tabs hx-cmp-settings" id="compare-settings">
+          <ul role="tablist" aria-label="Comparison setting">
+            <li class="is-active" role="presentation">
+              <a role="tab" href="#compare-root" data-setting="memory" data-media="static/data/nvs_media_memory.json" data-metrics="static/data/nvs_metrics_memory.json" data-tips="memory" aria-selected="true">Equal memory</a>
+            </li>
+            <li role="presentation">
+              <a role="tab" href="#compare-root" data-setting="count" data-media="static/data/nvs_media_count.json" data-metrics="static/data/nvs_metrics_count.json" data-tips="count" aria-selected="false" tabindex="-1">Equal primitives</a>
+            </li>
+            <li role="presentation">
+              <a role="tab" href="#compare-root" data-setting="native" data-media="static/data/nvs_media.json" data-metrics="static/data/nvs_metrics.json" aria-selected="false" tabindex="-1">Native</a>
+            </li>
+          </ul>
+        </div>
+        <p class="hx-lead" data-setting-lead="memory">Every baseline is trained within the model memory of fixed Hexels V1 in each scene, the paper's primary setting. Hexels V1 reach the highest PSNR on all three benchmarks: 23.05 dB on Tanks and Temples against 21.35 dB for Triangle Splatting, 24.82 dB on Mip-NeRF 360 against 22.49 dB for Nexels, and 28.94 dB on DTU against 28.23 dB for Nexels, while 2DGS falls to 18.52, 17.82 and 21.56 dB. Pick a scene and a method for each side and drag the divider to compare<span class="hx-mouse-only">; pause the video to see synchronized close-ups of all eight methods</span>.</p>
+        <p class="hx-lead" data-setting-lead="count" hidden>Every baseline is capped at the scene's SfM point count, the population of fixed Hexels V3. Hexels V3 lead every surface-based baseline, with 23.78, 25.41 and 29.95 dB on Tanks and Temples, Mip-NeRF 360 and DTU against 22.90, 24.73 and 27.14 dB for Triangle Splatting and 21.40, 21.65 and 24.83 dB for 2DGS; BBSplat, which stores explicit textures, stays ahead with 24.41, 26.50 and 30.19 dB. Pick a scene and a method for each side and drag the divider to compare<span class="hx-mouse-only">; pause the video to see synchronized close-ups of all eight methods</span>.</p>
+        <p class="hx-lead" data-setting-lead="native" hidden>Hexels V3 (densified) against eight baselines in their native settings, with unrestricted model memory and primitive counts. Hexels lead 2DGS by 0.90 dB on Tanks and Temples (24.53 against 23.64 dB) and on DTU (29.76 against 28.86 dB) and stay within 0.30 dB on Mip-NeRF 360 (26.52 against 26.82 dB), where 3DGS reaches 27.55 dB; BBSplat scores higher on DTU (30.26 dB) and 3D Convex Splatting on Tanks and Temples (24.80 dB). Pick a scene and a method for each side and drag the divider to compare<span class="hx-mouse-only">; pause the video to see synchronized close-ups of all nine methods</span>.</p>
       </div>
       <div class="hx-container hx-wide">
         <div id="compare-root" data-media="static/data/nvs_media.json" data-metrics="static/data/nvs_metrics.json"></div>
-      </div>
-    </section>
-
-    <section class="section hx-section" id="gallery">
-      <div class="hx-container hx-text">
-        <h2 class="title is-3 has-text-centered">All 34 scenes</h2>
-        <p class="hx-lead">Every scene rendered by Hexels V3 (densified). Hover over a scene to play its video, or hit "Compare" to compare with other baselines above.</p>
-      </div>
-      <div class="hx-container hx-wide">
-        <div id="gallery-root" data-media="static/data/nvs_media.json"></div>
       </div>
     </section>
 
@@ -205,7 +210,7 @@
                  alt="Three scatter plots of PSNR against model memory for Tanks and Temples, Mip-NeRF 360 and DTU, with hollow orange hexagons for Hexels V1, V2 and V3 and markers for seven baselines at the same budgets, each hexagon above every baseline marker of its budget.">
           </div>
           <p class="hx-swipe-hint" aria-hidden="true"><i class="fa-solid fa-left-right"></i> Scroll sideways for the whole figure</p>
-          <figcaption class="hx-caption hx-caption-long">Novel-view PSNR against model memory at the paper's three matched-memory budgets, set by fixed-population Hexels V1, V2 and V3 (hollow hexagons); every baseline is trained within the same per-scene budget. Hexels reach the highest PSNR at every budget on all three benchmarks. At the smallest budget, Hexels V1 lead by 2.33 dB on Mip-NeRF 360 (24.82 versus 22.49 dB for Nexels) and by 1.70 dB on Tanks and Temples (23.05 versus 21.35 dB for Triangle Splatting); at the largest, 3DGS comes closest (23.07 versus 23.76 dB on Tanks and Temples, 29.45 versus 29.94 dB on DTU).</figcaption>
+          <figcaption class="hx-caption hx-caption-long">Novel-view PSNR against model memory at the paper's three matched-memory budgets, set by fixed-population Hexels V1, V2 and V3 (hollow hexagons); every baseline is trained within the same per-scene budget. Hexels reach the highest PSNR at every budget on all three benchmarks. At the smallest budget, Hexels V1 lead by 2.32 dB on Mip-NeRF 360 (24.82 versus 22.49 dB for Nexels) and by 1.70 dB on Tanks and Temples (23.05 versus 21.35 dB for Triangle Splatting); at the largest, 3DGS comes closest (23.07 versus 23.78 dB on Tanks and Temples, 29.45 versus 29.95 dB on DTU).</figcaption>
         </figure>
       </div>
     </section>
@@ -258,20 +263,20 @@
     <section class="section hx-section" id="images2d">
       <div class="hx-container hx-text">
         <h2 class="title is-3 has-text-centered">2D image representation</h2>
-        <p class="hx-lead">The same primitive represents images directly in the image plane, without projection, opacity or depth ordering. On the 45-image Image-GS benchmark, at the same number of primitives, Hexels outperform Image-GS on every reported quality metric with 5,100 instead of 10,000 iterations.</p>
+        <p class="hx-lead">The same primitive represents images directly in the image plane, without projection, opacity or depth ordering. On the 45-image Image-GS benchmark, with 10,000 primitives per image at the end of the fit, Hexels raise PSNR from 33.16 to 35.82 dB and lower LPIPS from 0.1372 to 0.0924 against Image-GS, with 5,100 instead of 10,000 iterations and 157 instead of 238 seconds of fitting. Hexels start from 20,000 primitives and prune down to 10,000 while fitting. Even constant-color Hexels, which store the same eight numbers per primitive as Image-GS, reach 34.16 dB.</p>
       </div>
       <div class="hx-container hx-wide">
         <figure class="hx-figure hx-figure-card">
           <div class="hx-figure-scroll">
-            <img src="static/images/image_comparison_2d.webp" width="2000" height="546" loading="lazy" decoding="async"
-                 alt="Five panels of a painting of lemons on a branch: the Image-GS fit, the Hexels fit, the ground truth, and the two per-pixel error maps, where the Hexels error map is darker.">
+            <img src="static/images/image_comparison_2d.webp" width="2000" height="990" loading="lazy" decoding="async"
+                 alt="Two rows of five panels, a painting of lemons on a branch and a photo of wheat ears: the Image-GS fit, the Hexels fit, the ground truth, and the two per-pixel error maps, where the Hexels error maps are darker.">
           </div>
           <p class="hx-swipe-hint" aria-hidden="true"><i class="fa-solid fa-left-right"></i> Scroll sideways for the whole figure</p>
-          <figcaption class="hx-caption">2D reconstruction of painting-8 at 2048&times;2048 with 10K primitives. Hexels improve PSNR and LPIPS over Image-GS (28.23 dB / 0.2020 versus 32.15 dB / 0.0948); error maps share one scale.</figcaption>
+          <figcaption class="hx-caption">2D reconstruction of a painting and a photo at 2048&times;2048 with 10K primitives per method at the end of the fit. Hexels reach 33.42 dB and an LPIPS of 0.0713 on the painting, against 28.24 dB and 0.2019 for Image-GS, and 41.34 dB and 0.0494 on the photo, against 39.32 dB and 0.0653; error maps share one scale.</figcaption>
         </figure>
       </div>
       <div class="hx-container hx-text">
-        <p class="hx-table-note" id="table-2d-note">Image-GS benchmark, 45 images, at the same number of primitives. Constant-color Hexels store the same eight scalars per primitive as Image-GS. Bold marks the best value in each column, as in the paper.</p>
+        <p class="hx-table-note" id="table-2d-note">Image-GS benchmark, 45 images, with 10,000 primitives per image at the end of the fit. Constant-color Hexels store the same eight scalars per primitive as Image-GS. Bold marks the best value in each column, as in the paper.</p>
         <div class="table-container hx-table-wrap">
           <table class="table is-narrow is-hoverable hx-table" aria-describedby="table-2d-note">
             <thead>
@@ -282,21 +287,21 @@
                 <th scope="col">LPIPS (AlexNet) ↓</th>
                 <th scope="col">Iterations ↓</th>
                 <th scope="col">Train (s) ↓</th>
-                <th scope="col">FPS ↑</th>
+                <th scope="col">Disk size (kB) ↓</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <th scope="row">Image-GS</th>
-                <td>33.15</td><td>0.9141</td><td>0.1372</td><td>10,000</td><td>238.40</td><td>260.44</td>
+                <td>33.16</td><td>0.9141</td><td>0.1372</td><td>10,000</td><td>238.40</td><td>292.175</td>
               </tr>
               <tr>
                 <th scope="row">Hexels (constant)</th>
-                <td>33.38</td><td>0.9158</td><td>0.1184</td><td>5,100</td><td><strong>121.61</strong></td><td>247.62</td>
+                <td>34.16</td><td>0.9208</td><td>0.1099</td><td><strong>5,100</strong></td><td><strong>112.11</strong></td><td><strong>289.799</strong></td>
               </tr>
               <tr>
                 <th scope="row">Hexels</th>
-                <td><strong>34.84</strong></td><td><strong>0.9297</strong></td><td><strong>0.1012</strong></td><td><strong>5,100</strong></td><td>176.94</td><td><strong>280.56</strong></td>
+                <td><strong>35.82</strong></td><td><strong>0.9359</strong></td><td><strong>0.0924</strong></td><td><strong>5,100</strong></td><td>157.07</td><td>551.174</td>
               </tr>
             </tbody>
           </table>
@@ -331,13 +336,18 @@
     <div class="hx-container hx-text has-text-centered">
       <p>This page follows the <a href="https://github.com/nerfies/nerfies.github.io">Nerfies project page template</a>. Its design is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
       <div id="visitors-root"></div>
+      <!-- MapMyVisitors world map: map.js finds its own tag by id and inserts the map right after it, sized to the
+           width of .hx-visitor-map; async, so a slow or blocked mapmyvisitors.com never holds up the page. -->
+      <div class="hx-visitor-map">
+        <script type="text/javascript" id="mapmyvisitors" async
+          src="https://mapmyvisitors.com/map.js?d=xlzeZwKkOK-se3pppxIUprIyD9UvIx0ojB_uB-zPoQ4&cl=ffffff&w=a"></script>
+      </div>
     </div>
   </footer>
 
   <script src="static/js/config.js"></script>
   <script type="module" src="static/js/site.js"></script>
   <script type="module" src="static/js/compare.js"></script>
-  <script type="module" src="static/js/gallery.js"></script>
   <script type="module" src="static/js/quad.js"></script>
   <script type="module" src="static/js/explorer.js"></script>
   <script type="module" src="static/js/surface.js"></script>

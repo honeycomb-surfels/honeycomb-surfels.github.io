@@ -202,18 +202,25 @@ textarea {
   text-wrap: balance;
 }
 
-/* The honeycomb logo before the words "Honeycomb-Surfels" (static/images/logo.svg): in the title of
+/* The bee-and-honeycomb logo before the words "Honeycomb-Surfels" (static/images/logo.svg): in the title of
    index.html and the kicker of theory.html. The span keeps the logo and the name on one line. */
 .hx-lockup {
   white-space: nowrap;
 }
 
-/* 1.4 times the cap height of Google Sans (0.74em), centred on the capitals: (0.74em - 1.04em) / 2 below the baseline. */
-.hx-lockup img {
+/* The comb fills the lower five sixths of the logo: at 1.2em it is 1.34 times the cap height of Google Sans (0.74em),
+   and -0.14em centres it on the capitals, with the bee above them. site.js swaps the image for the same SVG inline. */
+.hx-lockup img,
+.hx-lockup svg {
   width: auto;
-  height: 1.04em;
-  margin-right: 0.25em;
-  vertical-align: -0.15em;
+  height: 1.2em;
+  margin-right: 0.2em;
+  vertical-align: -0.14em;
+}
+
+/* The inline title logo lets its bee fly outside the drawing. */
+.hx-lockup svg {
+  overflow: visible;
 }
 
 .publication-authors,
@@ -863,11 +870,12 @@ html.hx-hover .hx-media.is-playing + .hx-hint-below {
   text-decoration: underline;
 }
 
-/* The kicker's small capitals need a larger logo than the title to read as a honeycomb: about 24 px, the smallest
-   size logo.svg is meant for, still centred on the capitals. */
-.hx-kicker .hx-lockup img {
-  height: 1.75em;
-  margin-right: 0.4em;
+/* The kicker's small capitals need a larger logo than the title to show the bee: about 28 px, the smallest size
+   logo.svg is meant for, its comb still centred on the capitals. */
+.hx-kicker .hx-lockup img,
+.hx-kicker .hx-lockup svg {
+  height: 2.05em;
+  margin-right: 0.35em;
   vertical-align: -0.5em;
 }
 

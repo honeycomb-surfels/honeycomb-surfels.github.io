@@ -40,6 +40,7 @@ const PENDING_KEY = "hexels-viewer-pending";
 const PENDING_MAX_AGE_MS = 10 * 60 * 1000;
 const APPEARANCE = { none: "V1, spatial color", linear: "V2, linear view dependence", sh3: "V3, SH3 view dependence" };
 const TIER_LABELS = { compact: "Compact", full: "Full quality" };
+const DATASET_NAMES = { mipnerf360: "Mip-NeRF 360", tanks_and_temples: "Tanks and Temples" };
 const TIER_NOTES = {
   compact:
     "Hexels V2, a fixed population with a linear view-dependent color, stored losslessly. The smallest downloads, which open quickly on most devices.",
@@ -238,7 +239,7 @@ function defaultVariant(scene) {
 }
 
 function sceneSubtitle(scene, variant) {
-  const dataset = scene.dataset === "mipnerf360" ? "Mip-NeRF 360" : scene.dataset;
+  const dataset = DATASET_NAMES[scene.dataset] ?? scene.dataset;
   const parts = [dataset, scene.setting, variant.method];
   if (variant.primitives) parts.push(`${variant.primitives.toLocaleString("en-US")} primitives`);
   return parts.filter(Boolean).join(" · ");

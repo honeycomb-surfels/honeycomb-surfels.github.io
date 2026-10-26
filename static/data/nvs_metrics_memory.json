@@ -1,0 +1,8544 @@
+{
+ "page": {
+  "columns": [
+   {
+    "id": "psnr",
+    "label": "PSNR",
+    "better": "higher"
+   },
+   {
+    "id": "ssim",
+    "label": "SSIM",
+    "better": "higher"
+   },
+   {
+    "id": "lpips",
+    "label": "LPIPS",
+    "better": "lower"
+   },
+   {
+    "id": "fps",
+    "label": "FPS",
+    "better": "higher"
+   },
+   {
+    "id": "memory_mb",
+    "label": "Model memory (MB)",
+    "better": "lower"
+   },
+   {
+    "id": "vram_gib",
+    "label": "Peak VRAM (GiB)",
+    "better": "lower"
+   },
+   {
+    "id": "primitives",
+    "label": "Primitives",
+    "better": null
+   }
+  ],
+  "scenes": {
+   "mipnerf360/bicycle": {
+    "ours": {
+     "psnr": {
+      "value": 22.034697956206813,
+      "text": "22.03"
+     },
+     "ssim": {
+      "value": 0.5499463975429535,
+      "text": "0.550"
+     },
+     "lpips": {
+      "value": 0.4953467273712158,
+      "text": "0.495"
+     },
+     "fps": {
+      "value": 537.8981381407307,
+      "text": "537.9"
+     },
+     "memory_mb": {
+      "value": 4.342,
+      "text": "4.34"
+     },
+     "vram_gib": {
+      "value": 0.583984375,
+      "text": "0.58"
+     },
+     "primitives": {
+      "value": 54275,
+      "text": "54,275"
+     },
+     "gpu": "RTX A5000"
+    },
+    "2dgs": {
+     "psnr": {
+      "value": 17.054083096143938,
+      "text": "17.05"
+     },
+     "ssim": {
+      "value": 0.3413660275936127,
+      "text": "0.341"
+     },
+     "lpips": {
+      "value": 0.715918264389038,
+      "text": "0.716"
+     },
+     "fps": {
+      "value": 234.10096340460933,
+      "text": "234.1"
+     },
+     "memory_mb": {
+      "value": 4.34188,
+      "text": "4.34"
+     },
+     "vram_gib": {
+      "value": 1.966796875,
+      "text": "1.97"
+     },
+     "primitives": {
+      "value": 18715,
+      "text": "18,715"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dgs": {
+     "psnr": {
+      "value": 16.465130038447878,
+      "text": "16.47"
+     },
+     "ssim": {
+      "value": 0.3115806818008423,
+      "text": "0.312"
+     },
+     "lpips": {
+      "value": 0.7604933118820191,
+      "text": "0.760"
+     },
+     "fps": {
+      "value": 1152.631521604368,
+      "text": "1,152.6"
+     },
+     "memory_mb": {
+      "value": 4.341928,
+      "text": "4.34"
+     },
+     "vram_gib": {
+      "value": 0.556640625,
+      "text": "0.56"
+     },
+     "primitives": {
+      "value": 18398,
+      "text": "18,398"
+     },
+     "gpu": "RTX A5000"
+    },
+    "triangle": {
+     "psnr": {
+      "value": 20.646649918895594,
+      "text": "20.65"
+     },
+     "ssim": {
+      "value": 0.42136974811553957,
+      "text": "0.421"
+     },
+     "lpips": {
+      "value": 0.615153832435608,
+      "text": "0.615"
+     },
+     "fps": {
+      "value": 357.7334122567106,
+      "text": "357.7"
+     },
+     "memory_mb": {
+      "value": 4.320452,
+      "text": "4.32"
+     },
+     "vram_gib": {
+      "value": 0.912109375,
+      "text": "0.91"
+     },
+     "primitives": {
+      "value": 18307,
+      "text": "18,307"
+     },
+     "gpu": "RTX A5000"
+    },
+    "meshsplatting": {
+     "psnr": {
+      "value": 18.606931812956518,
+      "text": "18.61"
+     },
+     "ssim": {
+      "value": 0.3347431141138077,
+      "text": "0.335"
+     },
+     "lpips": {
+      "value": 0.6879375314712525,
+      "text": "0.688"
+     },
+     "fps": {
+      "value": 75.28320136674208,
+      "text": "75.3"
+     },
+     "memory_mb": {
+      "value": 3.141316,
+      "text": "3.14"
+     },
+     "vram_gib": {
+      "value": 3.595703125,
+      "text": "3.60"
+     },
+     "primitives": {
+      "value": 29995,
+      "text": "29,995"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dconvex": {
+     "psnr": {
+      "value": 19.3831373818239,
+      "text": "19.38"
+     },
+     "ssim": {
+      "value": 0.4054298412799835,
+      "text": "0.405"
+     },
+     "lpips": {
+      "value": 0.6408264756202697,
+      "text": "0.641"
+     },
+     "fps": {
+      "value": 269.473351625828,
+      "text": "269.5"
+     },
+     "memory_mb": {
+      "value": 3.119352,
+      "text": "3.12"
+     },
+     "vram_gib": {
+      "value": 0.767578125,
+      "text": "0.77"
+     },
+     "primitives": {
+      "value": 11302,
+      "text": "11,302"
+     },
+     "gpu": "RTX A5000"
+    },
+    "bbsplat": {
+     "psnr": {
+      "value": 18.05616334489449,
+      "text": "18.06"
+     },
+     "ssim": {
+      "value": 0.34204752564430235,
+      "text": "0.342"
+     },
+     "lpips": {
+      "value": 0.7275264167785644,
+      "text": "0.728"
+     },
+     "fps": {
+      "value": 127.9122040203865,
+      "text": "127.9"
+     },
+     "memory_mb": {
+      "value": 4.341296,
+      "text": "4.34"
+     },
+     "vram_gib": {
+      "value": 1.009765625,
+      "text": "1.01"
+     },
+     "primitives": {
+      "value": 1004,
+      "text": "1,004"
+     },
+     "gpu": "RTX A5000"
+    },
+    "nexels": {
+     "psnr": {
+      "value": 19.58583001200011,
+      "text": "19.59"
+     },
+     "ssim": {
+      "value": 0.3828446936607361,
+      "text": "0.383"
+     },
+     "lpips": {
+      "value": 0.6075247883796692,
+      "text": "0.608"
+     },
+     "fps": {
+      "value": 63.85932261088231,
+      "text": "63.9"
+     },
+     "memory_mb": {
+      "value": 4.237784,
+      "text": "4.24"
+     },
+     "vram_gib": {
+      "value": 4.435546875,
+      "text": "4.44"
+     },
+     "primitives": {
+      "value": 8622,
+      "text": "8,622"
+     },
+     "gpu": "RTX A5000"
+    }
+   },
+   "mipnerf360/flowers": {
+    "ours": {
+     "psnr": {
+      "value": 18.884929805482003,
+      "text": "18.88"
+     },
+     "ssim": {
+      "value": 0.40805081210353156,
+      "text": "0.408"
+     },
+     "lpips": {
+      "value": 0.5750306925990365,
+      "text": "0.575"
+     },
+     "fps": {
+      "value": 583.7489236179474,
+      "text": "583.7"
+     },
+     "memory_mb": {
+      "value": 3.06776,
+      "text": "3.07"
+     },
+     "vram_gib": {
+      "value": 0.5703125,
+      "text": "0.57"
+     },
+     "primitives": {
+      "value": 38347,
+      "text": "38,347"
+     },
+     "gpu": "RTX A5000"
+    },
+    "2dgs": {
+     "psnr": {
+      "value": 14.399294039807875,
+      "text": "14.40"
+     },
+     "ssim": {
+      "value": 0.23678592727942901,
+      "text": "0.237"
+     },
+     "lpips": {
+      "value": 0.7902202010154724,
+      "text": "0.790"
+     },
+     "fps": {
+      "value": 266.4825777122352,
+      "text": "266.5"
+     },
+     "memory_mb": {
+      "value": 3.067736,
+      "text": "3.07"
+     },
+     "vram_gib": {
+      "value": 1.66796875,
+      "text": "1.67"
+     },
+     "primitives": {
+      "value": 13223,
+      "text": "13,223"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dgs": {
+     "psnr": {
+      "value": 13.430494399867378,
+      "text": "13.43"
+     },
+     "ssim": {
+      "value": 0.2230322022329677,
+      "text": "0.223"
+     },
+     "lpips": {
+      "value": 0.804495632648468,
+      "text": "0.804"
+     },
+     "fps": {
+      "value": 1313.5629550930416,
+      "text": "1,313.6"
+     },
+     "memory_mb": {
+      "value": 3.067528,
+      "text": "3.07"
+     },
+     "vram_gib": {
+      "value": 0.546875,
+      "text": "0.55"
+     },
+     "primitives": {
+      "value": 12998,
+      "text": "12,998"
+     },
+     "gpu": "RTX A5000"
+    },
+    "triangle": {
+     "psnr": {
+      "value": 17.13045288820633,
+      "text": "17.13"
+     },
+     "ssim": {
+      "value": 0.29970112307505176,
+      "text": "0.300"
+     },
+     "lpips": {
+      "value": 0.671261188658801,
+      "text": "0.671"
+     },
+     "fps": {
+      "value": 372.54396121949907,
+      "text": "372.5"
+     },
+     "memory_mb": {
+      "value": 3.058088,
+      "text": "3.06"
+     },
+     "vram_gib": {
+      "value": 0.904296875,
+      "text": "0.90"
+     },
+     "primitives": {
+      "value": 12958,
+      "text": "12,958"
+     },
+     "gpu": "RTX A5000"
+    },
+    "meshsplatting": {
+     "psnr": {
+      "value": 16.130571380871036,
+      "text": "16.13"
+     },
+     "ssim": {
+      "value": 0.24347410486503082,
+      "text": "0.243"
+     },
+     "lpips": {
+      "value": 0.714620053768158,
+      "text": "0.715"
+     },
+     "fps": {
+      "value": 70.76338263265744,
+      "text": "70.8"
+     },
+     "memory_mb": {
+      "value": 2.39552,
+      "text": "2.40"
+     },
+     "vram_gib": {
+      "value": 3.671875,
+      "text": "3.67"
+     },
+     "primitives": {
+      "value": 23052,
+      "text": "23,052"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dconvex": {
+     "psnr": {
+      "value": 16.010866592154283,
+      "text": "16.01"
+     },
+     "ssim": {
+      "value": 0.28480235690420325,
+      "text": "0.285"
+     },
+     "lpips": {
+      "value": 0.6924958581274206,
+      "text": "0.692"
+     },
+     "fps": {
+      "value": 222.37021982143312,
+      "text": "222.4"
+     },
+     "memory_mb": {
+      "value": 2.130444,
+      "text": "2.13"
+     },
+     "vram_gib": {
+      "value": 0.794921875,
+      "text": "0.79"
+     },
+     "primitives": {
+      "value": 7719,
+      "text": "7,719"
+     },
+     "gpu": "RTX A5000"
+    },
+    "bbsplat": {
+     "psnr": {
+      "value": 15.966780860584775,
+      "text": "15.97"
+     },
+     "ssim": {
+      "value": 0.26902477172288025,
+      "text": "0.269"
+     },
+     "lpips": {
+      "value": 0.7554294087670066,
+      "text": "0.755"
+     },
+     "fps": {
+      "value": 125.16715452011923,
+      "text": "125.2"
+     },
+     "memory_mb": {
+      "value": 3.065716,
+      "text": "3.07"
+     },
+     "vram_gib": {
+      "value": 1.01171875,
+      "text": "1.01"
+     },
+     "primitives": {
+      "value": 709,
+      "text": "709"
+     },
+     "gpu": "RTX A5000"
+    },
+    "nexels": {
+     "psnr": {
+      "value": 17.183906171595083,
+      "text": "17.18"
+     },
+     "ssim": {
+      "value": 0.2718404247002168,
+      "text": "0.272"
+     },
+     "lpips": {
+      "value": 0.6526806246150624,
+      "text": "0.653"
+     },
+     "fps": {
+      "value": 63.268114129797254,
+      "text": "63.3"
+     },
+     "memory_mb": {
+      "value": 2.974,
+      "text": "2.97"
+     },
+     "vram_gib": {
+      "value": 4.51953125,
+      "text": "4.52"
+     },
+     "primitives": {
+      "value": 7740,
+      "text": "7,740"
+     },
+     "gpu": "RTX A5000"
+    }
+   },
+   "mipnerf360/garden": {
+    "ours": {
+     "psnr": {
+      "value": 24.71209637325389,
+      "text": "24.71"
+     },
+     "ssim": {
+      "value": 0.7283196523785591,
+      "text": "0.728"
+     },
+     "lpips": {
+      "value": 0.33742086092631024,
+      "text": "0.337"
+     },
+     "fps": {
+      "value": 323.8964332750751,
+      "text": "323.9"
+     },
+     "memory_mb": {
+      "value": 11.10128,
+      "text": "11.10"
+     },
+     "vram_gib": {
+      "value": 0.677734375,
+      "text": "0.68"
+     },
+     "primitives": {
+      "value": 138766,
+      "text": "138,766"
+     },
+     "gpu": "RTX A5000"
+    },
+    "2dgs": {
+     "psnr": {
+      "value": 17.308522929932355,
+      "text": "17.31"
+     },
+     "ssim": {
+      "value": 0.3484568117807309,
+      "text": "0.348"
+     },
+     "lpips": {
+      "value": 0.717601458231608,
+      "text": "0.718"
+     },
+     "fps": {
+      "value": 212.80226604606673,
+      "text": "212.8"
+     },
+     "memory_mb": {
+      "value": 11.1012,
+      "text": "11.10"
+     },
+     "vram_gib": {
+      "value": 2.015625,
+      "text": "2.02"
+     },
+     "primitives": {
+      "value": 47850,
+      "text": "47,850"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dgs": {
+     "psnr": {
+      "value": 20.13480005770561,
+      "text": "20.13"
+     },
+     "ssim": {
+      "value": 0.4078921948870023,
+      "text": "0.408"
+     },
+     "lpips": {
+      "value": 0.6332757547497749,
+      "text": "0.633"
+     },
+     "fps": {
+      "value": 729.5624829619968,
+      "text": "729.6"
+     },
+     "memory_mb": {
+      "value": 11.101204,
+      "text": "11.10"
+     },
+     "vram_gib": {
+      "value": 0.66796875,
+      "text": "0.67"
+     },
+     "primitives": {
+      "value": 47039,
+      "text": "47,039"
+     },
+     "gpu": "RTX A5000"
+    },
+    "triangle": {
+     "psnr": {
+      "value": 21.78297789017975,
+      "text": "21.78"
+     },
+     "ssim": {
+      "value": 0.5078634371360143,
+      "text": "0.508"
+     },
+     "lpips": {
+      "value": 0.5293134897947311,
+      "text": "0.529"
+     },
+     "fps": {
+      "value": 373.7582879800161,
+      "text": "373.8"
+     },
+     "memory_mb": {
+      "value": 11.075244,
+      "text": "11.08"
+     },
+     "vram_gib": {
+      "value": 1.0234375,
+      "text": "1.02"
+     },
+     "primitives": {
+      "value": 46929,
+      "text": "46,929"
+     },
+     "gpu": "RTX A5000"
+    },
+    "meshsplatting": {
+     "psnr": {
+      "value": 19.774600006303398,
+      "text": "19.77"
+     },
+     "ssim": {
+      "value": 0.37656687075893086,
+      "text": "0.377"
+     },
+     "lpips": {
+      "value": 0.6360274602969488,
+      "text": "0.636"
+     },
+     "fps": {
+      "value": 73.39352085697172,
+      "text": "73.4"
+     },
+     "memory_mb": {
+      "value": 9.952008,
+      "text": "9.95"
+     },
+     "vram_gib": {
+      "value": 3.857421875,
+      "text": "3.86"
+     },
+     "primitives": {
+      "value": 110382,
+      "text": "110,382"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dconvex": {
+     "psnr": {
+      "value": 19.93539536091357,
+      "text": "19.94"
+     },
+     "ssim": {
+      "value": 0.44547990957895917,
+      "text": "0.445"
+     },
+     "lpips": {
+      "value": 0.6020434324940046,
+      "text": "0.602"
+     },
+     "fps": {
+      "value": 105.87444763432026,
+      "text": "105.9"
+     },
+     "memory_mb": {
+      "value": 8.730156,
+      "text": "8.73"
+     },
+     "vram_gib": {
+      "value": 0.990234375,
+      "text": "0.99"
+     },
+     "primitives": {
+      "value": 31631,
+      "text": "31,631"
+     },
+     "gpu": "RTX A5000"
+    },
+    "bbsplat": {
+     "psnr": {
+      "value": 21.37750457959174,
+      "text": "21.38"
+     },
+     "ssim": {
+      "value": 0.44244134550293285,
+      "text": "0.442"
+     },
+     "lpips": {
+      "value": 0.5923457791407903,
+      "text": "0.592"
+     },
+     "fps": {
+      "value": 93.32338604016394,
+      "text": "93.3"
+     },
+     "memory_mb": {
+      "value": 11.099708,
+      "text": "11.10"
+     },
+     "vram_gib": {
+      "value": 1.904296875,
+      "text": "1.90"
+     },
+     "primitives": {
+      "value": 2567,
+      "text": "2,567"
+     },
+     "gpu": "RTX A5000"
+    },
+    "nexels": {
+     "psnr": {
+      "value": 22.912098219041827,
+      "text": "22.91"
+     },
+     "ssim": {
+      "value": 0.6130905697743098,
+      "text": "0.613"
+     },
+     "lpips": {
+      "value": 0.37776510789990425,
+      "text": "0.378"
+     },
+     "fps": {
+      "value": 58.91164066417426,
+      "text": "58.9"
+     },
+     "memory_mb": {
+      "value": 10.77842,
+      "text": "10.78"
+     },
+     "vram_gib": {
+      "value": 4.78125,
+      "text": "4.78"
+     },
+     "primitives": {
+      "value": 26833,
+      "text": "26,833"
+     },
+     "gpu": "RTX A5000"
+    }
+   },
+   "mipnerf360/stump": {
+    "ours": {
+     "psnr": {
+      "value": 22.921080915047288,
+      "text": "22.92"
+     },
+     "ssim": {
+      "value": 0.5589571222662926,
+      "text": "0.559"
+     },
+     "lpips": {
+      "value": 0.5337533261626959,
+      "text": "0.534"
+     },
+     "fps": {
+      "value": 632.9280664593041,
+      "text": "632.9"
+     },
+     "memory_mb": {
+      "value": 2.56392,
+      "text": "2.56"
+     },
+     "vram_gib": {
+      "value": 0.55859375,
+      "text": "0.56"
+     },
+     "primitives": {
+      "value": 32049,
+      "text": "32,049"
+     },
+     "gpu": "RTX A5000"
+    },
+    "2dgs": {
+     "psnr": {
+      "value": 17.547633276283445,
+      "text": "17.55"
+     },
+     "ssim": {
+      "value": 0.34565937519073486,
+      "text": "0.346"
+     },
+     "lpips": {
+      "value": 0.7381768971681595,
+      "text": "0.738"
+     },
+     "fps": {
+      "value": 304.39776521075885,
+      "text": "304.4"
+     },
+     "memory_mb": {
+      "value": 2.563832,
+      "text": "2.56"
+     },
+     "vram_gib": {
+      "value": 1.658203125,
+      "text": "1.66"
+     },
+     "primitives": {
+      "value": 11051,
+      "text": "11,051"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dgs": {
+     "psnr": {
+      "value": 18.00496101195097,
+      "text": "18.00"
+     },
+     "ssim": {
+      "value": 0.336866257712245,
+      "text": "0.337"
+     },
+     "lpips": {
+      "value": 0.7375017404556274,
+      "text": "0.738"
+     },
+     "fps": {
+      "value": 1642.2552823926867,
+      "text": "1,642.3"
+     },
+     "memory_mb": {
+      "value": 2.563904,
+      "text": "2.56"
+     },
+     "vram_gib": {
+      "value": 0.51171875,
+      "text": "0.51"
+     },
+     "primitives": {
+      "value": 10864,
+      "text": "10,864"
+     },
+     "gpu": "RTX A5000"
+    },
+    "triangle": {
+     "psnr": {
+      "value": 20.481668744541945,
+      "text": "20.48"
+     },
+     "ssim": {
+      "value": 0.39779758639633656,
+      "text": "0.398"
+     },
+     "lpips": {
+      "value": 0.6672778390347958,
+      "text": "0.667"
+     },
+     "fps": {
+      "value": 371.10307509896455,
+      "text": "371.1"
+     },
+     "memory_mb": {
+      "value": 2.558476,
+      "text": "2.56"
+     },
+     "vram_gib": {
+      "value": 0.88671875,
+      "text": "0.89"
+     },
+     "primitives": {
+      "value": 10841,
+      "text": "10,841"
+     },
+     "gpu": "RTX A5000"
+    },
+    "meshsplatting": {
+     "psnr": {
+      "value": 19.914741387233565,
+      "text": "19.91"
+     },
+     "ssim": {
+      "value": 0.36127157509326935,
+      "text": "0.361"
+     },
+     "lpips": {
+      "value": 0.6839895248413086,
+      "text": "0.684"
+     },
+     "fps": {
+      "value": 74.1623372479275,
+      "text": "74.2"
+     },
+     "memory_mb": {
+      "value": 1.94916,
+      "text": "1.95"
+     },
+     "vram_gib": {
+      "value": 3.61328125,
+      "text": "3.61"
+     },
+     "primitives": {
+      "value": 20210,
+      "text": "20,210"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dconvex": {
+     "psnr": {
+      "value": 19.702661717313074,
+      "text": "19.70"
+     },
+     "ssim": {
+      "value": 0.4067831877619028,
+      "text": "0.407"
+     },
+     "lpips": {
+      "value": 0.6750916801393032,
+      "text": "0.675"
+     },
+     "fps": {
+      "value": 326.76262351145294,
+      "text": "326.8"
+     },
+     "memory_mb": {
+      "value": 1.463352,
+      "text": "1.46"
+     },
+     "vram_gib": {
+      "value": 0.708984375,
+      "text": "0.71"
+     },
+     "primitives": {
+      "value": 5302,
+      "text": "5,302"
+     },
+     "gpu": "RTX A5000"
+    },
+    "bbsplat": {
+     "psnr": {
+      "value": 19.634161305418402,
+      "text": "19.63"
+     },
+     "ssim": {
+      "value": 0.3710028789937496,
+      "text": "0.371"
+     },
+     "lpips": {
+      "value": 0.7154796123504639,
+      "text": "0.715"
+     },
+     "fps": {
+      "value": 131.53789339421007,
+      "text": "131.5"
+     },
+     "memory_mb": {
+      "value": 2.559808,
+      "text": "2.56"
+     },
+     "vram_gib": {
+      "value": 0.93359375,
+      "text": "0.93"
+     },
+     "primitives": {
+      "value": 592,
+      "text": "592"
+     },
+     "gpu": "RTX A5000"
+    },
+    "nexels": {
+     "psnr": {
+      "value": 20.571474328455274,
+      "text": "20.57"
+     },
+     "ssim": {
+      "value": 0.3967264909297228,
+      "text": "0.397"
+     },
+     "lpips": {
+      "value": 0.6394686438143253,
+      "text": "0.639"
+     },
+     "fps": {
+      "value": 67.46582424431033,
+      "text": "67.5"
+     },
+     "memory_mb": {
+      "value": 2.493808,
+      "text": "2.49"
+     },
+     "vram_gib": {
+      "value": 4.45703125,
+      "text": "4.46"
+     },
+     "primitives": {
+      "value": 5772,
+      "text": "5,772"
+     },
+     "gpu": "RTX A5000"
+    }
+   },
+   "mipnerf360/treehill": {
+    "ours": {
+     "psnr": {
+      "value": 21.33868152315715,
+      "text": "21.34"
+     },
+     "ssim": {
+      "value": 0.5390667104058795,
+      "text": "0.539"
+     },
+     "lpips": {
+      "value": 0.5639002786742316,
+      "text": "0.564"
+     },
+     "fps": {
+      "value": 399.0584667090776,
+      "text": "399.1"
+     },
+     "memory_mb": {
+      "value": 4.18904,
+      "text": "4.19"
+     },
+     "vram_gib": {
+      "value": 0.623046875,
+      "text": "0.62"
+     },
+     "primitives": {
+      "value": 52363,
+      "text": "52,363"
+     },
+     "gpu": "RTX A5000"
+    },
+    "2dgs": {
+     "psnr": {
+      "value": 13.742834622369493,
+      "text": "13.74"
+     },
+     "ssim": {
+      "value": 0.3363105638159646,
+      "text": "0.336"
+     },
+     "lpips": {
+      "value": 0.7766947613822089,
+      "text": "0.777"
+     },
+     "fps": {
+      "value": 262.21213650548395,
+      "text": "262.2"
+     },
+     "memory_mb": {
+      "value": 4.188992,
+      "text": "4.19"
+     },
+     "vram_gib": {
+      "value": 2.1015625,
+      "text": "2.10"
+     },
+     "primitives": {
+      "value": 18056,
+      "text": "18,056"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dgs": {
+     "psnr": {
+      "value": 15.71538366457189,
+      "text": "15.72"
+     },
+     "ssim": {
+      "value": 0.3389989601241218,
+      "text": "0.339"
+     },
+     "lpips": {
+      "value": 0.7330552869372897,
+      "text": "0.733"
+     },
+     "fps": {
+      "value": 1298.6980187905913,
+      "text": "1,298.7"
+     },
+     "memory_mb": {
+      "value": 4.189,
+      "text": "4.19"
+     },
+     "vram_gib": {
+      "value": 0.587890625,
+      "text": "0.59"
+     },
+     "primitives": {
+      "value": 17750,
+      "text": "17,750"
+     },
+     "gpu": "RTX A5000"
+    },
+    "triangle": {
+     "psnr": {
+      "value": 20.69394801044363,
+      "text": "20.69"
+     },
+     "ssim": {
+      "value": 0.4500381383630965,
+      "text": "0.450"
+     },
+     "lpips": {
+      "value": 0.6438083913591173,
+      "text": "0.644"
+     },
+     "fps": {
+      "value": 355.418445772214,
+      "text": "355.4"
+     },
+     "memory_mb": {
+      "value": 4.174604,
+      "text": "4.17"
+     },
+     "vram_gib": {
+      "value": 0.974609375,
+      "text": "0.97"
+     },
+     "primitives": {
+      "value": 17689,
+      "text": "17,689"
+     },
+     "gpu": "RTX A5000"
+    },
+    "meshsplatting": {
+     "psnr": {
+      "value": 18.05815533455154,
+      "text": "18.06"
+     },
+     "ssim": {
+      "value": 0.37392591105567086,
+      "text": "0.374"
+     },
+     "lpips": {
+      "value": 0.6994523836506737,
+      "text": "0.699"
+     },
+     "fps": {
+      "value": 70.3538016199463,
+      "text": "70.4"
+     },
+     "memory_mb": {
+      "value": 3.451716,
+      "text": "3.45"
+     },
+     "vram_gib": {
+      "value": 3.693359375,
+      "text": "3.69"
+     },
+     "primitives": {
+      "value": 41111,
+      "text": "41,111"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dconvex": {
+     "psnr": {
+      "value": 17.42033682799443,
+      "text": "17.42"
+     },
+     "ssim": {
+      "value": 0.417564516266187,
+      "text": "0.418"
+     },
+     "lpips": {
+      "value": 0.6889392170641158,
+      "text": "0.689"
+     },
+     "fps": {
+      "value": 158.1973857117422,
+      "text": "158.2"
+     },
+     "memory_mb": {
+      "value": 3.33408,
+      "text": "3.33"
+     },
+     "vram_gib": {
+      "value": 0.9453125,
+      "text": "0.95"
+     },
+     "primitives": {
+      "value": 12080,
+      "text": "12,080"
+     },
+     "gpu": "RTX A5000"
+    },
+    "bbsplat": {
+     "psnr": {
+      "value": 19.702565809519502,
+      "text": "19.70"
+     },
+     "ssim": {
+      "value": 0.3962944994370143,
+      "text": "0.396"
+     },
+     "lpips": {
+      "value": 0.7093556953801049,
+      "text": "0.709"
+     },
+     "fps": {
+      "value": 113.38321325577735,
+      "text": "113.4"
+     },
+     "memory_mb": {
+      "value": 4.185632,
+      "text": "4.19"
+     },
+     "vram_gib": {
+      "value": 1.27734375,
+      "text": "1.28"
+     },
+     "primitives": {
+      "value": 968,
+      "text": "968"
+     },
+     "gpu": "RTX A5000"
+    },
+    "nexels": {
+     "psnr": {
+      "value": 20.983687582418092,
+      "text": "20.98"
+     },
+     "ssim": {
+      "value": 0.46961165964603424,
+      "text": "0.470"
+     },
+     "lpips": {
+      "value": 0.5675124360455407,
+      "text": "0.568"
+     },
+     "fps": {
+      "value": 55.62489786306054,
+      "text": "55.6"
+     },
+     "memory_mb": {
+      "value": 4.04272,
+      "text": "4.04"
+     },
+     "vram_gib": {
+      "value": 4.609375,
+      "text": "4.61"
+     },
+     "primitives": {
+      "value": 12120,
+      "text": "12,120"
+     },
+     "gpu": "RTX A5000"
+    }
+   },
+   "mipnerf360/room": {
+    "ours": {
+     "psnr": {
+      "value": 28.6610796765901,
+      "text": "28.66"
+     },
+     "ssim": {
+      "value": 0.8849616906581781,
+      "text": "0.885"
+     },
+     "lpips": {
+      "value": 0.354534102556033,
+      "text": "0.355"
+     },
+     "fps": {
+      "value": 343.7764177557537,
+      "text": "343.8"
+     },
+     "memory_mb": {
+      "value": 9.01016,
+      "text": "9.01"
+     },
+     "vram_gib": {
+      "value": 0.783203125,
+      "text": "0.78"
+     },
+     "primitives": {
+      "value": 112627,
+      "text": "112,627"
+     },
+     "gpu": "RTX A5000"
+    },
+    "2dgs": {
+     "psnr": {
+      "value": 20.110477163768373,
+      "text": "20.11"
+     },
+     "ssim": {
+      "value": 0.7338288334699777,
+      "text": "0.734"
+     },
+     "lpips": {
+      "value": 0.5742320066843277,
+      "text": "0.574"
+     },
+     "fps": {
+      "value": 140.64897594130034,
+      "text": "140.6"
+     },
+     "memory_mb": {
+      "value": 9.009952,
+      "text": "9.01"
+     },
+     "vram_gib": {
+      "value": 5.05078125,
+      "text": "5.05"
+     },
+     "primitives": {
+      "value": 38836,
+      "text": "38,836"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dgs": {
+     "psnr": {
+      "value": 24.11077202810412,
+      "text": "24.11"
+     },
+     "ssim": {
+      "value": 0.7885895310304104,
+      "text": "0.789"
+     },
+     "lpips": {
+      "value": 0.5166813150430337,
+      "text": "0.517"
+     },
+     "fps": {
+      "value": 395.1017053273017,
+      "text": "395.1"
+     },
+     "memory_mb": {
+      "value": 9.010008,
+      "text": "9.01"
+     },
+     "vram_gib": {
+      "value": 1.849609375,
+      "text": "1.85"
+     },
+     "primitives": {
+      "value": 38178,
+      "text": "38,178"
+     },
+     "gpu": "RTX A5000"
+    },
+    "triangle": {
+     "psnr": {
+      "value": 27.32996440502794,
+      "text": "27.33"
+     },
+     "ssim": {
+      "value": 0.8446177183053433,
+      "text": "0.845"
+     },
+     "lpips": {
+      "value": 0.43819657273781604,
+      "text": "0.438"
+     },
+     "fps": {
+      "value": 263.3636416249858,
+      "text": "263.4"
+     },
+     "memory_mb": {
+      "value": 8.952188,
+      "text": "8.95"
+     },
+     "vram_gib": {
+      "value": 1.279296875,
+      "text": "1.28"
+     },
+     "primitives": {
+      "value": 37933,
+      "text": "37,933"
+     },
+     "gpu": "RTX A5000"
+    },
+    "meshsplatting": {
+     "psnr": {
+      "value": 20.79088813952171,
+      "text": "20.79"
+     },
+     "ssim": {
+      "value": 0.693807215262682,
+      "text": "0.694"
+     },
+     "lpips": {
+      "value": 0.5722872416178385,
+      "text": "0.572"
+     },
+     "fps": {
+      "value": 49.11753420757951,
+      "text": "49.1"
+     },
+     "memory_mb": {
+      "value": 7.154736,
+      "text": "7.15"
+     },
+     "vram_gib": {
+      "value": 5.494140625,
+      "text": "5.49"
+     },
+     "primitives": {
+      "value": 79140,
+      "text": "79,140"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dconvex": {
+     "psnr": {
+      "value": 23.793600773080417,
+      "text": "23.79"
+     },
+     "ssim": {
+      "value": 0.8009950808989696,
+      "text": "0.801"
+     },
+     "lpips": {
+      "value": 0.48489495118459064,
+      "text": "0.485"
+     },
+     "fps": {
+      "value": 79.92574636347132,
+      "text": "79.9"
+     },
+     "memory_mb": {
+      "value": 7.418052,
+      "text": "7.42"
+     },
+     "vram_gib": {
+      "value": 1.388671875,
+      "text": "1.39"
+     },
+     "primitives": {
+      "value": 26877,
+      "text": "26,877"
+     },
+     "gpu": "RTX A5000"
+    },
+    "bbsplat": {
+     "psnr": {
+      "value": 25.725917679437742,
+      "text": "25.73"
+     },
+     "ssim": {
+      "value": 0.8076432179182004,
+      "text": "0.808"
+     },
+     "lpips": {
+      "value": 0.4930247175387847,
+      "text": "0.493"
+     },
+     "fps": {
+      "value": 58.85895875288861,
+      "text": "58.9"
+     },
+     "memory_mb": {
+      "value": 9.006892,
+      "text": "9.01"
+     },
+     "vram_gib": {
+      "value": 5.630859375,
+      "text": "5.63"
+     },
+     "primitives": {
+      "value": 2083,
+      "text": "2,083"
+     },
+     "gpu": "RTX A5000"
+    },
+    "nexels": {
+     "psnr": {
+      "value": 23.538162547811165,
+      "text": "23.54"
+     },
+     "ssim": {
+      "value": 0.7160913195365515,
+      "text": "0.716"
+     },
+     "lpips": {
+      "value": 0.5254543263178605,
+      "text": "0.525"
+     },
+     "fps": {
+      "value": 36.573059656612955,
+      "text": "36.6"
+     },
+     "memory_mb": {
+      "value": 8.785428,
+      "text": "8.79"
+     },
+     "vram_gib": {
+      "value": 8.060546875,
+      "text": "8.06"
+     },
+     "primitives": {
+      "value": 18665,
+      "text": "18,665"
+     },
+     "gpu": "RTX A5000"
+    }
+   },
+   "mipnerf360/counter": {
+    "ours": {
+     "psnr": {
+      "value": 26.860787924078757,
+      "text": "26.86"
+     },
+     "ssim": {
+      "value": 0.870998873313268,
+      "text": "0.871"
+     },
+     "lpips": {
+      "value": 0.31470504105091096,
+      "text": "0.315"
+     },
+     "fps": {
+      "value": 180.94252244599946,
+      "text": "180.9"
+     },
+     "memory_mb": {
+      "value": 12.46136,
+      "text": "12.46"
+     },
+     "vram_gib": {
+      "value": 0.818359375,
+      "text": "0.82"
+     },
+     "primitives": {
+      "value": 155767,
+      "text": "155,767"
+     },
+     "gpu": "RTX A5000"
+    },
+    "2dgs": {
+     "psnr": {
+      "value": 20.373187012620864,
+      "text": "20.37"
+     },
+     "ssim": {
+      "value": 0.7017267088095347,
+      "text": "0.702"
+     },
+     "lpips": {
+      "value": 0.5484826107819875,
+      "text": "0.548"
+     },
+     "fps": {
+      "value": 149.27080746471026,
+      "text": "149.3"
+     },
+     "memory_mb": {
+      "value": 12.461184,
+      "text": "12.46"
+     },
+     "vram_gib": {
+      "value": 3.3828125,
+      "text": "3.38"
+     },
+     "primitives": {
+      "value": 53712,
+      "text": "53,712"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dgs": {
+     "psnr": {
+      "value": 25.474823441048468,
+      "text": "25.47"
+     },
+     "ssim": {
+      "value": 0.7889541248480479,
+      "text": "0.789"
+     },
+     "lpips": {
+      "value": 0.4502298355102539,
+      "text": "0.450"
+     },
+     "fps": {
+      "value": 412.6126907775766,
+      "text": "412.6"
+     },
+     "memory_mb": {
+      "value": 12.461272,
+      "text": "12.46"
+     },
+     "vram_gib": {
+      "value": 1.87890625,
+      "text": "1.88"
+     },
+     "primitives": {
+      "value": 52802,
+      "text": "52,802"
+     },
+     "gpu": "RTX A5000"
+    },
+    "triangle": {
+     "psnr": {
+      "value": 23.392541823447463,
+      "text": "23.39"
+     },
+     "ssim": {
+      "value": 0.7777791778246562,
+      "text": "0.778"
+     },
+     "lpips": {
+      "value": 0.4541844000418981,
+      "text": "0.454"
+     },
+     "fps": {
+      "value": 229.36395131792978,
+      "text": "229.4"
+     },
+     "memory_mb": {
+      "value": 12.36758,
+      "text": "12.37"
+     },
+     "vram_gib": {
+      "value": 1.359375,
+      "text": "1.36"
+     },
+     "primitives": {
+      "value": 52405,
+      "text": "52,405"
+     },
+     "gpu": "RTX A5000"
+    },
+    "meshsplatting": {
+     "psnr": {
+      "value": 20.51281097624516,
+      "text": "20.51"
+     },
+     "ssim": {
+      "value": 0.6557245870431264,
+      "text": "0.656"
+     },
+     "lpips": {
+      "value": 0.567485632499059,
+      "text": "0.567"
+     },
+     "fps": {
+      "value": 44.24062809426768,
+      "text": "44.2"
+     },
+     "memory_mb": {
+      "value": 9.73288,
+      "text": "9.73"
+     },
+     "vram_gib": {
+      "value": 5.458984375,
+      "text": "5.46"
+     },
+     "primitives": {
+      "value": 125124,
+      "text": "125,124"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dconvex": {
+     "psnr": {
+      "value": 23.348136346928907,
+      "text": "23.35"
+     },
+     "ssim": {
+      "value": 0.7886824131011962,
+      "text": "0.789"
+     },
+     "lpips": {
+      "value": 0.44469946920871734,
+      "text": "0.445"
+     },
+     "fps": {
+      "value": 53.99789794648959,
+      "text": "54.0"
+     },
+     "memory_mb": {
+      "value": 11.181864,
+      "text": "11.18"
+     },
+     "vram_gib": {
+      "value": 1.658203125,
+      "text": "1.66"
+     },
+     "primitives": {
+      "value": 40514,
+      "text": "40,514"
+     },
+     "gpu": "RTX A5000"
+    },
+    "bbsplat": {
+     "psnr": {
+      "value": 23.10638230601377,
+      "text": "23.11"
+     },
+     "ssim": {
+      "value": 0.7264565189679464,
+      "text": "0.726"
+     },
+     "lpips": {
+      "value": 0.5212889234224956,
+      "text": "0.521"
+     },
+     "fps": {
+      "value": 49.71754723538878,
+      "text": "49.7"
+     },
+     "memory_mb": {
+      "value": 12.457444,
+      "text": "12.46"
+     },
+     "vram_gib": {
+      "value": 5.529296875,
+      "text": "5.53"
+     },
+     "primitives": {
+      "value": 2881,
+      "text": "2,881"
+     },
+     "gpu": "RTX A5000"
+    },
+    "nexels": {
+     "psnr": {
+      "value": 25.473579724015586,
+      "text": "25.47"
+     },
+     "ssim": {
+      "value": 0.8127560218175253,
+      "text": "0.813"
+     },
+     "lpips": {
+      "value": 0.377774840593338,
+      "text": "0.378"
+     },
+     "fps": {
+      "value": 35.069067285366984,
+      "text": "35.1"
+     },
+     "memory_mb": {
+      "value": 12.074792,
+      "text": "12.07"
+     },
+     "vram_gib": {
+      "value": 7.6015625,
+      "text": "7.60"
+     },
+     "primitives": {
+      "value": 32146,
+      "text": "32,146"
+     },
+     "gpu": "RTX A5000"
+    }
+   },
+   "mipnerf360/kitchen": {
+    "ours": {
+     "psnr": {
+      "value": 28.70696185285875,
+      "text": "28.71"
+     },
+     "ssim": {
+      "value": 0.8945577536310468,
+      "text": "0.895"
+     },
+     "lpips": {
+      "value": 0.21323281782014028,
+      "text": "0.213"
+     },
+     "fps": {
+      "value": 151.86247027775443,
+      "text": "151.9"
+     },
+     "memory_mb": {
+      "value": 19.30936,
+      "text": "19.31"
+     },
+     "vram_gib": {
+      "value": 0.884765625,
+      "text": "0.88"
+     },
+     "primitives": {
+      "value": 241367,
+      "text": "241,367"
+     },
+     "gpu": "RTX A5000"
+    },
+    "2dgs": {
+     "psnr": {
+      "value": 22.05708278262363,
+      "text": "22.06"
+     },
+     "ssim": {
+      "value": 0.7589284368923732,
+      "text": "0.759"
+     },
+     "lpips": {
+      "value": 0.4285467462880271,
+      "text": "0.429"
+     },
+     "fps": {
+      "value": 116.67915465103528,
+      "text": "116.7"
+     },
+     "memory_mb": {
+      "value": 19.30936,
+      "text": "19.31"
+     },
+     "vram_gib": {
+      "value": 4.876953125,
+      "text": "4.88"
+     },
+     "primitives": {
+      "value": 83230,
+      "text": "83,230"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dgs": {
+     "psnr": {
+      "value": 26.15270388503501,
+      "text": "26.15"
+     },
+     "ssim": {
+      "value": 0.7948283110346113,
+      "text": "0.795"
+     },
+     "lpips": {
+      "value": 0.372917183807918,
+      "text": "0.373"
+     },
+     "fps": {
+      "value": 247.63109510195738,
+      "text": "247.6"
+     },
+     "memory_mb": {
+      "value": 19.309284,
+      "text": "19.31"
+     },
+     "vram_gib": {
+      "value": 4.931640625,
+      "text": "4.93"
+     },
+     "primitives": {
+      "value": 81819,
+      "text": "81,819"
+     },
+     "gpu": "RTX A5000"
+    },
+    "triangle": {
+     "psnr": {
+      "value": 24.769547047918014,
+      "text": "24.77"
+     },
+     "ssim": {
+      "value": 0.7731223617281232,
+      "text": "0.773"
+     },
+     "lpips": {
+      "value": 0.38278738941465107,
+      "text": "0.383"
+     },
+     "fps": {
+      "value": 230.49323095276173,
+      "text": "230.5"
+     },
+     "memory_mb": {
+      "value": 19.188452,
+      "text": "19.19"
+     },
+     "vram_gib": {
+      "value": 1.423828125,
+      "text": "1.42"
+     },
+     "primitives": {
+      "value": 81307,
+      "text": "81,307"
+     },
+     "gpu": "RTX A5000"
+    },
+    "meshsplatting": {
+     "psnr": {
+      "value": 20.70073740393736,
+      "text": "20.70"
+     },
+     "ssim": {
+      "value": 0.6031124455588205,
+      "text": "0.603"
+     },
+     "lpips": {
+      "value": 0.5549049173082624,
+      "text": "0.555"
+     },
+     "fps": {
+      "value": 44.659899170863255,
+      "text": "44.7"
+     },
+     "memory_mb": {
+      "value": 14.417732,
+      "text": "14.42"
+     },
+     "vram_gib": {
+      "value": 5.484375,
+      "text": "5.48"
+     },
+     "primitives": {
+      "value": 188119,
+      "text": "188,119"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dconvex": {
+     "psnr": {
+      "value": 24.7379833532018,
+      "text": "24.74"
+     },
+     "ssim": {
+      "value": 0.8051826868738446,
+      "text": "0.805"
+     },
+     "lpips": {
+      "value": 0.35550190891538347,
+      "text": "0.356"
+     },
+     "fps": {
+      "value": 41.10793932233566,
+      "text": "41.1"
+     },
+     "memory_mb": {
+      "value": 17.854992,
+      "text": "17.85"
+     },
+     "vram_gib": {
+      "value": 2.294921875,
+      "text": "2.29"
+     },
+     "primitives": {
+      "value": 64692,
+      "text": "64,692"
+     },
+     "gpu": "RTX A5000"
+    },
+    "bbsplat": {
+     "psnr": {
+      "value": 24.523328135485446,
+      "text": "24.52"
+     },
+     "ssim": {
+      "value": 0.6832186375345503,
+      "text": "0.683"
+     },
+     "lpips": {
+      "value": 0.4379833808967045,
+      "text": "0.438"
+     },
+     "fps": {
+      "value": 42.05385190288085,
+      "text": "42.1"
+     },
+     "memory_mb": {
+      "value": 19.30666,
+      "text": "19.31"
+     },
+     "vram_gib": {
+      "value": 9.71875,
+      "text": "9.72"
+     },
+     "primitives": {
+      "value": 4465,
+      "text": "4,465"
+     },
+     "gpu": "RTX A5000"
+    },
+    "nexels": {
+     "psnr": {
+      "value": 27.157956889283266,
+      "text": "27.16"
+     },
+     "ssim": {
+      "value": 0.8463323593139649,
+      "text": "0.846"
+     },
+     "lpips": {
+      "value": 0.26235019649778096,
+      "text": "0.262"
+     },
+     "fps": {
+      "value": 37.633611386772166,
+      "text": "37.6"
+     },
+     "memory_mb": {
+      "value": 18.7984,
+      "text": "18.80"
+     },
+     "vram_gib": {
+      "value": 6.97265625,
+      "text": "6.97"
+     },
+     "primitives": {
+      "value": 42512,
+      "text": "42,512"
+     },
+     "gpu": "RTX A5000"
+    }
+   },
+   "mipnerf360/bonsai": {
+    "ours": {
+     "psnr": {
+      "value": 29.225800883595763,
+      "text": "29.23"
+     },
+     "ssim": {
+      "value": 0.9128005101874068,
+      "text": "0.913"
+     },
+     "lpips": {
+      "value": 0.30569592722364375,
+      "text": "0.306"
+     },
+     "fps": {
+      "value": 246.40254887987248,
+      "text": "246.4"
+     },
+     "memory_mb": {
+      "value": 16.52904,
+      "text": "16.53"
+     },
+     "vram_gib": {
+      "value": 0.84375,
+      "text": "0.84"
+     },
+     "primitives": {
+      "value": 206613,
+      "text": "206,613"
+     },
+     "gpu": "RTX A5000"
+    },
+    "2dgs": {
+     "psnr": {
+      "value": 17.815425392734213,
+      "text": "17.82"
+     },
+     "ssim": {
+      "value": 0.6474819038365338,
+      "text": "0.647"
+     },
+     "lpips": {
+      "value": 0.6316053802902634,
+      "text": "0.632"
+     },
+     "fps": {
+      "value": 124.70318304869986,
+      "text": "124.7"
+     },
+     "memory_mb": {
+      "value": 16.52884,
+      "text": "16.53"
+     },
+     "vram_gib": {
+      "value": 6.48828125,
+      "text": "6.49"
+     },
+     "primitives": {
+      "value": 71245,
+      "text": "71,245"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dgs": {
+     "psnr": {
+      "value": 24.609190668290754,
+      "text": "24.61"
+     },
+     "ssim": {
+      "value": 0.7591417786237356,
+      "text": "0.759"
+     },
+     "lpips": {
+      "value": 0.5109275394194835,
+      "text": "0.511"
+     },
+     "fps": {
+      "value": 482.03820818243105,
+      "text": "482.0"
+     },
+     "memory_mb": {
+      "value": 16.528968,
+      "text": "16.53"
+     },
+     "vram_gib": {
+      "value": 1.26953125,
+      "text": "1.27"
+     },
+     "primitives": {
+      "value": 70038,
+      "text": "70,038"
+     },
+     "gpu": "RTX A5000"
+    },
+    "triangle": {
+     "psnr": {
+      "value": 25.0239072618948,
+      "text": "25.02"
+     },
+     "ssim": {
+      "value": 0.8217338822983407,
+      "text": "0.822"
+     },
+     "lpips": {
+      "value": 0.44600746035575867,
+      "text": "0.446"
+     },
+     "fps": {
+      "value": 260.6626068668303,
+      "text": "260.7"
+     },
+     "memory_mb": {
+      "value": 16.426308,
+      "text": "16.43"
+     },
+     "vram_gib": {
+      "value": 1.3515625,
+      "text": "1.35"
+     },
+     "primitives": {
+      "value": 69603,
+      "text": "69,603"
+     },
+     "gpu": "RTX A5000"
+    },
+    "meshsplatting": {
+     "psnr": {
+      "value": 19.313666783931684,
+      "text": "19.31"
+     },
+     "ssim": {
+      "value": 0.6371847358909813,
+      "text": "0.637"
+     },
+     "lpips": {
+      "value": 0.5900768734313346,
+      "text": "0.590"
+     },
+     "fps": {
+      "value": 45.17059577848855,
+      "text": "45.2"
+     },
+     "memory_mb": {
+      "value": 12.826588,
+      "text": "12.83"
+     },
+     "vram_gib": {
+      "value": 5.50390625,
+      "text": "5.50"
+     },
+     "primitives": {
+      "value": 143525,
+      "text": "143,525"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dconvex": {
+     "psnr": {
+      "value": 23.08306172169286,
+      "text": "23.08"
+     },
+     "ssim": {
+      "value": 0.7786104115279945,
+      "text": "0.779"
+     },
+     "lpips": {
+      "value": 0.4852695714783024,
+      "text": "0.485"
+     },
+     "fps": {
+      "value": 57.468748150707455,
+      "text": "57.5"
+     },
+     "memory_mb": {
+      "value": 13.812696,
+      "text": "13.81"
+     },
+     "vram_gib": {
+      "value": 1.671875,
+      "text": "1.67"
+     },
+     "primitives": {
+      "value": 50046,
+      "text": "50,046"
+     },
+     "gpu": "RTX A5000"
+    },
+    "bbsplat": {
+     "psnr": {
+      "value": 23.978320579604073,
+      "text": "23.98"
+     },
+     "ssim": {
+      "value": 0.7731562901187587,
+      "text": "0.773"
+     },
+     "lpips": {
+      "value": 0.4701752380744831,
+      "text": "0.470"
+     },
+     "fps": {
+      "value": 47.353889496312114,
+      "text": "47.4"
+     },
+     "memory_mb": {
+      "value": 16.526328,
+      "text": "16.53"
+     },
+     "vram_gib": {
+      "value": 5.181640625,
+      "text": "5.18"
+     },
+     "primitives": {
+      "value": 3822,
+      "text": "3,822"
+     },
+     "gpu": "RTX A5000"
+    },
+    "nexels": {
+     "psnr": {
+      "value": 25.02418907949797,
+      "text": "25.02"
+     },
+     "ssim": {
+      "value": 0.7974546084532866,
+      "text": "0.797"
+     },
+     "lpips": {
+      "value": 0.4321147565906112,
+      "text": "0.432"
+     },
+     "fps": {
+      "value": 30.53121818928042,
+      "text": "30.5"
+     },
+     "memory_mb": {
+      "value": 15.951708,
+      "text": "15.95"
+     },
+     "vram_gib": {
+      "value": 8.263671875,
+      "text": "8.26"
+     },
+     "primitives": {
+      "value": 48035,
+      "text": "48,035"
+     },
+     "gpu": "RTX A5000"
+    }
+   },
+   "tanks_and_temples/Train": {
+    "ours": {
+     "psnr": {
+      "value": 20.500521746173337,
+      "text": "20.50"
+     },
+     "ssim": {
+      "value": 0.7618477548423567,
+      "text": "0.762"
+     },
+     "lpips": {
+      "value": 0.3063848465681076,
+      "text": "0.306"
+     },
+     "fps": {
+      "value": 372.64472113614534,
+      "text": "372.6"
+     },
+     "memory_mb": {
+      "value": 14.73432,
+      "text": "14.73"
+     },
+     "vram_gib": {
+      "value": 0.548828125,
+      "text": "0.55"
+     },
+     "primitives": {
+      "value": 184179,
+      "text": "184,179"
+     },
+     "gpu": "RTX A5000"
+    },
+    "2dgs": {
+     "psnr": {
+      "value": 18.79511016231578,
+      "text": "18.80"
+     },
+     "ssim": {
+      "value": 0.646778949781468,
+      "text": "0.647"
+     },
+     "lpips": {
+      "value": 0.47156203655820145,
+      "text": "0.472"
+     },
+     "fps": {
+      "value": 257.0329553030326,
+      "text": "257.0"
+     },
+     "memory_mb": {
+      "value": 14.73432,
+      "text": "14.73"
+     },
+     "vram_gib": {
+      "value": 1.56640625,
+      "text": "1.57"
+     },
+     "primitives": {
+      "value": 63510,
+      "text": "63,510"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dgs": {
+     "psnr": {
+      "value": 19.37077892075365,
+      "text": "19.37"
+     },
+     "ssim": {
+      "value": 0.6493505568880784,
+      "text": "0.649"
+     },
+     "lpips": {
+      "value": 0.4732041115823545,
+      "text": "0.473"
+     },
+     "fps": {
+      "value": 722.1560461064756,
+      "text": "722.2"
+     },
+     "memory_mb": {
+      "value": 14.734188,
+      "text": "14.73"
+     },
+     "vram_gib": {
+      "value": 0.79296875,
+      "text": "0.79"
+     },
+     "primitives": {
+      "value": 62433,
+      "text": "62,433"
+     },
+     "gpu": "RTX A5000"
+    },
+    "triangle": {
+     "psnr": {
+      "value": 19.017624827384473,
+      "text": "19.02"
+     },
+     "ssim": {
+      "value": 0.6628964292375665,
+      "text": "0.663"
+     },
+     "lpips": {
+      "value": 0.4443235373810718,
+      "text": "0.444"
+     },
+     "fps": {
+      "value": 486.38726403230316,
+      "text": "486.4"
+     },
+     "memory_mb": {
+      "value": 14.601792,
+      "text": "14.60"
+     },
+     "vram_gib": {
+      "value": 0.765625,
+      "text": "0.77"
+     },
+     "primitives": {
+      "value": 61872,
+      "text": "61,872"
+     },
+     "gpu": "RTX A5000"
+    },
+    "meshsplatting": {
+     "psnr": {
+      "value": 15.501780854467786,
+      "text": "15.50"
+     },
+     "ssim": {
+      "value": 0.5066759154984826,
+      "text": "0.507"
+     },
+     "lpips": {
+      "value": 0.5862793059725511,
+      "text": "0.586"
+     },
+     "fps": {
+      "value": 117.22448024733038,
+      "text": "117.2"
+     },
+     "memory_mb": {
+      "value": 9.519352,
+      "text": "9.52"
+     },
+     "vram_gib": {
+      "value": 2.140625,
+      "text": "2.14"
+     },
+     "primitives": {
+      "value": 108942,
+      "text": "108,942"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dconvex": {
+     "psnr": {
+      "value": 18.678821482209095,
+      "text": "18.68"
+     },
+     "ssim": {
+      "value": 0.6401623942350086,
+      "text": "0.640"
+     },
+     "lpips": {
+      "value": 0.47463018956937286,
+      "text": "0.475"
+     },
+     "fps": {
+      "value": 149.64991763240974,
+      "text": "149.6"
+     },
+     "memory_mb": {
+      "value": 13.066392,
+      "text": "13.07"
+     },
+     "vram_gib": {
+      "value": 0.91796875,
+      "text": "0.92"
+     },
+     "primitives": {
+      "value": 47342,
+      "text": "47,342"
+     },
+     "gpu": "RTX A5000"
+    },
+    "bbsplat": {
+     "psnr": {
+      "value": 16.103929355710513,
+      "text": "16.10"
+     },
+     "ssim": {
+      "value": 0.5056171495663492,
+      "text": "0.506"
+     },
+     "lpips": {
+      "value": 0.6461037193474016,
+      "text": "0.646"
+     },
+     "fps": {
+      "value": 159.78728269375029,
+      "text": "159.8"
+     },
+     "memory_mb": {
+      "value": 14.731868,
+      "text": "14.73"
+     },
+     "vram_gib": {
+      "value": 0.84375,
+      "text": "0.84"
+     },
+     "primitives": {
+      "value": 3407,
+      "text": "3,407"
+     },
+     "gpu": "RTX A5000"
+    },
+    "nexels": {
+     "psnr": {
+      "value": 19.529345333370834,
+      "text": "19.53"
+     },
+     "ssim": {
+      "value": 0.6555200658346477,
+      "text": "0.656"
+     },
+     "lpips": {
+      "value": 0.42380595207214355,
+      "text": "0.424"
+     },
+     "fps": {
+      "value": 91.88182538902677,
+      "text": "91.9"
+     },
+     "memory_mb": {
+      "value": 14.241268,
+      "text": "14.24"
+     },
+     "vram_gib": {
+      "value": 2.923828125,
+      "text": "2.92"
+     },
+     "primitives": {
+      "value": 41025,
+      "text": "41,025"
+     },
+     "gpu": "RTX A5000"
+    }
+   },
+   "tanks_and_temples/Truck": {
+    "ours": {
+     "psnr": {
+      "value": 23.298746812593077,
+      "text": "23.30"
+     },
+     "ssim": {
+      "value": 0.8196315374225378,
+      "text": "0.820"
+     },
+     "lpips": {
+      "value": 0.254860058426857,
+      "text": "0.255"
+     },
+     "fps": {
+      "value": 445.9164350488487,
+      "text": "445.9"
+     },
+     "memory_mb": {
+      "value": 10.99312,
+      "text": "10.99"
+     },
+     "vram_gib": {
+      "value": 0.525390625,
+      "text": "0.53"
+     },
+     "primitives": {
+      "value": 137414,
+      "text": "137,414"
+     },
+     "gpu": "RTX A5000"
+    },
+    "2dgs": {
+     "psnr": {
+      "value": 17.0389150232499,
+      "text": "17.04"
+     },
+     "ssim": {
+      "value": 0.6103828428313136,
+      "text": "0.610"
+     },
+     "lpips": {
+      "value": 0.5559888770803809,
+      "text": "0.556"
+     },
+     "fps": {
+      "value": 331.069301099854,
+      "text": "331.1"
+     },
+     "memory_mb": {
+      "value": 10.993088,
+      "text": "10.99"
+     },
+     "vram_gib": {
+      "value": 0.98828125,
+      "text": "0.99"
+     },
+     "primitives": {
+      "value": 47384,
+      "text": "47,384"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dgs": {
+     "psnr": {
+      "value": 16.23889338523926,
+      "text": "16.24"
+     },
+     "ssim": {
+      "value": 0.5662776762619615,
+      "text": "0.566"
+     },
+     "lpips": {
+      "value": 0.6116918008774519,
+      "text": "0.612"
+     },
+     "fps": {
+      "value": 1022.5603067188938,
+      "text": "1,022.6"
+     },
+     "memory_mb": {
+      "value": 10.993116,
+      "text": "10.99"
+     },
+     "vram_gib": {
+      "value": 0.5234375,
+      "text": "0.52"
+     },
+     "primitives": {
+      "value": 46581,
+      "text": "46,581"
+     },
+     "gpu": "RTX A5000"
+    },
+    "triangle": {
+     "psnr": {
+      "value": 20.11543936640736,
+      "text": "20.12"
+     },
+     "ssim": {
+      "value": 0.6837839912623167,
+      "text": "0.684"
+     },
+     "lpips": {
+      "value": 0.4293051194399595,
+      "text": "0.429"
+     },
+     "fps": {
+      "value": 518.2905286032513,
+      "text": "518.3"
+     },
+     "memory_mb": {
+      "value": 10.9209,
+      "text": "10.92"
+     },
+     "vram_gib": {
+      "value": 0.7265625,
+      "text": "0.73"
+     },
+     "primitives": {
+      "value": 46275,
+      "text": "46,275"
+     },
+     "gpu": "RTX A5000"
+    },
+    "meshsplatting": {
+     "psnr": {
+      "value": 17.859753172398936,
+      "text": "17.86"
+     },
+     "ssim": {
+      "value": 0.5790391005575657,
+      "text": "0.579"
+     },
+     "lpips": {
+      "value": 0.54978190921247,
+      "text": "0.550"
+     },
+     "fps": {
+      "value": 122.18538938249027,
+      "text": "122.2"
+     },
+     "memory_mb": {
+      "value": 7.936316,
+      "text": "7.94"
+     },
+     "vram_gib": {
+      "value": 2.119140625,
+      "text": "2.12"
+     },
+     "primitives": {
+      "value": 85477,
+      "text": "85,477"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dconvex": {
+     "psnr": {
+      "value": 18.73770099864903,
+      "text": "18.74"
+     },
+     "ssim": {
+      "value": 0.6437565758824348,
+      "text": "0.644"
+     },
+     "lpips": {
+      "value": 0.5110436119139194,
+      "text": "0.511"
+     },
+     "fps": {
+      "value": 247.83014020376442,
+      "text": "247.8"
+     },
+     "memory_mb": {
+      "value": 7.96812,
+      "text": "7.97"
+     },
+     "vram_gib": {
+      "value": 0.8359375,
+      "text": "0.84"
+     },
+     "primitives": {
+      "value": 28870,
+      "text": "28,870"
+     },
+     "gpu": "RTX A5000"
+    },
+    "bbsplat": {
+     "psnr": {
+      "value": 17.616437343769487,
+      "text": "17.62"
+     },
+     "ssim": {
+      "value": 0.5772116407752037,
+      "text": "0.577"
+     },
+     "lpips": {
+      "value": 0.6072006560862064,
+      "text": "0.607"
+     },
+     "fps": {
+      "value": 150.84477505095794,
+      "text": "150.8"
+     },
+     "memory_mb": {
+      "value": 10.991608,
+      "text": "10.99"
+     },
+     "vram_gib": {
+      "value": 0.880859375,
+      "text": "0.88"
+     },
+     "primitives": {
+      "value": 2542,
+      "text": "2,542"
+     },
+     "gpu": "RTX A5000"
+    },
+    "nexels": {
+     "psnr": {
+      "value": 20.413954884056736,
+      "text": "20.41"
+     },
+     "ssim": {
+      "value": 0.6681987829506397,
+      "text": "0.668"
+     },
+     "lpips": {
+      "value": 0.41872330475598574,
+      "text": "0.419"
+     },
+     "fps": {
+      "value": 102.05554497173021,
+      "text": "102.1"
+     },
+     "memory_mb": {
+      "value": 10.675452,
+      "text": "10.68"
+     },
+     "vram_gib": {
+      "value": 2.703125,
+      "text": "2.70"
+     },
+     "primitives": {
+      "value": 26411,
+      "text": "26,411"
+     },
+     "gpu": "RTX A5000"
+    }
+   },
+   "tanks_and_temples/Francis": {
+    "ours": {
+     "psnr": {
+      "value": 24.97783517174612,
+      "text": "24.98"
+     },
+     "ssim": {
+      "value": 0.8754735965477792,
+      "text": "0.875"
+     },
+     "lpips": {
+      "value": 0.36757514194438334,
+      "text": "0.368"
+     },
+     "fps": {
+      "value": 538.6777396471779,
+      "text": "538.7"
+     },
+     "memory_mb": {
+      "value": 8.54544,
+      "text": "8.55"
+     },
+     "vram_gib": {
+      "value": 0.490234375,
+      "text": "0.49"
+     },
+     "primitives": {
+      "value": 106818,
+      "text": "106,818"
+     },
+     "gpu": "RTX A5000"
+    },
+    "2dgs": {
+     "psnr": {
+      "value": 19.15010566524471,
+      "text": "19.15"
+     },
+     "ssim": {
+      "value": 0.7545129405824762,
+      "text": "0.755"
+     },
+     "lpips": {
+      "value": 0.544027663375202,
+      "text": "0.544"
+     },
+     "fps": {
+      "value": 299.55610258471165,
+      "text": "299.6"
+     },
+     "memory_mb": {
+      "value": 8.545256,
+      "text": "8.55"
+     },
+     "vram_gib": {
+      "value": 1.111328125,
+      "text": "1.11"
+     },
+     "primitives": {
+      "value": 36833,
+      "text": "36,833"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dgs": {
+     "psnr": {
+      "value": 24.723374461684774,
+      "text": "24.72"
+     },
+     "ssim": {
+      "value": 0.8165803661471919,
+      "text": "0.817"
+     },
+     "lpips": {
+      "value": 0.47463359566111313,
+      "text": "0.475"
+     },
+     "fps": {
+      "value": 782.8967282377963,
+      "text": "782.9"
+     },
+     "memory_mb": {
+      "value": 8.545324,
+      "text": "8.55"
+     },
+     "vram_gib": {
+      "value": 0.58984375,
+      "text": "0.59"
+     },
+     "primitives": {
+      "value": 36209,
+      "text": "36,209"
+     },
+     "gpu": "RTX A5000"
+    },
+    "triangle": {
+     "psnr": {
+      "value": 23.82465818478814,
+      "text": "23.82"
+     },
+     "ssim": {
+      "value": 0.839838622432006,
+      "text": "0.840"
+     },
+     "lpips": {
+      "value": 0.4316932417844471,
+      "text": "0.432"
+     },
+     "fps": {
+      "value": 548.0058042542162,
+      "text": "548.0"
+     },
+     "memory_mb": {
+      "value": 8.39098,
+      "text": "8.39"
+     },
+     "vram_gib": {
+      "value": 0.703125,
+      "text": "0.70"
+     },
+     "primitives": {
+      "value": 35555,
+      "text": "35,555"
+     },
+     "gpu": "RTX A5000"
+    },
+    "meshsplatting": {
+     "psnr": {
+      "value": 14.999347540263757,
+      "text": "15.00"
+     },
+     "ssim": {
+      "value": 0.6109393497830943,
+      "text": "0.611"
+     },
+     "lpips": {
+      "value": 0.60853994520087,
+      "text": "0.609"
+     },
+     "fps": {
+      "value": 119.51530417052311,
+      "text": "119.5"
+     },
+     "memory_mb": {
+      "value": 5.185472,
+      "text": "5.19"
+     },
+     "vram_gib": {
+      "value": 2.115234375,
+      "text": "2.12"
+     },
+     "primitives": {
+      "value": 51916,
+      "text": "51,916"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dconvex": {
+     "psnr": {
+      "value": 21.18342892395606,
+      "text": "21.18"
+     },
+     "ssim": {
+      "value": 0.7757545537070224,
+      "text": "0.776"
+     },
+     "lpips": {
+      "value": 0.5208153293321007,
+      "text": "0.521"
+     },
+     "fps": {
+      "value": 303.7747978692353,
+      "text": "303.8"
+     },
+     "memory_mb": {
+      "value": 5.370132,
+      "text": "5.37"
+     },
+     "vram_gib": {
+      "value": 0.83203125,
+      "text": "0.83"
+     },
+     "primitives": {
+      "value": 19457,
+      "text": "19,457"
+     },
+     "gpu": "RTX A5000"
+    },
+    "bbsplat": {
+     "psnr": {
+      "value": 20.906068317581735,
+      "text": "20.91"
+     },
+     "ssim": {
+      "value": 0.7559288583303753,
+      "text": "0.756"
+     },
+     "lpips": {
+      "value": 0.542912032259138,
+      "text": "0.543"
+     },
+     "fps": {
+      "value": 150.1082408877807,
+      "text": "150.1"
+     },
+     "memory_mb": {
+      "value": 8.544224,
+      "text": "8.54"
+     },
+     "vram_gib": {
+      "value": 0.8203125,
+      "text": "0.82"
+     },
+     "primitives": {
+      "value": 1976,
+      "text": "1,976"
+     },
+     "gpu": "RTX A5000"
+    },
+    "nexels": {
+     "psnr": {
+      "value": 22.74408376507475,
+      "text": "22.74"
+     },
+     "ssim": {
+      "value": 0.753098371781801,
+      "text": "0.753"
+     },
+     "lpips": {
+      "value": 0.48908464845858124,
+      "text": "0.489"
+     },
+     "fps": {
+      "value": 116.14432474336608,
+      "text": "116.1"
+     },
+     "memory_mb": {
+      "value": 8.342324,
+      "text": "8.34"
+     },
+     "vram_gib": {
+      "value": 2.5078125,
+      "text": "2.51"
+     },
+     "primitives": {
+      "value": 16849,
+      "text": "16,849"
+     },
+     "gpu": "RTX A5000"
+    }
+   },
+   "tanks_and_temples/Horse": {
+    "ours": {
+     "psnr": {
+      "value": 23.10312690415326,
+      "text": "23.10"
+     },
+     "ssim": {
+      "value": 0.8493397957400272,
+      "text": "0.849"
+     },
+     "lpips": {
+      "value": 0.2617436914067519,
+      "text": "0.262"
+     },
+     "fps": {
+      "value": 585.6811601156946,
+      "text": "585.7"
+     },
+     "memory_mb": {
+      "value": 5.38448,
+      "text": "5.38"
+     },
+     "vram_gib": {
+      "value": 0.47265625,
+      "text": "0.47"
+     },
+     "primitives": {
+      "value": 67306,
+      "text": "67,306"
+     },
+     "gpu": "RTX A5000"
+    },
+    "2dgs": {
+     "psnr": {
+      "value": 14.233370426901208,
+      "text": "14.23"
+     },
+     "ssim": {
+      "value": 0.6267909846807781,
+      "text": "0.627"
+     },
+     "lpips": {
+      "value": 0.5660483068541476,
+      "text": "0.566"
+     },
+     "fps": {
+      "value": 350.6121291494147,
+      "text": "350.6"
+     },
+     "memory_mb": {
+      "value": 5.384256,
+      "text": "5.38"
+     },
+     "vram_gib": {
+      "value": 0.8046875,
+      "text": "0.80"
+     },
+     "primitives": {
+      "value": 23208,
+      "text": "23,208"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dgs": {
+     "psnr": {
+      "value": 15.668955008371771,
+      "text": "15.67"
+     },
+     "ssim": {
+      "value": 0.6460691972782737,
+      "text": "0.646"
+     },
+     "lpips": {
+      "value": 0.5630028718396237,
+      "text": "0.563"
+     },
+     "fps": {
+      "value": 1126.311682694926,
+      "text": "1,126.3"
+     },
+     "memory_mb": {
+      "value": 5.38434,
+      "text": "5.38"
+     },
+     "vram_gib": {
+      "value": 0.439453125,
+      "text": "0.44"
+     },
+     "primitives": {
+      "value": 22815,
+      "text": "22,815"
+     },
+     "gpu": "RTX A5000"
+    },
+    "triangle": {
+     "psnr": {
+      "value": 20.759971162548453,
+      "text": "20.76"
+     },
+     "ssim": {
+      "value": 0.7669446374240675,
+      "text": "0.767"
+     },
+     "lpips": {
+      "value": 0.39823020916236074,
+      "text": "0.398"
+     },
+     "fps": {
+      "value": 497.3982521723756,
+      "text": "497.4"
+     },
+     "memory_mb": {
+      "value": 5.346344,
+      "text": "5.35"
+     },
+     "vram_gib": {
+      "value": 0.681640625,
+      "text": "0.68"
+     },
+     "primitives": {
+      "value": 22654,
+      "text": "22,654"
+     },
+     "gpu": "RTX A5000"
+    },
+    "meshsplatting": {
+     "psnr": {
+      "value": 14.799304240924151,
+      "text": "14.80"
+     },
+     "ssim": {
+      "value": 0.6084300514898802,
+      "text": "0.608"
+     },
+     "lpips": {
+      "value": 0.5347687962808108,
+      "text": "0.535"
+     },
+     "fps": {
+      "value": 126.60236799007008,
+      "text": "126.6"
+     },
+     "memory_mb": {
+      "value": 3.124852,
+      "text": "3.12"
+     },
+     "vram_gib": {
+      "value": 2.111328125,
+      "text": "2.11"
+     },
+     "primitives": {
+      "value": 27531,
+      "text": "27,531"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dconvex": {
+     "psnr": {
+      "value": 17.468872135165878,
+      "text": "17.47"
+     },
+     "ssim": {
+      "value": 0.6983859256694191,
+      "text": "0.698"
+     },
+     "lpips": {
+      "value": 0.502439956916006,
+      "text": "0.502"
+     },
+     "fps": {
+      "value": 314.5023208785141,
+      "text": "314.5"
+     },
+     "memory_mb": {
+      "value": 3.487536,
+      "text": "3.49"
+     },
+     "vram_gib": {
+      "value": 0.673828125,
+      "text": "0.67"
+     },
+     "primitives": {
+      "value": 12636,
+      "text": "12,636"
+     },
+     "gpu": "RTX A5000"
+    },
+    "bbsplat": {
+     "psnr": {
+      "value": 17.40381604998528,
+      "text": "17.40"
+     },
+     "ssim": {
+      "value": 0.6940606895246004,
+      "text": "0.694"
+     },
+     "lpips": {
+      "value": 0.4994050201616789,
+      "text": "0.499"
+     },
+     "fps": {
+      "value": 137.38407700189953,
+      "text": "137.4"
+     },
+     "memory_mb": {
+      "value": 5.38338,
+      "text": "5.38"
+     },
+     "vram_gib": {
+      "value": 0.712890625,
+      "text": "0.71"
+     },
+     "primitives": {
+      "value": 1245,
+      "text": "1,245"
+     },
+     "gpu": "RTX A5000"
+    },
+    "nexels": {
+     "psnr": {
+      "value": 18.766340216260193,
+      "text": "18.77"
+     },
+     "ssim": {
+      "value": 0.6657289894003617,
+      "text": "0.666"
+     },
+     "lpips": {
+      "value": 0.471780284454948,
+      "text": "0.472"
+     },
+     "fps": {
+      "value": 117.79064740982187,
+      "text": "117.8"
+     },
+     "memory_mb": {
+      "value": 5.231352,
+      "text": "5.23"
+     },
+     "vram_gib": {
+      "value": 2.490234375,
+      "text": "2.49"
+     },
+     "primitives": {
+      "value": 12694,
+      "text": "12,694"
+     },
+     "gpu": "RTX A5000"
+    }
+   },
+   "tanks_and_temples/Lighthouse": {
+    "ours": {
+     "psnr": {
+      "value": 21.45959741280389,
+      "text": "21.46"
+     },
+     "ssim": {
+      "value": 0.8258659763213916,
+      "text": "0.826"
+     },
+     "lpips": {
+      "value": 0.30051546486524433,
+      "text": "0.301"
+     },
+     "fps": {
+      "value": 394.3253279187975,
+      "text": "394.3"
+     },
+     "memory_mb": {
+      "value": 12.82768,
+      "text": "12.83"
+     },
+     "vram_gib": {
+      "value": 0.603515625,
+      "text": "0.60"
+     },
+     "primitives": {
+      "value": 160346,
+      "text": "160,346"
+     },
+     "gpu": "RTX A5000"
+    },
+    "2dgs": {
+     "psnr": {
+      "value": 21.267076865691752,
+      "text": "21.27"
+     },
+     "ssim": {
+      "value": 0.7651505974622873,
+      "text": "0.765"
+     },
+     "lpips": {
+      "value": 0.4184546845081525,
+      "text": "0.418"
+     },
+     "fps": {
+      "value": 204.7538984815772,
+      "text": "204.8"
+     },
+     "memory_mb": {
+      "value": 12.827512,
+      "text": "12.83"
+     },
+     "vram_gib": {
+      "value": 2.625,
+      "text": "2.62"
+     },
+     "primitives": {
+      "value": 55291,
+      "text": "55,291"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dgs": {
+     "psnr": {
+      "value": 21.981801972928505,
+      "text": "21.98"
+     },
+     "ssim": {
+      "value": 0.7801933258007734,
+      "text": "0.780"
+     },
+     "lpips": {
+      "value": 0.3982982845642628,
+      "text": "0.398"
+     },
+     "fps": {
+      "value": 572.0710639942004,
+      "text": "572.1"
+     },
+     "memory_mb": {
+      "value": 12.827544,
+      "text": "12.83"
+     },
+     "vram_gib": {
+      "value": 1.40625,
+      "text": "1.41"
+     },
+     "primitives": {
+      "value": 54354,
+      "text": "54,354"
+     },
+     "gpu": "RTX A5000"
+    },
+    "triangle": {
+     "psnr": {
+      "value": 21.270759399859337,
+      "text": "21.27"
+     },
+     "ssim": {
+      "value": 0.7761172377146207,
+      "text": "0.776"
+     },
+     "lpips": {
+      "value": 0.39930773851199025,
+      "text": "0.399"
+     },
+     "fps": {
+      "value": 485.2108361897159,
+      "text": "485.2"
+     },
+     "memory_mb": {
+      "value": 12.62836,
+      "text": "12.63"
+     },
+     "vram_gib": {
+      "value": 0.81640625,
+      "text": "0.82"
+     },
+     "primitives": {
+      "value": 53510,
+      "text": "53,510"
+     },
+     "gpu": "RTX A5000"
+    },
+    "meshsplatting": {
+     "psnr": {
+      "value": 14.93318590268046,
+      "text": "14.93"
+     },
+     "ssim": {
+      "value": 0.6150719943719033,
+      "text": "0.615"
+     },
+     "lpips": {
+      "value": 0.5450152877049569,
+      "text": "0.545"
+     },
+     "fps": {
+      "value": 105.72995773354526,
+      "text": "105.7"
+     },
+     "memory_mb": {
+      "value": 7.007688,
+      "text": "7.01"
+     },
+     "vram_gib": {
+      "value": 2.3125,
+      "text": "2.31"
+     },
+     "primitives": {
+      "value": 82486,
+      "text": "82,486"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dconvex": {
+     "psnr": {
+      "value": 20.367384625675317,
+      "text": "20.37"
+     },
+     "ssim": {
+      "value": 0.7497166120089017,
+      "text": "0.750"
+     },
+     "lpips": {
+      "value": 0.42782089572686416,
+      "text": "0.428"
+     },
+     "fps": {
+      "value": 140.2476235097957,
+      "text": "140.2"
+     },
+     "memory_mb": {
+      "value": 10.501248,
+      "text": "10.50"
+     },
+     "vram_gib": {
+      "value": 1.021484375,
+      "text": "1.02"
+     },
+     "primitives": {
+      "value": 38048,
+      "text": "38,048"
+     },
+     "gpu": "RTX A5000"
+    },
+    "bbsplat": {
+     "psnr": {
+      "value": 20.55539952089166,
+      "text": "20.56"
+     },
+     "ssim": {
+      "value": 0.69242674494401,
+      "text": "0.692"
+     },
+     "lpips": {
+      "value": 0.4884611100722582,
+      "text": "0.488"
+     },
+     "fps": {
+      "value": 109.97283617325033,
+      "text": "110.0"
+     },
+     "memory_mb": {
+      "value": 12.824984,
+      "text": "12.82"
+     },
+     "vram_gib": {
+      "value": 1.55859375,
+      "text": "1.56"
+     },
+     "primitives": {
+      "value": 2966,
+      "text": "2,966"
+     },
+     "gpu": "RTX A5000"
+    },
+    "nexels": {
+     "psnr": {
+      "value": 22.05726460534214,
+      "text": "22.06"
+     },
+     "ssim": {
+      "value": 0.7720396258892157,
+      "text": "0.772"
+     },
+     "lpips": {
+      "value": 0.38486127975659495,
+      "text": "0.385"
+     },
+     "fps": {
+      "value": 101.22971599909873,
+      "text": "101.2"
+     },
+     "memory_mb": {
+      "value": 12.423956,
+      "text": "12.42"
+     },
+     "vram_gib": {
+      "value": 2.7265625,
+      "text": "2.73"
+     },
+     "primitives": {
+      "value": 33577,
+      "text": "33,577"
+     },
+     "gpu": "RTX A5000"
+    }
+   },
+   "tanks_and_temples/Barn": {
+    "ours": {
+     "psnr": {
+      "value": 27.047205707810836,
+      "text": "27.05"
+     },
+     "ssim": {
+      "value": 0.8497955466692264,
+      "text": "0.850"
+     },
+     "lpips": {
+      "value": 0.24129252536938742,
+      "text": "0.241"
+     },
+     "fps": {
+      "value": 418.71067140280786,
+      "text": "418.7"
+     },
+     "memory_mb": {
+      "value": 16.21976,
+      "text": "16.22"
+     },
+     "vram_gib": {
+      "value": 0.5703125,
+      "text": "0.57"
+     },
+     "primitives": {
+      "value": 202747,
+      "text": "202,747"
+     },
+     "gpu": "RTX A5000"
+    },
+    "2dgs": {
+     "psnr": {
+      "value": 21.716397748445083,
+      "text": "21.72"
+     },
+     "ssim": {
+      "value": 0.702799705358652,
+      "text": "0.703"
+     },
+     "lpips": {
+      "value": 0.4363202424003528,
+      "text": "0.436"
+     },
+     "fps": {
+      "value": 252.34172200050497,
+      "text": "252.3"
+     },
+     "memory_mb": {
+      "value": 16.219584,
+      "text": "16.22"
+     },
+     "vram_gib": {
+      "value": 1.669921875,
+      "text": "1.67"
+     },
+     "primitives": {
+      "value": 69912,
+      "text": "69,912"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dgs": {
+     "psnr": {
+      "value": 25.57064800851996,
+      "text": "25.57"
+     },
+     "ssim": {
+      "value": 0.778809538254371,
+      "text": "0.779"
+     },
+     "lpips": {
+      "value": 0.34503311893114674,
+      "text": "0.345"
+     },
+     "fps": {
+      "value": 702.0688477780479,
+      "text": "702.1"
+     },
+     "memory_mb": {
+      "value": 16.219572,
+      "text": "16.22"
+     },
+     "vram_gib": {
+      "value": 0.958984375,
+      "text": "0.96"
+     },
+     "primitives": {
+      "value": 68727,
+      "text": "68,727"
+     },
+     "gpu": "RTX A5000"
+    },
+    "triangle": {
+     "psnr": {
+      "value": 25.368858692979625,
+      "text": "25.37"
+     },
+     "ssim": {
+      "value": 0.7742020315848864,
+      "text": "0.774"
+     },
+     "lpips": {
+      "value": 0.3494149950834421,
+      "text": "0.349"
+     },
+     "fps": {
+      "value": 488.68160622630546,
+      "text": "488.7"
+     },
+     "memory_mb": {
+      "value": 15.995608,
+      "text": "16.00"
+     },
+     "vram_gib": {
+      "value": 0.73828125,
+      "text": "0.74"
+     },
+     "primitives": {
+      "value": 67778,
+      "text": "67,778"
+     },
+     "gpu": "RTX A5000"
+    },
+    "meshsplatting": {
+     "psnr": {
+      "value": 18.703598748732794,
+      "text": "18.70"
+     },
+     "ssim": {
+      "value": 0.6189746146018689,
+      "text": "0.619"
+     },
+     "lpips": {
+      "value": 0.5250926109460684,
+      "text": "0.525"
+     },
+     "fps": {
+      "value": 116.29887666803954,
+      "text": "116.3"
+     },
+     "memory_mb": {
+      "value": 9.601484,
+      "text": "9.60"
+     },
+     "vram_gib": {
+      "value": 2.16015625,
+      "text": "2.16"
+     },
+     "primitives": {
+      "value": 102769,
+      "text": "102,769"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dconvex": {
+     "psnr": {
+      "value": 22.306790977751046,
+      "text": "22.31"
+     },
+     "ssim": {
+      "value": 0.7158029228448868,
+      "text": "0.716"
+     },
+     "lpips": {
+      "value": 0.43748675057521236,
+      "text": "0.437"
+     },
+     "fps": {
+      "value": 177.77399379038832,
+      "text": "177.8"
+     },
+     "memory_mb": {
+      "value": 13.05204,
+      "text": "13.05"
+     },
+     "vram_gib": {
+      "value": 0.720703125,
+      "text": "0.72"
+     },
+     "primitives": {
+      "value": 47290,
+      "text": "47,290"
+     },
+     "gpu": "RTX A5000"
+    },
+    "bbsplat": {
+     "psnr": {
+      "value": 22.610614902756204,
+      "text": "22.61"
+     },
+     "ssim": {
+      "value": 0.6490297735883639,
+      "text": "0.649"
+     },
+     "lpips": {
+      "value": 0.4977736971699275,
+      "text": "0.498"
+     },
+     "fps": {
+      "value": 116.97372276725227,
+      "text": "117.0"
+     },
+     "memory_mb": {
+      "value": 16.219324,
+      "text": "16.22"
+     },
+     "vram_gib": {
+      "value": 1.1875,
+      "text": "1.19"
+     },
+     "primitives": {
+      "value": 3751,
+      "text": "3,751"
+     },
+     "gpu": "RTX A5000"
+    },
+    "nexels": {
+     "psnr": {
+      "value": 25.15348270562216,
+      "text": "25.15"
+     },
+     "ssim": {
+      "value": 0.7682818071200297,
+      "text": "0.768"
+     },
+     "lpips": {
+      "value": 0.3343214745131823,
+      "text": "0.334"
+     },
+     "fps": {
+      "value": 93.9840143498767,
+      "text": "94.0"
+     },
+     "memory_mb": {
+      "value": 15.656956,
+      "text": "15.66"
+     },
+     "vram_gib": {
+      "value": 2.93359375,
+      "text": "2.93"
+     },
+     "primitives": {
+      "value": 46827,
+      "text": "46,827"
+     },
+     "gpu": "RTX A5000"
+    }
+   },
+   "tanks_and_temples/Caterpillar": {
+    "ours": {
+     "psnr": {
+      "value": 22.1906937654654,
+      "text": "22.19"
+     },
+     "ssim": {
+      "value": 0.7527272626757622,
+      "text": "0.753"
+     },
+     "lpips": {
+      "value": 0.3225104634960492,
+      "text": "0.323"
+     },
+     "fps": {
+      "value": 408.29750351014434,
+      "text": "408.3"
+     },
+     "memory_mb": {
+      "value": 15.02432,
+      "text": "15.02"
+     },
+     "vram_gib": {
+      "value": 0.55078125,
+      "text": "0.55"
+     },
+     "primitives": {
+      "value": 187804,
+      "text": "187,804"
+     },
+     "gpu": "RTX A5000"
+    },
+    "2dgs": {
+     "psnr": {
+      "value": 18.981819092055975,
+      "text": "18.98"
+     },
+     "ssim": {
+      "value": 0.57225759451588,
+      "text": "0.572"
+     },
+     "lpips": {
+      "value": 0.5228187361111244,
+      "text": "0.523"
+     },
+     "fps": {
+      "value": 267.8142523765136,
+      "text": "267.8"
+     },
+     "memory_mb": {
+      "value": 15.02432,
+      "text": "15.02"
+     },
+     "vram_gib": {
+      "value": 1.41015625,
+      "text": "1.41"
+     },
+     "primitives": {
+      "value": 64760,
+      "text": "64,760"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dgs": {
+     "psnr": {
+      "value": 20.712272334598953,
+      "text": "20.71"
+     },
+     "ssim": {
+      "value": 0.6115029770880938,
+      "text": "0.612"
+     },
+     "lpips": {
+      "value": 0.4906409165511529,
+      "text": "0.491"
+     },
+     "fps": {
+      "value": 817.7120134882259,
+      "text": "817.7"
+     },
+     "memory_mb": {
+      "value": 15.024232,
+      "text": "15.02"
+     },
+     "vram_gib": {
+      "value": 0.74609375,
+      "text": "0.75"
+     },
+     "primitives": {
+      "value": 63662,
+      "text": "63,662"
+     },
+     "gpu": "RTX A5000"
+    },
+    "triangle": {
+     "psnr": {
+      "value": 20.71068191957527,
+      "text": "20.71"
+     },
+     "ssim": {
+      "value": 0.6629746320346991,
+      "text": "0.663"
+     },
+     "lpips": {
+      "value": 0.43291058267156285,
+      "text": "0.433"
+     },
+     "fps": {
+      "value": 495.0233311464858,
+      "text": "495.0"
+     },
+     "memory_mb": {
+      "value": 14.936204,
+      "text": "14.94"
+     },
+     "vram_gib": {
+      "value": 0.716796875,
+      "text": "0.72"
+     },
+     "primitives": {
+      "value": 63289,
+      "text": "63,289"
+     },
+     "gpu": "RTX A5000"
+    },
+    "meshsplatting": {
+     "psnr": {
+      "value": 16.25137936052608,
+      "text": "16.25"
+     },
+     "ssim": {
+      "value": 0.45958251009384793,
+      "text": "0.460"
+     },
+     "lpips": {
+      "value": 0.6186508784691492,
+      "text": "0.619"
+     },
+     "fps": {
+      "value": 120.10306911852445,
+      "text": "120.1"
+     },
+     "memory_mb": {
+      "value": 10.075496,
+      "text": "10.08"
+     },
+     "vram_gib": {
+      "value": 2.12109375,
+      "text": "2.12"
+     },
+     "primitives": {
+      "value": 112942,
+      "text": "112,942"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dconvex": {
+     "psnr": {
+      "value": 20.25556656981959,
+      "text": "20.26"
+     },
+     "ssim": {
+      "value": 0.6052951198071241,
+      "text": "0.605"
+     },
+     "lpips": {
+      "value": 0.5047409553080797,
+      "text": "0.505"
+     },
+     "fps": {
+      "value": 154.08782652601,
+      "text": "154.1"
+     },
+     "memory_mb": {
+      "value": 11.138808,
+      "text": "11.14"
+     },
+     "vram_gib": {
+      "value": 0.681640625,
+      "text": "0.68"
+     },
+     "primitives": {
+      "value": 40358,
+      "text": "40,358"
+     },
+     "gpu": "RTX A5000"
+    },
+    "bbsplat": {
+     "psnr": {
+      "value": 16.936023777259276,
+      "text": "16.94"
+     },
+     "ssim": {
+      "value": 0.5036923649410406,
+      "text": "0.504"
+     },
+     "lpips": {
+      "value": 0.6147165441264709,
+      "text": "0.615"
+     },
+     "fps": {
+      "value": 152.92731427027053,
+      "text": "152.9"
+     },
+     "memory_mb": {
+      "value": 15.021576,
+      "text": "15.02"
+     },
+     "vram_gib": {
+      "value": 0.939453125,
+      "text": "0.94"
+     },
+     "primitives": {
+      "value": 3474,
+      "text": "3,474"
+     },
+     "gpu": "RTX A5000"
+    },
+    "nexels": {
+     "psnr": {
+      "value": 20.620513688137105,
+      "text": "20.62"
+     },
+     "ssim": {
+      "value": 0.5960724552472433,
+      "text": "0.596"
+     },
+     "lpips": {
+      "value": 0.4716837238520384,
+      "text": "0.472"
+     },
+     "fps": {
+      "value": 96.54626311091693,
+      "text": "96.5"
+     },
+     "memory_mb": {
+      "value": 14.51772,
+      "text": "14.52"
+     },
+     "vram_gib": {
+      "value": 2.98828125,
+      "text": "2.99"
+     },
+     "primitives": {
+      "value": 42158,
+      "text": "42,158"
+     },
+     "gpu": "RTX A5000"
+    }
+   },
+   "tanks_and_temples/Courthouse": {
+    "ours": {
+     "psnr": {
+      "value": 22.020763721852504,
+      "text": "22.02"
+     },
+     "ssim": {
+      "value": 0.7859054805992318,
+      "text": "0.786"
+     },
+     "lpips": {
+      "value": 0.28769266610737326,
+      "text": "0.288"
+     },
+     "fps": {
+      "value": 258.4701321652948,
+      "text": "258.5"
+     },
+     "memory_mb": {
+      "value": 39.62856,
+      "text": "39.63"
+     },
+     "vram_gib": {
+      "value": 0.72265625,
+      "text": "0.72"
+     },
+     "primitives": {
+      "value": 495357,
+      "text": "495,357"
+     },
+     "gpu": "RTX A5000"
+    },
+    "2dgs": {
+     "psnr": {
+      "value": 21.201873085097056,
+      "text": "21.20"
+     },
+     "ssim": {
+      "value": 0.7590774224816467,
+      "text": "0.759"
+     },
+     "lpips": {
+      "value": 0.34651441829238866,
+      "text": "0.347"
+     },
+     "fps": {
+      "value": 206.55696205042722,
+      "text": "206.6"
+     },
+     "memory_mb": {
+      "value": 39.628384,
+      "text": "39.63"
+     },
+     "vram_gib": {
+      "value": 1.6640625,
+      "text": "1.66"
+     },
+     "primitives": {
+      "value": 170812,
+      "text": "170,812"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dgs": {
+     "psnr": {
+      "value": 21.954312413465043,
+      "text": "21.95"
+     },
+     "ssim": {
+      "value": 0.7749815317366621,
+      "text": "0.775"
+     },
+     "lpips": {
+      "value": 0.32463542280866087,
+      "text": "0.325"
+     },
+     "fps": {
+      "value": 412.6467547116499,
+      "text": "412.6"
+     },
+     "memory_mb": {
+      "value": 39.628412,
+      "text": "39.63"
+     },
+     "vram_gib": {
+      "value": 1.3671875,
+      "text": "1.37"
+     },
+     "primitives": {
+      "value": 167917,
+      "text": "167,917"
+     },
+     "gpu": "RTX A5000"
+    },
+    "triangle": {
+     "psnr": {
+      "value": 20.95825584836155,
+      "text": "20.96"
+     },
+     "ssim": {
+      "value": 0.7492255049643757,
+      "text": "0.749"
+     },
+     "lpips": {
+      "value": 0.35402570739924477,
+      "text": "0.354"
+     },
+     "fps": {
+      "value": 378.4098924339196,
+      "text": "378.4"
+     },
+     "memory_mb": {
+      "value": 37.848736,
+      "text": "37.85"
+     },
+     "vram_gib": {
+      "value": 0.904296875,
+      "text": "0.90"
+     },
+     "primitives": {
+      "value": 160376,
+      "text": "160,376"
+     },
+     "gpu": "RTX A5000"
+    },
+    "meshsplatting": {
+     "psnr": {
+      "value": 16.006915204790683,
+      "text": "16.01"
+     },
+     "ssim": {
+      "value": 0.5994901869365638,
+      "text": "0.599"
+     },
+     "lpips": {
+      "value": 0.5278022066294719,
+      "text": "0.528"
+     },
+     "fps": {
+      "value": 113.13123149697098,
+      "text": "113.1"
+     },
+     "memory_mb": {
+      "value": 13.300228,
+      "text": "13.30"
+     },
+     "vram_gib": {
+      "value": 2.16796875,
+      "text": "2.17"
+     },
+     "primitives": {
+      "value": 151327,
+      "text": "151,327"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dconvex": {
+     "psnr": {
+      "value": 21.155191534207052,
+      "text": "21.16"
+     },
+     "ssim": {
+      "value": 0.7522225039039584,
+      "text": "0.752"
+     },
+     "lpips": {
+      "value": 0.3446818951436942,
+      "text": "0.345"
+     },
+     "fps": {
+      "value": 76.78688702974685,
+      "text": "76.8"
+     },
+     "memory_mb": {
+      "value": 36.520596,
+      "text": "36.52"
+     },
+     "vram_gib": {
+      "value": 0.986328125,
+      "text": "0.99"
+     },
+     "primitives": {
+      "value": 132321,
+      "text": "132,321"
+     },
+     "gpu": "RTX A5000"
+    },
+    "bbsplat": {
+     "psnr": {
+      "value": 20.086737680830478,
+      "text": "20.09"
+     },
+     "ssim": {
+      "value": 0.6588833713703018,
+      "text": "0.659"
+     },
+     "lpips": {
+      "value": 0.47760402084254533,
+      "text": "0.478"
+     },
+     "fps": {
+      "value": 68.7706799038429,
+      "text": "68.8"
+     },
+     "memory_mb": {
+      "value": 39.625136,
+      "text": "39.63"
+     },
+     "vram_gib": {
+      "value": 3.9609375,
+      "text": "3.96"
+     },
+     "primitives": {
+      "value": 9164,
+      "text": "9,164"
+     },
+     "gpu": "RTX A5000"
+    },
+    "nexels": {
+     "psnr": {
+      "value": 21.759310780182236,
+      "text": "21.76"
+     },
+     "ssim": {
+      "value": 0.740851725605752,
+      "text": "0.741"
+     },
+     "lpips": {
+      "value": 0.35314041108107397,
+      "text": "0.353"
+     },
+     "fps": {
+      "value": 93.03451930720043,
+      "text": "93.0"
+     },
+     "memory_mb": {
+      "value": 38.558384,
+      "text": "38.56"
+     },
+     "vram_gib": {
+      "value": 3.03515625,
+      "text": "3.04"
+     },
+     "primitives": {
+      "value": 89116,
+      "text": "89,116"
+     },
+     "gpu": "RTX A5000"
+    }
+   },
+   "tanks_and_temples/Ignatius": {
+    "ours": {
+     "psnr": {
+      "value": 21.55361860978577,
+      "text": "21.55"
+     },
+     "ssim": {
+      "value": 0.7425924413131945,
+      "text": "0.743"
+     },
+     "lpips": {
+      "value": 0.3185635263269598,
+      "text": "0.319"
+     },
+     "fps": {
+      "value": 458.8309263395628,
+      "text": "458.8"
+     },
+     "memory_mb": {
+      "value": 12.42448,
+      "text": "12.42"
+     },
+     "vram_gib": {
+      "value": 0.525390625,
+      "text": "0.53"
+     },
+     "primitives": {
+      "value": 155306,
+      "text": "155,306"
+     },
+     "gpu": "RTX A5000"
+    },
+    "2dgs": {
+     "psnr": {
+      "value": 15.39639460212401,
+      "text": "15.40"
+     },
+     "ssim": {
+      "value": 0.4419564568635189,
+      "text": "0.442"
+     },
+     "lpips": {
+      "value": 0.6374066237247351,
+      "text": "0.637"
+     },
+     "fps": {
+      "value": 353.1209528948796,
+      "text": "353.1"
+     },
+     "memory_mb": {
+      "value": 12.424296,
+      "text": "12.42"
+     },
+     "vram_gib": {
+      "value": 0.83984375,
+      "text": "0.84"
+     },
+     "primitives": {
+      "value": 53553,
+      "text": "53,553"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dgs": {
+     "psnr": {
+      "value": 17.40086512080162,
+      "text": "17.40"
+     },
+     "ssim": {
+      "value": 0.4751093766906045,
+      "text": "0.475"
+     },
+     "lpips": {
+      "value": 0.611015240351359,
+      "text": "0.611"
+     },
+     "fps": {
+      "value": 1086.4074102929053,
+      "text": "1,086.4"
+     },
+     "memory_mb": {
+      "value": 12.424456,
+      "text": "12.42"
+     },
+     "vram_gib": {
+      "value": 0.484375,
+      "text": "0.48"
+     },
+     "primitives": {
+      "value": 52646,
+      "text": "52,646"
+     },
+     "gpu": "RTX A5000"
+    },
+    "triangle": {
+     "psnr": {
+      "value": 18.821892126662277,
+      "text": "18.82"
+     },
+     "ssim": {
+      "value": 0.6011738054680101,
+      "text": "0.601"
+     },
+     "lpips": {
+      "value": 0.4681948585943742,
+      "text": "0.468"
+     },
+     "fps": {
+      "value": 528.0124126459608,
+      "text": "528.0"
+     },
+     "memory_mb": {
+      "value": 12.37466,
+      "text": "12.37"
+     },
+     "vram_gib": {
+      "value": 0.693359375,
+      "text": "0.69"
+     },
+     "primitives": {
+      "value": 52435,
+      "text": "52,435"
+     },
+     "gpu": "RTX A5000"
+    },
+    "meshsplatting": {
+     "psnr": {
+      "value": 16.20080040495411,
+      "text": "16.20"
+     },
+     "ssim": {
+      "value": 0.44135471004428284,
+      "text": "0.441"
+     },
+     "lpips": {
+      "value": 0.60384191346891,
+      "text": "0.604"
+     },
+     "fps": {
+      "value": 127.49078218611811,
+      "text": "127.5"
+     },
+     "memory_mb": {
+      "value": 9.19796,
+      "text": "9.20"
+     },
+     "vram_gib": {
+      "value": 2.140625,
+      "text": "2.14"
+     },
+     "primitives": {
+      "value": 102890,
+      "text": "102,890"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dconvex": {
+     "psnr": {
+      "value": 15.666668561485208,
+      "text": "15.67"
+     },
+     "ssim": {
+      "value": 0.4631284972031911,
+      "text": "0.463"
+     },
+     "lpips": {
+      "value": 0.6408572774944883,
+      "text": "0.641"
+     },
+     "fps": {
+      "value": 261.35310269235083,
+      "text": "261.4"
+     },
+     "memory_mb": {
+      "value": 9.360264,
+      "text": "9.36"
+     },
+     "vram_gib": {
+      "value": 0.66015625,
+      "text": "0.66"
+     },
+     "primitives": {
+      "value": 33914,
+      "text": "33,914"
+     },
+     "gpu": "RTX A5000"
+    },
+    "bbsplat": {
+     "psnr": {
+      "value": 17.820830029549715,
+      "text": "17.82"
+     },
+     "ssim": {
+      "value": 0.51228795448939,
+      "text": "0.512"
+     },
+     "lpips": {
+      "value": 0.5639377751133658,
+      "text": "0.564"
+     },
+     "fps": {
+      "value": 141.34955333753277,
+      "text": "141.3"
+     },
+     "memory_mb": {
+      "value": 12.422852,
+      "text": "12.42"
+     },
+     "vram_gib": {
+      "value": 0.876953125,
+      "text": "0.88"
+     },
+     "primitives": {
+      "value": 2873,
+      "text": "2,873"
+     },
+     "gpu": "RTX A5000"
+    },
+    "nexels": {
+     "psnr": {
+      "value": 19.64357690228176,
+      "text": "19.64"
+     },
+     "ssim": {
+      "value": 0.5744506355487939,
+      "text": "0.574"
+     },
+     "lpips": {
+      "value": 0.45842868812156445,
+      "text": "0.458"
+     },
+     "fps": {
+      "value": 94.04071892803697,
+      "text": "94.0"
+     },
+     "memory_mb": {
+      "value": 12.039656,
+      "text": "12.04"
+     },
+     "vram_gib": {
+      "value": 2.939453125,
+      "text": "2.94"
+     },
+     "primitives": {
+      "value": 32002,
+      "text": "32,002"
+     },
+     "gpu": "RTX A5000"
+    }
+   },
+   "tanks_and_temples/Meetingroom": {
+    "ours": {
+     "psnr": {
+      "value": 24.3714143505196,
+      "text": "24.37"
+     },
+     "ssim": {
+      "value": 0.8440280734224522,
+      "text": "0.844"
+     },
+     "lpips": {
+      "value": 0.2881357945660327,
+      "text": "0.288"
+     },
+     "fps": {
+      "value": 502.5063571834715,
+      "text": "502.5"
+     },
+     "memory_mb": {
+      "value": 9.86824,
+      "text": "9.87"
+     },
+     "vram_gib": {
+      "value": 0.509765625,
+      "text": "0.51"
+     },
+     "primitives": {
+      "value": 123353,
+      "text": "123,353"
+     },
+     "gpu": "RTX A5000"
+    },
+    "2dgs": {
+     "psnr": {
+      "value": 17.465977870365826,
+      "text": "17.47"
+     },
+     "ssim": {
+      "value": 0.641782542492481,
+      "text": "0.642"
+     },
+     "lpips": {
+      "value": 0.5801159003947643,
+      "text": "0.580"
+     },
+     "fps": {
+      "value": 322.139797577138,
+      "text": "322.1"
+     },
+     "memory_mb": {
+      "value": 9.86812,
+      "text": "9.87"
+     },
+     "vram_gib": {
+      "value": 0.97265625,
+      "text": "0.97"
+     },
+     "primitives": {
+      "value": 42535,
+      "text": "42,535"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dgs": {
+     "psnr": {
+      "value": 20.27349662335506,
+      "text": "20.27"
+     },
+     "ssim": {
+      "value": 0.7271108855592444,
+      "text": "0.727"
+     },
+     "lpips": {
+      "value": 0.4760677110641561,
+      "text": "0.476"
+     },
+     "fps": {
+      "value": 830.0251298784168,
+      "text": "830.0"
+     },
+     "memory_mb": {
+      "value": 9.868104,
+      "text": "9.87"
+     },
+     "vram_gib": {
+      "value": 0.72265625,
+      "text": "0.72"
+     },
+     "primitives": {
+      "value": 41814,
+      "text": "41,814"
+     },
+     "gpu": "RTX A5000"
+    },
+    "triangle": {
+     "psnr": {
+      "value": 22.639412974944438,
+      "text": "22.64"
+     },
+     "ssim": {
+      "value": 0.7950541326340209,
+      "text": "0.795"
+     },
+     "lpips": {
+      "value": 0.38141703415424266,
+      "text": "0.381"
+     },
+     "fps": {
+      "value": 526.5110621768039,
+      "text": "526.5"
+     },
+     "memory_mb": {
+      "value": 9.76686,
+      "text": "9.77"
+     },
+     "vram_gib": {
+      "value": 0.69140625,
+      "text": "0.69"
+     },
+     "primitives": {
+      "value": 41385,
+      "text": "41,385"
+     },
+     "gpu": "RTX A5000"
+    },
+    "meshsplatting": {
+     "psnr": {
+      "value": 17.675737290445404,
+      "text": "17.68"
+     },
+     "ssim": {
+      "value": 0.6106567699858483,
+      "text": "0.611"
+     },
+     "lpips": {
+      "value": 0.5666887988435462,
+      "text": "0.567"
+     },
+     "fps": {
+      "value": 127.61727327269384,
+      "text": "127.6"
+     },
+     "memory_mb": {
+      "value": 5.469004,
+      "text": "5.47"
+     },
+     "vram_gib": {
+      "value": 2.115234375,
+      "text": "2.12"
+     },
+     "primitives": {
+      "value": 60429,
+      "text": "60,429"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dconvex": {
+     "psnr": {
+      "value": 21.27832544982157,
+      "text": "21.28"
+     },
+     "ssim": {
+      "value": 0.7563620678921963,
+      "text": "0.756"
+     },
+     "lpips": {
+      "value": 0.44576649209286306,
+      "text": "0.446"
+     },
+     "fps": {
+      "value": 209.3050047663968,
+      "text": "209.3"
+     },
+     "memory_mb": {
+      "value": 8.519016,
+      "text": "8.52"
+     },
+     "vram_gib": {
+      "value": 0.62109375,
+      "text": "0.62"
+     },
+     "primitives": {
+      "value": 30866,
+      "text": "30,866"
+     },
+     "gpu": "RTX A5000"
+    },
+    "bbsplat": {
+     "psnr": {
+      "value": 19.938923645495766,
+      "text": "19.94"
+     },
+     "ssim": {
+      "value": 0.6934078564035132,
+      "text": "0.693"
+     },
+     "lpips": {
+      "value": 0.5398771883325374,
+      "text": "0.540"
+     },
+     "fps": {
+      "value": 131.56921289503256,
+      "text": "131.6"
+     },
+     "memory_mb": {
+      "value": 9.867368,
+      "text": "9.87"
+     },
+     "vram_gib": {
+      "value": 0.955078125,
+      "text": "0.96"
+     },
+     "primitives": {
+      "value": 2282,
+      "text": "2,282"
+     },
+     "gpu": "RTX A5000"
+    },
+    "nexels": {
+     "psnr": {
+      "value": 22.4770108047324,
+      "text": "22.48"
+     },
+     "ssim": {
+      "value": 0.7602376937866211,
+      "text": "0.760"
+     },
+     "lpips": {
+      "value": 0.4384515735697239,
+      "text": "0.438"
+     },
+     "fps": {
+      "value": 89.73183130601672,
+      "text": "89.7"
+     },
+     "memory_mb": {
+      "value": 9.603316,
+      "text": "9.60"
+     },
+     "vram_gib": {
+      "value": 2.9609375,
+      "text": "2.96"
+     },
+     "primitives": {
+      "value": 22017,
+      "text": "22,017"
+     },
+     "gpu": "RTX A5000"
+    }
+   },
+   "dtu/scan24": {
+    "ours": {
+     "psnr": {
+      "value": 26.42965440514547,
+      "text": "26.43"
+     },
+     "ssim": {
+      "value": 0.8868345873696464,
+      "text": "0.887"
+     },
+     "lpips": {
+      "value": 0.2033615963799613,
+      "text": "0.203"
+     },
+     "fps": {
+      "value": 589.6129832314452,
+      "text": "589.6"
+     },
+     "memory_mb": {
+      "value": 2.4964,
+      "text": "2.50"
+     },
+     "vram_gib": {
+      "value": 0.525390625,
+      "text": "0.53"
+     },
+     "primitives": {
+      "value": 31205,
+      "text": "31,205"
+     },
+     "gpu": "RTX A5000"
+    },
+    "2dgs": {
+     "psnr": {
+      "value": 16.450170389829506,
+      "text": "16.45"
+     },
+     "ssim": {
+      "value": 0.6602864606039864,
+      "text": "0.660"
+     },
+     "lpips": {
+      "value": 0.4941852603639875,
+      "text": "0.494"
+     },
+     "fps": {
+      "value": 457.0132818628498,
+      "text": "457.0"
+     },
+     "memory_mb": {
+      "value": 2.49632,
+      "text": "2.50"
+     },
+     "vram_gib": {
+      "value": 0.669921875,
+      "text": "0.67"
+     },
+     "primitives": {
+      "value": 10760,
+      "text": "10,760"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dgs": {
+     "psnr": {
+      "value": 21.43233785000569,
+      "text": "21.43"
+     },
+     "ssim": {
+      "value": 0.722929060459137,
+      "text": "0.723"
+     },
+     "lpips": {
+      "value": 0.4128109855311258,
+      "text": "0.413"
+     },
+     "fps": {
+      "value": 1045.2793636698143,
+      "text": "1,045.3"
+     },
+     "memory_mb": {
+      "value": 2.496172,
+      "text": "2.50"
+     },
+     "vram_gib": {
+      "value": 0.40234375,
+      "text": "0.40"
+     },
+     "primitives": {
+      "value": 10577,
+      "text": "10,577"
+     },
+     "gpu": "RTX A5000"
+    },
+    "triangle": {
+     "psnr": {
+      "value": 21.015804499948473,
+      "text": "21.02"
+     },
+     "ssim": {
+      "value": 0.7873844589505877,
+      "text": "0.787"
+     },
+     "lpips": {
+      "value": 0.3449417437825884,
+      "text": "0.345"
+     },
+     "fps": {
+      "value": 517.6358951415777,
+      "text": "517.6"
+     },
+     "memory_mb": {
+      "value": 2.276928,
+      "text": "2.28"
+     },
+     "vram_gib": {
+      "value": 0.5859375,
+      "text": "0.59"
+     },
+     "primitives": {
+      "value": 9648,
+      "text": "9,648"
+     },
+     "gpu": "RTX A5000"
+    },
+    "meshsplatting": {
+     "psnr": {
+      "value": 18.22501324775703,
+      "text": "18.23"
+     },
+     "ssim": {
+      "value": 0.623733903680529,
+      "text": "0.624"
+     },
+     "lpips": {
+      "value": 0.48461570910045076,
+      "text": "0.485"
+     },
+     "fps": {
+      "value": 129.95474136249925,
+      "text": "130.0"
+     },
+     "memory_mb": {
+      "value": 1.380728,
+      "text": "1.38"
+     },
+     "vram_gib": {
+      "value": 1.853515625,
+      "text": "1.85"
+     },
+     "primitives": {
+      "value": 15758,
+      "text": "15,758"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dconvex": {
+     "psnr": {
+      "value": 22.907102974846822,
+      "text": "22.91"
+     },
+     "ssim": {
+      "value": 0.794031696660178,
+      "text": "0.794"
+     },
+     "lpips": {
+      "value": 0.3226677349635533,
+      "text": "0.323"
+     },
+     "fps": {
+      "value": 281.5526286782921,
+      "text": "281.6"
+     },
+     "memory_mb": {
+      "value": 2.057856,
+      "text": "2.06"
+     },
+     "vram_gib": {
+      "value": 0.54296875,
+      "text": "0.54"
+     },
+     "primitives": {
+      "value": 7456,
+      "text": "7,456"
+     },
+     "gpu": "RTX A5000"
+    },
+    "bbsplat": {
+     "psnr": {
+      "value": 22.661169888649543,
+      "text": "22.66"
+     },
+     "ssim": {
+      "value": 0.7087656685284206,
+      "text": "0.709"
+     },
+     "lpips": {
+      "value": 0.41741736020360676,
+      "text": "0.417"
+     },
+     "fps": {
+      "value": 165.40039825122443,
+      "text": "165.4"
+     },
+     "memory_mb": {
+      "value": 2.494948,
+      "text": "2.49"
+     },
+     "vram_gib": {
+      "value": 0.677734375,
+      "text": "0.68"
+     },
+     "primitives": {
+      "value": 577,
+      "text": "577"
+     },
+     "gpu": "RTX A5000"
+    },
+    "nexels": {
+     "psnr": {
+      "value": 24.080479861917617,
+      "text": "24.08"
+     },
+     "ssim": {
+      "value": 0.8592363681112017,
+      "text": "0.859"
+     },
+     "lpips": {
+      "value": 0.24482045216219767,
+      "text": "0.245"
+     },
+     "fps": {
+      "value": 154.27676637073,
+      "text": "154.3"
+     },
+     "memory_mb": {
+      "value": 2.429392,
+      "text": "2.43"
+     },
+     "vram_gib": {
+      "value": 2.205078125,
+      "text": "2.21"
+     },
+     "primitives": {
+      "value": 5508,
+      "text": "5,508"
+     },
+     "gpu": "RTX A5000"
+    }
+   },
+   "dtu/scan37": {
+    "ours": {
+     "psnr": {
+      "value": 24.087030258114538,
+      "text": "24.09"
+     },
+     "ssim": {
+      "value": 0.8855650169508797,
+      "text": "0.886"
+     },
+     "lpips": {
+      "value": 0.21180695933955057,
+      "text": "0.212"
+     },
+     "fps": {
+      "value": 703.1325098050127,
+      "text": "703.1"
+     },
+     "memory_mb": {
+      "value": 4.06456,
+      "text": "4.06"
+     },
+     "vram_gib": {
+      "value": 0.548828125,
+      "text": "0.55"
+     },
+     "primitives": {
+      "value": 50807,
+      "text": "50,807"
+     },
+     "gpu": "RTX A5000"
+    },
+    "2dgs": {
+     "psnr": {
+      "value": 16.053225494243247,
+      "text": "16.05"
+     },
+     "ssim": {
+      "value": 0.6750526853970119,
+      "text": "0.675"
+     },
+     "lpips": {
+      "value": 0.414135958467211,
+      "text": "0.414"
+     },
+     "fps": {
+      "value": 419.9956587111999,
+      "text": "420.0"
+     },
+     "memory_mb": {
+      "value": 4.064408,
+      "text": "4.06"
+     },
+     "vram_gib": {
+      "value": 0.6796875,
+      "text": "0.68"
+     },
+     "primitives": {
+      "value": 17519,
+      "text": "17,519"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dgs": {
+     "psnr": {
+      "value": 22.545106113442902,
+      "text": "22.55"
+     },
+     "ssim": {
+      "value": 0.7643561618668693,
+      "text": "0.764"
+     },
+     "lpips": {
+      "value": 0.3104905698980604,
+      "text": "0.310"
+     },
+     "fps": {
+      "value": 1010.6591357289027,
+      "text": "1,010.7"
+     },
+     "memory_mb": {
+      "value": 4.064392,
+      "text": "4.06"
+     },
+     "vram_gib": {
+      "value": 0.41796875,
+      "text": "0.42"
+     },
+     "primitives": {
+      "value": 17222,
+      "text": "17,222"
+     },
+     "gpu": "RTX A5000"
+    },
+    "triangle": {
+     "psnr": {
+      "value": 20.64814315435637,
+      "text": "20.65"
+     },
+     "ssim": {
+      "value": 0.8203380278178624,
+      "text": "0.820"
+     },
+     "lpips": {
+      "value": 0.29725219096456257,
+      "text": "0.297"
+     },
+     "fps": {
+      "value": 518.6815576254164,
+      "text": "518.7"
+     },
+     "memory_mb": {
+      "value": 3.767976,
+      "text": "3.77"
+     },
+     "vram_gib": {
+      "value": 0.609375,
+      "text": "0.61"
+     },
+     "primitives": {
+      "value": 15966,
+      "text": "15,966"
+     },
+     "gpu": "RTX A5000"
+    },
+    "meshsplatting": {
+     "psnr": {
+      "value": 18.517193351038774,
+      "text": "18.52"
+     },
+     "ssim": {
+      "value": 0.5397848018578121,
+      "text": "0.540"
+     },
+     "lpips": {
+      "value": 0.4030218592711857,
+      "text": "0.403"
+     },
+     "fps": {
+      "value": 133.59155448702154,
+      "text": "133.6"
+     },
+     "memory_mb": {
+      "value": 2.199636,
+      "text": "2.20"
+     },
+     "vram_gib": {
+      "value": 1.875,
+      "text": "1.88"
+     },
+     "primitives": {
+      "value": 24235,
+      "text": "24,235"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dconvex": {
+     "psnr": {
+      "value": 22.480811930620952,
+      "text": "22.48"
+     },
+     "ssim": {
+      "value": 0.8165385382516044,
+      "text": "0.817"
+     },
+     "lpips": {
+      "value": 0.29866967456681387,
+      "text": "0.299"
+     },
+     "fps": {
+      "value": 394.6333857547946,
+      "text": "394.6"
+     },
+     "memory_mb": {
+      "value": 3.148884,
+      "text": "3.15"
+     },
+     "vram_gib": {
+      "value": 0.5546875,
+      "text": "0.55"
+     },
+     "primitives": {
+      "value": 11409,
+      "text": "11,409"
+     },
+     "gpu": "RTX A5000"
+    },
+    "bbsplat": {
+     "psnr": {
+      "value": 23.290718051050032,
+      "text": "23.29"
+     },
+     "ssim": {
+      "value": 0.8306518282209124,
+      "text": "0.831"
+     },
+     "lpips": {
+      "value": 0.2793034740856716,
+      "text": "0.279"
+     },
+     "fps": {
+      "value": 193.55698394427898,
+      "text": "193.6"
+     },
+     "memory_mb": {
+      "value": 4.06456,
+      "text": "4.06"
+     },
+     "vram_gib": {
+      "value": 0.595703125,
+      "text": "0.60"
+     },
+     "primitives": {
+      "value": 940,
+      "text": "940"
+     },
+     "gpu": "RTX A5000"
+    },
+    "nexels": {
+     "psnr": {
+      "value": 23.153337500307256,
+      "text": "23.15"
+     },
+     "ssim": {
+      "value": 0.8372260587556022,
+      "text": "0.837"
+     },
+     "lpips": {
+      "value": 0.26748142710753847,
+      "text": "0.267"
+     },
+     "fps": {
+      "value": 152.6613900586513,
+      "text": "152.7"
+     },
+     "memory_mb": {
+      "value": 3.924136,
+      "text": "3.92"
+     },
+     "vram_gib": {
+      "value": 2.162109375,
+      "text": "2.16"
+     },
+     "primitives": {
+      "value": 11634,
+      "text": "11,634"
+     },
+     "gpu": "RTX A5000"
+    }
+   },
+   "dtu/scan40": {
+    "ours": {
+     "psnr": {
+      "value": 25.800463240814288,
+      "text": "25.80"
+     },
+     "ssim": {
+      "value": 0.8762185062680926,
+      "text": "0.876"
+     },
+     "lpips": {
+      "value": 0.2449254265853337,
+      "text": "0.245"
+     },
+     "fps": {
+      "value": 589.9118736845173,
+      "text": "589.9"
+     },
+     "memory_mb": {
+      "value": 4.69152,
+      "text": "4.69"
+     },
+     "vram_gib": {
+      "value": 0.5546875,
+      "text": "0.55"
+     },
+     "primitives": {
+      "value": 58644,
+      "text": "58,644"
+     },
+     "gpu": "RTX A5000"
+    },
+    "2dgs": {
+     "psnr": {
+      "value": 15.46799119653972,
+      "text": "15.47"
+     },
+     "ssim": {
+      "value": 0.6395572764532906,
+      "text": "0.640"
+     },
+     "lpips": {
+      "value": 0.5193212883813041,
+      "text": "0.519"
+     },
+     "fps": {
+      "value": 441.7855232277933,
+      "text": "441.8"
+     },
+     "memory_mb": {
+      "value": 4.691504,
+      "text": "4.69"
+     },
+     "vram_gib": {
+      "value": 0.685546875,
+      "text": "0.69"
+     },
+     "primitives": {
+      "value": 20222,
+      "text": "20,222"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dgs": {
+     "psnr": {
+      "value": 24.72393079806809,
+      "text": "24.72"
+     },
+     "ssim": {
+      "value": 0.7901680895260402,
+      "text": "0.790"
+     },
+     "lpips": {
+      "value": 0.3917482282434191,
+      "text": "0.392"
+     },
+     "fps": {
+      "value": 825.1921378318284,
+      "text": "825.2"
+     },
+     "memory_mb": {
+      "value": 4.691444,
+      "text": "4.69"
+     },
+     "vram_gib": {
+      "value": 0.53125,
+      "text": "0.53"
+     },
+     "primitives": {
+      "value": 19879,
+      "text": "19,879"
+     },
+     "gpu": "RTX A5000"
+    },
+    "triangle": {
+     "psnr": {
+      "value": 20.370806317131077,
+      "text": "20.37"
+     },
+     "ssim": {
+      "value": 0.7634268403053284,
+      "text": "0.763"
+     },
+     "lpips": {
+      "value": 0.3851735591888428,
+      "text": "0.385"
+     },
+     "fps": {
+      "value": 519.1265487446869,
+      "text": "519.1"
+     },
+     "memory_mb": {
+      "value": 4.24446,
+      "text": "4.24"
+     },
+     "vram_gib": {
+      "value": 0.611328125,
+      "text": "0.61"
+     },
+     "primitives": {
+      "value": 17985,
+      "text": "17,985"
+     },
+     "gpu": "RTX A5000"
+    },
+    "meshsplatting": {
+     "psnr": {
+      "value": 17.63703811169021,
+      "text": "17.64"
+     },
+     "ssim": {
+      "value": 0.5683459171227047,
+      "text": "0.568"
+     },
+     "lpips": {
+      "value": 0.5168076242719378,
+      "text": "0.517"
+     },
+     "fps": {
+      "value": 125.06218013377062,
+      "text": "125.1"
+     },
+     "memory_mb": {
+      "value": 1.79266,
+      "text": "1.79"
+     },
+     "vram_gib": {
+      "value": 1.931640625,
+      "text": "1.93"
+     },
+     "primitives": {
+      "value": 21867,
+      "text": "21,867"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dconvex": {
+     "psnr": {
+      "value": 20.953730975162824,
+      "text": "20.95"
+     },
+     "ssim": {
+      "value": 0.7571328197206769,
+      "text": "0.757"
+     },
+     "lpips": {
+      "value": 0.40631450925554546,
+      "text": "0.406"
+     },
+     "fps": {
+      "value": 220.28413436154273,
+      "text": "220.3"
+     },
+     "memory_mb": {
+      "value": 3.541632,
+      "text": "3.54"
+     },
+     "vram_gib": {
+      "value": 0.810546875,
+      "text": "0.81"
+     },
+     "primitives": {
+      "value": 12832,
+      "text": "12,832"
+     },
+     "gpu": "RTX A5000"
+    },
+    "bbsplat": {
+     "psnr": {
+      "value": 24.900775974126304,
+      "text": "24.90"
+     },
+     "ssim": {
+      "value": 0.79683404309409,
+      "text": "0.797"
+     },
+     "lpips": {
+      "value": 0.34065494367054533,
+      "text": "0.341"
+     },
+     "fps": {
+      "value": 164.7214826479135,
+      "text": "164.7"
+     },
+     "memory_mb": {
+      "value": 4.687216,
+      "text": "4.69"
+     },
+     "vram_gib": {
+      "value": 0.685546875,
+      "text": "0.69"
+     },
+     "primitives": {
+      "value": 1084,
+      "text": "1,084"
+     },
+     "gpu": "RTX A5000"
+    },
+    "nexels": {
+     "psnr": {
+      "value": 23.336514681069303,
+      "text": "23.34"
+     },
+     "ssim": {
+      "value": 0.8578850882393974,
+      "text": "0.858"
+     },
+     "lpips": {
+      "value": 0.25890244969299864,
+      "text": "0.259"
+     },
+     "fps": {
+      "value": 146.33584913120458,
+      "text": "146.3"
+     },
+     "memory_mb": {
+      "value": 4.570844,
+      "text": "4.57"
+     },
+     "vram_gib": {
+      "value": 2.169921875,
+      "text": "2.17"
+     },
+     "primitives": {
+      "value": 9987,
+      "text": "9,987"
+     },
+     "gpu": "RTX A5000"
+    }
+   },
+   "dtu/scan55": {
+    "ours": {
+     "psnr": {
+      "value": 28.751487185929385,
+      "text": "28.75"
+     },
+     "ssim": {
+      "value": 0.8541163887296405,
+      "text": "0.854"
+     },
+     "lpips": {
+      "value": 0.3245336285659245,
+      "text": "0.325"
+     },
+     "fps": {
+      "value": 697.2845595561357,
+      "text": "697.3"
+     },
+     "memory_mb": {
+      "value": 3.74192,
+      "text": "3.74"
+     },
+     "vram_gib": {
+      "value": 0.529296875,
+      "text": "0.53"
+     },
+     "primitives": {
+      "value": 46774,
+      "text": "46,774"
+     },
+     "gpu": "RTX A5000"
+    },
+    "2dgs": {
+     "psnr": {
+      "value": 21.285443551728388,
+      "text": "21.29"
+     },
+     "ssim": {
+      "value": 0.672895073890686,
+      "text": "0.673"
+     },
+     "lpips": {
+      "value": 0.5314578669411796,
+      "text": "0.531"
+     },
+     "fps": {
+      "value": 543.0954198360082,
+      "text": "543.1"
+     },
+     "memory_mb": {
+      "value": 3.741696,
+      "text": "3.74"
+     },
+     "vram_gib": {
+      "value": 0.671875,
+      "text": "0.67"
+     },
+     "primitives": {
+      "value": 16128,
+      "text": "16,128"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dgs": {
+     "psnr": {
+      "value": 26.142101041228788,
+      "text": "26.14"
+     },
+     "ssim": {
+      "value": 0.7920159867831639,
+      "text": "0.792"
+     },
+     "lpips": {
+      "value": 0.4438614547252655,
+      "text": "0.444"
+     },
+     "fps": {
+      "value": 990.9209339979936,
+      "text": "990.9"
+     },
+     "memory_mb": {
+      "value": 3.74178,
+      "text": "3.74"
+     },
+     "vram_gib": {
+      "value": 0.439453125,
+      "text": "0.44"
+     },
+     "primitives": {
+      "value": 15855,
+      "text": "15,855"
+     },
+     "gpu": "RTX A5000"
+    },
+    "triangle": {
+     "psnr": {
+      "value": 25.221645107088083,
+      "text": "25.22"
+     },
+     "ssim": {
+      "value": 0.7769600408417838,
+      "text": "0.777"
+     },
+     "lpips": {
+      "value": 0.43545673148972647,
+      "text": "0.435"
+     },
+     "fps": {
+      "value": 526.6524397217203,
+      "text": "526.7"
+     },
+     "memory_mb": {
+      "value": 3.371732,
+      "text": "3.37"
+     },
+     "vram_gib": {
+      "value": 0.609375,
+      "text": "0.61"
+     },
+     "primitives": {
+      "value": 14287,
+      "text": "14,287"
+     },
+     "gpu": "RTX A5000"
+    },
+    "meshsplatting": {
+     "psnr": {
+      "value": 20.57251759457435,
+      "text": "20.57"
+     },
+     "ssim": {
+      "value": 0.5671499286379132,
+      "text": "0.567"
+     },
+     "lpips": {
+      "value": 0.5797106368201119,
+      "text": "0.580"
+     },
+     "fps": {
+      "value": 134.82728350301528,
+      "text": "134.8"
+     },
+     "memory_mb": {
+      "value": 2.320984,
+      "text": "2.32"
+     },
+     "vram_gib": {
+      "value": 1.85546875,
+      "text": "1.86"
+     },
+     "primitives": {
+      "value": 28818,
+      "text": "28,818"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dconvex": {
+     "psnr": {
+      "value": 24.640780167093936,
+      "text": "24.64"
+     },
+     "ssim": {
+      "value": 0.7910462021827698,
+      "text": "0.791"
+     },
+     "lpips": {
+      "value": 0.4345430178301675,
+      "text": "0.435"
+     },
+     "fps": {
+      "value": 295.2326050360284,
+      "text": "295.2"
+     },
+     "memory_mb": {
+      "value": 3.453312,
+      "text": "3.45"
+     },
+     "vram_gib": {
+      "value": 0.560546875,
+      "text": "0.56"
+     },
+     "primitives": {
+      "value": 12512,
+      "text": "12,512"
+     },
+     "gpu": "RTX A5000"
+    },
+    "bbsplat": {
+     "psnr": {
+      "value": 23.6199815303367,
+      "text": "23.62"
+     },
+     "ssim": {
+      "value": 0.7240025656563895,
+      "text": "0.724"
+     },
+     "lpips": {
+      "value": 0.4133843055793217,
+      "text": "0.413"
+     },
+     "fps": {
+      "value": 211.004261187125,
+      "text": "211.0"
+     },
+     "memory_mb": {
+      "value": 3.74026,
+      "text": "3.74"
+     },
+     "vram_gib": {
+      "value": 0.595703125,
+      "text": "0.60"
+     },
+     "primitives": {
+      "value": 865,
+      "text": "865"
+     },
+     "gpu": "RTX A5000"
+    },
+    "nexels": {
+     "psnr": {
+      "value": 27.53331833128615,
+      "text": "27.53"
+     },
+     "ssim": {
+      "value": 0.8355807491711208,
+      "text": "0.836"
+     },
+     "lpips": {
+      "value": 0.3291758596897125,
+      "text": "0.329"
+     },
+     "fps": {
+      "value": 153.40647000334195,
+      "text": "153.4"
+     },
+     "memory_mb": {
+      "value": 3.616696,
+      "text": "3.62"
+     },
+     "vram_gib": {
+      "value": 2.162109375,
+      "text": "2.16"
+     },
+     "primitives": {
+      "value": 10374,
+      "text": "10,374"
+     },
+     "gpu": "RTX A5000"
+    }
+   },
+   "dtu/scan63": {
+    "ours": {
+     "psnr": {
+      "value": 27.251476749440712,
+      "text": "27.25"
+     },
+     "ssim": {
+      "value": 0.932735128062112,
+      "text": "0.933"
+     },
+     "lpips": {
+      "value": 0.19968174823692866,
+      "text": "0.200"
+     },
+     "fps": {
+      "value": 1185.2189226253104,
+      "text": "1,185.2"
+     },
+     "memory_mb": {
+      "value": 1.42104,
+      "text": "1.42"
+     },
+     "vram_gib": {
+      "value": 0.521484375,
+      "text": "0.52"
+     },
+     "primitives": {
+      "value": 17763,
+      "text": "17,763"
+     },
+     "gpu": "RTX A5000"
+    },
+    "2dgs": {
+     "psnr": {
+      "value": 17.626488610372807,
+      "text": "17.63"
+     },
+     "ssim": {
+      "value": 0.8150489841188703,
+      "text": "0.815"
+     },
+     "lpips": {
+      "value": 0.36164487472602297,
+      "text": "0.362"
+     },
+     "fps": {
+      "value": 528.0018463950444,
+      "text": "528.0"
+     },
+     "memory_mb": {
+      "value": 1.421,
+      "text": "1.42"
+     },
+     "vram_gib": {
+      "value": 0.658203125,
+      "text": "0.66"
+     },
+     "primitives": {
+      "value": 6125,
+      "text": "6,125"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dgs": {
+     "psnr": {
+      "value": 20.648277039995314,
+      "text": "20.65"
+     },
+     "ssim": {
+      "value": 0.8496746676308768,
+      "text": "0.850"
+     },
+     "lpips": {
+      "value": 0.3216488552945001,
+      "text": "0.322"
+     },
+     "fps": {
+      "value": 1341.5653184871003,
+      "text": "1,341.6"
+     },
+     "memory_mb": {
+      "value": 1.420956,
+      "text": "1.42"
+     },
+     "vram_gib": {
+      "value": 0.3984375,
+      "text": "0.40"
+     },
+     "primitives": {
+      "value": 6021,
+      "text": "6,021"
+     },
+     "gpu": "RTX A5000"
+    },
+    "triangle": {
+     "psnr": {
+      "value": 22.87975806581514,
+      "text": "22.88"
+     },
+     "ssim": {
+      "value": 0.8575598852975028,
+      "text": "0.858"
+     },
+     "lpips": {
+      "value": 0.2593696117401123,
+      "text": "0.259"
+     },
+     "fps": {
+      "value": 547.8104180771256,
+      "text": "547.8"
+     },
+     "memory_mb": {
+      "value": 1.315228,
+      "text": "1.32"
+     },
+     "vram_gib": {
+      "value": 0.587890625,
+      "text": "0.59"
+     },
+     "primitives": {
+      "value": 5573,
+      "text": "5,573"
+     },
+     "gpu": "RTX A5000"
+    },
+    "meshsplatting": {
+     "psnr": {
+      "value": 19.599625957114448,
+      "text": "19.60"
+     },
+     "ssim": {
+      "value": 0.7235289514064789,
+      "text": "0.724"
+     },
+     "lpips": {
+      "value": 0.3441927134990692,
+      "text": "0.344"
+     },
+     "fps": {
+      "value": 128.49130343092418,
+      "text": "128.5"
+     },
+     "memory_mb": {
+      "value": 0.870592,
+      "text": "0.87"
+     },
+     "vram_gib": {
+      "value": 1.875,
+      "text": "1.88"
+     },
+     "primitives": {
+      "value": 10964,
+      "text": "10,964"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dconvex": {
+     "psnr": {
+      "value": 23.052722875173593,
+      "text": "23.05"
+     },
+     "ssim": {
+      "value": 0.8886551856994629,
+      "text": "0.889"
+     },
+     "lpips": {
+      "value": 0.27573989970343454,
+      "text": "0.276"
+     },
+     "fps": {
+      "value": 492.9920971132749,
+      "text": "493.0"
+     },
+     "memory_mb": {
+      "value": 1.097652,
+      "text": "1.10"
+     },
+     "vram_gib": {
+      "value": 0.52734375,
+      "text": "0.53"
+     },
+     "primitives": {
+      "value": 3977,
+      "text": "3,977"
+     },
+     "gpu": "RTX A5000"
+    },
+    "bbsplat": {
+     "psnr": {
+      "value": 27.815296738974848,
+      "text": "27.82"
+     },
+     "ssim": {
+      "value": 0.9142647130148751,
+      "text": "0.914"
+     },
+     "lpips": {
+      "value": 0.23146140575408936,
+      "text": "0.231"
+     },
+     "fps": {
+      "value": 180.41086814793232,
+      "text": "180.4"
+     },
+     "memory_mb": {
+      "value": 1.418272,
+      "text": "1.42"
+     },
+     "vram_gib": {
+      "value": 0.576171875,
+      "text": "0.58"
+     },
+     "primitives": {
+      "value": 328,
+      "text": "328"
+     },
+     "gpu": "RTX A5000"
+    },
+    "nexels": {
+     "psnr": {
+      "value": 26.20830153706387,
+      "text": "26.21"
+     },
+     "ssim": {
+      "value": 0.91434987953731,
+      "text": "0.914"
+     },
+     "lpips": {
+      "value": 0.20444644561835698,
+      "text": "0.204"
+     },
+     "fps": {
+      "value": 158.80148031632675,
+      "text": "158.8"
+     },
+     "memory_mb": {
+      "value": 1.380016,
+      "text": "1.38"
+     },
+     "vram_gib": {
+      "value": 2.138671875,
+      "text": "2.14"
+     },
+     "primitives": {
+      "value": 3356,
+      "text": "3,356"
+     },
+     "gpu": "RTX A5000"
+    }
+   },
+   "dtu/scan65": {
+    "ours": {
+     "psnr": {
+      "value": 28.727238570981864,
+      "text": "28.73"
+     },
+     "ssim": {
+      "value": 0.8734497002192906,
+      "text": "0.873"
+     },
+     "lpips": {
+      "value": 0.3366358833653586,
+      "text": "0.337"
+     },
+     "fps": {
+      "value": 892.5255075119741,
+      "text": "892.5"
+     },
+     "memory_mb": {
+      "value": 1.80936,
+      "text": "1.81"
+     },
+     "vram_gib": {
+      "value": 0.525390625,
+      "text": "0.53"
+     },
+     "primitives": {
+      "value": 22617,
+      "text": "22,617"
+     },
+     "gpu": "RTX A5000"
+    },
+    "2dgs": {
+     "psnr": {
+      "value": 22.70986139167271,
+      "text": "22.71"
+     },
+     "ssim": {
+      "value": 0.7508427926472255,
+      "text": "0.751"
+     },
+     "lpips": {
+      "value": 0.46310186811855863,
+      "text": "0.463"
+     },
+     "fps": {
+      "value": 501.14667630530516,
+      "text": "501.1"
+     },
+     "memory_mb": {
+      "value": 1.809136,
+      "text": "1.81"
+     },
+     "vram_gib": {
+      "value": 0.66015625,
+      "text": "0.66"
+     },
+     "primitives": {
+      "value": 7798,
+      "text": "7,798"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dgs": {
+     "psnr": {
+      "value": 28.415761103603028,
+      "text": "28.42"
+     },
+     "ssim": {
+      "value": 0.8408243826457432,
+      "text": "0.841"
+     },
+     "lpips": {
+      "value": 0.3991339036396572,
+      "text": "0.399"
+     },
+     "fps": {
+      "value": 1035.536902945522,
+      "text": "1,035.5"
+     },
+     "memory_mb": {
+      "value": 1.809176,
+      "text": "1.81"
+     },
+     "vram_gib": {
+      "value": 0.3984375,
+      "text": "0.40"
+     },
+     "primitives": {
+      "value": 7666,
+      "text": "7,666"
+     },
+     "gpu": "RTX A5000"
+    },
+    "triangle": {
+     "psnr": {
+      "value": 27.206214047029476,
+      "text": "27.21"
+     },
+     "ssim": {
+      "value": 0.8362400787217277,
+      "text": "0.836"
+     },
+     "lpips": {
+      "value": 0.4065706431865692,
+      "text": "0.407"
+     },
+     "fps": {
+      "value": 509.6505439160975,
+      "text": "509.7"
+     },
+     "memory_mb": {
+      "value": 1.648696,
+      "text": "1.65"
+     },
+     "vram_gib": {
+      "value": 0.583984375,
+      "text": "0.58"
+     },
+     "primitives": {
+      "value": 6986,
+      "text": "6,986"
+     },
+     "gpu": "RTX A5000"
+    },
+    "meshsplatting": {
+     "psnr": {
+      "value": 22.53893492177674,
+      "text": "22.54"
+     },
+     "ssim": {
+      "value": 0.685677809374673,
+      "text": "0.686"
+     },
+     "lpips": {
+      "value": 0.5039766728878021,
+      "text": "0.504"
+     },
+     "fps": {
+      "value": 137.0537364870051,
+      "text": "137.1"
+     },
+     "memory_mb": {
+      "value": 1.1514,
+      "text": "1.15"
+     },
+     "vram_gib": {
+      "value": 1.837890625,
+      "text": "1.84"
+     },
+     "primitives": {
+      "value": 13218,
+      "text": "13,218"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dconvex": {
+     "psnr": {
+      "value": 26.42042111292663,
+      "text": "26.42"
+     },
+     "ssim": {
+      "value": 0.8245754241943359,
+      "text": "0.825"
+     },
+     "lpips": {
+      "value": 0.42114207574299406,
+      "text": "0.421"
+     },
+     "fps": {
+      "value": 324.5985002273702,
+      "text": "324.6"
+     },
+     "memory_mb": {
+      "value": 1.469148,
+      "text": "1.47"
+     },
+     "vram_gib": {
+      "value": 0.537109375,
+      "text": "0.54"
+     },
+     "primitives": {
+      "value": 5323,
+      "text": "5,323"
+     },
+     "gpu": "RTX A5000"
+    },
+    "bbsplat": {
+     "psnr": {
+      "value": 25.582590669574106,
+      "text": "25.58"
+     },
+     "ssim": {
+      "value": 0.8238899963242667,
+      "text": "0.824"
+     },
+     "lpips": {
+      "value": 0.41360294818878174,
+      "text": "0.414"
+     },
+     "fps": {
+      "value": 186.22802405783358,
+      "text": "186.2"
+     },
+     "memory_mb": {
+      "value": 1.807432,
+      "text": "1.81"
+     },
+     "vram_gib": {
+      "value": 0.58984375,
+      "text": "0.59"
+     },
+     "primitives": {
+      "value": 418,
+      "text": "418"
+     },
+     "gpu": "RTX A5000"
+    },
+    "nexels": {
+     "psnr": {
+      "value": 28.511569574223397,
+      "text": "28.51"
+     },
+     "ssim": {
+      "value": 0.8519826020513263,
+      "text": "0.852"
+     },
+     "lpips": {
+      "value": 0.3526947285447802,
+      "text": "0.353"
+     },
+     "fps": {
+      "value": 154.84409398430887,
+      "text": "154.8"
+     },
+     "memory_mb": {
+      "value": 1.750164,
+      "text": "1.75"
+     },
+     "vram_gib": {
+      "value": 2.150390625,
+      "text": "2.15"
+     },
+     "primitives": {
+      "value": 4873,
+      "text": "4,873"
+     },
+     "gpu": "RTX A5000"
+    }
+   },
+   "dtu/scan69": {
+    "ours": {
+     "psnr": {
+      "value": 26.652678773304878,
+      "text": "26.65"
+     },
+     "ssim": {
+      "value": 0.8735623615128654,
+      "text": "0.874"
+     },
+     "lpips": {
+      "value": 0.2912989322628294,
+      "text": "0.291"
+     },
+     "fps": {
+      "value": 908.98021569474,
+      "text": "909.0"
+     },
+     "memory_mb": {
+      "value": 1.85768,
+      "text": "1.86"
+     },
+     "vram_gib": {
+      "value": 0.525390625,
+      "text": "0.53"
+     },
+     "primitives": {
+      "value": 23221,
+      "text": "23,221"
+     },
+     "gpu": "RTX A5000"
+    },
+    "2dgs": {
+     "psnr": {
+      "value": 21.25620386281265,
+      "text": "21.26"
+     },
+     "ssim": {
+      "value": 0.7250553624970573,
+      "text": "0.725"
+     },
+     "lpips": {
+      "value": 0.5147801041603088,
+      "text": "0.515"
+     },
+     "fps": {
+      "value": 529.5882526825797,
+      "text": "529.6"
+     },
+     "memory_mb": {
+      "value": 1.857624,
+      "text": "1.86"
+     },
+     "vram_gib": {
+      "value": 0.66015625,
+      "text": "0.66"
+     },
+     "primitives": {
+      "value": 8007,
+      "text": "8,007"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dgs": {
+     "psnr": {
+      "value": 26.046541472176482,
+      "text": "26.05"
+     },
+     "ssim": {
+      "value": 0.8237373403140477,
+      "text": "0.824"
+     },
+     "lpips": {
+      "value": 0.39051482932908194,
+      "text": "0.391"
+     },
+     "fps": {
+      "value": 1088.1796334894013,
+      "text": "1,088.2"
+     },
+     "memory_mb": {
+      "value": 1.857556,
+      "text": "1.86"
+     },
+     "vram_gib": {
+      "value": 0.3984375,
+      "text": "0.40"
+     },
+     "primitives": {
+      "value": 7871,
+      "text": "7,871"
+     },
+     "gpu": "RTX A5000"
+    },
+    "triangle": {
+     "psnr": {
+      "value": 25.26440666142102,
+      "text": "25.26"
+     },
+     "ssim": {
+      "value": 0.8207425049373082,
+      "text": "0.821"
+     },
+     "lpips": {
+      "value": 0.386089916740145,
+      "text": "0.386"
+     },
+     "fps": {
+      "value": 519.606759800419,
+      "text": "519.6"
+     },
+     "memory_mb": {
+      "value": 1.730116,
+      "text": "1.73"
+     },
+     "vram_gib": {
+      "value": 0.583984375,
+      "text": "0.58"
+     },
+     "primitives": {
+      "value": 7331,
+      "text": "7,331"
+     },
+     "gpu": "RTX A5000"
+    },
+    "meshsplatting": {
+     "psnr": {
+      "value": 21.000678044548042,
+      "text": "21.00"
+     },
+     "ssim": {
+      "value": 0.6412522707666669,
+      "text": "0.641"
+     },
+     "lpips": {
+      "value": 0.561343823160444,
+      "text": "0.561"
+     },
+     "fps": {
+      "value": 138.9177662219475,
+      "text": "138.9"
+     },
+     "memory_mb": {
+      "value": 1.19016,
+      "text": "1.19"
+     },
+     "vram_gib": {
+      "value": 1.837890625,
+      "text": "1.84"
+     },
+     "primitives": {
+      "value": 13484,
+      "text": "13,484"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dconvex": {
+     "psnr": {
+      "value": 24.930508715808667,
+      "text": "24.93"
+     },
+     "ssim": {
+      "value": 0.8162305780819484,
+      "text": "0.816"
+     },
+     "lpips": {
+      "value": 0.3962619262082236,
+      "text": "0.396"
+     },
+     "fps": {
+      "value": 319.4602885433453,
+      "text": "319.5"
+     },
+     "memory_mb": {
+      "value": 1.597488,
+      "text": "1.60"
+     },
+     "vram_gib": {
+      "value": 0.564453125,
+      "text": "0.56"
+     },
+     "primitives": {
+      "value": 5788,
+      "text": "5,788"
+     },
+     "gpu": "RTX A5000"
+    },
+    "bbsplat": {
+     "psnr": {
+      "value": 24.155427877689842,
+      "text": "24.16"
+     },
+     "ssim": {
+      "value": 0.7842150415693011,
+      "text": "0.784"
+     },
+     "lpips": {
+      "value": 0.43959313205310274,
+      "text": "0.440"
+     },
+     "fps": {
+      "value": 198.09807636476592,
+      "text": "198.1"
+     },
+     "memory_mb": {
+      "value": 1.854996,
+      "text": "1.85"
+     },
+     "vram_gib": {
+      "value": 0.591796875,
+      "text": "0.59"
+     },
+     "primitives": {
+      "value": 429,
+      "text": "429"
+     },
+     "gpu": "RTX A5000"
+    },
+    "nexels": {
+     "psnr": {
+      "value": 26.140905386017124,
+      "text": "26.14"
+     },
+     "ssim": {
+      "value": 0.8443195649555751,
+      "text": "0.844"
+     },
+     "lpips": {
+      "value": 0.32671704036848886,
+      "text": "0.327"
+     },
+     "fps": {
+      "value": 158.12332495922556,
+      "text": "158.1"
+     },
+     "memory_mb": {
+      "value": 1.796036,
+      "text": "1.80"
+     },
+     "vram_gib": {
+      "value": 2.2109375,
+      "text": "2.21"
+     },
+     "primitives": {
+      "value": 5061,
+      "text": "5,061"
+     },
+     "gpu": "RTX A5000"
+    }
+   },
+   "dtu/scan83": {
+    "ours": {
+     "psnr": {
+      "value": 28.638113340518732,
+      "text": "28.64"
+     },
+     "ssim": {
+      "value": 0.8834851086139679,
+      "text": "0.883"
+     },
+     "lpips": {
+      "value": 0.37075141072273254,
+      "text": "0.371"
+     },
+     "fps": {
+      "value": 1007.6216156758001,
+      "text": "1,007.6"
+     },
+     "memory_mb": {
+      "value": 1.28128,
+      "text": "1.28"
+     },
+     "vram_gib": {
+      "value": 0.541015625,
+      "text": "0.54"
+     },
+     "primitives": {
+      "value": 16016,
+      "text": "16,016"
+     },
+     "gpu": "RTX A5000"
+    },
+    "2dgs": {
+     "psnr": {
+      "value": 19.46332767893061,
+      "text": "19.46"
+     },
+     "ssim": {
+      "value": 0.7641785591840744,
+      "text": "0.764"
+     },
+     "lpips": {
+      "value": 0.5303534045815468,
+      "text": "0.530"
+     },
+     "fps": {
+      "value": 473.6803304565304,
+      "text": "473.7"
+     },
+     "memory_mb": {
+      "value": 1.281104,
+      "text": "1.28"
+     },
+     "vram_gib": {
+      "value": 0.68359375,
+      "text": "0.68"
+     },
+     "primitives": {
+      "value": 5522,
+      "text": "5,522"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dgs": {
+     "psnr": {
+      "value": 23.96142996205198,
+      "text": "23.96"
+     },
+     "ssim": {
+      "value": 0.8261860311031342,
+      "text": "0.826"
+     },
+     "lpips": {
+      "value": 0.4832422025501728,
+      "text": "0.483"
+     },
+     "fps": {
+      "value": 1064.543815174624,
+      "text": "1,064.5"
+     },
+     "memory_mb": {
+      "value": 1.281244,
+      "text": "1.28"
+     },
+     "vram_gib": {
+      "value": 0.384765625,
+      "text": "0.38"
+     },
+     "primitives": {
+      "value": 5429,
+      "text": "5,429"
+     },
+     "gpu": "RTX A5000"
+    },
+    "triangle": {
+     "psnr": {
+      "value": 24.96940352196296,
+      "text": "24.97"
+     },
+     "ssim": {
+      "value": 0.8067102208733559,
+      "text": "0.807"
+     },
+     "lpips": {
+      "value": 0.436733853071928,
+      "text": "0.437"
+     },
+     "fps": {
+      "value": 542.4409449696227,
+      "text": "542.4"
+     },
+     "memory_mb": {
+      "value": 1.208084,
+      "text": "1.21"
+     },
+     "vram_gib": {
+      "value": 0.58984375,
+      "text": "0.59"
+     },
+     "primitives": {
+      "value": 5119,
+      "text": "5,119"
+     },
+     "gpu": "RTX A5000"
+    },
+    "meshsplatting": {
+     "psnr": {
+      "value": 20.36521194846585,
+      "text": "20.37"
+     },
+     "ssim": {
+      "value": 0.6726440265774727,
+      "text": "0.673"
+     },
+     "lpips": {
+      "value": 0.5111436396837234,
+      "text": "0.511"
+     },
+     "fps": {
+      "value": 133.17607375494558,
+      "text": "133.2"
+     },
+     "memory_mb": {
+      "value": 0.91796,
+      "text": "0.92"
+     },
+     "vram_gib": {
+      "value": 1.8359375,
+      "text": "1.84"
+     },
+     "primitives": {
+      "value": 11618,
+      "text": "11,618"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dconvex": {
+     "psnr": {
+      "value": 26.501651816695762,
+      "text": "26.50"
+     },
+     "ssim": {
+      "value": 0.8563427627086639,
+      "text": "0.856"
+     },
+     "lpips": {
+      "value": 0.4428500384092331,
+      "text": "0.443"
+     },
+     "fps": {
+      "value": 393.9184135672862,
+      "text": "393.9"
+     },
+     "memory_mb": {
+      "value": 0.892584,
+      "text": "0.89"
+     },
+     "vram_gib": {
+      "value": 0.537109375,
+      "text": "0.54"
+     },
+     "primitives": {
+      "value": 3234,
+      "text": "3,234"
+     },
+     "gpu": "RTX A5000"
+    },
+    "bbsplat": {
+     "psnr": {
+      "value": 27.375203985269437,
+      "text": "27.38"
+     },
+     "ssim": {
+      "value": 0.8610378280282021,
+      "text": "0.861"
+     },
+     "lpips": {
+      "value": 0.4413493163883686,
+      "text": "0.441"
+     },
+     "fps": {
+      "value": 162.56035791553285,
+      "text": "162.6"
+     },
+     "memory_mb": {
+      "value": 1.279904,
+      "text": "1.28"
+     },
+     "vram_gib": {
+      "value": 0.576171875,
+      "text": "0.58"
+     },
+     "primitives": {
+      "value": 296,
+      "text": "296"
+     },
+     "gpu": "RTX A5000"
+    },
+    "nexels": {
+     "psnr": {
+      "value": 27.29819323196007,
+      "text": "27.30"
+     },
+     "ssim": {
+      "value": 0.8649059534072876,
+      "text": "0.865"
+     },
+     "lpips": {
+      "value": 0.38544147461652756,
+      "text": "0.385"
+     },
+     "fps": {
+      "value": 163.12840384399493,
+      "text": "163.1"
+     },
+     "memory_mb": {
+      "value": 1.246792,
+      "text": "1.25"
+     },
+     "vram_gib": {
+      "value": 2.20703125,
+      "text": "2.21"
+     },
+     "primitives": {
+      "value": 2810,
+      "text": "2,810"
+     },
+     "gpu": "RTX A5000"
+    }
+   },
+   "dtu/scan97": {
+    "ours": {
+     "psnr": {
+      "value": 26.65529615801915,
+      "text": "26.66"
+     },
+     "ssim": {
+      "value": 0.869103729724884,
+      "text": "0.869"
+     },
+     "lpips": {
+      "value": 0.3144256938248873,
+      "text": "0.314"
+     },
+     "fps": {
+      "value": 693.6381512540241,
+      "text": "693.6"
+     },
+     "memory_mb": {
+      "value": 2.65824,
+      "text": "2.66"
+     },
+     "vram_gib": {
+      "value": 0.56640625,
+      "text": "0.57"
+     },
+     "primitives": {
+      "value": 33228,
+      "text": "33,228"
+     },
+     "gpu": "RTX A5000"
+    },
+    "2dgs": {
+     "psnr": {
+      "value": 19.793320682021346,
+      "text": "19.79"
+     },
+     "ssim": {
+      "value": 0.7437783852219582,
+      "text": "0.744"
+     },
+     "lpips": {
+      "value": 0.5060841664671898,
+      "text": "0.506"
+     },
+     "fps": {
+      "value": 446.29353872614996,
+      "text": "446.3"
+     },
+     "memory_mb": {
+      "value": 2.658024,
+      "text": "2.66"
+     },
+     "vram_gib": {
+      "value": 0.6953125,
+      "text": "0.70"
+     },
+     "primitives": {
+      "value": 11457,
+      "text": "11,457"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dgs": {
+     "psnr": {
+      "value": 23.322446926271514,
+      "text": "23.32"
+     },
+     "ssim": {
+      "value": 0.8150044828653336,
+      "text": "0.815"
+     },
+     "lpips": {
+      "value": 0.41372720152139664,
+      "text": "0.414"
+     },
+     "fps": {
+      "value": 1049.1622290229516,
+      "text": "1,049.2"
+     },
+     "memory_mb": {
+      "value": 2.658068,
+      "text": "2.66"
+     },
+     "vram_gib": {
+      "value": 0.4921875,
+      "text": "0.49"
+     },
+     "primitives": {
+      "value": 11263,
+      "text": "11,263"
+     },
+     "gpu": "RTX A5000"
+    },
+    "triangle": {
+     "psnr": {
+      "value": 22.97451470711736,
+      "text": "22.97"
+     },
+     "ssim": {
+      "value": 0.8051764592528343,
+      "text": "0.805"
+     },
+     "lpips": {
+      "value": 0.39280129969120026,
+      "text": "0.393"
+     },
+     "fps": {
+      "value": 520.0592555598628,
+      "text": "520.1"
+     },
+     "memory_mb": {
+      "value": 2.378408,
+      "text": "2.38"
+     },
+     "vram_gib": {
+      "value": 0.603515625,
+      "text": "0.60"
+     },
+     "primitives": {
+      "value": 10078,
+      "text": "10,078"
+     },
+     "gpu": "RTX A5000"
+    },
+    "meshsplatting": {
+     "psnr": {
+      "value": 19.18371122382807,
+      "text": "19.18"
+     },
+     "ssim": {
+      "value": 0.67972182482481,
+      "text": "0.680"
+     },
+     "lpips": {
+      "value": 0.5155331380665302,
+      "text": "0.516"
+     },
+     "fps": {
+      "value": 128.62772565405396,
+      "text": "128.6"
+     },
+     "memory_mb": {
+      "value": 1.462856,
+      "text": "1.46"
+     },
+     "vram_gib": {
+      "value": 1.853515625,
+      "text": "1.85"
+     },
+     "primitives": {
+      "value": 19430,
+      "text": "19,430"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dconvex": {
+     "psnr": {
+      "value": 25.686481016845377,
+      "text": "25.69"
+     },
+     "ssim": {
+      "value": 0.8540116995573044,
+      "text": "0.854"
+     },
+     "lpips": {
+      "value": 0.3521015830338001,
+      "text": "0.352"
+     },
+     "fps": {
+      "value": 247.77251635771,
+      "text": "247.8"
+     },
+     "memory_mb": {
+      "value": 2.2425,
+      "text": "2.24"
+     },
+     "vram_gib": {
+      "value": 0.5546875,
+      "text": "0.55"
+     },
+     "primitives": {
+      "value": 8125,
+      "text": "8,125"
+     },
+     "gpu": "RTX A5000"
+    },
+    "bbsplat": {
+     "psnr": {
+      "value": 25.380628382936965,
+      "text": "25.38"
+     },
+     "ssim": {
+      "value": 0.8062032982707024,
+      "text": "0.806"
+     },
+     "lpips": {
+      "value": 0.3903873860836029,
+      "text": "0.390"
+     },
+     "fps": {
+      "value": 181.72218838682198,
+      "text": "181.7"
+     },
+     "memory_mb": {
+      "value": 2.654936,
+      "text": "2.65"
+     },
+     "vram_gib": {
+      "value": 0.591796875,
+      "text": "0.59"
+     },
+     "primitives": {
+      "value": 614,
+      "text": "614"
+     },
+     "gpu": "RTX A5000"
+    },
+    "nexels": {
+     "psnr": {
+      "value": 26.541621099731177,
+      "text": "26.54"
+     },
+     "ssim": {
+      "value": 0.8517914563417435,
+      "text": "0.852"
+     },
+     "lpips": {
+      "value": 0.3242791164666414,
+      "text": "0.324"
+     },
+     "fps": {
+      "value": 152.81540345335608,
+      "text": "152.8"
+     },
+     "memory_mb": {
+      "value": 2.583844,
+      "text": "2.58"
+     },
+     "vram_gib": {
+      "value": 2.203125,
+      "text": "2.20"
+     },
+     "primitives": {
+      "value": 6141,
+      "text": "6,141"
+     },
+     "gpu": "RTX A5000"
+    }
+   },
+   "dtu/scan105": {
+    "ours": {
+     "psnr": {
+      "value": 28.856532152842515,
+      "text": "28.86"
+     },
+     "ssim": {
+      "value": 0.8817195445299149,
+      "text": "0.882"
+     },
+     "lpips": {
+      "value": 0.30108409747481346,
+      "text": "0.301"
+     },
+     "fps": {
+      "value": 710.6372934333946,
+      "text": "710.6"
+     },
+     "memory_mb": {
+      "value": 3.54536,
+      "text": "3.55"
+     },
+     "vram_gib": {
+      "value": 0.568359375,
+      "text": "0.57"
+     },
+     "primitives": {
+      "value": 44317,
+      "text": "44,317"
+     },
+     "gpu": "RTX A5000"
+    },
+    "2dgs": {
+     "psnr": {
+      "value": 20.773217925506465,
+      "text": "20.77"
+     },
+     "ssim": {
+      "value": 0.7829092741012573,
+      "text": "0.783"
+     },
+     "lpips": {
+      "value": 0.483407124876976,
+      "text": "0.483"
+     },
+     "fps": {
+      "value": 436.2599483266515,
+      "text": "436.3"
+     },
+     "memory_mb": {
+      "value": 3.545192,
+      "text": "3.55"
+     },
+     "vram_gib": {
+      "value": 0.701171875,
+      "text": "0.70"
+     },
+     "primitives": {
+      "value": 15281,
+      "text": "15,281"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dgs": {
+     "psnr": {
+      "value": 29.562980300824627,
+      "text": "29.56"
+     },
+     "ssim": {
+      "value": 0.8783148527145386,
+      "text": "0.878"
+     },
+     "lpips": {
+      "value": 0.39171962440013885,
+      "text": "0.392"
+     },
+     "fps": {
+      "value": 902.9059408636867,
+      "text": "902.9"
+     },
+     "memory_mb": {
+      "value": 3.545192,
+      "text": "3.55"
+     },
+     "vram_gib": {
+      "value": 0.484375,
+      "text": "0.48"
+     },
+     "primitives": {
+      "value": 15022,
+      "text": "15,022"
+     },
+     "gpu": "RTX A5000"
+    },
+    "triangle": {
+     "psnr": {
+      "value": 26.537629428008373,
+      "text": "26.54"
+     },
+     "ssim": {
+      "value": 0.8468791544437408,
+      "text": "0.847"
+     },
+     "lpips": {
+      "value": 0.37979385256767273,
+      "text": "0.380"
+     },
+     "fps": {
+      "value": 478.6108215407975,
+      "text": "478.6"
+     },
+     "memory_mb": {
+      "value": 3.23792,
+      "text": "3.24"
+     },
+     "vram_gib": {
+      "value": 0.607421875,
+      "text": "0.61"
+     },
+     "primitives": {
+      "value": 13720,
+      "text": "13,720"
+     },
+     "gpu": "RTX A5000"
+    },
+    "meshsplatting": {
+     "psnr": {
+      "value": 22.340476139470034,
+      "text": "22.34"
+     },
+     "ssim": {
+      "value": 0.6775556430220604,
+      "text": "0.678"
+     },
+     "lpips": {
+      "value": 0.5060309022665024,
+      "text": "0.506"
+     },
+     "fps": {
+      "value": 131.36816795365695,
+      "text": "131.4"
+     },
+     "memory_mb": {
+      "value": 1.960932,
+      "text": "1.96"
+     },
+     "vram_gib": {
+      "value": 1.8359375,
+      "text": "1.84"
+     },
+     "primitives": {
+      "value": 25351,
+      "text": "25,351"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dconvex": {
+     "psnr": {
+      "value": 28.132346379102124,
+      "text": "28.13"
+     },
+     "ssim": {
+      "value": 0.8648060113191605,
+      "text": "0.865"
+     },
+     "lpips": {
+      "value": 0.38765014708042145,
+      "text": "0.388"
+     },
+     "fps": {
+      "value": 238.86582029765412,
+      "text": "238.9"
+     },
+     "memory_mb": {
+      "value": 2.801124,
+      "text": "2.80"
+     },
+     "vram_gib": {
+      "value": 0.619140625,
+      "text": "0.62"
+     },
+     "primitives": {
+      "value": 10149,
+      "text": "10,149"
+     },
+     "gpu": "RTX A5000"
+    },
+    "bbsplat": {
+     "psnr": {
+      "value": 28.552527806454336,
+      "text": "28.55"
+     },
+     "ssim": {
+      "value": 0.8609224259853363,
+      "text": "0.861"
+     },
+     "lpips": {
+      "value": 0.37541430443525314,
+      "text": "0.375"
+     },
+     "fps": {
+      "value": 193.90481599114085,
+      "text": "193.9"
+     },
+     "memory_mb": {
+      "value": 3.541356,
+      "text": "3.54"
+     },
+     "vram_gib": {
+      "value": 0.595703125,
+      "text": "0.60"
+     },
+     "primitives": {
+      "value": 819,
+      "text": "819"
+     },
+     "gpu": "RTX A5000"
+    },
+    "nexels": {
+     "psnr": {
+      "value": 28.747224926302376,
+      "text": "28.75"
+     },
+     "ssim": {
+      "value": 0.8748067244887352,
+      "text": "0.875"
+     },
+     "lpips": {
+      "value": 0.3145028166472912,
+      "text": "0.315"
+     },
+     "fps": {
+      "value": 154.93979693837457,
+      "text": "154.9"
+     },
+     "memory_mb": {
+      "value": 3.429304,
+      "text": "3.43"
+     },
+     "vram_gib": {
+      "value": 2.84765625,
+      "text": "2.85"
+     },
+     "primitives": {
+      "value": 9606,
+      "text": "9,606"
+     },
+     "gpu": "RTX A5000"
+    }
+   },
+   "dtu/scan106": {
+    "ours": {
+     "psnr": {
+      "value": 33.15283427815375,
+      "text": "33.15"
+     },
+     "ssim": {
+      "value": 0.9081201106309891,
+      "text": "0.908"
+     },
+     "lpips": {
+      "value": 0.3506193868815899,
+      "text": "0.351"
+     },
+     "fps": {
+      "value": 826.9012065748209,
+      "text": "826.9"
+     },
+     "memory_mb": {
+      "value": 3.70688,
+      "text": "3.71"
+     },
+     "vram_gib": {
+      "value": 0.568359375,
+      "text": "0.57"
+     },
+     "primitives": {
+      "value": 46336,
+      "text": "46,336"
+     },
+     "gpu": "RTX A5000"
+    },
+    "2dgs": {
+     "psnr": {
+      "value": 28.039792154531536,
+      "text": "28.04"
+     },
+     "ssim": {
+      "value": 0.8520616143941879,
+      "text": "0.852"
+     },
+     "lpips": {
+      "value": 0.444803848862648,
+      "text": "0.445"
+     },
+     "fps": {
+      "value": 473.1499556615389,
+      "text": "473.1"
+     },
+     "memory_mb": {
+      "value": 3.706664,
+      "text": "3.71"
+     },
+     "vram_gib": {
+      "value": 0.703125,
+      "text": "0.70"
+     },
+     "primitives": {
+      "value": 15977,
+      "text": "15,977"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dgs": {
+     "psnr": {
+      "value": 32.56179802622607,
+      "text": "32.56"
+     },
+     "ssim": {
+      "value": 0.9098532423377037,
+      "text": "0.910"
+     },
+     "lpips": {
+      "value": 0.3853810504078865,
+      "text": "0.385"
+     },
+     "fps": {
+      "value": 964.7698675863371,
+      "text": "964.8"
+     },
+     "memory_mb": {
+      "value": 3.706852,
+      "text": "3.71"
+     },
+     "vram_gib": {
+      "value": 0.416015625,
+      "text": "0.42"
+     },
+     "primitives": {
+      "value": 15707,
+      "text": "15,707"
+     },
+     "gpu": "RTX A5000"
+    },
+    "triangle": {
+     "psnr": {
+      "value": 31.455132609025192,
+      "text": "31.46"
+     },
+     "ssim": {
+      "value": 0.887140266597271,
+      "text": "0.887"
+     },
+     "lpips": {
+      "value": 0.3832278437912464,
+      "text": "0.383"
+     },
+     "fps": {
+      "value": 508.4875932212536,
+      "text": "508.5"
+     },
+     "memory_mb": {
+      "value": 3.217624,
+      "text": "3.22"
+     },
+     "vram_gib": {
+      "value": 0.609375,
+      "text": "0.61"
+     },
+     "primitives": {
+      "value": 13634,
+      "text": "13,634"
+     },
+     "gpu": "RTX A5000"
+    },
+    "meshsplatting": {
+     "psnr": {
+      "value": 23.60142488790886,
+      "text": "23.60"
+     },
+     "ssim": {
+      "value": 0.7339476495981216,
+      "text": "0.734"
+     },
+     "lpips": {
+      "value": 0.5331887155771255,
+      "text": "0.533"
+     },
+     "fps": {
+      "value": 124.99680391312876,
+      "text": "125.0"
+     },
+     "memory_mb": {
+      "value": 1.47282,
+      "text": "1.47"
+     },
+     "vram_gib": {
+      "value": 1.853515625,
+      "text": "1.85"
+     },
+     "primitives": {
+      "value": 20607,
+      "text": "20,607"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dconvex": {
+     "psnr": {
+      "value": 32.2629607882708,
+      "text": "32.26"
+     },
+     "ssim": {
+      "value": 0.8992283046245575,
+      "text": "0.899"
+     },
+     "lpips": {
+      "value": 0.3751462325453758,
+      "text": "0.375"
+     },
+     "fps": {
+      "value": 286.4622293556389,
+      "text": "286.5"
+     },
+     "memory_mb": {
+      "value": 2.766348,
+      "text": "2.77"
+     },
+     "vram_gib": {
+      "value": 0.587890625,
+      "text": "0.59"
+     },
+     "primitives": {
+      "value": 10023,
+      "text": "10,023"
+     },
+     "gpu": "RTX A5000"
+    },
+    "bbsplat": {
+     "psnr": {
+      "value": 31.428332361638745,
+      "text": "31.43"
+     },
+     "ssim": {
+      "value": 0.8878498747944832,
+      "text": "0.888"
+     },
+     "lpips": {
+      "value": 0.36895956471562386,
+      "text": "0.369"
+     },
+     "fps": {
+      "value": 191.6019730579402,
+      "text": "191.6"
+     },
+     "memory_mb": {
+      "value": 3.705668,
+      "text": "3.71"
+     },
+     "vram_gib": {
+      "value": 0.595703125,
+      "text": "0.60"
+     },
+     "primitives": {
+      "value": 857,
+      "text": "857"
+     },
+     "gpu": "RTX A5000"
+    },
+    "nexels": {
+     "psnr": {
+      "value": 33.53281161605355,
+      "text": "33.53"
+     },
+     "ssim": {
+      "value": 0.9170181602239609,
+      "text": "0.917"
+     },
+     "lpips": {
+      "value": 0.28942620381712914,
+      "text": "0.289"
+     },
+     "fps": {
+      "value": 157.78120518182428,
+      "text": "157.8"
+     },
+     "memory_mb": {
+      "value": 3.583268,
+      "text": "3.58"
+     },
+     "vram_gib": {
+      "value": 2.158203125,
+      "text": "2.16"
+     },
+     "primitives": {
+      "value": 10237,
+      "text": "10,237"
+     },
+     "gpu": "RTX A5000"
+    }
+   },
+   "dtu/scan110": {
+    "ours": {
+     "psnr": {
+      "value": 31.429700687350348,
+      "text": "31.43"
+     },
+     "ssim": {
+      "value": 0.9030642509460449,
+      "text": "0.903"
+     },
+     "lpips": {
+      "value": 0.3670361265540123,
+      "text": "0.367"
+     },
+     "fps": {
+      "value": 938.1745637344908,
+      "text": "938.2"
+     },
+     "memory_mb": {
+      "value": 2.04168,
+      "text": "2.04"
+     },
+     "vram_gib": {
+      "value": 0.546875,
+      "text": "0.55"
+     },
+     "primitives": {
+      "value": 25521,
+      "text": "25,521"
+     },
+     "gpu": "RTX A5000"
+    },
+    "2dgs": {
+     "psnr": {
+      "value": 25.354640226865552,
+      "text": "25.35"
+     },
+     "ssim": {
+      "value": 0.8131351694464684,
+      "text": "0.813"
+     },
+     "lpips": {
+      "value": 0.48537755012512207,
+      "text": "0.485"
+     },
+     "fps": {
+      "value": 381.3968129227298,
+      "text": "381.4"
+     },
+     "memory_mb": {
+      "value": 2.0416,
+      "text": "2.04"
+     },
+     "vram_gib": {
+      "value": 0.703125,
+      "text": "0.70"
+     },
+     "primitives": {
+      "value": 8800,
+      "text": "8,800"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dgs": {
+     "psnr": {
+      "value": 30.06093613558695,
+      "text": "30.06"
+     },
+     "ssim": {
+      "value": 0.8920771777629852,
+      "text": "0.892"
+     },
+     "lpips": {
+      "value": 0.4134986773133278,
+      "text": "0.413"
+     },
+     "fps": {
+      "value": 1039.2832237220014,
+      "text": "1,039.3"
+     },
+     "memory_mb": {
+      "value": 2.041636,
+      "text": "2.04"
+     },
+     "vram_gib": {
+      "value": 0.400390625,
+      "text": "0.40"
+     },
+     "primitives": {
+      "value": 8651,
+      "text": "8,651"
+     },
+     "gpu": "RTX A5000"
+    },
+    "triangle": {
+     "psnr": {
+      "value": 29.311840535795014,
+      "text": "29.31"
+     },
+     "ssim": {
+      "value": 0.8797960206866264,
+      "text": "0.880"
+     },
+     "lpips": {
+      "value": 0.41462258249521255,
+      "text": "0.415"
+     },
+     "fps": {
+      "value": 492.9525078452331,
+      "text": "493.0"
+     },
+     "memory_mb": {
+      "value": 1.765516,
+      "text": "1.77"
+     },
+     "vram_gib": {
+      "value": 0.583984375,
+      "text": "0.58"
+     },
+     "primitives": {
+      "value": 7481,
+      "text": "7,481"
+     },
+     "gpu": "RTX A5000"
+    },
+    "meshsplatting": {
+     "psnr": {
+      "value": 21.795443752890332,
+      "text": "21.80"
+     },
+     "ssim": {
+      "value": 0.7135679796338081,
+      "text": "0.714"
+     },
+     "lpips": {
+      "value": 0.5368074998259544,
+      "text": "0.537"
+     },
+     "fps": {
+      "value": 125.53376497643507,
+      "text": "125.5"
+     },
+     "memory_mb": {
+      "value": 0.961228,
+      "text": "0.96"
+     },
+     "vram_gib": {
+      "value": 1.8359375,
+      "text": "1.84"
+     },
+     "primitives": {
+      "value": 13213,
+      "text": "13,213"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dconvex": {
+     "psnr": {
+      "value": 29.829805093644637,
+      "text": "29.83"
+     },
+     "ssim": {
+      "value": 0.8902885615825653,
+      "text": "0.890"
+     },
+     "lpips": {
+      "value": 0.40425170212984085,
+      "text": "0.404"
+     },
+     "fps": {
+      "value": 344.80267873727064,
+      "text": "344.8"
+     },
+     "memory_mb": {
+      "value": 1.399872,
+      "text": "1.40"
+     },
+     "vram_gib": {
+      "value": 0.54296875,
+      "text": "0.54"
+     },
+     "primitives": {
+      "value": 5072,
+      "text": "5,072"
+     },
+     "gpu": "RTX A5000"
+    },
+    "bbsplat": {
+     "psnr": {
+      "value": 28.223209843000753,
+      "text": "28.22"
+     },
+     "ssim": {
+      "value": 0.8791771531105042,
+      "text": "0.879"
+     },
+     "lpips": {
+      "value": 0.4090460278093815,
+      "text": "0.409"
+     },
+     "fps": {
+      "value": 164.79713517883988,
+      "text": "164.8"
+     },
+     "memory_mb": {
+      "value": 2.040928,
+      "text": "2.04"
+     },
+     "vram_gib": {
+      "value": 0.591796875,
+      "text": "0.59"
+     },
+     "primitives": {
+      "value": 472,
+      "text": "472"
+     },
+     "gpu": "RTX A5000"
+    },
+    "nexels": {
+     "psnr": {
+      "value": 30.545855118442567,
+      "text": "30.55"
+     },
+     "ssim": {
+      "value": 0.9002153277397156,
+      "text": "0.900"
+     },
+     "lpips": {
+      "value": 0.34111351519823074,
+      "text": "0.341"
+     },
+     "fps": {
+      "value": 155.26586559517693,
+      "text": "155.3"
+     },
+     "memory_mb": {
+      "value": 1.971472,
+      "text": "1.97"
+     },
+     "vram_gib": {
+      "value": 2.1328125,
+      "text": "2.13"
+     },
+     "primitives": {
+      "value": 5780,
+      "text": "5,780"
+     },
+     "gpu": "RTX A5000"
+    }
+   },
+   "dtu/scan114": {
+    "ours": {
+     "psnr": {
+      "value": 29.949345019966792,
+      "text": "29.95"
+     },
+     "ssim": {
+      "value": 0.8996246680617332,
+      "text": "0.900"
+     },
+     "lpips": {
+      "value": 0.31507664173841476,
+      "text": "0.315"
+     },
+     "fps": {
+      "value": 719.2189384754689,
+      "text": "719.2"
+     },
+     "memory_mb": {
+      "value": 3.44248,
+      "text": "3.44"
+     },
+     "vram_gib": {
+      "value": 0.5703125,
+      "text": "0.57"
+     },
+     "primitives": {
+      "value": 43031,
+      "text": "43,031"
+     },
+     "gpu": "RTX A5000"
+    },
+    "2dgs": {
+     "psnr": {
+      "value": 26.83478389016292,
+      "text": "26.83"
+     },
+     "ssim": {
+      "value": 0.8355693221092224,
+      "text": "0.836"
+     },
+     "lpips": {
+      "value": 0.41516025736927986,
+      "text": "0.415"
+     },
+     "fps": {
+      "value": 526.0900196879188,
+      "text": "526.1"
+     },
+     "memory_mb": {
+      "value": 3.442416,
+      "text": "3.44"
+     },
+     "vram_gib": {
+      "value": 0.697265625,
+      "text": "0.70"
+     },
+     "primitives": {
+      "value": 14838,
+      "text": "14,838"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dgs": {
+     "psnr": {
+      "value": 29.615153003758245,
+      "text": "29.62"
+     },
+     "ssim": {
+      "value": 0.8881338760256767,
+      "text": "0.888"
+     },
+     "lpips": {
+      "value": 0.36697156354784966,
+      "text": "0.367"
+     },
+     "fps": {
+      "value": 960.450556822232,
+      "text": "960.5"
+     },
+     "memory_mb": {
+      "value": 3.442296,
+      "text": "3.44"
+     },
+     "vram_gib": {
+      "value": 0.4765625,
+      "text": "0.48"
+     },
+     "primitives": {
+      "value": 14586,
+      "text": "14,586"
+     },
+     "gpu": "RTX A5000"
+    },
+    "triangle": {
+     "psnr": {
+      "value": 28.403561474713936,
+      "text": "28.40"
+     },
+     "ssim": {
+      "value": 0.8643145188689232,
+      "text": "0.864"
+     },
+     "lpips": {
+      "value": 0.37355173006653786,
+      "text": "0.374"
+     },
+     "fps": {
+      "value": 499.9894463058627,
+      "text": "500.0"
+     },
+     "memory_mb": {
+      "value": 2.928288,
+      "text": "2.93"
+     },
+     "vram_gib": {
+      "value": 0.607421875,
+      "text": "0.61"
+     },
+     "primitives": {
+      "value": 12408,
+      "text": "12,408"
+     },
+     "gpu": "RTX A5000"
+    },
+    "meshsplatting": {
+     "psnr": {
+      "value": 20.49589654465004,
+      "text": "20.50"
+     },
+     "ssim": {
+      "value": 0.6743621751666069,
+      "text": "0.674"
+     },
+     "lpips": {
+      "value": 0.5247097983956337,
+      "text": "0.525"
+     },
+     "fps": {
+      "value": 127.38631988427298,
+      "text": "127.4"
+     },
+     "memory_mb": {
+      "value": 1.352984,
+      "text": "1.35"
+     },
+     "vram_gib": {
+      "value": 1.857421875,
+      "text": "1.86"
+     },
+     "primitives": {
+      "value": 19582,
+      "text": "19,582"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dconvex": {
+     "psnr": {
+      "value": 29.147306056108555,
+      "text": "29.15"
+     },
+     "ssim": {
+      "value": 0.8822799250483513,
+      "text": "0.882"
+     },
+     "lpips": {
+      "value": 0.3614635281264782,
+      "text": "0.361"
+     },
+     "fps": {
+      "value": 260.6341741532491,
+      "text": "260.6"
+     },
+     "memory_mb": {
+      "value": 2.732124,
+      "text": "2.73"
+     },
+     "vram_gib": {
+      "value": 0.587890625,
+      "text": "0.59"
+     },
+     "primitives": {
+      "value": 9899,
+      "text": "9,899"
+     },
+     "gpu": "RTX A5000"
+    },
+    "bbsplat": {
+     "psnr": {
+      "value": 28.004446295530382,
+      "text": "28.00"
+     },
+     "ssim": {
+      "value": 0.8579485937952995,
+      "text": "0.858"
+     },
+     "lpips": {
+      "value": 0.36826370283961296,
+      "text": "0.368"
+     },
+     "fps": {
+      "value": 168.94479818846656,
+      "text": "168.9"
+     },
+     "memory_mb": {
+      "value": 3.441904,
+      "text": "3.44"
+     },
+     "vram_gib": {
+      "value": 0.59375,
+      "text": "0.59"
+     },
+     "primitives": {
+      "value": 796,
+      "text": "796"
+     },
+     "gpu": "RTX A5000"
+    },
+    "nexels": {
+     "psnr": {
+      "value": 30.03066821998589,
+      "text": "30.03"
+     },
+     "ssim": {
+      "value": 0.9008878916501999,
+      "text": "0.901"
+     },
+     "lpips": {
+      "value": 0.28387077897787094,
+      "text": "0.284"
+     },
+     "fps": {
+      "value": 157.12452396076253,
+      "text": "157.1"
+     },
+     "memory_mb": {
+      "value": 3.331216,
+      "text": "3.33"
+     },
+     "vram_gib": {
+      "value": 2.14453125,
+      "text": "2.14"
+     },
+     "primitives": {
+      "value": 9204,
+      "text": "9,204"
+     },
+     "gpu": "RTX A5000"
+    }
+   },
+   "dtu/scan118": {
+    "ours": {
+     "psnr": {
+      "value": 33.80894375878798,
+      "text": "33.81"
+     },
+     "ssim": {
+      "value": 0.9141147956252098,
+      "text": "0.914"
+     },
+     "lpips": {
+      "value": 0.35113005712628365,
+      "text": "0.351"
+     },
+     "fps": {
+      "value": 1020.4286273662893,
+      "text": "1,020.4"
+     },
+     "memory_mb": {
+      "value": 2.2704,
+      "text": "2.27"
+     },
+     "vram_gib": {
+      "value": 0.546875,
+      "text": "0.55"
+     },
+     "primitives": {
+      "value": 28380,
+      "text": "28,380"
+     },
+     "gpu": "RTX A5000"
+    },
+    "2dgs": {
+     "psnr": {
+      "value": 27.75593913204201,
+      "text": "27.76"
+     },
+     "ssim": {
+      "value": 0.8379871174693108,
+      "text": "0.838"
+     },
+     "lpips": {
+      "value": 0.4747432507574558,
+      "text": "0.475"
+     },
+     "fps": {
+      "value": 512.5922213430788,
+      "text": "512.6"
+     },
+     "memory_mb": {
+      "value": 2.270352,
+      "text": "2.27"
+     },
+     "vram_gib": {
+      "value": 0.689453125,
+      "text": "0.69"
+     },
+     "primitives": {
+      "value": 9786,
+      "text": "9,786"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dgs": {
+     "psnr": {
+      "value": 33.41119618967902,
+      "text": "33.41"
+     },
+     "ssim": {
+      "value": 0.9075790271162987,
+      "text": "0.908"
+     },
+     "lpips": {
+      "value": 0.4014705829322338,
+      "text": "0.401"
+     },
+     "fps": {
+      "value": 1075.082735781801,
+      "text": "1,075.1"
+     },
+     "memory_mb": {
+      "value": 2.27032,
+      "text": "2.27"
+     },
+     "vram_gib": {
+      "value": 0.400390625,
+      "text": "0.40"
+     },
+     "primitives": {
+      "value": 9620,
+      "text": "9,620"
+     },
+     "gpu": "RTX A5000"
+    },
+    "triangle": {
+     "psnr": {
+      "value": 32.159003882198434,
+      "text": "32.16"
+     },
+     "ssim": {
+      "value": 0.8832083269953728,
+      "text": "0.883"
+     },
+     "lpips": {
+      "value": 0.40909117087721825,
+      "text": "0.409"
+     },
+     "fps": {
+      "value": 523.1876282985272,
+      "text": "523.2"
+     },
+     "memory_mb": {
+      "value": 2.00246,
+      "text": "2.00"
+     },
+     "vram_gib": {
+      "value": 0.583984375,
+      "text": "0.58"
+     },
+     "primitives": {
+      "value": 8485,
+      "text": "8,485"
+     },
+     "gpu": "RTX A5000"
+    },
+    "meshsplatting": {
+     "psnr": {
+      "value": 26.705231451601275,
+      "text": "26.71"
+     },
+     "ssim": {
+      "value": 0.7614665925502777,
+      "text": "0.761"
+     },
+     "lpips": {
+      "value": 0.5259306728839874,
+      "text": "0.526"
+     },
+     "fps": {
+      "value": 127.70434065226289,
+      "text": "127.7"
+     },
+     "memory_mb": {
+      "value": 1.371128,
+      "text": "1.37"
+     },
+     "vram_gib": {
+      "value": 1.837890625,
+      "text": "1.84"
+     },
+     "primitives": {
+      "value": 19014,
+      "text": "19,014"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dconvex": {
+     "psnr": {
+      "value": 32.00496566976078,
+      "text": "32.00"
+     },
+     "ssim": {
+      "value": 0.8820525333285332,
+      "text": "0.882"
+     },
+     "lpips": {
+      "value": 0.43222305551171303,
+      "text": "0.432"
+     },
+     "fps": {
+      "value": 319.35478995508333,
+      "text": "319.4"
+     },
+     "memory_mb": {
+      "value": 1.676424,
+      "text": "1.68"
+     },
+     "vram_gib": {
+      "value": 0.55859375,
+      "text": "0.56"
+     },
+     "primitives": {
+      "value": 6074,
+      "text": "6,074"
+     },
+     "gpu": "RTX A5000"
+    },
+    "bbsplat": {
+     "psnr": {
+      "value": 31.495011282480643,
+      "text": "31.50"
+     },
+     "ssim": {
+      "value": 0.8806785941123962,
+      "text": "0.881"
+     },
+     "lpips": {
+      "value": 0.3962804079055786,
+      "text": "0.396"
+     },
+     "fps": {
+      "value": 181.7499065291114,
+      "text": "181.7"
+     },
+     "memory_mb": {
+      "value": 2.2701,
+      "text": "2.27"
+     },
+     "vram_gib": {
+      "value": 0.591796875,
+      "text": "0.59"
+     },
+     "primitives": {
+      "value": 525,
+      "text": "525"
+     },
+     "gpu": "RTX A5000"
+    },
+    "nexels": {
+     "psnr": {
+      "value": 34.0906830207219,
+      "text": "34.09"
+     },
+     "ssim": {
+      "value": 0.9135560169816017,
+      "text": "0.914"
+     },
+     "lpips": {
+      "value": 0.2845818046480417,
+      "text": "0.285"
+     },
+     "fps": {
+      "value": 158.84047246039495,
+      "text": "158.8"
+     },
+     "memory_mb": {
+      "value": 2.214184,
+      "text": "2.21"
+     },
+     "vram_gib": {
+      "value": 2.1328125,
+      "text": "2.13"
+     },
+     "primitives": {
+      "value": 4626,
+      "text": "4,626"
+     },
+     "gpu": "RTX A5000"
+    }
+   },
+   "dtu/scan122": {
+    "ours": {
+     "psnr": {
+      "value": 33.89381032831358,
+      "text": "33.89"
+     },
+     "ssim": {
+      "value": 0.9032087698578835,
+      "text": "0.903"
+     },
+     "lpips": {
+      "value": 0.36730222404003143,
+      "text": "0.367"
+     },
+     "fps": {
+      "value": 978.489719273691,
+      "text": "978.5"
+     },
+     "memory_mb": {
+      "value": 1.7408,
+      "text": "1.74"
+     },
+     "vram_gib": {
+      "value": 0.54296875,
+      "text": "0.54"
+     },
+     "primitives": {
+      "value": 21760,
+      "text": "21,760"
+     },
+     "gpu": "RTX A5000"
+    },
+    "2dgs": {
+     "psnr": {
+      "value": 24.50241288612685,
+      "text": "24.50"
+     },
+     "ssim": {
+      "value": 0.7907806411385536,
+      "text": "0.791"
+     },
+     "lpips": {
+      "value": 0.50880978256464,
+      "text": "0.509"
+     },
+     "fps": {
+      "value": 500.29490945510406,
+      "text": "500.3"
+     },
+     "memory_mb": {
+      "value": 1.740696,
+      "text": "1.74"
+     },
+     "vram_gib": {
+      "value": 0.6796875,
+      "text": "0.68"
+     },
+     "primitives": {
+      "value": 7503,
+      "text": "7,503"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dgs": {
+     "psnr": {
+      "value": 33.38970202839293,
+      "text": "33.39"
+     },
+     "ssim": {
+      "value": 0.905554324388504,
+      "text": "0.906"
+     },
+     "lpips": {
+      "value": 0.4020312801003456,
+      "text": "0.402"
+     },
+     "fps": {
+      "value": 1131.2385916327796,
+      "text": "1,131.2"
+     },
+     "memory_mb": {
+      "value": 1.740736,
+      "text": "1.74"
+     },
+     "vram_gib": {
+      "value": 0.3984375,
+      "text": "0.40"
+     },
+     "primitives": {
+      "value": 7376,
+      "text": "7,376"
+     },
+     "gpu": "RTX A5000"
+    },
+    "triangle": {
+     "psnr": {
+      "value": 32.21160534211588,
+      "text": "32.21"
+     },
+     "ssim": {
+      "value": 0.8863905668258667,
+      "text": "0.886"
+     },
+     "lpips": {
+      "value": 0.4095037989318371,
+      "text": "0.410"
+     },
+     "fps": {
+      "value": 536.8752599844677,
+      "text": "536.9"
+     },
+     "memory_mb": {
+      "value": 1.570816,
+      "text": "1.57"
+     },
+     "vram_gib": {
+      "value": 0.583984375,
+      "text": "0.58"
+     },
+     "primitives": {
+      "value": 6656,
+      "text": "6,656"
+     },
+     "gpu": "RTX A5000"
+    },
+    "meshsplatting": {
+     "psnr": {
+      "value": 24.580967164681553,
+      "text": "24.58"
+     },
+     "ssim": {
+      "value": 0.7244815528392792,
+      "text": "0.724"
+     },
+     "lpips": {
+      "value": 0.5238715820014477,
+      "text": "0.524"
+     },
+     "fps": {
+      "value": 133.1693947024059,
+      "text": "133.2"
+     },
+     "memory_mb": {
+      "value": 1.065748,
+      "text": "1.07"
+     },
+     "vram_gib": {
+      "value": 1.8359375,
+      "text": "1.84"
+     },
+     "primitives": {
+      "value": 13135,
+      "text": "13,135"
+     },
+     "gpu": "RTX A5000"
+    },
+    "3dconvex": {
+     "psnr": {
+      "value": 32.13402866797665,
+      "text": "32.13"
+     },
+     "ssim": {
+      "value": 0.8887650892138481,
+      "text": "0.889"
+     },
+     "lpips": {
+      "value": 0.4183139503002167,
+      "text": "0.418"
+     },
+     "fps": {
+      "value": 327.7146061877662,
+      "text": "327.7"
+     },
+     "memory_mb": {
+      "value": 1.35102,
+      "text": "1.35"
+     },
+     "vram_gib": {
+      "value": 0.548828125,
+      "text": "0.55"
+     },
+     "primitives": {
+      "value": 4895,
+      "text": "4,895"
+     },
+     "gpu": "RTX A5000"
+    },
+    "bbsplat": {
+     "psnr": {
+      "value": 31.011611044179944,
+      "text": "31.01"
+     },
+     "ssim": {
+      "value": 0.8775344863533974,
+      "text": "0.878"
+     },
+     "lpips": {
+      "value": 0.41214147582650185,
+      "text": "0.412"
+     },
+     "fps": {
+      "value": 153.2117411302233,
+      "text": "153.2"
+     },
+     "memory_mb": {
+      "value": 1.738248,
+      "text": "1.74"
+     },
+     "vram_gib": {
+      "value": 0.58984375,
+      "text": "0.59"
+     },
+     "primitives": {
+      "value": 402,
+      "text": "402"
+     },
+     "gpu": "RTX A5000"
+    },
+    "nexels": {
+     "psnr": {
+      "value": 33.736708603079656,
+      "text": "33.74"
+     },
+     "ssim": {
+      "value": 0.9101958200335503,
+      "text": "0.910"
+     },
+     "lpips": {
+      "value": 0.3389196805655956,
+      "text": "0.339"
+     },
+     "fps": {
+      "value": 154.3766785285301,
+      "text": "154.4"
+     },
+     "memory_mb": {
+      "value": 1.684772,
+      "text": "1.68"
+     },
+     "vram_gib": {
+      "value": 2.134765625,
+      "text": "2.13"
+     },
+     "primitives": {
+      "value": 4605,
+      "text": "4,605"
+     },
+     "gpu": "RTX A5000"
+    }
+   }
+  },
+  "footnote": "PSNR, SSIM and LPIPS (VGG) on the held-out test views (every eighth image). Model memory: every value the renderer reads, at 4 bytes each. FPS and peak training VRAM measured on an RTX A5000."
+ }
+}

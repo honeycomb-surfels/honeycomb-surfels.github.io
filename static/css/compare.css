@@ -1,4 +1,4 @@
-/* Method comparison player (#compare-root) and scene gallery (#gallery-root).
+/* Method comparison player (#compare-root).
    Colours and sizes come from the custom properties defined on :root in index.css. */
 
 /* Method colours: the swatches defined in index.css, with the contract values as fallbacks. */
@@ -117,6 +117,16 @@
   .hx-cmp-main {
     flex-basis: auto;
   }
+}
+
+/* Setting tabs above the lead (Equal memory, Equal primitives, Native); a switch in flight dims them. */
+.hx-cmp-settings {
+  margin-bottom: 1rem;
+}
+
+.hx-cmp-settings[aria-busy="true"] {
+  opacity: 0.6;
+  pointer-events: none;
 }
 
 /* Scene panel ------------------------------------------------------------------------------ */
@@ -1017,144 +1027,6 @@
 .hx-cmp-unavailable {
   color: var(--hx-muted);
   text-align: center;
-}
-
-/* Scene gallery ---------------------------------------------------------------------------- */
-
-.hx-gal-note {
-  margin-bottom: 12px;
-  color: var(--hx-muted);
-  font-size: 0.9rem;
-  text-align: center;
-}
-
-.hx-gal-group + .hx-gal-group {
-  margin-top: 28px;
-}
-
-.hx-gal-heading {
-  margin-bottom: 10px;
-  font-family: var(--hx-font-title);
-  font-size: 1.1rem;
-  font-weight: 600;
-}
-
-.hx-gal-count {
-  color: var(--hx-muted);
-  font-size: 0.85rem;
-  font-weight: 400;
-}
-
-.hx-gal-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
-  gap: 16px 14px;
-}
-
-.hx-gal-tile {
-  min-width: 0;
-}
-
-.hx-gal-media {
-  position: relative;
-  display: block;
-  aspect-ratio: 3 / 2;
-  overflow: hidden;
-  border-radius: 8px;
-  background: var(--hx-surface-2);
-  transition: box-shadow 0.2s;
-}
-
-.hx-gal-media img,
-.hx-gal-media video {
-  position: absolute;
-  inset: 0;
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.hx-gal-media video {
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
-.hx-gal-media.is-playing:not(.is-loading) video {
-  opacity: 1;
-}
-
-.hx-gal-media .hx-play {
-  width: 2.75rem;
-  height: 2.75rem;
-  font-size: 0.95rem;
-}
-
-.hx-gal-tile.has-no-preview .hx-play {
-  display: none;
-}
-
-.hx-gal-open {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-  width: 100%;
-  min-height: 2.5rem;
-  margin: 2px 0 0;
-  padding: 4px 2px;
-  border: 0;
-  border-radius: 6px;
-  background: none;
-  color: var(--hx-ink);
-  font: inherit;
-  text-align: left;
-  cursor: pointer;
-}
-
-.hx-gal-name {
-  min-width: 0;
-  overflow: hidden;
-  font-size: 0.9rem;
-  font-weight: 600;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.hx-gal-cue {
-  display: inline-flex;
-  flex: none;
-  align-items: center;
-  gap: 5px;
-  padding: 2px 9px;
-  border: 1px solid var(--hx-line);
-  border-radius: 999px;
-  color: var(--hx-muted);
-  font-size: 0.75rem;
-  transition: border-color 0.15s, color 0.15s, background-color 0.15s;
-}
-
-@media (hover: hover) {
-  .hx-gal-tile:hover .hx-gal-media {
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
-  }
-
-  .hx-gal-tile:hover .hx-gal-cue {
-    border-color: var(--hx-dark);
-    background: var(--hx-dark);
-    color: #fff;
-  }
-}
-
-.hx-gal-open:focus-visible {
-  outline: 2px solid var(--hx-select);
-  outline-offset: 1px;
-}
-
-.hx-gal-open:focus-visible .hx-gal-cue {
-  border-color: var(--hx-dark);
-  background: var(--hx-dark);
-  color: #fff;
 }
 
 /* Phones ----------------------------------------------------------------------------------- */
