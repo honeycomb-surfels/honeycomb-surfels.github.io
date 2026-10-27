@@ -46,7 +46,6 @@ const WIDGETS = new Set([
   "why_hexagon",
   "honeycomb_area",
   "honeycomb",
-  "hexagons_tile",
   "alpha_compositing",
 ]);
 

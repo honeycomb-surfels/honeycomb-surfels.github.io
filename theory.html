@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Why Hexels? The theory, animated - Honeycomb-Surfels (Hexels)</title>
-  <meta name="description" content="Nine short animations, each next to its math, explain why Hexels pair a soft hexagonal patch with a linear color: a larger patch for the same color error, the most area inside the error ellipse, the least perimeter at equal area and the most area at equal perimeter, and a tiling where ellipses would overlap.">
+  <meta name="description" content="Eight short animations, each next to its math, explain why Hexels pair a soft hexagonal patch with a linear color: a larger patch for the same color error, the most area inside the error ellipse, and the least perimeter at equal area and the most area at equal perimeter.">
   <meta name="author" content="Prakhar Kaushik, Soumava Paul, Alan Yuille">
   <meta name="color-scheme" content="light">
   <meta name="theme-color" content="#ffffff">
@@ -17,14 +17,14 @@
   <meta property="og:site_name" content="Honeycomb-Surfels">
   <meta property="og:url" content="https://honeycomb-surfels.github.io/theory.html">
   <meta property="og:title" content="Why Hexels? The theory, animated">
-  <meta property="og:description" content="Nine short animations, each next to its math, explain why Hexels pair a soft hexagonal patch with a linear color: a larger patch for the same color error, the most area inside the error ellipse, the least perimeter at equal area and the most area at equal perimeter, and a tiling where ellipses would overlap.">
+  <meta property="og:description" content="Eight short animations, each next to its math, explain why Hexels pair a soft hexagonal patch with a linear color: a larger patch for the same color error, the most area inside the error ellipse, and the least perimeter at equal area and the most area at equal perimeter.">
   <meta property="og:image" content="https://honeycomb-surfels.github.io/static/images/social_preview.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="The Honeycomb-Surfels honeycomb logo and the title Honeycomb-Surfels: Compact Hexagonal Primitives for Efficient Scene Rendering and Reconstruction, above two renders of a yellow toy bulldozer on a kitchen table, each labelled with model memory 19.3 MB, PSNR and peak training VRAM. The 2DGS render on the left has smeared, blurry treads; the Hexels render on the right shows crisp tread links and gears.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Why Hexels? The theory, animated">
-  <meta name="twitter:description" content="Nine short animations, each next to its math, explain why Hexels pair a soft hexagonal patch with a linear color: a larger patch for the same color error, the most area inside the error ellipse, the least perimeter at equal area and the most area at equal perimeter, and a tiling where ellipses would overlap.">
+  <meta name="twitter:description" content="Eight short animations, each next to its math, explain why Hexels pair a soft hexagonal patch with a linear color: a larger patch for the same color error, the most area inside the error ellipse, and the least perimeter at equal area and the most area at equal perimeter.">
   <meta name="twitter:image" content="https://honeycomb-surfels.github.io/static/images/social_preview.jpg">
   <meta name="twitter:image:alt" content="The Honeycomb-Surfels honeycomb logo and the title Honeycomb-Surfels: Compact Hexagonal Primitives for Efficient Scene Rendering and Reconstruction, above two renders of a yellow toy bulldozer on a kitchen table, each labelled with model memory 19.3 MB, PSNR and peak training VRAM. The 2DGS render on the left has smeared, blurry treads; the Hexels render on the right shows crisp tread links and gears.">
 
@@ -67,8 +67,8 @@
         <div class="hx-prose hx-theory-lead" data-math>
           <!-- theory:theory_intro:start -->
           <section data-anim-text="theory_intro" id="hx-explain-theory_intro">
-            <p>A Hexel is a flat patch with a soft hexagonal edge and a linear color. The animations below show what a Hexel is, why its color is linear, why it is a hexagon, and how errors combine in a pixel. The analysis follows Appendix I of the paper for a fixed viewing direction: it describes what Hexels can represent, not what training is guaranteed to reach.</p>
-            <p class="hx-ref" data-labels="sec:method app:local-approximation">In the paper: Section 3 and Appendix I (<em>Why Hexagons and Spatial Color?</em>).</p>
+            <p>A Hexel is a flat patch with a soft hexagonal edge and a linear color. The animations below show what a Hexel is, why its color is linear, why it is a hexagon, and how errors combine in a pixel. The analysis follows Appendix G of the paper for a fixed viewing direction: it describes what Hexels can represent, not what training is guaranteed to reach.</p>
+            <p class="hx-ref" data-labels="sec:method app:local-approximation">In the paper: Section 3 and Appendix G (<em>Why Hexagons and Spatial Color?</em>).</p>
           </section>
           <!-- theory:theory_intro:end -->
         </div>
@@ -138,7 +138,7 @@
                 <p>Flat Hexels with linear color can together represent a smoothly colored curved surface. Each Hexel lies in the surface's tangent plane at its center \(\mathbf{p}\) and copies the value and slopes of the texture \(\mathbf{f}\) there:</p>
                 <div class="hx-eq">\[ \begin{gathered} \mathbf{c}_0=\mathbf{f}(\mathbf{p}),\\ \mathbf{g}_u=s_u\,\partial_1\mathbf{f}(\mathbf{p}),\quad \mathbf{g}_v=s_v\,\partial_2\mathbf{f}(\mathbf{p}), \end{gathered} \]</div>
                 <p>with \(\partial_1,\partial_2\) the slopes along the two tangents. In this example every corner color stays within 0.023 of the texture (on a 0 to 1 scale), so neighboring Hexels nearly agree where they meet.</p>
-                <p class="hx-ref" data-labels="fig:splat sec:method eq:plane-to-world eq:spatial-color app:local-approximation">In the paper: the left panel of Figure 2, and Section 3, Eqs. (1) and (4). The Taylor coefficients are Eq. (38) in Appendix I.</p>
+                <p class="hx-ref" data-labels="fig:splat sec:method eq:plane-to-world eq:spatial-color app:local-approximation">In the paper: the left panel of Figure 2, and Section 3, Eqs. (1) and (4). The Taylor coefficients are Eq. (30) in Appendix G.</p>
               </section>
               <!-- theory:hexels_on_surface:end -->
             </div>
@@ -168,7 +168,7 @@
                 <p>A linear color stays accurate over a much wider window than a constant one. For one color channel \(f\) near a patch center <span style="white-space:nowrap">\(p\),</span> compare the constant \(f(p)\) with the tangent line <span style="white-space:nowrap">\(\ell_p(x)=f(p)+f'(p)\,(x-p)\)</span> on a window <span style="white-space:nowrap">\(|x-p|\le r\):</span></p>
                 <div class="hx-eq">\[ \begin{gathered} |f(x)-f(p)|\le L\,r,\\ |f(x)-\ell_p(x)|\le\tfrac12 M r^2, \end{gathered} \]</div>
                 <p>where \(L\) bounds the slope and \(M\) its rate of change. The constant's error grows linearly in \(r\) and the line's quadratically, so at tolerance <span style="white-space:nowrap">\(\varepsilon=0.05\)</span> the widest valid window (thick bar) has half-width 0.088 for the constant and 0.337 for the linear color, 3.8 times wider. This compares single color fields; blending several constant-color primitives can also vary the color.</p>
-                <p class="hx-ref" data-labels="app:local-approximation prop:local-color eq:theory-local-error">In the paper: Appendix I, Proposition I.1 (<em>Local error of an affine color field</em>), Eq. (35) and the bound \(Mr^2/2\) stated with it. The constant-color bound \(Lr\) follows the proof.</p>
+                <p class="hx-ref" data-labels="app:local-approximation prop:local-color eq:theory-local-error">In the paper: Appendix G, Proposition G.1 (<em>Local error of an affine color field</em>), Eq. (27) and the bound \(Mr^2/2\) stated with it. The constant-color bound \(Lr\) follows the proof.</p>
               </section>
               <!-- theory:why_linear_color:end -->
             </div>
@@ -200,7 +200,7 @@
                 <p>The largest hexagon inside \(E\) covers twice the area of the largest triangle and about 1.30 times that of the largest square, the only other regular shapes that tile the plane. With its axes along those of \(E\) and \(\lambda_1,\lambda_2\) bounding the slope's change along them, the Hexel scales</p>
                 <div class="hx-eq">\[ s_u=\sqrt{\frac{3\varepsilon}{2\lambda_1}},\quad s_v=\sqrt{\frac{3\varepsilon}{2\lambda_2}} \]</div>
                 <p>put its six corners on <span style="white-space:nowrap">\(E\).</span> \(\mathbf{Q}\) describes the color, not the surface, and training does not estimate it.</p>
-                <p class="hx-ref" data-labels="app:local-approximation prop:hex-area eq:theory-error-ellipse eq:theory-polygon-area eq:theory-optimal-scales prop:local-color eq:theory-hessian-bound">In the paper: Appendix I, Proposition I.2 (<em>Patch area within one error ellipse</em>), Eqs. (40) to (42) and (46). Eq. (41) gives the largest areas, and the bound on \(\mathbf{Q}\) is Eq. (34) of Proposition I.1.</p>
+                <p class="hx-ref" data-labels="app:local-approximation prop:hex-area eq:theory-error-ellipse eq:theory-polygon-area eq:theory-optimal-scales prop:local-color eq:theory-hessian-bound">In the paper: Appendix G, Proposition G.2 (<em>Patch area within one error ellipse</em>), Eqs. (32) to (34) and (38). Eq. (33) gives the largest areas, and the bound on \(\mathbf{Q}\) is Eq. (26) of Proposition G.1.</p>
               </section>
               <!-- theory:why_hexagon:end -->
             </div>
@@ -233,31 +233,9 @@
                 <p>so the hexagon has the least perimeter at equal area and the most area at equal perimeter.</p>
                 <p><strong>Equal area.</strong> Unit-area cells have perimeters 4.559 (triangle), 4.000 (square) and 3.722 (hexagon), so at the same tracing speed the hexagon closes first. The honeycomb theorem (Hales, 2001) extends this to every partition of the plane into equal-area cells: regular hexagons need the least boundary per cell.</p>
                 <p><strong>Equal perimeter.</strong> Seven cells of equal perimeter cover 1, 1.30 and 1.50 times the triangles' area.</p>
-                <p class="hx-ref" data-labels="sec:method sec:introduction app:local-approximation">In the paper: the equal-area side in Section 3 (<em>Hexagonal support</em>), the equal-perimeter side in the Introduction, and the theorem again at the opening of Appendix I, all citing Hales (2001).</p>
+                <p class="hx-ref" data-labels="sec:method sec:introduction app:local-approximation">In the paper: the equal-area side in Section 3 (<em>Hexagonal support</em>), the equal-perimeter side in the Introduction, and the theorem again at the opening of Appendix G, all citing Hales (2001).</p>
               </section>
               <!-- theory:honeycomb:end -->
-            </div>
-          </div>
-          <div class="hx-anim" data-anim="hexagons_tile">
-            <div class="hx-anim-side">
-              <div class="hx-anim-media">
-                <img src="static/anim/hexagons_tile.webp" width="1440" height="810" loading="lazy" decoding="async" data-theory-alt="hexagons_tile" alt="One ellipse holds a stretched hexagon, with area bars of 0.827 and 1. Copies of the hexagon then tile the plane, and ellipses at the same centers overlap along every edge, with mean coverage bars of 1 and 1.209.">
-                <video muted loop playsinline preload="none" width="1440" height="810" aria-hidden="true"
-                       data-src="static/anim/hexagons_tile.mp4" data-fallback="static/anim/hexagons_tile.gif"></video>
-              </div>
-            </div>
-            <div class="hx-anim-text hx-prose" data-math>
-              <!-- theory:hexagons_tile:start -->
-              <section data-anim-text="hexagons_tile" id="hx-explain-hexagons_tile" data-alt="One ellipse holds a stretched hexagon, with area bars of 0.827 and 1. Copies of the hexagon then tile the plane, and ellipses at the same centers overlap along every edge, with mean coverage bars of 1 and 1.209.">
-                <h3>Hexagons tile, ellipses overlap</h3>
-                <p>One error ellipse holds more area than the largest hexagon inside it, but hexagons tile the plane and ellipses cannot. A linear color stays within \(\varepsilon\) of its target on an error ellipse \(E\) set by a bound \(\mathbf{Q}\) on how fast its slope changes. With \(H\) the largest hexagon in \(E\) and \(|S|\) the area of a shape,</p>
-                <div class="hx-eq">\[ |E|=\frac{2\pi\varepsilon}{\sqrt{\det\mathbf{Q}}},\quad\frac{|H|}{|E|}=\frac{3\sqrt3}{2\pi}\approx0.827. \]</div>
-                <p>Covering a whole plane is a different question. With one \(\mathbf{Q}\) everywhere, copies of \(H\) on a lattice tile the plane, so every point lies in exactly one. Ellipses at the same centers also cover it, but they overlap along every hexagon edge. On average a point lies in</p>
-                <div class="hx-eq">\[ \frac{|E|}{|H|}=\frac{2\pi}{3\sqrt3}\approx1.209 \]</div>
-                <p>of them, and about a fifth of the plane lies in two. Both numbers hold for every \(\mathbf{Q}\). They describe hard patches under one local error bound, while Hexels are soft, fitted independently and never forced to tile.</p>
-                <p class="hx-ref" data-labels="app:local-approximation prop:ellipse-domain prop:planar-covering eq:theory-ellipse-comparison eq:theory-covering-multiplicity">In the paper: Appendix I, Propositions I.3 (<em>Single-domain ellipse comparison</em>) and I.4 (<em>Idealized planar covering</em>), Eqs. (47) and (48).</p>
-              </section>
-              <!-- theory:hexagons_tile:end -->
             </div>
           </div>
         </div>
@@ -270,7 +248,7 @@
       </div>
       <div class="hx-container hx-wide">
         <div class="hx-anims">
-          <div class="hx-anim hx-anim-flip" data-anim="alpha_compositing">
+          <div class="hx-anim" data-anim="alpha_compositing">
             <div class="hx-anim-side">
               <div class="hx-anim-media">
                 <img src="static/anim/alpha_compositing.webp" width="1440" height="810" loading="lazy" decoding="async" data-theory-alt="alpha_compositing" alt="A pixel's ray passes through three semi-transparent hexagons to a background panel while a stacked bar fills with their shares of the pixel color. Below, a bound bar stays longer than the pixel error bar, also as the alpha values change.">
@@ -287,7 +265,7 @@
                 <p>For the pixel <span style="white-space:nowrap">\(I=\sum_iw_iC_i+T\,b\)</span> and a target color <span style="white-space:nowrap">\(f\),</span></p>
                 <div class="hx-eq">\[ \begin{array}{l} \displaystyle \|I-f\|\le\sum_i w_i\,\|C_i-f\|\\ \displaystyle \qquad+\,T\,\|b-f\|. \end{array} \]</div>
                 <p>The bound holds for any norm and primitive shape. A small \(T\) still matters when \(b\) is far from <span style="white-space:nowrap">\(f\),</span> so every part, the background included, must approximate the pixel target.</p>
-                <p class="hx-ref" data-labels="app:local-approximation prop:blend-error eq:theory-composite-error eq:hex-compositing app:hex-renderer">In the paper: Appendix I, Proposition I.5 (<em>Error under alpha compositing</em>), Eq. (51). The renderer's compositing is Eq. (25) in Appendix B.</p>
+                <p class="hx-ref" data-labels="app:local-approximation prop:blend-error eq:theory-composite-error eq:hex-compositing app:hex-renderer">In the paper: Appendix G, Proposition G.3 (<em>Error under alpha compositing</em>), Eq. (40). The renderer's compositing is Eq. (20) in Appendix B.</p>
               </section>
               <!-- theory:alpha_compositing:end -->
             </div>
@@ -302,8 +280,8 @@
         <div class="hx-prose hx-prose-block hx-summary hx-before-cta" data-math>
           <!-- theory:theory_summary:start -->
           <section data-anim-text="theory_summary" id="hx-explain-theory_summary">
-            <p>A linear color stays within a color tolerance over a larger patch than a constant color does. Within that tolerance, the largest stretched hexagon covers twice the area of the largest stretched triangle and about 1.30 times that of the largest stretched square. Hexagons also tile the plane, with the least perimeter at equal cell area and the most area at equal perimeter. The error ellipse itself holds more than its hexagon, but ellipses at the same centers would overlap, covering each point 1.209 times on average. Where Hexels overlap, a pixel's error is at most the weighted sum of their errors and that of the background. So fewer, larger Hexels can represent locally planar regions with smoothly varying appearance.</p>
-            <p class="hx-ref" data-labels="app:local-approximation prop:local-color prop:hex-area prop:ellipse-domain prop:planar-covering prop:blend-error">In the paper: Appendix I, Propositions I.1 to I.5.</p>
+            <p>A linear color stays within a color tolerance over a larger patch than a constant color does. Within that tolerance, the largest stretched hexagon covers twice the area of the largest stretched triangle and about 1.30 times that of the largest stretched square. Hexagons also tile the plane, with the least perimeter at equal cell area and the most area at equal perimeter. Where Hexels overlap, a pixel's error is at most the weighted sum of their errors and that of the background. So fewer, larger Hexels can represent locally planar regions with smoothly varying appearance.</p>
+            <p class="hx-ref" data-labels="app:local-approximation prop:local-color prop:hex-area prop:blend-error">In the paper: Appendix G, Propositions G.1 to G.3.</p>
           </section>
           <!-- theory:theory_summary:end -->
         </div>

@@ -12,7 +12,7 @@ page in the style of Nerfies: plain HTML, CSS and JavaScript modules, with no bu
 - `index.html`, the project page: demo videos, the abstract, the method, a primitive visualization, a novel-view
   comparison player with equal-memory, equal-primitive and native settings, the quantitative results, the Hexels
   variants, depth and normal renders, surface reconstruction, 2D image representation and the BibTeX entry.
-- `theory.html`, "Why Hexels? The theory, animated": nine short animations, each beside its explanation and math.
+- `theory.html`, "Why Hexels? The theory, animated": eight short animations, each beside its explanation and math.
 - `viewer.html`, "Explore Hexels in 3D": a WebGL2 viewer (`viewer/`) that renders trained Hexels live on the
   visitor's own GPU, and opens Hexels models from disk without uploading them.
 
