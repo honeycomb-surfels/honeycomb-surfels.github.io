@@ -27,15 +27,14 @@ const SITE_BUTTONS = [
   { label: "BibTeX", icon: "fas fa-quote-right", href: "#bibtex" },
 ];
 // The co-first authors trade places every AUTHOR_SWAP_EVERY_MS, in a crossfade of AUTHOR_SWAP_MS.
-const AUTHOR_SWAP_EVERY_MS = 15000;
+const AUTHOR_SWAP_EVERY_MS = 5000;
 const AUTHOR_SWAP_MS = 1500;
 const AUTHOR_SWAP_EASING = "cubic-bezier(0.45, 0, 0.55, 1)";
-// The title bee takes off after three seconds, then every six seconds, independently of the author swaps.
-// It follows the lap path drawn into logo.svg and lands where it took off. It flies head first with its
-// back to the outside, grows by BEE_LIFT at mid-lap as if nearer, and each cell bobs and lights up in CELL_GLINT, a
-// pale honey, as the bee passes it.
-const BEE_FIRST_LAP_DELAY_MS = 3000;
-const BEE_LAP_EVERY_MS = 6000;
+// With every BEE_LAP_EVERY-th author swap, starting with the first, the bee of the title logo takes off as the names
+// trade places and flies one lap around the honeycomb, along the lap path drawn into logo.svg, landing where it took
+// off. It flies head first with its back to the outside, grows by BEE_LIFT at mid-lap as if nearer, and each cell bobs
+// and lights up in CELL_GLINT, a pale honey, as the bee passes it.
+const BEE_LAP_EVERY = 1;
 const BEE_LAP_MS = 2600;
 const BEE_LAP_STEPS = 120;
 const BEE_LIFT = 0.08;
@@ -260,9 +259,10 @@ function beeLap(svg) {
 }
 
 /**
- * Let the co-first authors trade places every AUTHOR_SWAP_EVERY_MS, and independently repeat the logo bee's lap,
- * while the author line is on screen, the pointer is off it, nothing in
+ * Let the co-first authors trade places every AUTHOR_SWAP_EVERY_MS, and the title logo's bee fly its lap with the first
+ * swap and every BEE_LAP_EVERY-th one after it, while the author line is on screen, the pointer is off it, nothing in
  * it has keyboard focus, the tab is visible and motion is not reduced. Pointing at the logo also sends the bee off.
+ * The wander bee (companion-bee.js) waits behind its switch in the page header.
  */
 function rotateCoFirstAuthors(line, pair) {
   const logo = document.querySelector(".hx-lockup img");
@@ -272,37 +272,23 @@ function rotateCoFirstAuthors(line, pair) {
       if (!svg) return;
       lap = beeLap(svg);
       svg.addEventListener("pointerenter", lap);
-      setupCompanionBee(svg, line.querySelector('[data-author="kaushik"]'), reducedMotion);
-      scheduleLap();
+      setupCompanionBee(svg, [...pair.querySelectorAll("[data-author]")], reducedMotion);
     });
   }
+  let swaps = 0;
   let timer = 0;
-  let lapTimer = 0;
-  let firstLap = true;
   let onScreen = false;
   let pointerOn = false;
   let focusIn = false;
-  const canAnimate = () => onScreen && !pointerOn && !focusIn && !document.hidden && !reducedMotion.matches;
-  const scheduleAuthors = () => {
+  const schedule = () => {
     clearTimeout(timer);
-    if (!canAnimate()) return;
+    if (!onScreen || pointerOn || focusIn || document.hidden || reducedMotion.matches) return;
     timer = setTimeout(() => {
       swapAuthors(pair);
-      scheduleAuthors();
+      if (swaps % BEE_LAP_EVERY === 0) lap?.();
+      swaps += 1;
+      schedule();
     }, AUTHOR_SWAP_EVERY_MS);
-  };
-  const scheduleLap = () => {
-    clearTimeout(lapTimer);
-    if (!lap || !canAnimate()) return;
-    lapTimer = setTimeout(() => {
-      lap();
-      firstLap = false;
-      scheduleLap();
-    }, firstLap ? BEE_FIRST_LAP_DELAY_MS : BEE_LAP_EVERY_MS);
-  };
-  const schedule = () => {
-    scheduleAuthors();
-    scheduleLap();
   };
   line.addEventListener("pointerenter", () => {
     pointerOn = true;

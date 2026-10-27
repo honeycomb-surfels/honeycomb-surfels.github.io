@@ -237,8 +237,50 @@ textarea {
   will-change: transform;
 }
 
+/* The wander bee's switch (companion-bee.js), off by default, at the top right of the header, in line with the right
+   edge of the title on wide screens. */
+.hx-hero .hero-body {
+  position: relative;
+}
+
+.hx-wander-toggle {
+  position: absolute;
+  top: 0.6rem;
+  right: max(var(--hx-gutter), (100% - 1120px) / 2);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.75rem 0.25rem 0.55rem;
+  border: 1px solid var(--hx-line);
+  border-radius: 999px;
+  background: var(--hx-surface);
+  color: var(--hx-muted);
+  font-family: var(--hx-font-title);
+  font-size: 0.8rem;
+  line-height: 1.2;
+  cursor: pointer;
+}
+
+.hx-wander-toggle:hover {
+  border-color: #f4ae36;
+  color: var(--hx-ink);
+}
+
+.hx-wander-toggle.is-on {
+  border-color: #f4ae36;
+  background: #fff4cc;
+  color: var(--hx-ink);
+}
+
+.hx-wander-toggle svg {
+  width: 1.35rem;
+  height: 1.1rem;
+  overflow: visible;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .hx-companion-bee {
+  .hx-companion-bee,
+  .hx-wander-toggle {
     display: none;
   }
 }
@@ -330,7 +372,7 @@ textarea {
 
 @media screen and (max-width: 600px) {
   .hx-hero .hero-body {
-    padding-top: 2.25rem;
+    padding-top: 2.75rem;
   }
 
   .publication-authors,
