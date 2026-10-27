@@ -1,0 +1,8 @@
+{
+  "name": "hexels-release-video",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": { "assets": "node prepare-assets.mjs", "render": "node render.mjs", "flashcards": "node flashcards/export-stills.mjs" },
+  "devDependencies": { "playwright": "1.64.1" }
+}

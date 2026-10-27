@@ -229,3 +229,10 @@ __marimo__/
 todo.md
 .gitignore
 ._*
+
+# Release-video dependencies, downloaded sources and generated diagnostics
+/release-video/node_modules/
+/release-video/assets/
+/release-video/flashcards/__pycache__/
+/release-video/flashcards/stills/layout-review.json
+/release-video/*.log

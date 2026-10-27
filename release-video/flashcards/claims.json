@@ -1,0 +1,1494 @@
+{
+  "comparison": "Hexels vs 2DGS",
+  "paper": {
+    "matched_memory": {
+      "source": "tables/table1_main.tex",
+      "sha256": "21adaa5316b47fa003b1f06e606d6ccbacf00a0fd7a4bb6145b728b4dbf82076",
+      "precision": "calculated from rounded paper table cells",
+      "dataset_means": {
+        "tanks_and_temples": {
+          "psnr_gain_db": 4.530000000000001,
+          "ssim_gain": 0.15900000000000003,
+          "lpips_reduction": 0.21300000000000002,
+          "training_vram_reduction_pct": 59.12408759124088,
+          "rendering_fps_ratio": 1.5409490333919156,
+          "ours": {
+            "train_min": 13.3,
+            "vram_gib": 0.56,
+            "fps": 438.4,
+            "psnr": 23.05,
+            "ssim": 0.811,
+            "lpips": 0.295
+          },
+          "2dgs": {
+            "train_min": 10.6,
+            "vram_gib": 1.37,
+            "fps": 284.5,
+            "psnr": 18.52,
+            "ssim": 0.652,
+            "lpips": 0.508
+          },
+          "nonlower_psnr": true,
+          "all_quality_metrics_nonworse": true
+        },
+        "mipnerf360": {
+          "psnr_gain_db": 7.0,
+          "ssim_gain": 0.21099999999999997,
+          "lpips_reduction": 0.24800000000000005,
+          "training_vram_reduction_pct": 72.22222222222221,
+          "rendering_fps_ratio": 1.877733598409543,
+          "ours": {
+            "train_min": 24.2,
+            "vram_gib": 0.9,
+            "fps": 377.8,
+            "psnr": 24.82,
+            "ssim": 0.705,
+            "lpips": 0.41
+          },
+          "2dgs": {
+            "train_min": 20.0,
+            "vram_gib": 3.24,
+            "fps": 201.2,
+            "psnr": 17.82,
+            "ssim": 0.494,
+            "lpips": 0.658
+          },
+          "nonlower_psnr": true,
+          "all_quality_metrics_nonworse": true
+        },
+        "dtu": {
+          "psnr_gain_db": 7.380000000000003,
+          "ssim_gain": 0.133,
+          "lpips_reduction": 0.173,
+          "training_vram_reduction_pct": 19.11764705882353,
+          "rendering_fps_ratio": 1.7380753138075313,
+          "ours": {
+            "train_min": 8.4,
+            "vram_gib": 0.55,
+            "fps": 830.8,
+            "psnr": 28.94,
+            "ssim": 0.89,
+            "lpips": 0.303
+          },
+          "2dgs": {
+            "train_min": 8.4,
+            "vram_gib": 0.68,
+            "fps": 478.0,
+            "psnr": 21.56,
+            "ssim": 0.757,
+            "lpips": 0.476
+          },
+          "nonlower_psnr": true,
+          "all_quality_metrics_nonworse": true
+        }
+      }
+    },
+    "matched_count_v2": {
+      "source": "tables/table2_main.tex",
+      "sha256": "af087f696479bb31980934951dde641ce6670b22d5f8a4d0b15608d3ded61f7d",
+      "precision": "calculated from rounded paper table cells",
+      "dataset_means": {
+        "tanks_and_temples": {
+          "psnr_gain_db": 2.09,
+          "ssim_gain": 0.07799999999999996,
+          "lpips_reduction": 0.10900000000000004,
+          "training_vram_reduction_pct": 77.27272727272727,
+          "rendering_fps_ratio": 2.0025879917184266,
+          "ours": {
+            "train_min": 14.4,
+            "vram_gib": 0.6,
+            "fps": 386.9,
+            "psnr": 23.49,
+            "ssim": 0.819,
+            "lpips": 0.287,
+            "deployment_mb": 22.77
+          },
+          "2dgs": {
+            "train_min": 12.4,
+            "vram_gib": 2.64,
+            "fps": 193.2,
+            "psnr": 21.4,
+            "ssim": 0.741,
+            "lpips": 0.396,
+            "deployment_mb": 40.01
+          },
+          "deployment_mb_reduction_pct": 43.08922769307672,
+          "nonlower_psnr": true,
+          "all_quality_metrics_nonworse": true
+        },
+        "mipnerf360": {
+          "psnr_gain_db": 3.41,
+          "ssim_gain": 0.138,
+          "lpips_reduction": 0.16099999999999992,
+          "training_vram_reduction_pct": 85.63106796116506,
+          "rendering_fps_ratio": 2.316244595429277,
+          "ours": {
+            "train_min": 24.5,
+            "vram_gib": 0.74,
+            "fps": 375.0,
+            "psnr": 25.06,
+            "ssim": 0.711,
+            "lpips": 0.405,
+            "deployment_mb": 14.35
+          },
+          "2dgs": {
+            "train_min": 22.0,
+            "vram_gib": 5.15,
+            "fps": 161.9,
+            "psnr": 21.65,
+            "ssim": 0.573,
+            "lpips": 0.566,
+            "deployment_mb": 27.98
+          },
+          "deployment_mb_reduction_pct": 48.71336669049321,
+          "nonlower_psnr": true,
+          "all_quality_metrics_nonworse": true
+        },
+        "dtu": {
+          "psnr_gain_db": 4.740000000000002,
+          "ssim_gain": 0.06300000000000006,
+          "lpips_reduction": 0.10100000000000003,
+          "training_vram_reduction_pct": 44.55445544554455,
+          "rendering_fps_ratio": 2.317982456140351,
+          "ours": {
+            "train_min": 8.5,
+            "vram_gib": 0.56,
+            "fps": 845.6,
+            "psnr": 29.57,
+            "ssim": 0.895,
+            "lpips": 0.298,
+            "deployment_mb": 4.26
+          },
+          "2dgs": {
+            "train_min": 9.1,
+            "vram_gib": 1.01,
+            "fps": 364.8,
+            "psnr": 24.83,
+            "ssim": 0.832,
+            "lpips": 0.399,
+            "deployment_mb": 8.29
+          },
+          "deployment_mb_reduction_pct": 48.61278648974668,
+          "nonlower_psnr": true,
+          "all_quality_metrics_nonworse": true
+        }
+      }
+    },
+    "native_v2": {
+      "source": "tables/table3_main.tex",
+      "sha256": "66968d32f0f7e87a3c3a74dab9dfdf0805176ca4160c81d0c157f58b4f156fe8",
+      "precision": "calculated from rounded paper table cells",
+      "dataset_means": {
+        "tanks_and_temples": {
+          "psnr_gain_db": -0.15000000000000213,
+          "ssim_gain": -0.010000000000000009,
+          "lpips_reduction": -0.01699999999999996,
+          "training_vram_reduction_pct": 86.2700228832952,
+          "rendering_fps_ratio": 3.7345559845559846,
+          "ours": {
+            "train_min": 14.4,
+            "vram_gib": 0.6,
+            "fps": 386.9,
+            "psnr": 23.49,
+            "ssim": 0.819,
+            "lpips": 0.287,
+            "deployment_mb": 22.77,
+            "primitives_k": 182.1
+          },
+          "2dgs": {
+            "train_min": 19.2,
+            "vram_gib": 4.37,
+            "fps": 103.6,
+            "psnr": 23.64,
+            "ssim": 0.829,
+            "lpips": 0.27,
+            "deployment_mb": 177.56,
+            "primitives_k": 727.7
+          },
+          "deployment_mb_reduction_pct": 87.1761658031088,
+          "nonlower_psnr": false,
+          "all_quality_metrics_nonworse": false
+        },
+        "mipnerf360": {
+          "psnr_gain_db": -1.7600000000000016,
+          "ssim_gain": -0.08700000000000008,
+          "lpips_reduction": -0.10400000000000004,
+          "training_vram_reduction_pct": 93.30922242314648,
+          "rendering_fps_ratio": 7.668711656441718,
+          "ours": {
+            "train_min": 24.5,
+            "vram_gib": 0.74,
+            "fps": 375.0,
+            "psnr": 25.06,
+            "ssim": 0.711,
+            "lpips": 0.405,
+            "deployment_mb": 14.35,
+            "primitives_k": 114.7
+          },
+          "2dgs": {
+            "train_min": 41.2,
+            "vram_gib": 11.06,
+            "fps": 48.9,
+            "psnr": 26.82,
+            "ssim": 0.798,
+            "lpips": 0.301,
+            "deployment_mb": 494.72,
+            "primitives_k": 2027.5
+          },
+          "deployment_mb_reduction_pct": 97.09936934023285,
+          "nonlower_psnr": false,
+          "all_quality_metrics_nonworse": false
+        },
+        "dtu": {
+          "psnr_gain_db": 0.7100000000000009,
+          "ssim_gain": -0.01200000000000001,
+          "lpips_reduction": -0.032999999999999974,
+          "training_vram_reduction_pct": 72.54901960784314,
+          "rendering_fps_ratio": 3.9662288930581617,
+          "ours": {
+            "train_min": 8.5,
+            "vram_gib": 0.56,
+            "fps": 845.6,
+            "psnr": 29.57,
+            "ssim": 0.895,
+            "lpips": 0.298,
+            "deployment_mb": 4.26,
+            "primitives_k": 34.0
+          },
+          "2dgs": {
+            "train_min": 12.7,
+            "vram_gib": 2.04,
+            "fps": 213.2,
+            "psnr": 28.86,
+            "ssim": 0.907,
+            "lpips": 0.265,
+            "deployment_mb": 56.2,
+            "primitives_k": 230.3
+          },
+          "deployment_mb_reduction_pct": 92.41992882562278,
+          "nonlower_psnr": true,
+          "all_quality_metrics_nonworse": false
+        }
+      }
+    },
+    "native_v3": {
+      "source": "tables/table3_main.tex",
+      "sha256": "66968d32f0f7e87a3c3a74dab9dfdf0805176ca4160c81d0c157f58b4f156fe8",
+      "precision": "calculated from rounded paper table cells",
+      "dataset_means": {
+        "tanks_and_temples": {
+          "psnr_gain_db": 0.8900000000000006,
+          "ssim_gain": 0.010000000000000009,
+          "lpips_reduction": 0.02200000000000002,
+          "training_vram_reduction_pct": -175.9725400457666,
+          "rendering_fps_ratio": 1.3774131274131274,
+          "ours": {
+            "train_min": 24.3,
+            "vram_gib": 12.06,
+            "fps": 142.7,
+            "psnr": 24.53,
+            "ssim": 0.839,
+            "lpips": 0.248,
+            "deployment_mb": 198.84,
+            "primitives_k": 739.1
+          },
+          "2dgs": {
+            "train_min": 19.2,
+            "vram_gib": 4.37,
+            "fps": 103.6,
+            "psnr": 23.64,
+            "ssim": 0.829,
+            "lpips": 0.27,
+            "deployment_mb": 177.56,
+            "primitives_k": 727.7
+          },
+          "deployment_mb_reduction_pct": -11.984681234512284,
+          "nonlower_psnr": true,
+          "all_quality_metrics_nonworse": true
+        },
+        "mipnerf360": {
+          "psnr_gain_db": -0.3000000000000007,
+          "ssim_gain": -0.018000000000000016,
+          "lpips_reduction": -0.006000000000000005,
+          "training_vram_reduction_pct": -26.13019891500903,
+          "rendering_fps_ratio": 2.059304703476483,
+          "ours": {
+            "train_min": 37.5,
+            "vram_gib": 13.95,
+            "fps": 100.7,
+            "psnr": 26.52,
+            "ssim": 0.78,
+            "lpips": 0.307,
+            "deployment_mb": 246.76,
+            "primitives_k": 917.3
+          },
+          "2dgs": {
+            "train_min": 41.2,
+            "vram_gib": 11.06,
+            "fps": 48.9,
+            "psnr": 26.82,
+            "ssim": 0.798,
+            "lpips": 0.301,
+            "deployment_mb": 494.72,
+            "primitives_k": 2027.5
+          },
+          "deployment_mb_reduction_pct": 50.1212807244502,
+          "nonlower_psnr": false,
+          "all_quality_metrics_nonworse": false
+        },
+        "dtu": {
+          "psnr_gain_db": 0.9000000000000021,
+          "ssim_gain": -0.0050000000000000044,
+          "lpips_reduction": -0.0030000000000000027,
+          "training_vram_reduction_pct": 40.68627450980392,
+          "rendering_fps_ratio": 2.2659474671669795,
+          "ours": {
+            "train_min": 10.6,
+            "vram_gib": 1.21,
+            "fps": 483.1,
+            "psnr": 29.76,
+            "ssim": 0.902,
+            "lpips": 0.268,
+            "deployment_mb": 27.03,
+            "primitives_k": 100.4
+          },
+          "2dgs": {
+            "train_min": 12.7,
+            "vram_gib": 2.04,
+            "fps": 213.2,
+            "psnr": 28.86,
+            "ssim": 0.907,
+            "lpips": 0.265,
+            "deployment_mb": 56.2,
+            "primitives_k": 230.3
+          },
+          "deployment_mb_reduction_pct": 51.90391459074733,
+          "nonlower_psnr": true,
+          "all_quality_metrics_nonworse": false
+        }
+      }
+    }
+  },
+  "website": {
+    "native": {
+      "source": "static/data/nvs_metrics.json",
+      "footnote": "PSNR, SSIM and LPIPS (VGG) on the held-out test views (every eighth image). Model memory: every value the renderer reads, at 4 bytes each. FPS and peak training VRAM measured on an RTX A5000; \u2020 mixed hardware (RTX 6000 Ada), not ranked.",
+      "scene_count": 34,
+      "maxima": {
+        "all_scenes": {
+          "training_vram_reduction_pct": {
+            "scene": "dtu/scan63",
+            "psnr_gain_db": -0.3445702298005813,
+            "ssim_gain": -0.014474272727966309,
+            "lpips_reduction": -0.012858351426465187,
+            "training_vram_reduction_pct": 75.55732484076432,
+            "rendering_fps_ratio": 2.7718371771399966,
+            "ours": {
+              "psnr": 30.04164751157734,
+              "ssim": 0.9383787342480251,
+              "lpips": 0.166530470762934,
+              "vram_gib": 0.599609375,
+              "memory_mb": 11.63214,
+              "fps": 579.365411947279
+            },
+            "2dgs": {
+              "psnr": 30.386217741377923,
+              "ssim": 0.9528530069759914,
+              "lpips": 0.15367211933646882,
+              "vram_gib": 2.453125,
+              "memory_mb": 37.229272,
+              "fps": 209.01855878312188
+            },
+            "memory_mb_reduction_pct": 68.7553922623037,
+            "nonlower_psnr": false,
+            "all_quality_metrics_nonworse": false
+          },
+          "memory_mb_reduction_pct": {
+            "scene": "mipnerf360/stump",
+            "psnr_gain_db": -1.3786087575789878,
+            "ssim_gain": -0.06634512171149254,
+            "lpips_reduction": -0.055083660408854485,
+            "training_vram_reduction_pct": 45.00678195998644,
+            "rendering_fps_ratio": 3.558451335870247,
+            "ours": {
+              "psnr": 24.728427470418534,
+              "ssim": 0.6898331567645073,
+              "lpips": 0.3581013437360525,
+              "vram_gib": 12.669921875,
+              "memory_mb": 204.80798,
+              "fps": 123.6853750446255
+            },
+            "2dgs": {
+              "psnr": 26.107036227997522,
+              "ssim": 0.7561782784759998,
+              "lpips": 0.30301768332719803,
+              "vram_gib": 23.0390625,
+              "memory_mb": 704.908336,
+              "fps": 34.75820332228241
+            },
+            "memory_mb_reduction_pct": 70.94544502591896,
+            "nonlower_psnr": false,
+            "all_quality_metrics_nonworse": false
+          },
+          "rendering_fps_ratio": {
+            "scene": "mipnerf360/stump",
+            "psnr_gain_db": -1.3786087575789878,
+            "ssim_gain": -0.06634512171149254,
+            "lpips_reduction": -0.055083660408854485,
+            "training_vram_reduction_pct": 45.00678195998644,
+            "rendering_fps_ratio": 3.558451335870247,
+            "ours": {
+              "psnr": 24.728427470418534,
+              "ssim": 0.6898331567645073,
+              "lpips": 0.3581013437360525,
+              "vram_gib": 12.669921875,
+              "memory_mb": 204.80798,
+              "fps": 123.6853750446255
+            },
+            "2dgs": {
+              "psnr": 26.107036227997522,
+              "ssim": 0.7561782784759998,
+              "lpips": 0.30301768332719803,
+              "vram_gib": 23.0390625,
+              "memory_mb": 704.908336,
+              "fps": 34.75820332228241
+            },
+            "memory_mb_reduction_pct": 70.94544502591896,
+            "nonlower_psnr": false,
+            "all_quality_metrics_nonworse": false
+          }
+        },
+        "nonlower_psnr": {
+          "training_vram_reduction_pct": {
+            "scene": "dtu/scan65",
+            "psnr_gain_db": 0.883273425599242,
+            "ssim_gain": -0.007914594241550943,
+            "lpips_reduction": 0.002850519759314385,
+            "training_vram_reduction_pct": 65.24822695035462,
+            "rendering_fps_ratio": 2.4516361295163986,
+            "ours": {
+              "psnr": 30.00003191582896,
+              "ssim": 0.8858281629426139,
+              "lpips": 0.27913738574300495,
+              "vram_gib": 0.669921875,
+              "memory_mb": 20.6687,
+              "fps": 504.44501889386686
+            },
+            "2dgs": {
+              "psnr": 29.116758490229717,
+              "ssim": 0.8937427571841648,
+              "lpips": 0.28198790550231934,
+              "vram_gib": 1.927734375,
+              "memory_mb": 43.552664,
+              "fps": 205.75851890116007
+            },
+            "memory_mb_reduction_pct": 52.543201490498944,
+            "nonlower_psnr": true,
+            "all_quality_metrics_nonworse": false
+          },
+          "memory_mb_reduction_pct": {
+            "scene": "dtu/scan83",
+            "psnr_gain_db": 0.8774965765394285,
+            "ssim_gain": -0.007282920181751251,
+            "lpips_reduction": 0.016296610236167908,
+            "training_vram_reduction_pct": 59.97490589711418,
+            "rendering_fps_ratio": 2.2507956266641354,
+            "ours": {
+              "psnr": 29.527196060463737,
+              "ssim": 0.8893502056598663,
+              "lpips": 0.3341449163854122,
+              "vram_gib": 0.623046875,
+              "memory_mb": 10.73358,
+              "fps": 571.2840227702599
+            },
+            "2dgs": {
+              "psnr": 28.64969948392431,
+              "ssim": 0.8966331258416176,
+              "lpips": 0.3504415266215801,
+              "vram_gib": 1.556640625,
+              "memory_mb": 36.021944,
+              "fps": 253.81425839046517
+            },
+            "memory_mb_reduction_pct": 70.20266313222851,
+            "nonlower_psnr": true,
+            "all_quality_metrics_nonworse": false
+          },
+          "rendering_fps_ratio": {
+            "scene": "dtu/scan110",
+            "psnr_gain_db": 0.283961643875724,
+            "ssim_gain": 0.00035543739795684814,
+            "lpips_reduction": -0.009280793368816376,
+            "training_vram_reduction_pct": 57.4496644295302,
+            "rendering_fps_ratio": 2.7441381135009064,
+            "ours": {
+              "psnr": 31.98884516633836,
+              "ssim": 0.91348447650671,
+              "lpips": 0.3423819877207279,
+              "vram_gib": 0.619140625,
+              "memory_mb": 10.5573,
+              "fps": 693.8204517764809
+            },
+            "2dgs": {
+              "psnr": 31.704883522462637,
+              "ssim": 0.9131290391087532,
+              "lpips": 0.33310119435191154,
+              "vram_gib": 1.455078125,
+              "memory_mb": 21.177888,
+              "fps": 252.837292832656
+            },
+            "memory_mb_reduction_pct": 50.14941999882141,
+            "nonlower_psnr": true,
+            "all_quality_metrics_nonworse": false
+          }
+        },
+        "all_quality_metrics_nonworse": {
+          "training_vram_reduction_pct": {
+            "scene": "dtu/scan122",
+            "psnr_gain_db": 0.12030195813040478,
+            "ssim_gain": 0.002205178141593933,
+            "lpips_reduction": 0.004346273839473724,
+            "training_vram_reduction_pct": 55.55555555555556,
+            "rendering_fps_ratio": 2.7219463095305003,
+            "ours": {
+              "psnr": 34.37654941659627,
+              "ssim": 0.9193347916007042,
+              "lpips": 0.3372959569096565,
+              "vram_gib": 0.6015625,
+              "memory_mb": 10.6171,
+              "fps": 700.5931591641244
+            },
+            "2dgs": {
+              "psnr": 34.256247458465864,
+              "ssim": 0.9171296134591103,
+              "lpips": 0.34164223074913025,
+              "vram_gib": 1.353515625,
+              "memory_mb": 25.33788,
+              "fps": 257.38683996488066
+            },
+            "memory_mb_reduction_pct": 58.09791505840267,
+            "nonlower_psnr": true,
+            "all_quality_metrics_nonworse": true
+          },
+          "memory_mb_reduction_pct": {
+            "scene": "dtu/scan40",
+            "psnr_gain_db": 4.367102878752828,
+            "ssim_gain": 0.002643287181854248,
+            "lpips_reduction": 0.0018630836691175268,
+            "training_vram_reduction_pct": 23.24805339265851,
+            "rendering_fps_ratio": 1.6735393365355158,
+            "ours": {
+              "psnr": 26.73060828691288,
+              "ssim": 0.9054136191095624,
+              "lpips": 0.19425325947148459,
+              "vram_gib": 4.04296875,
+              "memory_mb": 69.71276,
+              "fps": 240.3496757271275
+            },
+            "2dgs": {
+              "psnr": 22.36350540816005,
+              "ssim": 0.9027703319277082,
+              "lpips": 0.1961163431406021,
+              "vram_gib": 5.267578125,
+              "memory_mb": 203.693216,
+              "fps": 143.6175836922294
+            },
+            "memory_mb_reduction_pct": 65.77561031782227,
+            "nonlower_psnr": true,
+            "all_quality_metrics_nonworse": true
+          },
+          "rendering_fps_ratio": {
+            "scene": "dtu/scan122",
+            "psnr_gain_db": 0.12030195813040478,
+            "ssim_gain": 0.002205178141593933,
+            "lpips_reduction": 0.004346273839473724,
+            "training_vram_reduction_pct": 55.55555555555556,
+            "rendering_fps_ratio": 2.7219463095305003,
+            "ours": {
+              "psnr": 34.37654941659627,
+              "ssim": 0.9193347916007042,
+              "lpips": 0.3372959569096565,
+              "vram_gib": 0.6015625,
+              "memory_mb": 10.6171,
+              "fps": 700.5931591641244
+            },
+            "2dgs": {
+              "psnr": 34.256247458465864,
+              "ssim": 0.9171296134591103,
+              "lpips": 0.34164223074913025,
+              "vram_gib": 1.353515625,
+              "memory_mb": 25.33788,
+              "fps": 257.38683996488066
+            },
+            "memory_mb_reduction_pct": 58.09791505840267,
+            "nonlower_psnr": true,
+            "all_quality_metrics_nonworse": true
+          }
+        }
+      },
+      "dataset_means": {
+        "tanks_and_temples": {
+          "scene_count": 10,
+          "psnr_gain_db": 0.8963077943362627,
+          "ssim_gain": 0.010357553320603174,
+          "lpips_reduction": 0.02161170487448741,
+          "training_vram_reduction_pct": -189.17868514703127,
+          "rendering_fps_ratio": 1.3772619375150648,
+          "ours": {
+            "psnr": 24.5344482967972,
+            "ssim": 0.8394860063268569,
+            "lpips": 0.2482612325735665,
+            "vram_gib": 12.0619140625,
+            "memory_mb": 192.174424,
+            "fps": 142.69905610049616
+          },
+          "2dgs": {
+            "psnr": 23.63814050246094,
+            "ssim": 0.8291284530062537,
+            "lpips": 0.2698729374480539,
+            "vram_gib": 4.17109375,
+            "memory_mb": 168.8218296,
+            "fps": 103.61068741793737
+          },
+          "memory_mb_reduction_pct": -13.832686480966782,
+          "nonlower_psnr": true,
+          "all_quality_metrics_nonworse": true
+        },
+        "mipnerf360": {
+          "scene_count": 9,
+          "psnr_gain_db": -0.3033679151787929,
+          "ssim_gain": -0.0171020170598839,
+          "lpips_reduction": -0.006428011905979469,
+          "training_vram_reduction_pct": -28.86746698198288,
+          "rendering_fps_ratio": 2.060095570186726,
+          "ours": {
+            "psnr": 26.516845735988408,
+            "ssim": 0.7803747460692003,
+            "lpips": 0.30735180054188355,
+            "vram_gib": 13.954210069444445,
+            "memory_mb": 238.4891888888889,
+            "fps": 100.74837277106133
+          },
+          "2dgs": {
+            "psnr": 26.8202136511672,
+            "ssim": 0.7974767631290842,
+            "lpips": 0.3009237886359041,
+            "vram_gib": 10.82834201388889,
+            "memory_mb": 470.3858,
+            "fps": 48.9047082227984
+          },
+          "memory_mb_reduction_pct": 49.29923716045661,
+          "nonlower_psnr": false,
+          "all_quality_metrics_nonworse": false
+        },
+        "dtu": {
+          "scene_count": 15,
+          "psnr_gain_db": 0.8956100728702161,
+          "ssim_gain": -0.005320117516177114,
+          "lpips_reduction": -0.0026449764413493115,
+          "training_vram_reduction_pct": 40.64198478163566,
+          "rendering_fps_ratio": 2.2654427945532345,
+          "ours": {
+            "psnr": 29.75753242138108,
+            "ssim": 0.9021637018947374,
+            "lpips": 0.2678109852685815,
+            "vram_gib": 1.2087239583333333,
+            "memory_mb": 26.111869333333335,
+            "fps": 483.10015490529946
+          },
+          "2dgs": {
+            "psnr": 28.861922348510863,
+            "ssim": 0.9074838194109145,
+            "lpips": 0.2651660088272322,
+            "vram_gib": 2.036328125,
+            "memory_mb": 53.43290986666667,
+            "fps": 213.2475629341906
+          },
+          "memory_mb_reduction_pct": 51.131485448778,
+          "nonlower_psnr": true,
+          "all_quality_metrics_nonworse": false
+        }
+      },
+      "kitchen": {
+        "psnr_gain_db": 0.3485476501636846,
+        "ssim_gain": 0.0006303940500532734,
+        "lpips_reduction": 0.010507029507841381,
+        "training_vram_reduction_pct": 40.116712192699275,
+        "rendering_fps_ratio": 1.7845528744422658,
+        "ours": {
+          "psnr": 30.555996174550305,
+          "ssim": 0.9177364792142596,
+          "lpips": 0.17331585798944746,
+          "vram_gib": 9.419921875,
+          "memory_mb": 123.58216,
+          "fps": 87.86609119155102
+        },
+        "2dgs": {
+          "psnr": 30.20744852438662,
+          "ssim": 0.9171060851642063,
+          "lpips": 0.18382288749728884,
+          "vram_gib": 15.73046875,
+          "memory_mb": 191.204192,
+          "fps": 49.23703435742255
+        },
+        "memory_mb_reduction_pct": 35.36639615097978,
+        "nonlower_psnr": true,
+        "all_quality_metrics_nonworse": true
+      }
+    },
+    "matched_memory": {
+      "source": "static/data/nvs_metrics_memory.json",
+      "footnote": "PSNR, SSIM and LPIPS (VGG) on the held-out test views (every eighth image). Model memory: every value the renderer reads, at 4 bytes each. FPS and peak training VRAM measured on an RTX A5000.",
+      "scene_count": 34,
+      "maxima": {
+        "all_scenes": {
+          "training_vram_reduction_pct": {
+            "scene": "mipnerf360/bonsai",
+            "psnr_gain_db": 11.41037549086155,
+            "ssim_gain": 0.265318606350873,
+            "lpips_reduction": 0.3259094530666196,
+            "training_vram_reduction_pct": 86.99578567128236,
+            "rendering_fps_ratio": 1.97591226507543,
+            "ours": {
+              "psnr": 29.225800883595763,
+              "ssim": 0.9128005101874068,
+              "lpips": 0.30569592722364375,
+              "vram_gib": 0.84375,
+              "memory_mb": 16.52904,
+              "fps": 246.40254887987248
+            },
+            "2dgs": {
+              "psnr": 17.815425392734213,
+              "ssim": 0.6474819038365338,
+              "lpips": 0.6316053802902634,
+              "vram_gib": 6.48828125,
+              "memory_mb": 16.52884,
+              "fps": 124.70318304869986
+            },
+            "memory_mb_reduction_pct": -0.0012100062678266355,
+            "nonlower_psnr": true,
+            "all_quality_metrics_nonworse": true
+          },
+          "memory_mb_reduction_pct": {
+            "scene": "mipnerf360/kitchen",
+            "psnr_gain_db": 6.649879070235119,
+            "ssim_gain": 0.13562931673867362,
+            "lpips_reduction": 0.2153139284678868,
+            "training_vram_reduction_pct": 81.85822987585102,
+            "rendering_fps_ratio": 1.3015390001062797,
+            "ours": {
+              "psnr": 28.70696185285875,
+              "ssim": 0.8945577536310468,
+              "lpips": 0.21323281782014028,
+              "vram_gib": 0.884765625,
+              "memory_mb": 19.30936,
+              "fps": 151.86247027775443
+            },
+            "2dgs": {
+              "psnr": 22.05708278262363,
+              "ssim": 0.7589284368923732,
+              "lpips": 0.4285467462880271,
+              "vram_gib": 4.876953125,
+              "memory_mb": 19.30936,
+              "fps": 116.67915465103528
+            },
+            "memory_mb_reduction_pct": 0.0,
+            "nonlower_psnr": true,
+            "all_quality_metrics_nonworse": true
+          },
+          "rendering_fps_ratio": {
+            "scene": "dtu/scan110",
+            "psnr_gain_db": 6.075060460484796,
+            "ssim_gain": 0.08992908149957657,
+            "lpips_reduction": 0.11834142357110977,
+            "training_vram_reduction_pct": 22.22222222222222,
+            "rendering_fps_ratio": 2.4598384987673274,
+            "ours": {
+              "psnr": 31.429700687350348,
+              "ssim": 0.9030642509460449,
+              "lpips": 0.3670361265540123,
+              "vram_gib": 0.546875,
+              "memory_mb": 2.04168,
+              "fps": 938.1745637344908
+            },
+            "2dgs": {
+              "psnr": 25.354640226865552,
+              "ssim": 0.8131351694464684,
+              "lpips": 0.48537755012512207,
+              "vram_gib": 0.703125,
+              "memory_mb": 2.0416,
+              "fps": 381.3968129227298
+            },
+            "memory_mb_reduction_pct": -0.0039184952978166265,
+            "nonlower_psnr": true,
+            "all_quality_metrics_nonworse": true
+          }
+        },
+        "nonlower_psnr": {
+          "training_vram_reduction_pct": {
+            "scene": "mipnerf360/bonsai",
+            "psnr_gain_db": 11.41037549086155,
+            "ssim_gain": 0.265318606350873,
+            "lpips_reduction": 0.3259094530666196,
+            "training_vram_reduction_pct": 86.99578567128236,
+            "rendering_fps_ratio": 1.97591226507543,
+            "ours": {
+              "psnr": 29.225800883595763,
+              "ssim": 0.9128005101874068,
+              "lpips": 0.30569592722364375,
+              "vram_gib": 0.84375,
+              "memory_mb": 16.52904,
+              "fps": 246.40254887987248
+            },
+            "2dgs": {
+              "psnr": 17.815425392734213,
+              "ssim": 0.6474819038365338,
+              "lpips": 0.6316053802902634,
+              "vram_gib": 6.48828125,
+              "memory_mb": 16.52884,
+              "fps": 124.70318304869986
+            },
+            "memory_mb_reduction_pct": -0.0012100062678266355,
+            "nonlower_psnr": true,
+            "all_quality_metrics_nonworse": true
+          },
+          "memory_mb_reduction_pct": {
+            "scene": "mipnerf360/kitchen",
+            "psnr_gain_db": 6.649879070235119,
+            "ssim_gain": 0.13562931673867362,
+            "lpips_reduction": 0.2153139284678868,
+            "training_vram_reduction_pct": 81.85822987585102,
+            "rendering_fps_ratio": 1.3015390001062797,
+            "ours": {
+              "psnr": 28.70696185285875,
+              "ssim": 0.8945577536310468,
+              "lpips": 0.21323281782014028,
+              "vram_gib": 0.884765625,
+              "memory_mb": 19.30936,
+              "fps": 151.86247027775443
+            },
+            "2dgs": {
+              "psnr": 22.05708278262363,
+              "ssim": 0.7589284368923732,
+              "lpips": 0.4285467462880271,
+              "vram_gib": 4.876953125,
+              "memory_mb": 19.30936,
+              "fps": 116.67915465103528
+            },
+            "memory_mb_reduction_pct": 0.0,
+            "nonlower_psnr": true,
+            "all_quality_metrics_nonworse": true
+          },
+          "rendering_fps_ratio": {
+            "scene": "dtu/scan110",
+            "psnr_gain_db": 6.075060460484796,
+            "ssim_gain": 0.08992908149957657,
+            "lpips_reduction": 0.11834142357110977,
+            "training_vram_reduction_pct": 22.22222222222222,
+            "rendering_fps_ratio": 2.4598384987673274,
+            "ours": {
+              "psnr": 31.429700687350348,
+              "ssim": 0.9030642509460449,
+              "lpips": 0.3670361265540123,
+              "vram_gib": 0.546875,
+              "memory_mb": 2.04168,
+              "fps": 938.1745637344908
+            },
+            "2dgs": {
+              "psnr": 25.354640226865552,
+              "ssim": 0.8131351694464684,
+              "lpips": 0.48537755012512207,
+              "vram_gib": 0.703125,
+              "memory_mb": 2.0416,
+              "fps": 381.3968129227298
+            },
+            "memory_mb_reduction_pct": -0.0039184952978166265,
+            "nonlower_psnr": true,
+            "all_quality_metrics_nonworse": true
+          }
+        },
+        "all_quality_metrics_nonworse": {
+          "training_vram_reduction_pct": {
+            "scene": "mipnerf360/bonsai",
+            "psnr_gain_db": 11.41037549086155,
+            "ssim_gain": 0.265318606350873,
+            "lpips_reduction": 0.3259094530666196,
+            "training_vram_reduction_pct": 86.99578567128236,
+            "rendering_fps_ratio": 1.97591226507543,
+            "ours": {
+              "psnr": 29.225800883595763,
+              "ssim": 0.9128005101874068,
+              "lpips": 0.30569592722364375,
+              "vram_gib": 0.84375,
+              "memory_mb": 16.52904,
+              "fps": 246.40254887987248
+            },
+            "2dgs": {
+              "psnr": 17.815425392734213,
+              "ssim": 0.6474819038365338,
+              "lpips": 0.6316053802902634,
+              "vram_gib": 6.48828125,
+              "memory_mb": 16.52884,
+              "fps": 124.70318304869986
+            },
+            "memory_mb_reduction_pct": -0.0012100062678266355,
+            "nonlower_psnr": true,
+            "all_quality_metrics_nonworse": true
+          },
+          "memory_mb_reduction_pct": {
+            "scene": "mipnerf360/kitchen",
+            "psnr_gain_db": 6.649879070235119,
+            "ssim_gain": 0.13562931673867362,
+            "lpips_reduction": 0.2153139284678868,
+            "training_vram_reduction_pct": 81.85822987585102,
+            "rendering_fps_ratio": 1.3015390001062797,
+            "ours": {
+              "psnr": 28.70696185285875,
+              "ssim": 0.8945577536310468,
+              "lpips": 0.21323281782014028,
+              "vram_gib": 0.884765625,
+              "memory_mb": 19.30936,
+              "fps": 151.86247027775443
+            },
+            "2dgs": {
+              "psnr": 22.05708278262363,
+              "ssim": 0.7589284368923732,
+              "lpips": 0.4285467462880271,
+              "vram_gib": 4.876953125,
+              "memory_mb": 19.30936,
+              "fps": 116.67915465103528
+            },
+            "memory_mb_reduction_pct": 0.0,
+            "nonlower_psnr": true,
+            "all_quality_metrics_nonworse": true
+          },
+          "rendering_fps_ratio": {
+            "scene": "dtu/scan110",
+            "psnr_gain_db": 6.075060460484796,
+            "ssim_gain": 0.08992908149957657,
+            "lpips_reduction": 0.11834142357110977,
+            "training_vram_reduction_pct": 22.22222222222222,
+            "rendering_fps_ratio": 2.4598384987673274,
+            "ours": {
+              "psnr": 31.429700687350348,
+              "ssim": 0.9030642509460449,
+              "lpips": 0.3670361265540123,
+              "vram_gib": 0.546875,
+              "memory_mb": 2.04168,
+              "fps": 938.1745637344908
+            },
+            "2dgs": {
+              "psnr": 25.354640226865552,
+              "ssim": 0.8131351694464684,
+              "lpips": 0.48537755012512207,
+              "vram_gib": 0.703125,
+              "memory_mb": 2.0416,
+              "fps": 381.3968129227298
+            },
+            "memory_mb_reduction_pct": -0.0039184952978166265,
+            "nonlower_psnr": true,
+            "all_quality_metrics_nonworse": true
+          }
+        }
+      },
+      "dataset_means": {
+        "tanks_and_temples": {
+          "scene_count": 10,
+          "psnr_gain_db": 4.52764836614125,
+          "ssim_gain": 0.1585717428503458,
+          "lpips_reduction": 0.21299833102223037,
+          "training_vram_reduction_pct": 59.57081545064378,
+          "rendering_fps_ratio": 1.540971509005883,
+          "ours": {
+            "psnr": 23.05235242029038,
+            "ssim": 0.8107207465553959,
+            "lpips": 0.29492741790771465,
+            "vram_gib": 0.551953125,
+            "memory_mb": 14.56504,
+            "fps": 438.40609744679455
+          },
+          "2dgs": {
+            "psnr": 18.52470405414913,
+            "ssim": 0.6521490037050501,
+            "lpips": 0.507925748929945,
+            "vram_gib": 1.365234375,
+            "memory_mb": 14.5649136,
+            "fps": 284.4998073518054
+          },
+          "memory_mb_reduction_pct": -0.0008678389963101552,
+          "nonlower_psnr": true,
+          "all_quality_metrics_nonworse": true
+        },
+        "mipnerf360": {
+          "scene_count": 9,
+          "psnr_gain_db": 6.993064065998482,
+          "ssim_gain": 0.21079054820202492,
+          "lpips_reduction": 0.24753983909409716,
+          "training_vram_reduction_pct": 78.28151120026747,
+          "rendering_fps_ratio": 1.8773908582388488,
+          "ours": {
+            "psnr": 24.81623521225228,
+            "ssim": 0.7052955024985684,
+            "lpips": 0.410402197153802,
+            "vram_gib": 0.7048611111111112,
+            "memory_mb": 9.17488,
+            "fps": 377.834887506835
+          },
+          "2dgs": {
+            "psnr": 17.8231711462538,
+            "ssim": 0.4945049542965435,
+            "lpips": 0.6579420362478992,
+            "vram_gib": 3.2454427083333335,
+            "memory_mb": 9.174775111111112,
+            "fps": 201.25531444276663
+          },
+          "memory_mb_reduction_pct": -0.0011432311704417941,
+          "nonlower_psnr": true,
+          "all_quality_metrics_nonworse": true
+        },
+        "dtu": {
+          "scene_count": 15,
+          "psnr_gain_db": 7.38118572228651,
+          "ssim_gain": 0.13238559656199955,
+          "lpips_reduction": 0.17317978624431862,
+          "training_vram_reduction_pct": 20.087752766119806,
+          "rendering_fps_ratio": 1.7379509940280553,
+          "ours": {
+            "psnr": 28.938973660512264,
+            "ssim": 0.8896615111402103,
+            "lpips": 0.3033113208732435,
+            "vram_gib": 0.5454427083333333,
+            "memory_mb": 2.717973333333333,
+            "fps": 830.7851125264743
+          },
+          "2dgs": {
+            "psnr": 21.557787938225754,
+            "ssim": 0.7572759145782108,
+            "lpips": 0.4764911071175621,
+            "vram_gib": 0.6825520833333333,
+            "memory_mb": 2.7178490666666666,
+            "fps": 478.0256263733655
+          },
+          "memory_mb_reduction_pct": -0.004572243109102203,
+          "nonlower_psnr": true,
+          "all_quality_metrics_nonworse": true
+        }
+      },
+      "kitchen": {
+        "psnr_gain_db": 6.649879070235119,
+        "ssim_gain": 0.13562931673867362,
+        "lpips_reduction": 0.2153139284678868,
+        "training_vram_reduction_pct": 81.85822987585102,
+        "rendering_fps_ratio": 1.3015390001062797,
+        "ours": {
+          "psnr": 28.70696185285875,
+          "ssim": 0.8945577536310468,
+          "lpips": 0.21323281782014028,
+          "vram_gib": 0.884765625,
+          "memory_mb": 19.30936,
+          "fps": 151.86247027775443
+        },
+        "2dgs": {
+          "psnr": 22.05708278262363,
+          "ssim": 0.7589284368923732,
+          "lpips": 0.4285467462880271,
+          "vram_gib": 4.876953125,
+          "memory_mb": 19.30936,
+          "fps": 116.67915465103528
+        },
+        "memory_mb_reduction_pct": 0.0,
+        "nonlower_psnr": true,
+        "all_quality_metrics_nonworse": true
+      }
+    },
+    "matched_count_v3": {
+      "source": "static/data/nvs_metrics_count.json",
+      "footnote": "PSNR, SSIM and LPIPS (VGG) on the held-out test views (every eighth image). Model memory: every value the renderer reads, at 4 bytes each. FPS and peak training VRAM measured on an RTX A5000.",
+      "scene_count": 34,
+      "maxima": {
+        "all_scenes": {
+          "training_vram_reduction_pct": {
+            "scene": "mipnerf360/kitchen",
+            "psnr_gain_db": 1.092180862364632,
+            "ssim_gain": 0.03284522805895118,
+            "lpips_reduction": 0.07079510944230213,
+            "training_vram_reduction_pct": 89.95048597102513,
+            "rendering_fps_ratio": 1.906627466373685,
+            "ours": {
+              "psnr": 29.677405431502848,
+              "ssim": 0.9083340270178658,
+              "lpips": 0.19658180262361255,
+              "vram_gib": 1.0703125,
+              "memory_mb": 62.75542,
+              "fps": 153.31788208510577
+            },
+            "2dgs": {
+              "psnr": 28.585224569138216,
+              "ssim": 0.8754887989589146,
+              "lpips": 0.2673769120659147,
+              "vram_gib": 10.650390625,
+              "memory_mb": 55.997144,
+              "fps": 80.41312987938284
+            },
+            "memory_mb_reduction_pct": -12.068965517241391,
+            "nonlower_psnr": true,
+            "all_quality_metrics_nonworse": true
+          },
+          "memory_mb_reduction_pct": {
+            "scene": "mipnerf360/flowers",
+            "psnr_gain_db": 4.303189413643935,
+            "ssim_gain": 0.17699950662526218,
+            "lpips_reduction": 0.2082631845365871,
+            "training_vram_reduction_pct": 67.89087093389297,
+            "rendering_fps_ratio": 2.1915684102012882,
+            "ours": {
+              "psnr": 19.111757860015683,
+              "ssim": 0.41702779721130023,
+              "lpips": 0.5713336372917349,
+              "vram_gib": 0.59765625,
+              "memory_mb": 9.97022,
+              "fps": 544.9436783959225
+            },
+            "2dgs": {
+              "psnr": 14.808568446371748,
+              "ssim": 0.24002829058603806,
+              "lpips": 0.779596821828322,
+              "vram_gib": 1.861328125,
+              "memory_mb": 8.896504,
+              "fps": 248.65465109796466
+            },
+            "memory_mb_reduction_pct": -12.06896551724137,
+            "nonlower_psnr": true,
+            "all_quality_metrics_nonworse": true
+          },
+          "rendering_fps_ratio": {
+            "scene": "mipnerf360/room",
+            "psnr_gain_db": 1.4024299550047346,
+            "ssim_gain": 0.0422683862539438,
+            "lpips_reduction": 0.08822445915295529,
+            "training_vram_reduction_pct": 88.14775445123571,
+            "rendering_fps_ratio": 3.3642124703502785,
+            "ours": {
+              "psnr": 29.108250946274485,
+              "ssim": 0.8933486816210624,
+              "lpips": 0.34622154786036563,
+              "vram_gib": 0.87109375,
+              "memory_mb": 29.28302,
+              "fps": 319.26433650075774
+            },
+            "2dgs": {
+              "psnr": 27.70582099126975,
+              "ssim": 0.8510802953671186,
+              "lpips": 0.4344460070133209,
+              "vram_gib": 7.349609375,
+              "memory_mb": 26.129464,
+              "fps": 94.90017034135667
+            },
+            "memory_mb_reduction_pct": -12.068965517241391,
+            "nonlower_psnr": true,
+            "all_quality_metrics_nonworse": true
+          }
+        },
+        "nonlower_psnr": {
+          "training_vram_reduction_pct": {
+            "scene": "mipnerf360/kitchen",
+            "psnr_gain_db": 1.092180862364632,
+            "ssim_gain": 0.03284522805895118,
+            "lpips_reduction": 0.07079510944230213,
+            "training_vram_reduction_pct": 89.95048597102513,
+            "rendering_fps_ratio": 1.906627466373685,
+            "ours": {
+              "psnr": 29.677405431502848,
+              "ssim": 0.9083340270178658,
+              "lpips": 0.19658180262361255,
+              "vram_gib": 1.0703125,
+              "memory_mb": 62.75542,
+              "fps": 153.31788208510577
+            },
+            "2dgs": {
+              "psnr": 28.585224569138216,
+              "ssim": 0.8754887989589146,
+              "lpips": 0.2673769120659147,
+              "vram_gib": 10.650390625,
+              "memory_mb": 55.997144,
+              "fps": 80.41312987938284
+            },
+            "memory_mb_reduction_pct": -12.068965517241391,
+            "nonlower_psnr": true,
+            "all_quality_metrics_nonworse": true
+          },
+          "memory_mb_reduction_pct": {
+            "scene": "mipnerf360/flowers",
+            "psnr_gain_db": 4.303189413643935,
+            "ssim_gain": 0.17699950662526218,
+            "lpips_reduction": 0.2082631845365871,
+            "training_vram_reduction_pct": 67.89087093389297,
+            "rendering_fps_ratio": 2.1915684102012882,
+            "ours": {
+              "psnr": 19.111757860015683,
+              "ssim": 0.41702779721130023,
+              "lpips": 0.5713336372917349,
+              "vram_gib": 0.59765625,
+              "memory_mb": 9.97022,
+              "fps": 544.9436783959225
+            },
+            "2dgs": {
+              "psnr": 14.808568446371748,
+              "ssim": 0.24002829058603806,
+              "lpips": 0.779596821828322,
+              "vram_gib": 1.861328125,
+              "memory_mb": 8.896504,
+              "fps": 248.65465109796466
+            },
+            "memory_mb_reduction_pct": -12.06896551724137,
+            "nonlower_psnr": true,
+            "all_quality_metrics_nonworse": true
+          },
+          "rendering_fps_ratio": {
+            "scene": "mipnerf360/room",
+            "psnr_gain_db": 1.4024299550047346,
+            "ssim_gain": 0.0422683862539438,
+            "lpips_reduction": 0.08822445915295529,
+            "training_vram_reduction_pct": 88.14775445123571,
+            "rendering_fps_ratio": 3.3642124703502785,
+            "ours": {
+              "psnr": 29.108250946274485,
+              "ssim": 0.8933486816210624,
+              "lpips": 0.34622154786036563,
+              "vram_gib": 0.87109375,
+              "memory_mb": 29.28302,
+              "fps": 319.26433650075774
+            },
+            "2dgs": {
+              "psnr": 27.70582099126975,
+              "ssim": 0.8510802953671186,
+              "lpips": 0.4344460070133209,
+              "vram_gib": 7.349609375,
+              "memory_mb": 26.129464,
+              "fps": 94.90017034135667
+            },
+            "memory_mb_reduction_pct": -12.068965517241391,
+            "nonlower_psnr": true,
+            "all_quality_metrics_nonworse": true
+          }
+        },
+        "all_quality_metrics_nonworse": {
+          "training_vram_reduction_pct": {
+            "scene": "mipnerf360/kitchen",
+            "psnr_gain_db": 1.092180862364632,
+            "ssim_gain": 0.03284522805895118,
+            "lpips_reduction": 0.07079510944230213,
+            "training_vram_reduction_pct": 89.95048597102513,
+            "rendering_fps_ratio": 1.906627466373685,
+            "ours": {
+              "psnr": 29.677405431502848,
+              "ssim": 0.9083340270178658,
+              "lpips": 0.19658180262361255,
+              "vram_gib": 1.0703125,
+              "memory_mb": 62.75542,
+              "fps": 153.31788208510577
+            },
+            "2dgs": {
+              "psnr": 28.585224569138216,
+              "ssim": 0.8754887989589146,
+              "lpips": 0.2673769120659147,
+              "vram_gib": 10.650390625,
+              "memory_mb": 55.997144,
+              "fps": 80.41312987938284
+            },
+            "memory_mb_reduction_pct": -12.068965517241391,
+            "nonlower_psnr": true,
+            "all_quality_metrics_nonworse": true
+          },
+          "memory_mb_reduction_pct": {
+            "scene": "mipnerf360/flowers",
+            "psnr_gain_db": 4.303189413643935,
+            "ssim_gain": 0.17699950662526218,
+            "lpips_reduction": 0.2082631845365871,
+            "training_vram_reduction_pct": 67.89087093389297,
+            "rendering_fps_ratio": 2.1915684102012882,
+            "ours": {
+              "psnr": 19.111757860015683,
+              "ssim": 0.41702779721130023,
+              "lpips": 0.5713336372917349,
+              "vram_gib": 0.59765625,
+              "memory_mb": 9.97022,
+              "fps": 544.9436783959225
+            },
+            "2dgs": {
+              "psnr": 14.808568446371748,
+              "ssim": 0.24002829058603806,
+              "lpips": 0.779596821828322,
+              "vram_gib": 1.861328125,
+              "memory_mb": 8.896504,
+              "fps": 248.65465109796466
+            },
+            "memory_mb_reduction_pct": -12.06896551724137,
+            "nonlower_psnr": true,
+            "all_quality_metrics_nonworse": true
+          },
+          "rendering_fps_ratio": {
+            "scene": "mipnerf360/room",
+            "psnr_gain_db": 1.4024299550047346,
+            "ssim_gain": 0.0422683862539438,
+            "lpips_reduction": 0.08822445915295529,
+            "training_vram_reduction_pct": 88.14775445123571,
+            "rendering_fps_ratio": 3.3642124703502785,
+            "ours": {
+              "psnr": 29.108250946274485,
+              "ssim": 0.8933486816210624,
+              "lpips": 0.34622154786036563,
+              "vram_gib": 0.87109375,
+              "memory_mb": 29.28302,
+              "fps": 319.26433650075774
+            },
+            "2dgs": {
+              "psnr": 27.70582099126975,
+              "ssim": 0.8510802953671186,
+              "lpips": 0.4344460070133209,
+              "vram_gib": 7.349609375,
+              "memory_mb": 26.129464,
+              "fps": 94.90017034135667
+            },
+            "memory_mb_reduction_pct": -12.068965517241391,
+            "nonlower_psnr": true,
+            "all_quality_metrics_nonworse": true
+          }
+        }
+      },
+      "dataset_means": {
+        "tanks_and_temples": {
+          "scene_count": 10,
+          "psnr_gain_db": 2.3735973797303487,
+          "ssim_gain": 0.08346032161165673,
+          "lpips_reduction": 0.11494360875594217,
+          "training_vram_reduction_pct": 68.4641519296106,
+          "rendering_fps_ratio": 1.9179381163609204,
+          "ours": {
+            "psnr": 23.775768004378676,
+            "ssim": 0.8241020528173871,
+            "lpips": 0.2807635625715803,
+            "vram_gib": 0.70703125,
+            "memory_mb": 47.33638,
+            "fps": 370.58904669527385
+          },
+          "2dgs": {
+            "psnr": 21.402170624648328,
+            "ssim": 0.7406417312057304,
+            "lpips": 0.3957071713275225,
+            "vram_gib": 2.2419921875,
+            "memory_mb": 38.0383024,
+            "fps": 193.22262983042768
+          },
+          "memory_mb_reduction_pct": -24.443986753730627,
+          "nonlower_psnr": true,
+          "all_quality_metrics_nonworse": true
+        },
+        "mipnerf360": {
+          "scene_count": 9,
+          "psnr_gain_db": 3.761120259079501,
+          "ssim_gain": 0.14380665266658454,
+          "lpips_reduction": 0.1644855326066747,
+          "training_vram_reduction_pct": 84.40529377054709,
+          "rendering_fps_ratio": 2.267247444620107,
+          "ours": {
+            "psnr": 25.411779878731,
+            "ssim": 0.7162319667511501,
+            "lpips": 0.40124409624954743,
+            "vram_gib": 0.8029513888888888,
+            "memory_mb": 29.818360000000002,
+            "fps": 366.91736787492084
+          },
+          "2dgs": {
+            "psnr": 21.6506596196515,
+            "ssim": 0.5724253140845655,
+            "lpips": 0.5657296288562221,
+            "vram_gib": 5.148871527777778,
+            "memory_mb": 26.607152,
+            "fps": 161.83384338818843
+          },
+          "memory_mb_reduction_pct": -12.068965517241391,
+          "nonlower_psnr": true,
+          "all_quality_metrics_nonworse": true
+        },
+        "dtu": {
+          "scene_count": 15,
+          "psnr_gain_db": 5.125862201925596,
+          "ssim_gain": 0.06689189331872114,
+          "lpips_reduction": 0.10530759115659055,
+          "training_vram_reduction_pct": 42.79442148760331,
+          "rendering_fps_ratio": 2.172072580455619,
+          "ours": {
+            "psnr": 29.953851208084,
+            "ssim": 0.8993228343980653,
+            "lpips": 0.2933147275909072,
+            "vram_gib": 0.5768229166666666,
+            "memory_mb": 8.833413333333333,
+            "fps": 792.3188480506935
+          },
+          "2dgs": {
+            "psnr": 24.827989006158404,
+            "ssim": 0.8324309410793441,
+            "lpips": 0.39862231874749776,
+            "vram_gib": 1.0083333333333333,
+            "memory_mb": 7.882122666666667,
+            "fps": 364.77549377493403
+          },
+          "memory_mb_reduction_pct": -12.06896551724137,
+          "nonlower_psnr": true,
+          "all_quality_metrics_nonworse": true
+        }
+      }
+    }
+  },
+  "recommended_dataset_claims": {
+    "setting": "matched_count_v2",
+    "scope": "maximum of three dataset means, not a single scene or one joint result",
+    "metrics": {
+      "training_vram_reduction_pct": {
+        "dataset": "mipnerf360",
+        "value": 85.63106796116506
+      },
+      "deployment_mb_reduction_pct": {
+        "dataset": "mipnerf360",
+        "value": 48.71336669049321
+      },
+      "rendering_fps_ratio": {
+        "dataset": "dtu",
+        "value": 2.317982456140351
+      }
+    }
+  },
+  "native_triangle_fps": {
+    "source": "tables/table3_main.tex",
+    "rows": {
+      "tanks_and_temples": {
+        "hexels_v2_fps": 386.9,
+        "triangle_fps": 121.4,
+        "ratio": 3.1869851729818777,
+        "triangle_ada_scenes": 10,
+        "scenes": 10
+      },
+      "mipnerf360": {
+        "hexels_v2_fps": 375.0,
+        "triangle_fps": 85.8,
+        "ratio": 4.370629370629371,
+        "triangle_ada_scenes": 9,
+        "scenes": 9
+      },
+      "dtu": {
+        "hexels_v2_fps": 845.6,
+        "triangle_fps": 278.7,
+        "ratio": 3.034086831718694,
+        "triangle_ada_scenes": 0,
+        "scenes": 15
+      }
+    },
+    "all_datasets_higher_measured_fps": true,
+    "scope": "Native configurations, dataset means. Hexels V2 uses RTX A5000; Triangle uses RTX 6000 Ada on all Mip-NeRF 360 and Tanks and Temples scenes, RTX A5000 on DTU. Different quality/configuration; not a hardware-matched or equal-quality speedup."
+  },
+  "matched_memory_best_psnr": {
+    "tanks_and_temples": true,
+    "mipnerf360": true,
+    "dtu": true
+  }
+}

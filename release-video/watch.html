@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Watch Honeycomb-Surfels</title>
+  <style>
+    * { box-sizing:border-box; }
+    body { margin:0; background:#eeeae2; color:#28251f; font-family:"Avenir Next",Arial,sans-serif; }
+    main { width:min(92vw,880px); margin:28px auto; }
+    h1 { margin:0 0 14px; font-size:30px; letter-spacing:-1px; }
+    video { display:block; width:100%; aspect-ratio:1; background:white; }
+    p { font-size:15px; line-height:1.5; color:#69665d; }
+    a { color:#97630d; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Honeycomb-Surfels</h1>
+    <video id="video" controls playsinline muted poster="release-cover.png" aria-label="Honeycomb-Surfels release video"></video>
+    <p id="status" role="status">Loading the video…</p>
+    <p><a href="release.mp4" download>Download MP4</a> · <a href="film.html">Editable preview</a> · <a href="flashcards/">Flashcards</a></p>
+  </main>
+  <script type="module">
+    const video=document.getElementById("video"),status=document.getElementById("status");
+    window.ready=(async()=>{
+      const response=await fetch("release.mp4");
+      if(!response.ok)throw new Error("Could not load the exported video.");
+      const loaded=new Promise((resolve,reject)=>{video.addEventListener("loadeddata",resolve,{once:true});video.addEventListener("error",()=>reject(new Error("Could not decode the video.")),{once:true});});
+      // A complete blob supports seeking even on the simple local preview server.
+      video.src=URL.createObjectURL(await response.blob());video.load();await loaded;
+      status.textContent=`${video.duration.toFixed(0)} seconds · 1080 × 1080 · 30 fps · muted. Press play.`;
+    })();
+    window.ready.catch(error=>{status.textContent=error.message;});
+  </script>
+</body>
+</html>
