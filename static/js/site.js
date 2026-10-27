@@ -18,7 +18,7 @@ const LINK_BUTTONS = [
   { key: "paper", label: "Paper", icon: "fas fa-file-pdf" },
   { key: "arxiv", label: "arXiv", icon: "ai ai-arxiv" },
   { key: "code", label: "Code", icon: "fab fa-github" },
-  { key: "video", label: "Video", icon: "fab fa-youtube" },
+  { key: "video", label: "Video", icon: "fas fa-film" },
 ];
 // The site's own pages and the BibTeX section, after the paper resources.
 const SITE_BUTTONS = [

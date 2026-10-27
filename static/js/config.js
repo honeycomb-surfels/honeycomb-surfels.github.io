@@ -19,7 +19,7 @@ window.HEXELS_CONFIG = {
   MEDIA_BASE_URL_PUBLIC: "https://pub-c45189ae5c7b4323bf573acdcd18ab1b.r2.dev",
   MEDIA_BASE_URL_LOCAL: "media_build",
   MEDIA_VERSION: "2",
-  LINKS: { paper: "h1.pdf", arxiv: null, code: "https://github.com/honeycomb-surfels/hexels", video: null },
+  LINKS: { paper: "h1.pdf", arxiv: null, code: "https://github.com/honeycomb-surfels/hexels", video: "release-video/release.mp4" },
   AUTHORS: [
     { id: "kaushik", name: "Prakhar Kaushik", url: "https://toshi2k2.github.io/", equal: true },
     { id: "paul", name: "Soumava Paul", url: "https://mvp18.github.io/", equal: true },
