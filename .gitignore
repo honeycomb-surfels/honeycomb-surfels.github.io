@@ -227,7 +227,6 @@ __marimo__/
 /docs/
 /tools/
 todo.md
-.gitignore
 ._*
 
 # Release-video dependencies, downloaded sources and generated diagnostics

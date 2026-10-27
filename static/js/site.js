@@ -384,14 +384,19 @@ async function loadDemos(root) {
   }
 }
 
-/** Fill a demo frame; the selected demo autoplays while visible, unless motion is reduced. */
-function mountDemo(frame, demo, label) {
+/**
+ * Fill a demo frame; the selected demo autoplays while visible, unless motion is reduced. The video plays at `rate`
+ * (the panel's data-rate), which a new source keeps as its default.
+ */
+function mountDemo(frame, demo, label, rate) {
   const size = { width: demo.width, height: demo.height };
   const still = element("img", {
     className: "hx-still",
     attrs: { loading: "lazy", decoding: "async", ...size, alt: label, src: mediaUrl(demo.poster) },
   });
   const video = element("video", { attrs: { loop: "", playsinline: "", preload: "none", "aria-hidden": "true", ...size } });
+  video.defaultPlaybackRate = rate;
+  video.playbackRate = rate;
   frame.style.aspectRatio = `${demo.width} / ${demo.height}`;
   frame.replaceChildren(still, video);
   still.addEventListener("error", () => group.fail(), { once: true });
@@ -424,7 +429,7 @@ async function setupDemoWindow(root) {
   for (const panel of root.querySelectorAll("[data-demo]")) {
     const frame = panel.querySelector(".hx-frame");
     const demo = demos?.[panel.dataset.demo];
-    if (demo) groups.set(panel, mountDemo(frame, demo, panel.dataset.label));
+    if (demo) groups.set(panel, mountDemo(frame, demo, panel.dataset.label, Number(panel.dataset.rate) || 1));
     else showMediaNotice(frame, MEDIA_NOTICE);
   }
 }
