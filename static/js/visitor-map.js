@@ -19,14 +19,17 @@ if (root) {
   });
   document.body.append(dialog);
 
+  const expand = document.createElement("button");
+  expand.type = "button";
+  expand.className = "hx-map-expand";
+  expand.textContent = "Enlarge map";
+  expand.addEventListener("click", showMap);
+  root.append(expand);
+
   /** Put the complete map into the marker canvas's transformed coordinate system, never a CSS overlay. */
   function installMap() {
     const link = root.querySelector("#mapmyvisitors-widget");
-    if (link && link.href !== mapUrl) {
-      link.href = mapUrl;
-      link.removeAttribute("target");
-      link.setAttribute("aria-label", "Open world visitor map");
-    }
+    if (link) link.setAttribute("aria-label", "View visitor statistics");
     const svg = root.querySelector(".mapmyvisitors-map svg");
     const coordinates = svg?.querySelector(":scope > g[transform]");
     if (!coordinates || coordinates.querySelector(".hx-world-map-art")) return;
@@ -59,13 +62,7 @@ if (root) {
     dialog.showModal();
   }
 
-  // The provider creates its canvas asynchronously and may update the link as visitor data arrives.
-  new MutationObserver(installMap).observe(root, { childList: true, subtree: true, attributes: true, attributeFilter: ["href"] });
+  // Keep the provider's statistics link and native navigation; only customize the canvas artwork.
+  new MutationObserver(installMap).observe(root, { childList: true, subtree: true });
   installMap();
-  root.addEventListener("click", (event) => {
-    if (!event.target.closest("#mapmyvisitors-widget") || event.button || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-    event.preventDefault();
-    event.stopPropagation();
-    showMap();
-  }, { capture: true });
 }

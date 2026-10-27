@@ -21,6 +21,19 @@
   background-color: #2d78ad;
 }
 
+.hx-map-expand {
+  display: block;
+  margin: 0.35rem auto 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--hx-muted, #5f6b70);
+  font: inherit;
+  font-size: 0.8rem;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .hx-map-dialog {
   width: min(94vw, 1200px);
   max-width: 94vw;

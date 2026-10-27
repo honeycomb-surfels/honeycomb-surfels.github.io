@@ -22,7 +22,9 @@ The pages read their data from `static/data/` and load videos, meshes and viewer
 The footer map uses MapMyVisitors for visitor data and a complete local, unlabeled basemap in
 `static/images/visitor-world-map.svg`. Its metadata records the Natural Earth India-view boundaries and the
 custom dashed Tibet boundary. `static/js/visitor-map.js` places the artwork in the marker canvas's coordinate
-system; clicking opens the same canvas in a local dialog, so the enlarged map retains the same borders and dots.
+system. Clicking the map opens the provider's visitor statistics page. The separate "Enlarge map" control opens
+the same canvas in a local dialog, so the enlarged map retains the same borders and dots. The external provider
+controls the map displayed on its own statistics page.
 
 ## Preview locally
 
