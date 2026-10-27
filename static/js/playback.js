@@ -2,7 +2,7 @@
  * Central playback manager for every video on the page: the demo window, the theory animations, the comparison
  * player and the variants grid.
  *
- * Nothing plays by itself: not when a page loads, scrolls or opens at a deep link. Every group plays on hover:
+ * The selected hero demo autoplays while visible, except under reduced motion. Other groups play on hover:
  * - With a mouse ("(hover: hover) and (pointer: fine)") and no reduced-motion preference, a group plays while the
  *   pointer rests on its zone, HOVER_DELAY_MS after the pointer really moved there, and pauses when the pointer
  *   leaves. A resting pointer that a page load, a scroll or a deep link puts over a zone starts nothing until it moves.
@@ -10,7 +10,8 @@
  *   a group a mouse click started still stops when the pointer leaves its zone.
  * At most one group plays at a time: starting one stops the one that played before. A group stops when its view
  * scrolls off screen or the tab is hidden, and a view that is off screen or not displayed never starts on hover. A
- * visitor's pause (toggle()) holds while the pointer stays on the zone. A group can also refuse hover starts through
+ * visitor's pause (toggle()) holds while the pointer stays on the zone, or until another click for autoplay demos.
+ * A group can also refuse hover starts through
  * its optional `hoverable()` predicate (the players keep an explicitly paused frame that way), and `enabled = false`
  * switches it off entirely (LoopingVideo.setEnabled).
  *
@@ -19,7 +20,7 @@
  * ordinary (lazy) images.
  *
  * A group is any object with a `zone` element and `start()` and `stop()` methods. Optional are a `view` element, the
- * part that must be on screen (the zone itself by default), `hoverable()` and `enabled`. LoopingVideo builds a group
+ * part that must be on screen (the zone itself by default), `hoverable()`, `enabled` and `autoplay`. LoopingVideo builds a group
  * for one looping video with a play control.
  */
 import { releaseVideo } from "./video-sync.js";
@@ -44,17 +45,22 @@ class PlaybackManager {
     this.groups = new Map(); // view -> group
     this.timers = new Map(); // group -> pending hover start
     this.onScreen = new Set(); // groups whose view intersects the viewport
-    this.paused = new Set(); // groups the visitor paused; hovering starts them again once the pointer has left
+    this.paused = new Set(); // autoplay pauses persist; hover pauses clear when the pointer leaves
     this.pointer = null; // the mouse's last position, in client pixels
     this.moveEvent = null; // the last pointermove that really moved the mouse
     this.observer = new IntersectionObserver((entries) => this.onIntersect(entries));
     document.addEventListener("pointermove", (event) => this.trackPointer(event), { capture: true, passive: true });
     document.addEventListener("visibilitychange", () => {
       if (document.visibilityState === "hidden") this.halt(this.current);
+      else this.autoplayVisible();
     });
     const syncMode = () => document.documentElement.classList.toggle("hx-hover", hoverPlays());
     pointerQuery.addEventListener("change", syncMode);
     reducedMotion.addEventListener("change", syncMode);
+    reducedMotion.addEventListener("change", () => {
+      if (reducedMotion.matches && this.current?.autoplay) this.halt(this.current);
+      this.autoplayVisible();
+    });
     syncMode();
   }
 
@@ -68,9 +74,9 @@ class PlaybackManager {
         this.scheduleHover(group);
       }
     });
-    // With a mouse a group plays only while the pointer is on its zone, also when a click started it (reduced motion).
+    // Ordinary mouse playback follows the pointer; autoplay demos keep playing and preserve explicit pauses.
     group.zone.addEventListener("pointerleave", (event) => {
-      if (event.pointerType !== "mouse") return;
+      if (event.pointerType !== "mouse" || group.autoplay) return;
       this.cancelHover(group);
       this.paused.delete(group);
       this.halt(group);
@@ -111,6 +117,7 @@ class PlaybackManager {
   canHover(group) {
     return (
       hoverPlays() &&
+      !group.autoplay &&
       document.visibilityState === "visible" &&
       this.onScreen.has(group) &&
       !this.paused.has(group) &&
@@ -141,7 +148,7 @@ class PlaybackManager {
     this.halt(group);
   }
 
-  /** A tap, click or play button: play, or pause; that pause holds while the pointer stays on the zone. */
+  /** Toggle playback; an autoplay demo stays paused until another click, including across visibility changes. */
   toggle(group) {
     if (this.halt(group)) {
       this.paused.add(group);
@@ -155,6 +162,17 @@ class PlaybackManager {
     return this.current === group;
   }
 
+  /** Autoplay only visible, enabled demos; never override a pause or another playing group. */
+  autoplayVisible() {
+    if (this.current || reducedMotion.matches || document.visibilityState !== "visible") return;
+    for (const group of this.onScreen) {
+      if (group.autoplay && group.enabled !== false && !group.failed && !this.paused.has(group)) {
+        this.play(group);
+        break;
+      }
+    }
+  }
+
   /** Track which views are on screen; a view that scrolls out, or is no longer displayed, stops its group. */
   onIntersect(entries) {
     for (const entry of entries) {
@@ -166,6 +184,7 @@ class PlaybackManager {
         this.halt(group);
       }
     }
+    this.autoplayVisible();
   }
 }
 
@@ -185,6 +204,7 @@ function glyph(name) {
  * released. A round button toggles playback (always shown on touch screens while paused, otherwise
  * only on keyboard focus), and on mouse screens a small hint invites hovering: `hint` puts it over
  * the video ("overlay"), on a line under it ("below") or nowhere (null).
+ * `autoplay` starts a visible demo without hover, unless motion is reduced or the visitor paused it.
  *
  * When the browser cannot play `type`, or the video fails to load, `fallback` (an animated image URL)
  * takes over: the still image switches to it while the group plays and back when it stops. Without
@@ -198,7 +218,7 @@ function glyph(name) {
  * setEnabled(true), for example while a theory animation shows an interactive view instead.
  */
 export class LoopingVideo {
-  constructor({ zone, media, video, still, src, label, type = "", fallback = null, release = false, rewind = false, hint = "overlay", onFail = null }) {
+  constructor({ zone, media, video, still, src, label, type = "", fallback = null, release = false, rewind = false, hint = "overlay", onFail = null, autoplay = false }) {
     this.zone = zone;
     this.view = media;
     this.media = media;
@@ -211,6 +231,7 @@ export class LoopingVideo {
     this.release = release;
     this.rewind = rewind;
     this.onFail = onFail;
+    this.autoplay = autoplay;
     this.failed = false;
     this.enabled = true;
     this.useFallback = Boolean(fallback && type && video.canPlayType(type) === "");

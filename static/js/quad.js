@@ -153,8 +153,8 @@ class QuadComparison {
     this.scenes = manifest.scenes;
     this.annotate = manifest.annotate;
     this.tips = tips;
-    this.selected = 0;
-    this.rival = RIVALS[0];
+    this.selected = Math.max(0, this.scenes.findIndex((scene) => scene.dataset === "mipnerf360" && scene.scene === "counter"));
+    this.rival = "2dgs";
     this.started = false;
     this.request = 0;
     this.position = { x: 50, y: 50 };
@@ -163,9 +163,9 @@ class QuadComparison {
     this.attachKeyboard();
     this.watchLabels();
     this.setPosition(50, 50);
-    this.setAspect(this.scenes[0]);
+    this.setAspect(this.scenes[this.selected]);
     // The caption and tip are filled before the images load, so the section has its final height from the start.
-    this.describe(this.scenes[0]);
+    this.describe(this.scenes[this.selected]);
     this.updateButtons();
     whenNear(root, () => {
       if (!this.started) this.select(this.selected);

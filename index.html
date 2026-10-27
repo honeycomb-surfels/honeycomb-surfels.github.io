@@ -76,26 +76,26 @@
           <div class="tabs is-toggle is-toggle-rounded is-centered is-small hx-tabs">
             <ul role="tablist" aria-label="Demo videos">
               <li class="is-active" role="presentation">
-                <a role="tab" id="demo-tab-counter" href="#demo-panel-counter" aria-controls="demo-panel-counter" aria-selected="true">
-                  <span class="icon is-small"><i class="fas fa-cube" aria-hidden="true"></i></span>
-                  <span>3D scene: Counter</span>
+                <a role="tab" id="demo-tab-image2d" href="#demo-panel-image2d" aria-controls="demo-panel-image2d" aria-selected="true">
+                  <span class="icon is-small"><i class="far fa-image" aria-hidden="true"></i></span>
+                  <span>2D image: Painting</span>
                 </a>
               </li>
               <li role="presentation">
-                <a role="tab" id="demo-tab-image2d" href="#demo-panel-image2d" aria-controls="demo-panel-image2d" aria-selected="false" tabindex="-1">
-                  <span class="icon is-small"><i class="far fa-image" aria-hidden="true"></i></span>
-                  <span>2D image: Painting</span>
+                <a role="tab" id="demo-tab-counter" href="#demo-panel-counter" aria-controls="demo-panel-counter" aria-selected="false" tabindex="-1">
+                  <span class="icon is-small"><i class="fas fa-cube" aria-hidden="true"></i></span>
+                  <span>3D scene: Counter</span>
                 </a>
               </li>
             </ul>
           </div>
           <div class="hx-demo-panel" role="tabpanel" id="demo-panel-counter" aria-labelledby="demo-tab-counter"
-               data-demo="counter" data-label="Training time-lapse of Hexels on the Mip-NeRF 360 counter scene">
+               data-demo="counter" data-label="Training time-lapse of Hexels on the Mip-NeRF 360 counter scene" hidden>
             <div class="hx-frame hx-ratio-counter"></div>
             <p class="hx-caption">Training time-lapse of Hexels on the Mip-NeRF 360 counter scene. Left: the RGB render; right: the primitive that contributes most to each pixel.</p>
           </div>
           <div class="hx-demo-panel" role="tabpanel" id="demo-panel-image2d" aria-labelledby="demo-tab-image2d"
-               data-demo="image2d" data-label="Hexels fitting a 2D painting" hidden>
+               data-demo="image2d" data-label="Hexels fitting a 2D painting">
             <div class="hx-frame hx-ratio-image2d"></div>
             <p class="hx-caption">Hexels fitting a 2D painting, starting from 20,000 primitives and pruned to 10,000 during the fit: the reconstruction, a 4&times; crop of the hexagon footprints, and the reference image.</p>
           </div>
@@ -106,8 +106,8 @@
     <section class="section hx-section" id="abstract">
       <div class="hx-container hx-text">
         <h2 class="title is-3 has-text-centered">Abstract</h2>
-        <div class="hx-soon-card">
-          <p><strong>Abstract: TBD.</strong> The abstract will be added here.</p>
+        <div class="content hx-abstract">
+          <p>Novel view synthesis and 3D reconstruction have advanced rapidly with radiance fields and splatting, yet their memory and computational demands limit their use in resource-constrained settings. We introduce <strong>Hexels</strong>: novel planar hexagonal surface elements with a first-order spatial color field for efficient 3D scene and 2D image representation. Hexels exploit locally planar regions with smoothly varying appearance using fewer, larger primitives. Their hexagonal support provides an area- and boundary-efficient domain, while the local color field captures appearance variation within each primitive. Across 34 scenes, Hexels improve PSNR over memory-matched 2DGS by 4.53&ndash;7.38&thinsp;dB across datasets while requiring lower training VRAM. We further ablate Hexels by showing that per primitive, Hexels outperform 2DGS by up to 4.74&thinsp;dB while using lower training VRAM and having 2.31&times; faster FPS. Even in unconstrained settings, Hexels offers complementary quality-memory trade-offs. For efficient 3D surface reconstruction, Hexels reduce error by 28.9% compared with memory-matched 2DGS across 15 DTU scans. On 6 Tanks and Temples surface scenes, Hexels achieves the highest mean F1 among compared methods (34.38%, versus 31.72% for 2DGS). We further also show that Hexels, as a general primitive, improves 2D image representation over Image-GS. Hexels push the Pareto frontier on the quality-efficiency trade-off of surface-aligned primitives.</p>
         </div>
       </div>
     </section>
@@ -337,7 +337,8 @@
       <p>This page follows the <a href="https://github.com/nerfies/nerfies.github.io">Nerfies project page template</a>. Its design is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
       <div id="visitors-root"></div>
       <!-- MapMyVisitors world map: map.js finds its own tag by id and inserts the map right after it, sized to the
-           width of .hx-visitor-map; async, so a slow or blocked mapmyvisitors.com never holds up the page. -->
+           width of .hx-visitor-map. visitor-map.js uses one complete local basemap for this canvas and its dialog.
+           Async, so a slow or blocked mapmyvisitors.com never holds up the page. -->
       <div class="hx-visitor-map">
         <script type="text/javascript" id="mapmyvisitors" async
           src="https://mapmyvisitors.com/map.js?d=xlzeZwKkOK-se3pppxIUprIyD9UvIx0ojB_uB-zPoQ4&cl=ffffff&w=a"></script>
@@ -353,6 +354,7 @@
   <script type="module" src="static/js/surface.js"></script>
   <script type="module" src="static/js/variants.js"></script>
   <script type="module" src="static/js/visitors.js"></script>
+  <script type="module" src="static/js/visitor-map.js"></script>
   <script type="module" src="static/js/sections.js"></script>
   <!-- KaTeX runs after the page modules; static/js/site.js typesets the [data-math] blocks on DOMContentLoaded. -->
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.47/katex.min.js"

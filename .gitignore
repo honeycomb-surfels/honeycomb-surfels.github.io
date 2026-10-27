@@ -226,3 +226,6 @@ __marimo__/
 # Private maintenance notes, full data files and build tools; the published site never loads them
 /docs/
 /tools/
+todo.md
+.gitignore
+._*

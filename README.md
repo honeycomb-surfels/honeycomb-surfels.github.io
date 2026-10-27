@@ -19,6 +19,11 @@ page in the style of Nerfies: plain HTML, CSS and JavaScript modules, with no bu
 The pages read their data from `static/data/` and load videos, meshes and viewer models from the media host set in
 `static/js/config.js`. `stats/` holds the optional visitor counter of the page footer (see `stats/README.md`).
 
+The footer map uses MapMyVisitors for visitor data and a complete local, unlabeled basemap in
+`static/images/visitor-world-map.svg`. Its metadata records the Natural Earth India-view boundaries and the
+custom dashed Tibet boundary. `static/js/visitor-map.js` places the artwork in the marker canvas's coordinate
+system; clicking opens the same canvas in a local dialog, so the enlarged map retains the same borders and dots.
+
 ## Preview locally
 
 Serve the repository root over HTTP, since browsers refuse to load JavaScript modules and JSON from pages opened

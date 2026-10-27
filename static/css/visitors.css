@@ -15,6 +15,47 @@
   margin: 1.25rem auto 0;
 }
 
+/* The complete local map is inside the SVG marker canvas; suppress the provider's separate raster map. */
+.hx-visitor-map .mapmyvisitors-map {
+  background-image: none !important;
+  background-color: #2d78ad;
+}
+
+.hx-map-dialog {
+  width: min(94vw, 1200px);
+  max-width: 94vw;
+  max-height: 92vh;
+  margin: auto;
+  padding: 0.75rem;
+  border: 0;
+  border-radius: var(--hx-radius, 12px);
+  background: #fff;
+}
+
+.hx-map-dialog::backdrop {
+  background: rgb(0 0 0 / 55%);
+}
+
+.hx-map-close {
+  display: block;
+  margin: 0 0 0.75rem auto;
+  padding: 0.4rem 0.75rem;
+  border: 1px solid var(--hx-line, #e3e6e8);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--hx-ink, #1f2b30);
+  font: inherit;
+  cursor: pointer;
+}
+
+.hx-map-dialog svg,
+.hx-map-dialog img {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #2d78ad;
+}
+
 .hx-visitors {
   margin-top: 1rem;
   color: var(--hx-muted, #5f6b70);

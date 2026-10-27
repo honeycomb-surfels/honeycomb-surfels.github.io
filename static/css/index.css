@@ -223,6 +223,26 @@ textarea {
   overflow: visible;
 }
 
+/* The reader's companion never intercepts links, comparison sliders or video controls. */
+.hx-companion-bee {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 36px;
+  height: 36px;
+  z-index: 40;
+  overflow: visible;
+  pointer-events: none;
+  visibility: hidden;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hx-companion-bee {
+    display: none;
+  }
+}
+
 .publication-authors,
 .publication-affiliation {
   font-family: var(--hx-font-title);
@@ -545,6 +565,20 @@ textarea {
 
 .hx-play .fa-play {
   margin-left: 0.15em;
+}
+
+/* Autoplay demos always offer a visible pause/play control, including on mouse screens. */
+#demo-root .hx-play {
+  top: auto;
+  left: auto;
+  right: 0.6rem;
+  bottom: 0.6rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 0.9rem;
+  opacity: 0.85;
+  pointer-events: auto;
+  transform: none;
 }
 
 html:not(.hx-hover) .hx-media:not(.is-playing) .hx-play {
