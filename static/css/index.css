@@ -1406,12 +1406,6 @@ pre.hx-bibtex {
   overflow-x: auto;
 }
 
-.hx-bibtex-note {
-  margin-top: 0.6rem;
-  color: var(--hx-muted);
-  font-size: 0.85rem;
-}
-
 @media screen and (max-width: 600px) {
   pre.hx-bibtex {
     padding: 1rem;
