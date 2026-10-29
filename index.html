@@ -50,6 +50,7 @@
   <link rel="stylesheet" href="static/css/explorer.css">
   <link rel="stylesheet" href="static/css/surface.css">
   <link rel="stylesheet" href="static/css/variants.css">
+  <link rel="stylesheet" href="static/css/edge.css">
   <link rel="stylesheet" href="static/css/visitors.css">
   <link rel="stylesheet" href="static/css/sections.css">
 </head>
@@ -65,6 +66,12 @@
         <p class="is-size-5 publication-affiliation" id="affiliation"></p>
         <p class="publication-note" id="author-note"></p>
         <nav class="publication-links" id="paper-links" aria-label="Paper resources"></nav>
+        <a class="hx-edge-announcement" href="#hexel-edge">
+          <img src="static/images/hexel-edge/bee.svg" width="28" height="28" alt="">
+          <span><strong>Meet Hexel Edge</strong> &middot; On your iPad/iPhone.</span>
+          <span class="hx-edge-badge">Under development</span>
+          <span aria-hidden="true">&rarr;</span>
+        </a>
       </div>
     </div>
   </header>
@@ -310,6 +317,38 @@
       </div>
     </section>
 
+
+    <section class="section hx-section" id="hexel-edge" aria-labelledby="hexel-edge-title">
+      <div class="hx-container hx-wide">
+        <div class="hx-edge-card">
+          <div class="hx-edge-copy">
+            <div class="hx-edge-brand">
+              <img src="static/images/hexel-edge/bee.svg" width="60" height="60" loading="lazy" alt="">
+              <h2 class="title is-3" id="hexel-edge-title">Hexel <span>Edge</span></h2>
+            </div>
+            <p class="hx-edge-badge">Under development</p>
+            <p class="hx-edge-headline">Capture. Train. Explore.<br><span>On your iPad/iPhone.</span></p>
+            <p class="hx-edge-description">An open-source app for 3D reconstruction and novel-view synthesis with surface-aligned Hexels. Capture scenes, optimize their representation and explore new viewpoints&mdash;locally, efficiently and privately.</p>
+            <p class="hx-edge-ownership">Your data remains yours.</p>
+            <div class="hx-edge-actions">
+              <a class="button is-rounded hx-edge-primary" href="https://github.com/honeycomb-surfels/hexels/tree/main/hexel_edge#build-and-run">
+                <span>Try it Out!</span>
+                <span class="icon is-small" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+              </a>
+              <a class="button is-rounded hx-edge-secondary" href="https://github.com/honeycomb-surfels/hexels/issues">
+                <span class="icon is-small" aria-hidden="true"><i class="fab fa-github"></i></span>
+                <span>Contribute</span>
+              </a>
+            </div>
+          </div>
+          <figure class="hx-edge-preview">
+            <img src="static/images/hexel-edge/ipad-app.png" width="2732" height="2048" loading="lazy" decoding="async"
+                 alt="Hexel Edge's iPad app showing a reconstructed DTU scene, local refinement controls and novel-view navigation.">
+            <figcaption>Hexel Edge on iPad &middot; Development preview</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
 
     <section class="section hx-section" id="bibtex">
       <div class="hx-container hx-text">

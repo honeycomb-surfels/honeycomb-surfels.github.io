@@ -11,13 +11,19 @@ page in the style of Nerfies: plain HTML, CSS and JavaScript modules, with no bu
 
 - `index.html`, the project page: demo videos, the abstract, the method, a primitive visualization, a novel-view
   comparison player with equal-memory, equal-primitive and native settings, the quantitative results, the Hexels
-  variants, depth and normal renders, surface reconstruction, 2D image representation and the BibTeX entry.
+  variants, depth and normal renders, surface reconstruction, 2D image representation, the Hexel Edge app preview
+  and the BibTeX entry.
 - `theory.html`, "Why Hexels? The theory, animated": eight short animations, each beside its explanation and math.
 - `viewer.html`, "Explore Hexels in 3D": a WebGL2 viewer (`viewer/`) that renders trained Hexels live on the
   visitor's own GPU, and opens Hexels models from disk without uploading them.
 
 The pages read their data from `static/data/` and load videos, meshes and viewer models from the media host set in
 `static/js/config.js`. `stats/` holds the optional visitor counter of the page footer (see `stats/README.md`).
+
+The Hexel Edge announcement links to the app preview at `#hexel-edge`. Its copy lives in `index.html`, styles in
+`static/css/edge.css`, and the app icon/public DTU screenshot in `static/images/hexel-edge/`. The assets come from
+the [Hexel Edge app](https://github.com/honeycomb-surfels/hexels/tree/main/hexel_edge); its MIT license is included
+beside them. “Try it Out!” opens the build instructions; “Contribute” opens the repository's issues.
 
 The footer map uses MapMyVisitors for visitor data and a complete local, unlabeled basemap in
 `static/images/visitor-world-map.svg`. Its metadata records the Natural Earth India-view boundaries and the

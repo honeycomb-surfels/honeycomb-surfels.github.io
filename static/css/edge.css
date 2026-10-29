@@ -1,0 +1,188 @@
+/* Hexel Edge announcement and app preview on the research project page. */
+
+.hx-edge-announcement {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.55rem 0.75rem;
+  width: fit-content;
+  max-width: 100%;
+  margin: 1.5rem auto 0;
+  padding: 0.7rem 1rem;
+  border: 1px solid #eddbb6;
+  border-radius: 14px;
+  background: #fff8e9;
+  color: var(--hx-ink);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.hx-edge-announcement:hover {
+  border-color: #ad751e;
+  color: var(--hx-ink);
+}
+
+.hx-edge-announcement img {
+  flex-shrink: 0;
+  border-radius: 7px;
+}
+
+.hx-edge-badge {
+  display: inline-block;
+  width: fit-content;
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  background: #f7e8c7;
+  color: #765019;
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.hx-edge-card {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: 2.5rem;
+  padding: 2.5rem;
+  border: 1px solid #eddbb6;
+  border-radius: 24px;
+  background: #fff9ed;
+}
+
+.hx-edge-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.hx-edge-brand img {
+  flex-shrink: 0;
+  border-radius: 14px;
+}
+
+.hx-edge-brand .title.is-3 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.hx-edge-brand .title span,
+.hx-edge-headline span {
+  color: #956017;
+}
+
+.hx-edge-headline {
+  margin: 1.4rem 0 1rem;
+  font-family: var(--hx-font-title);
+  font-size: clamp(1.45rem, 1rem + 1.35vw, 2rem);
+  font-weight: 700;
+  line-height: 1.35;
+  text-wrap: balance;
+}
+
+.hx-edge-description {
+  margin: 0;
+  color: var(--hx-muted);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.hx-edge-ownership {
+  margin: 1rem 0 1.5rem;
+  font-weight: 700;
+}
+
+.hx-edge-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+.hx-edge-actions .button {
+  min-height: 44px;
+  height: auto;
+  padding: 0.65rem 1.2rem;
+  font-weight: 600;
+}
+
+.hx-edge-primary {
+  border-color: #edb249;
+  background: #ffc45c;
+  color: #292219;
+}
+
+.hx-edge-primary:hover {
+  border-color: #c38d30;
+  background: #f3b648;
+  color: #292219;
+}
+
+.hx-edge-secondary {
+  border-color: #cdb88e;
+  background: transparent;
+  color: var(--hx-ink);
+}
+
+.hx-edge-preview {
+  min-width: 0;
+  margin: 0;
+}
+
+.hx-edge-preview img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 6px solid #171d20;
+  border-radius: 18px;
+}
+
+.hx-edge-preview figcaption {
+  margin-top: 0.75rem;
+  color: var(--hx-muted);
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+@media screen and (max-width: 900px) {
+  .hx-edge-card {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.75rem;
+    max-width: 660px;
+    margin-inline: auto;
+    padding: 2rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .hx-edge-announcement {
+    display: grid;
+    grid-template-columns: 28px minmax(0, 1fr) 12px;
+    gap: 0.4rem 0.65rem;
+    font-size: 0.85rem;
+    text-align: left;
+  }
+
+  .hx-edge-announcement img {
+    grid-row: 1 / span 2;
+  }
+
+  .hx-edge-announcement .hx-edge-badge {
+    grid-column: 2;
+  }
+
+  .hx-edge-announcement > span[aria-hidden] {
+    grid-column: 3;
+    grid-row: 1 / span 2;
+  }
+
+  .hx-edge-card {
+    padding: 1.35rem;
+    border-radius: 18px;
+  }
+
+  .hx-edge-brand .title.is-3 {
+    font-size: 1.75rem;
+  }
+}
